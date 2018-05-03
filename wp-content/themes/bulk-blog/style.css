@@ -1,0 +1,157 @@
+/*
+ Theme Name: Bulk Blog
+ Theme URI: https://themes4wp.com/theme/bulk-blog/
+ Description: Bulk Blog is a beautiful, free, WordPress blog theme. With a clean, full-width layout and an animated header image, it's perfect for personal, lifestyle, photography, fashion, food, fitness and travel-related blogs. DEMO: http://bulk.themes4wp.com/bulk-blog/
+ Author: Themes4WP
+ Author URI: https://themes4wp.com/
+ Template: bulk
+ Version: 1.0.2
+ License: GNU General Public License v3
+ License URI: http://www.gnu.org/licenses/gpl.html
+ Tags: one-column, two-columns, right-sidebar, custom-background, custom-menu, featured-images, theme-options, translation-ready, custom-logo, e-commerce
+ Text Domain: bulk-blog
+*/
+
+body {
+    font-weight: 300;
+    line-height: 1.6;
+}
+a, a:active, a:hover, a:focus {
+    text-decoration: none;
+    color: #fab000;
+}
+.main-container {
+    width: 100%;
+}
+nav#site-navigation .container {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.header-image-text, .header-title {
+    top: 70%;
+}
+#header-image-arrow {
+    position: relative;
+    top: 35px;
+    width: 100%;
+    height: 50px;
+}
+#header-image-arrow a span:hover {
+    opacity: 0.7;
+}
+#header-image-arrow a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 38px;
+  height: 38px;
+  margin-left: -23px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  box-sizing: border-box;
+  -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+#header-image-arrow a span::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin: -12px 0 0 -8px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+}
+#header-image-arrow a span::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  content: '';
+  width: 38px;
+  height: 38px;
+  box-shadow: 0 0 0 0 rgba(255,255,255,.1);
+  border-radius: 100%;
+  opacity: 0;
+  -webkit-animation: sdb03 3s infinite;
+  animation: sdb03 3s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb03 {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb03 {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+#wp-custom-header img {
+    -ms-transform: translateX(-50%) translateY(-50%) scale(1);
+    -moz-transform: translateX(-50%) translateY(-50%) scale(1);
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+    transform: translateX(-50%) translateY(-50%) scale(1);
+    -webkit-animation: grow 50s linear 10ms infinite;
+    animation: grow 50s linear 10ms infinite;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+@keyframes grow{
+  0% { transform: translateX(-50%) translateY(-50%) scale(1)}
+  50% { transform: translateX(-50%) translateY(-50%) scale(1.2)}
+}
+.main-container {
+        margin-top: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.top-header {
+    min-height: 750px;
+}
+.single-image {
+    max-height: 750px;
+    height: 750px;
+}
+.single-image img {
+    -ms-transform: translateX(-50%) translateY(-50%) scale(1);
+    -moz-transform: translateX(-50%) translateY(-50%) scale(1);
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+    transform: translateX(-50%) translateY(-50%) scale(1);
+    -webkit-animation: grow 50s linear 10ms infinite;
+    animation: grow 50s linear 10ms infinite;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.featured-thumbnail img {
+    width: 100%;
+    max-height: 750px;
+}
