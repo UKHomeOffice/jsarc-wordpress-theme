@@ -1,0 +1,176 @@
+/**
+ * Theme Name: CCWP
+ * Author: Max Dmitriev @6point6
+ * Description: Initial experimentation with wordpress themes.
+ * Version: 1.0
+ */
+
+/* RESET */
+html, body, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, fieldset, input, abbr, article, aside, command, details, figcaption, figure, footer, header, hgroup, mark, meter, nav, output, progress, section, summary, time { margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, h6, pre, code, address, caption, cite, code, em, strong, th, figcaption {
+	font-size: 1em;
+	font-weight: normal;
+	font-style: normal;
+}
+fieldset, iframe {
+	border: none;
+}
+caption, th {
+	text-align: left;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+article, aside, footer, header, hgroup, nav, section, figure, figcaption {
+	display: block;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul {
+	list-style: none outside;
+}
+
+ol {
+	list-style-position: inside;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* CSS ANIMATIONS */
+
+
+html.js [data-animation="reveal"] {
+	opacity: 0; 
+}
+
+[data-animation="reveal"] {
+
+    will-change: transform;
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, -webkit-transform;
+    transition-property: opacity, transform;
+    transition-property: opacity, transform, -webkit-transform;
+    
+    -webkit-animation: reveal-animate;
+    animation: reveal-animate;
+  
+    -webkit-animation-duration: 1.2s;
+    animation-duration: 1.2s;
+    
+    animation-fill-mode: forwards;
+
+}
+
+
+@-webkit-keyframes reveal-animate {
+    0% {
+		opacity: 0;
+		-webkit-transform: translateY(25px);
+		-ms-transform: translateY(25px);
+		transform: translateY(25px);
+    }
+
+    100% {
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+		-ms-transform: translateY(0px);
+		transform: translateY(0px);
+    }
+}
+
+@keyframes reveal-animate {
+    0% {
+		opacity: 0;
+		-webkit-transform: translateY(25px);
+		-ms-transform: translateY(25px);
+		transform: translateY(25px);
+    }
+
+    100% {
+		opacity: 1;
+		-webkit-transform: translateY(0px);
+		-ms-transform: translateY(0px);
+		transform: translateY(0px);
+    }
+}
+
+
+
+
+html.js [data-animation="opacity"] {
+	opacity: 0;
+}
+
+[data-animation="opacity"].animated {
+
+    will-change: opacity;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    
+    -webkit-animation: opacity-animate;
+    animation: opacity-animate;
+  
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    
+    animation-fill-mode: forwards;
+
+}
+
+
+@-webkit-keyframes opacity-animate {
+    0% {
+		opacity: 0;
+    }
+
+    100% {
+		opacity: 1;
+    }
+}
+
+@keyframes opacity-animate {
+    0% {
+		opacity: 0;
+    }
+
+    100% {
+		opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+[data-delay-group="0"] {
+    -webkit-animation-delay: 0s, 0s !important;
+    animation-delay: 0s, 0s !important;
+}
+
+[data-delay-group="1"] {
+    -webkit-animation-delay: 0.15s, 0.15s !important;
+    animation-delay: 0.15s, 0.15s !important;
+}
+
+[data-delay-group="2"] {
+    -webkit-animation-delay: 0.3s, 0.3s !important;
+    animation-delay: 0.3s, 0.3s !important;
+}
+
+
+
