@@ -5,22 +5,20 @@
  * Version: 1.0
  */
 
-document.addEventListener('DOMContentLoaded', function(e) { 
+document.addEventListener('DOMContentLoaded', function() { 
 
 	document.getElementsByTagName('html')[0].classList.add('js');
 
 	var w = window;
 
-	w.onscroll = function (e) {
+	w.onscroll = function () {
 		var wH = w.innerHeight;
 		var wS  = w.pageYOffset || document.documentElement.scrollTop;
 		
 
-		var elements = document.querySelectorAll('[data-animation]');
+		var $dataAnimation = document.querySelectorAll('[data-animation]');
 		
-	  	var i;
-    	for (i = 0; i < elements.length; i++) {
-  			var element = elements[i];
+		for (var element of $dataAnimation) {
 			
 			var hT = element.offsetTop;
 			if ((wS - wH / 1.15) > hT){
