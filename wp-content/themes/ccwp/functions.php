@@ -161,12 +161,12 @@ function special_nav_class($classes, $item){
  */
 
 if ( function_exists('register_sidebar') )
-	register_sidebar(array(
-		'before_widget' => '<div class="test-sidebar">',
-		'after_widget' => '</div><!-- \test-sidebar -->',
-		'before_title' => '<h2>',
-		'after_title' => '</h2>',
-	));
+register_sidebar(array(
+	'before_widget' => '<div class="test-sidebar">',
+	'after_widget' => '</div><!-- \test-sidebar -->',
+	'before_title' => '<h2>',
+	'after_title' => '</h2>',
+));
 
 
 
@@ -213,12 +213,56 @@ function dco_customize_register($wp_customize) {
 
 
 
+function register_my_menu() {
+  register_nav_menu('footer-menu',__( 'Footer Menu' ));
+}
+add_action( 'init', 'register_my_menu' );
 
 
 
+/**
+ * Creating footer menu
+ */
 
+class footer_menu_description_walker extends Walker_Nav_Menu {
+  function start_el(&$output, $item, $depth, $args) {
 
+	global $wp_query;
+	$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+	
+	$class_names = $value = '';
+	$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 
+	$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+	$class_names = ' class="footer-item '. esc_attr( $class_names ) . '"';
+	//$output .= $indent . '<li id="footer-item-'. $item->ID . '"' . $value . $class_names .'>';
+	$output .= $indent . '<li ' . $value . $class_names .'>';
+	
+	$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+	$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+	$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+	$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+	$description  = ! empty( $item->description ) ? '<span>'.esc_attr( $item->description ).'</span>' : '';
+	/*
+	$prepend = '<span>';
+	$append = '</span>';
+	*/
+	$description  = ! empty( $item->description ) ? ' <span class="hidden">'.esc_attr( $item->description ).'</span>' : '';
+
+	if($depth != 0) {
+		$description = $append = $prepend = "";
+	}
+
+	$item_output = $args->before;
+	$item_output .= '<a class="footer-link"'. $attributes .'>';
+	$item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
+	$item_output .= $description.$args->link_after;
+	$item_output .= '</a>';
+	$item_output .= $args->after;
+
+	$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+  }
+}
 
 
 

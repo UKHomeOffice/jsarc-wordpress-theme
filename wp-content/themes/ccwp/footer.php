@@ -7,48 +7,56 @@
  */
 ?>
 
-
-
 	</main><!--/main -->
+
+
 	<footer class="footer" role="contentinfo">
 		<div class="footer-content">
 			<div  class="directory-columns-wrapper">
 				<div class="directory-column">
-					<h3>Faceatium quis</h3>
-					<ul>
-						<li><a href="/articles/">Ectem qui ad</a></li>
-						<li><a href="/articles/">Que plat quas</a></li>
-						<li><a href="/articles/">Ullaut quo of catquam</a></li>
-					</ul>
-				</div>
-				<div class="directory-column">
-					<h3>Ectem qui ad</h3>
-					<ul>
-						<li><a href="/articles/">Faceatium quis</a></li>
-						<li><a href="/articles/">Que plat quas</a></li>
-					</ul>
-				</div>
-				<div class="directory-column">
-					<h3>Faceatium quis</h3>
-					<ul>
-						<li><a href="/articles/">Ectem qui ad</a></li>
-						<li><a href="/articles/">Que plat quas</a></li>
-						<li><a href="/articles/">Ullaut quo of catquam</a></li>
-						<li><a href="/articles/">Rerchil iquossusa</a></li>
-					</ul>
-				</div>
-				<div class="directory-column">
-					<h3>Ectem qui ad</h3>
-					<ul>
-						<li><a href="/articles/">Faceatium quis</a></li>
-						<li><a href="/articles/">Que plat quas</a></li>
-
-					</ul>
+					<?php wp_nav_menu( array(
+						'theme_location' => 'footer-menu',
+						'container' => '',
+						'container_class' => '',
+						'container_id'=> '',
+						'menu_id' => ' ',
+						//'menu_class' => 'footer-menu-list',
+						'echo' => true,
+						'before' => '',
+						'after' => '',
+						//'link_before' => '<span class="footer-link-text">',
+						//'link_after' => '</span>',
+						'depth' => 0,
+						//'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+						'items_wrap'  => '<ul class="%2$s">%3$s</ul>',
+						'walker' => new footer_menu_description_walker()
+					)); ?>
 				</div>
 			</div>
-			<div class="footer-legal-copyright">2018 Faceatium quis eictem qui ad mi, que plat quas ullaut quo of catquam rerchil iquossusa prae pelis.</div>
-		</div>
+			
+			<?php require get_template_directory() . '/inc/footer-legal-copyright.php'; ?>
 		
+		
+
+		</div>
 	</footer>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	
 </body>
 </html>

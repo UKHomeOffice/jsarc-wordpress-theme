@@ -15,8 +15,8 @@
 	<meta name="Description" content="<?php bloginfo('description'); ?>" />
 	<?php require get_template_directory() . '/inc/meta-open-graph-protocol.php'; ?>
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" />
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ccwp.build.css" type="text/css" />
-	<script src="<?php bloginfo('template_url'); ?>/js/ccwp.build.js" type="text/javascript" charset="utf-8"></script>
+	<!--link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/page-specific.css" type="text/css" /-->
+	<script src="<?php bloginfo('template_url'); ?>/js/main.js" type="text/javascript" charset="utf-8"></script>
 	
 <!-- wp_head -->
 	<?php wp_head(); ?>
