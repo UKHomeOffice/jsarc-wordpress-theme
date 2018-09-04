@@ -25,4 +25,4 @@ To run the website on a docker, run the following command from within the direct
 ````
 docker-compose up -d
 ````
-Wordpress should be available on port 80 and phpmyadmin on port 8080.
+Wordpress should be available on port 80 and phpmyadmin on port 8080. 
