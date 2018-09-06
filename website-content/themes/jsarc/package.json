@@ -2,14 +2,16 @@
 	"name": "jsarc",
 	"version": "1.0.0",
 	"scripts": {
-		"scss": "node-sass --include-path scss sass/style.scss style.css --output-style=expanded --indent-type=tab --indent-width=1",
-		"autoprefixer": "postcss style.css -u autoprefixer -o style.css --no-map",
+		"sass": "node-sass --include-path scss sass/style.scss style.css --output-style=expanded --indent-type=tab --indent-width=1",
+    "autoprefixer": "postcss style.css -u autoprefixer -o style.css --no-map",
+    "comb": "csscomb style.css",
 		"stylelint": "stylelint 'style.css'",
 		"stylefix": "stylelint 'style.css' --fix"
 	},
 	"devDependencies": {
 		"autoprefixer": "^7.1.1",
 		"browserslist": "^2.1.5",
+		"csscomb": "^4.2.0",
 		"node-sass": "^4.5.3",
 		"postcss-cli": "^4.1.0",
 		"stylelint": "^7.12.0",
