@@ -1,0 +1,30 @@
+version: '3'
+services:
+  wordpress:
+    depends_on:
+      - database
+    image: wordpress:latest
+    restart: always
+    volumes:
+      - ./website-content:/var/www/html/wp-content
+    environment:
+      WORDPRESS_DB_HOST: database:3306
+      WORDPRESS_DB_PASSWORD: demopassword #for demo purposes only otherwise this is called from an environment file
+    ports:
+      - 80:80
+      - 443:443
+  database:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: demopassword #for demo purposes only otherwise this is called from an environment file
+  phpmyadmin:
+    depends_on:
+      - database
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: database
+      MYSQL_ROOT_PASSWORD: demopassword #for demo purposes only otherwise this called from an environment file
