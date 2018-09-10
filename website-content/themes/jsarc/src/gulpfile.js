@@ -13,7 +13,7 @@ const browserSync = require('browser-sync').create();
 
 const PATHS = {
   src: {
-    sass: './sass/style.scss',
+    sass: './sass/**/*.scss',
     js: './js/app.js'
   },
   dist: {
@@ -28,15 +28,26 @@ gulp.task('sass', function() {
       .pipe(sass())
       .pipe(postcss([autoprefixer() ]))
       .pipe(csscomb())
-      .pipe(stylefmt())
       .pipe(rename('style.css'))
       .pipe(size())
       .pipe(gulp.dest('../'))
       .pipe(browserSync.stream());
 });
 
-// Lint css
-gulp.task('lint-css', function lintCssTask() {
+// Lint SASS
+gulp.task('sass:lint', function lintCssTask() {
+  return gulp
+    .src(PATHS.src.sass)
+    .pipe(gulpStylelint({
+      fix: true,
+      reporters: [
+        {formatter: 'string', console: true}
+      ]
+    }))
+});
+
+// Lint CSS
+gulp.task('css:lint', function lintCssTask() {
   return gulp
     .src(PATHS.dist.css)
     .pipe(gulpStylelint({
