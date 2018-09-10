@@ -1,0 +1,42 @@
+{
+	"name": "jsarc",
+	"version": "1.0.0",
+	"scripts": {
+		"watch:css": "onchange './sass/**/*.scss' -- npm run build:css",
+		"build:css": "npm-run-all sass autoprefixer comb stylelint",
+		"sass": "node-sass --include-path scss sass/style.scss ../style.css --output-style=expanded --indent-type=tab --indent-width=1",
+		"sass-watch": "node-sass --include-path scss sass/style.scss ../style.css --output-style=expanded --indent-type=spaces --indent-width=4 --watch",
+		"autoprefixer": "postcss ../style.css -u autoprefixer -o ../style.css --no-map",
+		"comb": "csscomb ../style.css",
+		"stylelint": "stylelint '../style.css'",
+		"stylefix": "stylelint '../style.css' --fix"
+	},
+	"devDependencies": {
+		"autoprefixer": "^7.1.1",
+		"browser-sync": "^2.24.7",
+		"browserslist": "^2.1.5",
+		"csscomb": "^4.2.0",
+		"gulp": "^3.9.1",
+		"gulp-csscomb": "^3.0.8",
+		"gulp-postcss": "^8.0.0",
+		"gulp-prettier": "^2.0.0",
+		"gulp-rename": "^1.4.0",
+		"gulp-sass": "^4.0.1",
+		"gulp-size": "^3.0.0",
+		"gulp-stylefmt": "^1.1.0",
+		"gulp-stylelint": "^7.0.0",
+		"node-sass": "^4.5.3",
+		"npm-run-all": "^4.1.3",
+		"onchange": "^4.1.0",
+		"postcss-cli": "^4.1.0",
+		"postcss-sorting": "^4.0.0",
+		"stylelint": "^9.5.0",
+		"stylelint-config-standard": "^18.2.0",
+		"stylelint-config-wordpress": "^13.1.0",
+		"stylelint-order": "^1.0.0"
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions"
+	]
+}
