@@ -1,8 +1,10 @@
 <?php
-/**
- * The template for displaying all single posts
+/*
+ * Template Name: Full Width One Column
+ * The template for displaying all pages with full-width, one-column
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package JSaRC
  */
@@ -17,9 +19,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
-
-			the_post_navigation();
+			get_template_part( 'template-parts/content', 'page' );
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
@@ -33,5 +33,4 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
