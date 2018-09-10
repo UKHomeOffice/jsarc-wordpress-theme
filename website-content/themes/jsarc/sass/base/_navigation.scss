@@ -1,0 +1,44 @@
+#menuanchor {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 1px;
+}
+
+#menuanchor:before,
+#menuanchor:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+
+#menuanchor,
+#menuanchor:before,
+#menuanchor:after {
+	background-color: green;
+}
+
+
+#primary-menu {
+  position: relative;
+  ul {
+    width: 100%;
+    li {
+      display: inline-block;
+      a {
+        display: block;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $small) {
+  #primary-menu ul li {
+    display: block;
+  }
+  #menuanchor {
+	  display: block;
+	}
+}
