@@ -15,8 +15,8 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div>
+		<main>
 
 		<?php
 		if ( have_posts() ) :
@@ -24,7 +24,7 @@ get_header();
 			if ( is_home() && ! is_front_page() ) :
 				?>
 				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+					<h1><?php single_post_title(); ?></h1>
 				</header>
 				<?php
 			endif;
