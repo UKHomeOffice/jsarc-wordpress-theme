@@ -20,13 +20,13 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div>
 
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
+		<h2>
 			<?php
 			$jsarc_comment_count = get_comments_number();
 			if ( '1' === $jsarc_comment_count ) {
@@ -48,7 +48,7 @@ if ( post_password_required() ) {
 
 		<?php the_comments_navigation(); ?>
 
-		<ol class="comment-list">
+		<ol>
 			<?php
 			wp_list_comments( array(
 				'style'      => 'ol',
@@ -63,7 +63,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'jsarc' ); ?></p>
+			<p><?php esc_html_e( 'Comments are closed.', 'jsarc' ); ?></p>
 			<?php
 		endif;
 
