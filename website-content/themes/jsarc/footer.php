@@ -15,11 +15,13 @@
 
 	<footer>
 		<div class="row">
-			<div class="column large-6">
+			<div class="column large-4 small-12">
 				
 			</div>
-			<div class="column large-6">
+			<div class="column large-4 small-12">
 				<p><?php echo date("Y"); ?> JSaRC</p>
+			</div>
+			<div class="column large-4 small-12">
 			</div>
 		</div>
 	</footer>
