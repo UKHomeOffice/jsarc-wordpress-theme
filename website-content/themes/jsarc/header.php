@@ -22,28 +22,9 @@
 
 <body <?php body_class(); ?>>
 <div>
-	<a href="#content"><?php esc_html_e( 'Skip to content', 'jsarc' ); ?></a>
+	<a href="#content" class="visuallyhidden"><?php esc_html_e( 'Skip to content', 'jsarc' ); ?></a>
 
 	<header>
-		<div>
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$jsarc_description = get_bloginfo( 'description', 'display' );
-			if ( $jsarc_description || is_customize_preview() ) :
-				?>
-				<p><?php echo $jsarc_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
 		<nav>
 			<button id="menuanchor" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'jsarc' ); ?></button>
 			<?php
