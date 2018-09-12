@@ -9,20 +9,20 @@ docker-compose up -d
 ````
 Wordpress should be available on port 80 and phpmyadmin on port 8080.
 
+# Front end development setup
+Front end source files are stored inside the `/website-content/themes/jsarc/src` folder.
 
-# Dev notes:
+## Installing development dependencies
+In terminal, cd into the `/website-content/themes/jsarc/src` folder and run `$ npm install`. 
 
-To fix 404 error issue when changing the permalink settings in Wordpress when using MAMP with Nginx server
+## Start local dev server 
+(watches static files for changes and livereloads)
+Run `$ gulp` inside the `themes/jsarc/src/` folder.
 
-Add  Following line:
-````
-try_files        $uri $uri/ /index.php?$args;
-````
-Just after:
-````
-index            index.html index.php;
-````
-Into:
-````
-/Applications/MAMP/conf/nginx/nginx.conf
-````
+## Compile SASS 
+Run `$ gulp sass` to compile SASS into the style.css file used by the jsarc theme.  
+
+## Lint CSS
+Run `$ gulp css:lint` to lint css with stylelint. 
+
+
