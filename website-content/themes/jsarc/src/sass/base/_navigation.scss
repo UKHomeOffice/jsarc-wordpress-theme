@@ -1,5 +1,5 @@
 #menuanchor {
-  display: block;
+  display: none;
   position: relative;
   width: 30px;
   height: 1px;
@@ -25,10 +25,15 @@
   position: relative;
   ul {
     width: 100%;
+    text-align: center;
     li {
       display: inline-block;
+      margin-right: 20px;
       a {
         display: block;
+        padding: 5px 10px;
+		background-color: $color__jsarc-primary-blue;
+		color: #fff;
       }
     }
   }
@@ -37,6 +42,7 @@
 @media only screen and (max-width: $small) {
   #primary-menu ul li {
     display: block;
+    margin-right: 0;
   }
   #menuanchor {
 	  display: block;

@@ -2,9 +2,21 @@
   outline: 1px solid rgba(0,0,0,.02);
 }
 
-.row * { height: 100px; background: green; }
-.sidebar { background: yellow; }
-.sidebar .sidebar-content { margin-left: 20px; }
-@media only screen and (max-width: $small) {
-	.sidebar .sidebar-content { margin-left: 0; margin-top: 20px; }
+.visuallyhidden {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+  clip-path: inset(0px 0px 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
 }
+
+@media only screen and (max-width: $small) {
+
+}
+
+a:hover { background-color: yellow }
