@@ -8,13 +8,18 @@
  *
  * @package JSaRC
  */
-
+ 
 get_header();
 ?>
-
-	<div>
 		<main>
-
+		<h2>Template Name: Three Columns</h2>
+		<div class="row">
+			<div class="column large-4 small-12">Column 1</div>
+			<div class="column large-4 small-12">Column 2</div>
+			<aside class="column large-4 small-12 sidebar">
+				<div class="sidebar-content">Sidebar</div>
+			</aside>
+		</div>
 		<?php
 		while ( have_posts() ) :
 			the_post();
