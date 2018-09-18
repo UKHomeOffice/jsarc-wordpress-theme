@@ -1,4 +1,5 @@
 'use strict';
+
 const gulp = require('gulp');
 const size = require('gulp-size');
 const sass = require('gulp-sass');
@@ -7,16 +8,16 @@ const postcss = require('gulp-postcss');
 const csscomb = require('gulp-csscomb');
 const gulpStylelint = require('gulp-stylelint');
 const rename = require('gulp-rename');
-const browserSync = require('browser-sync').create();
-const browserSync2 = require('browser-sync').create();
+const server = require('browser-sync').create();
 
-const PATHS = {
+const config = {
   src: {
     sass: './sass/**/*.scss',
-    js: './js/app.js'
+    js: './js/app.js',
+    php: '../**/*.php'
   },
   dist: {
-    css: '../style.css',
+    cssFolder: '../',
     js: '../js/app.js'  
   }
 }
@@ -27,84 +28,124 @@ const PATHS = {
  * This task also runs autoprefixer 
  * and CSS comb before outputting style.css
 */
-gulp.task('sass', function() {
-  return gulp.src(PATHS.src.sass)
+function sassCompile() {
+  return gulp.src(config.src.sass)
     .pipe(sass())
     .pipe(postcss([autoprefixer() ]))
     .pipe(csscomb())
     .pipe(rename('style.css'))
     .pipe(size())
-    .pipe(gulp.dest('../'))
-    .pipe(browserSync.stream())
-    .pipe(browserSync2.stream())
-});
+    .pipe(gulp.dest(config.dist.cssFolder))
+    .pipe(server.stream())
+};
 
 /**
  * Lint SASS
  */
-gulp.task('sass:lint', function lintCssTask() {
+function sassLint() {
   return gulp
-    .src(PATHS.src.sass)
+    .src(config.src.sass)
     .pipe(gulpStylelint({
       fix: true,
       reporters: [
         {formatter: 'string', console: true}
       ]
     }))
-});
+};
 
 /**
  * Lint CSS
  */
-gulp.task('css:lint', function lintCssTask() {
+function cssLint() {
   return gulp
-    .src(PATHS.dist.css)
+    .src(config.dist.css)
     .pipe(gulpStylelint({
       fix: true,
       reporters: [
         {formatter: 'string', console: true}
       ]
     }))
-});
+}
 
 /**
- * Local dev server task - compile and watch scss/php files for changes
- * This task assumes that the WP docker container is running on localhost:80
+ * Watches front end assets sass/js for changes, compiles & reload on change
+ * Also watches wordpress php files, reloads browser on change
  */
-gulp.task('dev', ['sass'], function() {
-  browserSync.init({
+function watch() {
+  // If change detected to sass, recompile and auto inject updated css
+  gulp.watch(config.src.sass, gulp.series(sassCompile));
+
+  // If change detected to php pages, trigger browser reload
+  gulp.watch(config.src.php).on('change', browserSyncReload);
+}
+
+/**
+ * Intialise browserSync to enable live reloading in browser
+ */
+function liveReloadServer(done) {
+  server.init({
     proxy: {
       target: "http://localhost"
     },
     open: "local",  // open localhost in browser on start
     reloadDebounce: 1000
   });
+  done();
+};
 
-  // If change detected to sass, recompile and auto inject updated css
-  gulp.watch('./sass/**/*.scss', ['sass']);
+/**
+ * Trigger browser reload
+ */
+function browserSyncReload(done) {
+  server.reload();
+  done();
+}
 
-  // If change detected to php pages, trigger browser reload
-  gulp.watch('../**/*.php').on('change', browserSync.reload);
-});
+
+/**
+ * Local dev server task - compile and watch scss/php files for changes
+ * This task assumes that the WP docker container is already running on localhost:80
+ */
+const dev = gulp.series(sassCompile, gulp.parallel(watch, liveReloadServer));
 
 /**
  * Simple static server - watches for changes to SASS & html prototypes in src/examples folder
  */
-gulp.task('serve-html-prototypes', ['sass'], function() {
-  browserSync2.init({
-    server: {
-      baseDir: '../',
-      directory: true,
-    },
-    port: 8082, // the port for local server (eg: http://localhost:8082)
-    ui: {
-      port: 8081 // the port for browsersync ui
-    },
-    reloadDebounce: 1000,
-  });
+// const staticPrototypes = 
 
-  gulp.watch('./sass/**/*.scss', ['sass']);
-  gulp.watch('../**/*.html').on('change', browserSync2.reload);
-});
 
-gulp.task('default', ['dev']);
+// function serve-html-prototypes() {
+//  gulp.series(['sass'], function() {
+    // const server = browserSync.create()
+//    server.init({
+//     server: {
+//       baseDir: '../',
+//       directory: true,
+//     },
+//     port: 8082, // the port for local server (eg: http://localhost:8082)
+//     ui: {
+//       port: 8081 // the port for browsersync ui
+//     },
+//     reloadDebounce: 1000,
+//   });
+
+//   gulp.watch('./sass/**/*.scss', gulp.parallel(['sass']));
+//   gulp.watch('../**/*.html').on('change', browserSync.reload);
+// }));
+
+/*
+ * Export selected functions so they can be run individually as gulp tasks
+ */
+gulp.task("sassCompile", sassCompile);
+gulp.task("sassLint", sassLint);
+gulp.task("cssLint", cssLint);
+gulp.task("watch", watch);
+gulp.task("liveReloadServer", liveReloadServer);
+
+
+
+/**
+ * Default gulp task for local development
+ * To run just type 'gulp' in terminal inside the same folder as this gulpfile
+ */
+gulp.task('default', dev);
