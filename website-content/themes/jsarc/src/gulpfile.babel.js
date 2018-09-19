@@ -104,6 +104,12 @@ const watch = () => {
   gulp.watch(config.src.php, fullBrowserReload)
 };
 
+
+
+export {
+  sassCompile
+}
+
 /**
  * Local dev server task - compile and watch scss/php files for changes
  * This task has a dependancy that the WP docker container is already running 
