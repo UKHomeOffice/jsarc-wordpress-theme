@@ -20,9 +20,9 @@ In terminal, cd into the `/website-content/themes/jsarc/src` folder and run `$ n
 Run `$ gulp` inside the `themes/jsarc/src/` folder.
 
 ## Compile SASS 
-Run `$ gulp sass` to compile SASS into the style.css file used by the jsarc theme.  
+Run `$ gulp sassCompile` to compile SASS into the style.css file used by the jsarc theme.  
 
 ## Lint CSS
-Run `$ gulp css:lint` to lint css with stylelint. 
+Run `$ npm ` to lint css with stylelint. 
 
 
