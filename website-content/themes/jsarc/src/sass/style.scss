@@ -23,6 +23,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Reset
+# Colors
 # Grid
 # Base
 # Typography
@@ -36,6 +37,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Reset
 --------------------------------------------------------------*/
 @import "base/reset";
+
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+@import "base/colors";
 
 /*--------------------------------------------------------------
 # Grid

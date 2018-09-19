@@ -22,6 +22,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Reset
+# Colors
 # Grid
 # Base
 # Typography
@@ -34,6 +35,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: #fff;
 }
 
 body,
@@ -130,6 +135,37 @@ button:disabled {
     cursor: default;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none outside;
+}
+
+ol {
+    margin-left: 2.2em; 
+    list-style: decimal;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: left; 
+
+    font-synthesis: none;
+    -moz-font-feature-settings: "kern";
+    direction: ltr;
+}
+
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Grid
 --------------------------------------------------------------*/
@@ -992,24 +1028,22 @@ button:disabled {
     outline: 1px solid rgba(0, 0, 0, 0.02);
 }
 
-.row * {
-    height: 100px;
-    background: green;
+.visuallyhidden {
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0; 
+
+    -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+    clip-path: inset(0px 0px 99.9% 99.9%);
 }
 
-.sidebar {
-    background: yellow;
-}
-
-.sidebar .sidebar-content {
-    margin-left: 20px;
-}
-
-@media only screen and (max-width: 735px) {
-    .sidebar .sidebar-content {
-        margin-top: 20px; 
-        margin-left: 0;
-    }
+a:hover {
+    background-color: yellow;
 }
 
 /*--------------------------------------------------------------
@@ -1022,6 +1056,126 @@ select,
 optgroup,
 textarea {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 400; 
+    line-height: 1.5;
+}
+
+h1 + *,
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + * {
+    margin-top: 0.8em;
+}
+
+h1 + h1,
+h1 + h2,
+h1 + h3,
+h1 + h4,
+h1 + h5,
+h1 + h6 {
+    margin-top: 0.4em;
+}
+
+h2 + h1,
+h2 + h2,
+h2 + h3,
+h2 + h4,
+h2 + h5,
+h2 + h6 {
+    margin-top: 0.4em;
+}
+
+h3 + h1,
+h3 + h2,
+h3 + h3,
+h3 + h4,
+h3 + h5,
+h3 + h6 {
+    margin-top: 0.4em;
+}
+
+h4 + h1,
+h4 + h2,
+h4 + h3,
+h4 + h4,
+h4 + h5,
+h4 + h6 {
+    margin-top: 0.4em;
+}
+
+h5 + h1,
+h5 + h2,
+h5 + h3,
+h5 + h4,
+h5 + h5,
+h5 + h6 {
+    margin-top: 0.4em;
+}
+
+h6 + h1,
+h6 + h2,
+h6 + h3,
+h6 + h4,
+h6 + h5,
+h6 + h6 {
+    margin-top: 0.4em;
+}
+
+p + h1,
+ul + h1,
+ol + h1,
+p + h2,
+ul + h2,
+ol + h2,
+p + h3,
+ul + h3,
+ol + h3,
+p + h4,
+ul + h4,
+ol + h4,
+p + h5,
+ul + h5,
+ol + h5,
+p + h6,
+ul + h6,
+ol + h6 {
+    margin-top: 1.6em;
+}
+
+p + *,
+ul + *,
+ol + * {
+    margin-top: 0.8em;
+}
+
+ul,
+ol {
+    margin-left: 1.2em;
+}
+
+ul ul,
+ul ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ol ul,
+ol ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+nav ul,
+nav ol {
+    margin: 0;
+    list-style: none;
+}
+
+li li {
+    font-size: 1em;
 }
 
 /*--------------------------------------------------------------
@@ -1031,7 +1185,7 @@ textarea {
 # Navigation
 --------------------------------------------------------------*/
 #menuanchor {
-    display: block;
+    display: none;
     position: relative;
     width: 30px;
     height: 1px;
@@ -1056,17 +1210,23 @@ textarea {
 }
 #primary-menu ul {
     width: 100%;
+    text-align: center;
 }
 #primary-menu ul li {
     display: inline-block;
+    margin-right: 20px;
 }
 #primary-menu ul li a {
     display: block;
+    padding: 5px 10px;
+    color: #fff; 
+    background-color: #1d4189;
 }
 
 @media only screen and (max-width: 735px) {
     #primary-menu ul li {
         display: block;
+        margin-right: 0;
     }
     #menuanchor {
         display: block;

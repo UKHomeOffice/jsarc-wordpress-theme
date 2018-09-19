@@ -3,6 +3,10 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+	background-color: #fff;
+}
+
 body, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, hgroup, p, blockquote, figure, form, fieldset, input, legend, pre, abbr, button {
   margin: 0;
   padding: 0;
@@ -49,4 +53,26 @@ button {
   &:disabled {
     cursor: default;
   }
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+ul {
+	list-style: none outside;
+}
+ol {
+	list-style: decimal;
+	margin-left: 2.2em;
+}
+
+body, input, textarea, select, button {
+  font-synthesis: none;
+  -moz-font-feature-settings: 'kern';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: ltr;
+  text-align: left;
 }
