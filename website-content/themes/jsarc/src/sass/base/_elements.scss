@@ -1,0 +1,218 @@
+/*--------------------------------------------------------------
+# Select
+--------------------------------------------------------------*/
+
+.select-wrap {
+  display: inline;
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  &:after {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    margin: auto;
+    border-style: solid;
+    content: "";
+	-webkit-transform: rotate(45deg) skew(-2deg, -2deg);
+    transform: rotate(45deg) skew(-2deg, -2deg);
+    pointer-events: none;
+  }
+  select {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+    outline: 0;
+    background: 0 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: inherit;
+    text-overflow: "";
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+  }
+  border: .1em solid #000;
+  &:after {
+    top: -5px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    border-width: 0 .119em .119em 0;
+    border-color: #000;
+  }
+  select {
+    padding: 5px 30px 5px 5px;
+  	line-height: 1.3em;
+  }
+}
+
+/*--------------------------------------------------------------
+# Checkbox
+--------------------------------------------------------------*/
+
+input[type="checkbox"] {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+  &:checked:after {
+    content: '';
+    display: block;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-style: solid;
+  }
+  margin-right: 1.5em;
+  &:before {
+    top: -.66em;
+    border: .1em solid #000;
+    width: 1em;
+    height: 1em;
+    background-color: #fff;
+  }
+  &:checked:after {
+    top: -0.5em;
+    left: 0.38em;
+    width: 0.28em;
+    height: 0.6em;
+    border-width: 0 0.15em 0.15em 0;
+    border-color: #000;
+  }
+}
+
+/*--------------------------------------------------------------
+# Input text, textarea
+--------------------------------------------------------------*/
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border: none;
+	outline: 0;
+	background: 0 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	font-size: inherit;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-color: #fff;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+	border: .1em solid #000;
+	max-width: 100%;
+	min-width: 250px;
+	padding: 5px;
+	line-height: 1.3em;
+	box-sizing: border-box;
+}
+
+/*--------------------------------------------------------------
+# button
+--------------------------------------------------------------*/
+button,
+input[type="submit"],
+input[type="button"] {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border: none;
+	outline: 0;
+	background: 0 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	font-size: inherit;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	cursor: pointer;
+}
+
+button,
+input[type="submit"],
+input[type="button"] {
+	display: inline-block;
+	line-height: 2em;
+	height: 2em;
+	background-color: #000;
+	color: #fff;
+	padding: 0 2em;
+	box-shadow: 0 1px 2px rgba(0,0,0,.3);
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+
+}
+
+button:active,
+button:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus,
+input[type="button"]:active,
+input[type="button"]:focus {
+	box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+
+
+/*--------------------------------------------------------------
+# Salesforce form
+--------------------------------------------------------------*/
+
+.sf_field {
+	margin-bottom: .5em;
+}
+
+.w2llabel {
+  display: block;
+  font-size: .8em;
+  font-weight: bold;
+}
+
+.error_message {
+  display: block;
+  color: red;
+  font-size: .8em;
+}
+
+.w2lsubmit {
+	margin: 2em 0 1.5em;
+}
+
+.sf_required_fields_msg {
+ font-size: .8em;
+}
+
+/*--------------------------------------------------------------
+# Salesforce Test Page
+--------------------------------------------------------------*/
+.section {
+	max-width: 1800px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	box-sizing: border-box;
+}
+.section.section-form {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
