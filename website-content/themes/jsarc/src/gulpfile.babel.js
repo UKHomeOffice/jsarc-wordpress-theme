@@ -95,7 +95,7 @@ function streamReload(done) {
  */
 const watch = () => {
   // If change detected to sass, recompile and auto inject updated css
-  gulp.watch(config.src.sass, gulp.series(sassCompile, streamReload))
+  gulp.watch(config.src.sass, gulp.series(sassCompile, fullBrowserReload))
   
   // Watch JS for changes, recompile and trigger
   // gulp.watch(config.src.js, gulp.series(jsCompile, streamReload))
