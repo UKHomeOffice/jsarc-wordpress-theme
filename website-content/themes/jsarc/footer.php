@@ -11,8 +11,6 @@
 
 ?>
 
-	</div><!-- #content -->
-
 	<footer>
 		<div class="row">
 			<div class="column large-4 small-12">
@@ -25,7 +23,7 @@
 			</div>
 		</div>
 	</footer>
-</div><!-- #page -->
+
 
 <?php wp_footer(); ?>
 

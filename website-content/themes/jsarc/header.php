@@ -21,7 +21,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div>
 	<a href="#content" class="visuallyhidden"><?php esc_html_e( 'Skip to content', 'jsarc' ); ?></a>
 
 	<header>
@@ -35,5 +34,3 @@
 			?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
-
-	<div>
