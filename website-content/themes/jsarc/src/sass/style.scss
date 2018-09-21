@@ -22,7 +22,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
+# Mixins
 # Reset
+# Settings
 # Colors
 # Grid
 # Base
@@ -37,6 +39,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Reset
 --------------------------------------------------------------*/
 @import "base/reset";
+
+/*--------------------------------------------------------------
+# Settings
+--------------------------------------------------------------*/
+@import "base/settings";
 
 /*--------------------------------------------------------------
 # Colors

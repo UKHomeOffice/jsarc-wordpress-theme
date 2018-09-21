@@ -22,7 +22,8 @@ const config = {
   src: {
     sass: './sass/**/*.scss',
     js: './js/app.js',
-    php: '../**/*.php'
+    php: '../**/*.php',
+    htmlPrototypes: './example-layouts/**.*'
   },
   dist: {
     cssFolder: '../',
@@ -99,6 +100,9 @@ const watch = () => {
   
   // Watch JS for changes, recompile and trigger
   // gulp.watch(config.src.js, gulp.series(jsCompile, streamReload))
+  
+  // Watch html prototypes for changes
+  gulp.watch(config.src.htmlPrototypes, gulp.series(sassCompile, fullBrowserReload))
 
   // If change detected to php pages, trigger browser reload
   gulp.watch(config.src.php, fullBrowserReload)
