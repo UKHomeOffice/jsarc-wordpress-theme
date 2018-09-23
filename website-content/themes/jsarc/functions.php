@@ -210,8 +210,14 @@ remove_action( 'wp_head', 'wlwmanifest_link');
 /**
  *  Remove Customize button from admin menu bar
  */
-
 add_action( 'wp_before_admin_bar_render', 'wpse200296_before_admin_bar_render' ); 
+
+/**
+ *  Prevent Wordpress from auto-inserting p tags
+ */
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
+
 
 function wpse200296_before_admin_bar_render() {
     global $wp_admin_bar;
