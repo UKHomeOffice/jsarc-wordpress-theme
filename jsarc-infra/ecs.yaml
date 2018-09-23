@@ -16,7 +16,7 @@ Resources:
         - FARGATE
       ContainerDefinitions:
         - Name: wordpressjsarc
-          Image: 265728488643.dkr.ecr.eu-west-1.amazonaws.com/wordpress-repo:latest
+          Image: !Ref containerImage
           PortMappings:
             - ContainerPort: 80
               Protocol: tcp
