@@ -1,0 +1,40 @@
+Resources:
+  ecsFargateCluster: #create an ECS cluster
+    Type: AWS::ECS::Cluster
+    Properties:
+      ClusterName: wordpress-cluster
+
+  task:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: wordpress
+      Cpu: 256
+      Memory: 1024
+      NetworkMode: awsvpc
+      ExecutionRoleArn: !ImportValue taskExecutionRole
+      RequiresCompatibilities:
+        - FARGATE
+      ContainerDefinitions:
+        - Name: wordpressjsarc
+          Image: 265728488643.dkr.ecr.eu-west-1.amazonaws.com/wordpress-repo:latest
+          PortMappings:
+            - ContainerPort: 80
+              Protocol: tcp
+
+  Service:
+    Type: AWS::ECS::Service
+    Properties:
+      TaskDefinition: !Ref task
+      Cluster: !Ref ecsFargateCluster
+      LaunchType: FARGATE
+      DesiredCount: 2
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          Subnets:
+            - !ImportValue privateSubnet
+          SecurityGroups:
+            - !ImportValue containerSG
+      LoadBalancers:
+        - ContainerName: wordpressjsarc
+          ContainerPort: 80
+          TargetGroupArn: !ImportValue targetGroup

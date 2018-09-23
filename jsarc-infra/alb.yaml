@@ -1,0 +1,64 @@
+Resources:
+  albSecurityGroup: #Security group for the application load balancer. Ingress traffic from everywhere.
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for the application load balancer.
+      VpcId: !ImportValue vpc
+      SecurityGroupIngress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+
+  albLoadBalancer: #create the application load balancer
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: albwordpress
+      Subnets:
+        - !ImportValue publicSubnet1
+        - !ImportValue publicSubnet2
+      SecurityGroups:
+        - !Ref albSecurityGroup
+
+  albLoadBalancerListener: #create a listener for the loadbalancer.
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref albLoadBalancer
+      Protocol: HTTP
+      Port: 80
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !Ref albTargetGroup
+
+  albTargetGroup: #create a target group for the loadbalancers
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      TargetType: ip
+      VpcId: !ImportValue vpc
+      Port: 80
+      Protocol: HTTP
+      Matcher:
+        HttpCode: 200-499
+
+  ecsSecurityGroup: #security group for the ecs container to allow traffic only from the application load balancer
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      VpcId: !ImportValue vpc
+      GroupDescription: allow traffic from the loadbalancer only!
+      SecurityGroupIngress:
+        - SourceSecurityGroupId: !Ref albSecurityGroup
+          IpProtocol: -1
+
+Outputs:
+  containerSG:
+    Value: !Ref ecsSecurityGroup
+    Export:
+      Name: containerSG
+
+  targetGroup:
+    Value: !Ref albTargetGroup
+    Export:
+      Name: targetGroup
+
+  dnsName:
+    Value: !GetAtt albLoadBalancer.DNSName
+    Export:
+      Name: domainName
