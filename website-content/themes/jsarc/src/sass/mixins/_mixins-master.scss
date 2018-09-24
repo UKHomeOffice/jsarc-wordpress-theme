@@ -12,15 +12,17 @@
 }
 
 // Clearfix
+// mixin for 'micro clearfix' https://css-tricks.com/snippets/css/clear-fix/
 @mixin clearfix() {
-    display: table;
-    table-layout: fixed;
-    content: "";
-}
-
-// Clear after (not all clearfix need this also)
-@mixin clearfix-after() {
-    clear: both;
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+    &:after {
+        clear: both;
+    }
 }
 
 // Column width with margin

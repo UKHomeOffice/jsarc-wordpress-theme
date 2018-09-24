@@ -1,4 +1,8 @@
-.visuallyhidden {
+.clearfix {
+    @include clearfix();
+}
+
+.visually-hidden {
     overflow: hidden;
     clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
@@ -38,13 +42,50 @@
 --------------------------------------------------------------*/
 .section-footer {
     background-color: #dcdcdc;
+    a {
+        font-size: 19px;
+        line-height: 42px;
+    }
     a:hover {
         text-decoration: underline;
     }
     .organisation-logo {
         max-width: 187px;
         height: 80px;
+        margin-top: 15px;
+        margin-right: 60px;
+        margin-bottom: 60px;
+        margin-left: auto;
         background: url("./img/home-office-logo.png");
         background-size: contain;
     }
+}
+.copyright-text {
+    text-align: right;
+}
+
+@media only screen and (max-width: $small) {
+    .section-footer .organisation-logo {
+        margin-top: 60px;
+        margin-right: auto;
+        margin-bottom: 30px;
+        margin-left: auto;
+    }
+
+    .section-footer .column:nth-child(2) {
+        padding-left: 30px;
+    }
+    .copyright-text {
+        text-align: center;
+    }
+}
+
+
+
+/*--------------------------------------------------------------
+# Margins
+--------------------------------------------------------------*/
+
+.margin-bottom-large {
+    margin-bottom: 100px;
 }

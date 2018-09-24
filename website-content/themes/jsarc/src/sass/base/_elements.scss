@@ -127,111 +127,6 @@ textarea {
     line-height: 1.3em;
 }
 
-/*--------------------------------------------------------------
-# button
---------------------------------------------------------------*/
-button,
-input[type="submit"],
-input[type="button"] {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border: none;
-    outline: 0;
-    background: 0 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    font-size: inherit;
-    cursor: pointer;
-
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
-button,
-input[type="submit"],
-input[type="button"] {
-    display: inline-block;
-    height: 2em;
-    padding: 0 2em;
-    color: #fff;
-    background-color: #000;
-    box-shadow: 0 0 0 rgba(0,0,0,0);
-    line-height: 2em;
-}
-
-
-
-button:active,
-button:focus,
-input[type="submit"]:active,
-input[type="submit"]:focus,
-input[type="button"]:active,
-input[type="button"]:focus {
-    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
-
-// Outlined button styles
-.button.button-cta-outlined,
-button.button-cta-outlined {
-    @include button-reset();
-
-    display: inline-block;
-    min-width: 238px;
-    margin: 2px 0;
-    padding: 5px 30px;
-    padding: 0.5em 1em;
-    border: 2px solid #fff;
-    color: #fff;
-    font-size: 19px;
-    line-height: 28px;
-    text-align: center;
-    text-decoration: none;
-}
-
-
-
-
-/**
-  * Button component
-  */
-.button {
-    @include button-reset();
-
-    display: inline-block;
-    margin: 2px 0;
-    padding: 0.5em 1em;
-    border: solid 1px transparent;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.25s ease-in-out;
-}
-
-.button:active {
-    transform: translateY(1px);
-
-    filter: saturate(150%);
-}
-
-.button:hover {
-    border-color: currentColor;
-    color: #000;
-    transition: all 0.25s ease-in-out;
-}
-
-.button::-moz-focus-inner {
-    border: none;
-}
-
-.button:focus {
-    outline: none;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
-.js-focus-visible .button:focus:not(.focus-visible) {
-    box-shadow: none;
-}
 
 
 /*--------------------------------------------------------------
@@ -290,18 +185,6 @@ button.button-cta-outlined {
     padding-bottom: 100px;
 }
 
-.section-background-overlay {
-    display: none;
-    position: absolute;
-    z-index: $above-bg;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.3;
-    background-color: #333;
-}
-
 .section-background-image {
     position: absolute;
     z-index: $bg;
@@ -313,9 +196,57 @@ button.button-cta-outlined {
     background-size: cover;
 }
 
-.section-content {
-    z-index: $content;
+.section-background-image--gradient-right {
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0.6;
+        background-image: linear-gradient(to bottom right,#333,#000);
+        content: "";
+    }
 }
+
+.section-content {
+    @include clearfix();
+
+    z-index: $content;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.section-headline {
+    margin-bottom: 60px;
+}
+.section-benefits {
+    text-align: center;
+    h2 {
+        font-size: 36px;
+        line-height: 42px;
+    }
+    .column {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+}
+
+.image-benefits {
+    max-width: 300px;
+    height: 190px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    background-color: $color__jsarc-purple;
+}
+
+@media only screen and (max-width: $small) {
+    .image-benefits {
+    }
+}
+
 
 .section-pilot-scheme {
     position: relative;
@@ -329,6 +260,9 @@ button.button-cta-outlined {
         font-weight: 400;
         line-height: 42px;
     }
+    .column {
+        margin-bottom: 30px;
+    }
 }
 
 .section-projects {
@@ -341,15 +275,38 @@ button.button-cta-outlined {
     }
 }
 
+
+
+
+/*--------------------------------------------------------------
+# Tiles
+--------------------------------------------------------------*/
 .tile {
+    @include clearfix();
+
+    display: block;
     margin-bottom: 50px;
     padding: 20px;
-    padding-bottom: 50px;
+    cursor: pointer;
+    // transition: all 0.25s cubic-bezier(0.25,0.8,0.25,1);
 }
 
 .tile:hover {
+    // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    // transition: all 0.25s cubic-bezier(0.25,0.8,0.25,1);
     .projects-headline {
         text-decoration: underline;
+    }
+    .image-projects:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0.4;
+        background-image: linear-gradient(to bottom right,#fff, #666);
+        content: "";
+        transition: opacity 0.25s cubic-bezier(0.0, 0.0, 0.2, 1);
     }
 }
 
@@ -365,6 +322,10 @@ button.button-cta-outlined {
     }
 }
 
+.register-form input {
+    display: inline-block;
+}
+
 .heading-register-email {
     font-size: 30px;
     font-style: oblique;
@@ -378,6 +339,7 @@ button.button-cta-outlined {
 }
 
 .projects-headline {
+    margin-bottom: 12px;
     color: $color__jsarc-purple;
     font-size: 24px;
     line-height: 24px;
@@ -389,9 +351,66 @@ button.button-cta-outlined {
 }
 
 .image-projects {
+    overflow: hidden;
+    position: relative;
     max-width: 400px;
     height: 225px;
     margin-bottom: 30px;
     background-image: url("./img/placeholder-thumbnail.png");
     background-size: cover;
+    transition: all 0.25s cubic-bezier(0.0, 0.0, 0.2, 1);
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-image: linear-gradient(to bottom right,#f5f5f5,#000);
+        content: "";
+        transition: opacity 0.25s cubic-bezier(0.0, 0.0, 0.2, 1);
+    }
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# Social Icons
+--------------------------------------------------------------*/
+.social-icons li {
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+
+    a {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border: solid 2px white;
+        border-radius: 50%;
+        background-color: white;
+        line-height: 42px;
+    }
+    a:hover {
+        border: solid 2px white;
+        color: white;
+        background-color: $color__jsarc-purple;
+        transition: all 0.25s cubic-bezier(0.0, 0.0, 0.2, 1);
+        i {
+            color: white;
+        }
+    }
+
+    i {
+        color: $color__jsarc-purple;
+    }
+}
+
+.social-icons li:not(:first-child) {
+    margin-left: 20px;
 }
