@@ -1,3 +1,8 @@
+Parameters:
+  containerImage:
+    Type: String
+    Description: The container to use to launch the service.
+
 Resources:
   ecsFargateCluster: #create an ECS cluster
     Type: AWS::ECS::Cluster

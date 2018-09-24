@@ -19,3 +19,4 @@ wp-content/plugins/hello.php
 .DS_Store
 
 rds_parameters.json
+ecs_parameters.json
