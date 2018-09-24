@@ -21,16 +21,19 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<a href="#content" class="visuallyhidden"><?php esc_html_e( 'Skip to content', 'jsarc' ); ?></a>
+	
 
-	<header>
-		<nav>
-			<button id="menuanchor" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'jsarc' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+
+<!-- <a href="#content" class="visuallyhidden"><?php esc_html_e( 'Skip to content', 'jsarc' ); ?></a>
+
+<header>
+  <nav>
+    <button id="menuanchor" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'jsarc' ); ?></button>
+    <?php
+    wp_nav_menu( array(
+      'theme_location' => 'menu-1',
+      'menu_id'        => 'primary-menu',
+    ) );
+    ?>
+  </nav>
+</header> -->

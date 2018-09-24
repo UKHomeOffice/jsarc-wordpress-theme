@@ -1,6 +1,21 @@
 /*--------------------------------------------------------------
 # button
 --------------------------------------------------------------*/
+button {
+    overflow: visible;
+    box-sizing: content-box;
+    border: 0;
+    color: inherit;
+    background: none;
+    font: inherit;
+    line-height: inherit;
+    vertical-align: inherit;
+    cursor: pointer;
+}
+button:disabled {
+    cursor: default;
+}
+
 button,
 input[type="submit"],
 input[type="button"] {

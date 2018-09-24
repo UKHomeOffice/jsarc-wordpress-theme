@@ -1,3 +1,11 @@
+// reusable variables -- may want to move to project settings.sass file
+
+
+$jsarc__animation-easing: cubic-bezier(0, 0, 0.2, 1);
+$jsarc__animation-timing: 0.25s;
+$jsarc__default-transition: all $jsarc__animation-timing $jsarc__animation-easing;
+
+
 /*--------------------------------------------------------------
 # Select
 --------------------------------------------------------------*/
@@ -160,14 +168,6 @@ textarea {
 /*--------------------------------------------------------------
 # Salesforce Test Page
 --------------------------------------------------------------*/
-.section {
-    box-sizing: border-box;
-    max-width: 1800px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 20px;
-    padding-left: 20px;
-}
 
 .section.section-form {
     padding-top: 100px;
@@ -180,23 +180,29 @@ textarea {
 # Sections
 --------------------------------------------------------------*/
 .section {
-    min-height: 400px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    // box-sizing: border-box;
+    // max-width: 1200px;
+    // min-height: 400px;
+    // margin-right: auto;
+    // margin-left: auto;
+    // padding-top: 100px;
+    // padding-right: 50px;
+    // padding-bottom: 100px;
+    // padding-left: 50px;
 }
 
 .section-background-image {
-    position: absolute;
-    z-index: $bg;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("./img/pilot-scheme-cta-background.png");
-    background-size: cover;
+    // position: absolute;
+    // z-index: $bg;
+    // top: 0;
+    // left: 0;
+    // width: 100%;
+    // height: 100%;
+    // background-image: url("./img/pilot-scheme-cta-background.png");
+    // background-size: cover;
 }
 
-.section-background-image--gradient-right {
+.-gradient-right {
     &:before {
         position: absolute;
         top: 0;
@@ -242,11 +248,6 @@ textarea {
     background-color: $color__jsarc-purple;
 }
 
-@media only screen and (max-width: $small) {
-    .image-benefits {
-    }
-}
-
 
 .section-pilot-scheme {
     position: relative;
@@ -262,6 +263,7 @@ textarea {
     }
     .column {
         margin-bottom: 30px;
+        margin-left: 25px;
     }
 }
 
@@ -276,8 +278,6 @@ textarea {
 }
 
 
-
-
 /*--------------------------------------------------------------
 # Tiles
 --------------------------------------------------------------*/
@@ -285,15 +285,20 @@ textarea {
     @include clearfix();
 
     display: block;
+    min-width: 400px;
     margin-bottom: 50px;
-    padding: 20px;
+    padding: 0;
+    padding-left: 50px;
     cursor: pointer;
-    // transition: all 0.25s cubic-bezier(0.25,0.8,0.25,1);
 }
 
+@media only screen and (max-width: $small) {
+    .tile {
+        min-width: 300px;
+        margin-left: 0;
+    }
+}
 .tile:hover {
-    // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    // transition: all 0.25s cubic-bezier(0.25,0.8,0.25,1);
     .projects-headline {
         text-decoration: underline;
     }
@@ -304,13 +309,11 @@ textarea {
         bottom: 0;
         left: 0;
         opacity: 0.4;
-        background-image: linear-gradient(to bottom right,#fff, #666);
+        background-image: linear-gradient(to bottom right,#666, #000);
         content: "";
-        transition: opacity 0.25s cubic-bezier(0.0, 0.0, 0.2, 1);
+        transition: opacity 0.25s cubic-bezier(0, 0, 0.2, 1);
     }
 }
-
-
 
 .section-register {
     color: white;
@@ -322,8 +325,72 @@ textarea {
     }
 }
 
-.register-form input {
-    display: inline-block;
+.register__form {
+    input {
+        display: inline-block;
+        font-size: 19px;
+        line-height: 42px;
+    }
+
+    .register__label {
+        font-size: 19px;
+        line-height: 42px;
+        transition: $jsarc__default-transition;
+    }
+
+    .register__input-email {
+        min-width: 300px;
+        border: 0;
+        border-bottom: solid 2px white;
+        color: white;
+        background-color: transparent;
+    }
+
+
+    .register__input-email:focus {
+        background-color: rgba(255,255,255,0.2);
+    }
+
+    // styles for floating input
+    // TODO: refactor to generic floating input styles to allow re-use
+    .register__input-email:focus + .register__label,
+    .register__input-email:valid + .register__label {
+        text-align: left;
+        transition: $jsarc__default-transition;
+        -webkit-transform: translateY(-80%) translateX(-10%) scale(0.75, 0.75);
+        transform: translateY(-80%) translateX(-10%) scale(0.75, 0.75);
+    }
+
+    .register__submit-button {
+        height: 54px;
+        border-bottom: solid 2px transparent;
+        color: transparent;
+        background-color: transparent;
+        background-image: url("./img/icons/arrow-right-white.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 40px 40px;
+    }
+
+    .register__submit-button:hover,
+    .register__submit-button:focus {
+        background-color: rgba(255,255,255,0.2);
+        transition: $jsarc__default-transition;
+    }
+    .register__submit-button:active {
+        background-position: 60% center;
+        transition: $jsarc__default-transition;
+    }
+}
+
+
+// Floating input styles
+.floating-label-input {
+    position: relative;
+}
+.floating-label-input label {
+    position: absolute;
+    left: 0;
 }
 
 .heading-register-email {
@@ -358,7 +425,7 @@ textarea {
     margin-bottom: 30px;
     background-image: url("./img/placeholder-thumbnail.png");
     background-size: cover;
-    transition: all 0.25s cubic-bezier(0.0, 0.0, 0.2, 1);
+    transition: $jsarc__default-transition;
     &:before {
         position: absolute;
         top: 0;
@@ -370,14 +437,9 @@ textarea {
         opacity: 0;
         background-image: linear-gradient(to bottom right,#f5f5f5,#000);
         content: "";
-        transition: opacity 0.25s cubic-bezier(0.0, 0.0, 0.2, 1);
+        transition: opacity 0.25s cubic-bezier(0, 0, 0.2, 1);
     }
 }
-
-
-
-
-
 
 /*--------------------------------------------------------------
 # Social Icons
