@@ -21,7 +21,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
+# Mixins
 # Reset
+# Settings
 # Colors
 # Grid
 # Base
@@ -32,6 +34,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Reset
 --------------------------------------------------------------*/
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -92,7 +99,7 @@ th {
 }
 
 table {
-    border-spacing: 0; 
+    border-spacing: 0;
     border-collapse: collapse;
 }
 
@@ -128,7 +135,7 @@ button {
     background: none;
     font: inherit;
     line-height: inherit;
-    vertical-align: inherit; 
+    vertical-align: inherit;
     cursor: pointer;
 }
 button:disabled {
@@ -155,13 +162,16 @@ select,
 button {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: left; 
+    text-align: left;
 
     font-synthesis: none;
     -moz-font-feature-settings: "kern";
     direction: ltr;
 }
 
+/*--------------------------------------------------------------
+# Settings
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Colors
 --------------------------------------------------------------*/
@@ -1031,7 +1041,7 @@ button {
     width: 1px;
     height: 1px;
     padding: 0;
-    border: 0; 
+    border: 0;
 
     -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
     clip-path: inset(0px 0px 99.9% 99.9%);
@@ -1045,7 +1055,7 @@ button {
     border-radius: 6px;
     background-color: #fff;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     font-size: 0.8em;
     line-height: 1.8em;
 }
@@ -1053,6 +1063,22 @@ button {
 .post-edit-link:active {
     -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.section-footer {
+    background-color: #dcdcdc;
+}
+.section-footer a:hover {
+    text-decoration: underline;
+}
+.section-footer .organisation-logo {
+    max-width: 187px;
+    height: 80px;
+    background: url("./img/home-office-logo.png");
+    background-size: contain;
 }
 
 /*--------------------------------------------------------------
@@ -1064,10 +1090,16 @@ input,
 select,
 optgroup,
 textarea {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 17px;
-    font-weight: 400; 
+    font-weight: 400;
     line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 400;
 }
 
 h1 + *,
@@ -1192,7 +1224,7 @@ li li {
     display: inline;
     display: inline-block;
     position: relative;
-    border: 0.1em solid #000; 
+    border: 0.1em solid #000;
     background-color: #fff;
 }
 .select-wrap:after {
@@ -1210,7 +1242,7 @@ li li {
 .select-wrap select {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 0; 
+    margin: 0;
     border: none;
     outline: 0;
     background: 0 0;
@@ -1242,7 +1274,7 @@ li li {
 input[type="checkbox"] {
     display: inline-block;
     position: relative;
-    margin-right: 1.5em; 
+    margin-right: 1.5em;
     vertical-align: middle;
 
     -webkit-appearance: none;
@@ -1250,13 +1282,13 @@ input[type="checkbox"] {
 }
 input[type="checkbox"]:before {
     display: block;
-    position: absolute; 
+    position: absolute;
     content: "";
 }
 input[type="checkbox"]:checked:after {
     display: block;
     position: absolute;
-    border-style: solid; 
+    border-style: solid;
     content: "";
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
@@ -1289,7 +1321,7 @@ textarea {
     border: none;
     outline: 0;
     background: 0 0;
-    background-color: #fff; 
+    background-color: #fff;
     -webkit-box-shadow: none;
     box-shadow: none;
     font-size: inherit;
@@ -1303,7 +1335,7 @@ input[type="email"],
 input[type="password"],
 textarea {
     -webkit-box-sizing: border-box;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     min-width: 250px;
     max-width: 100%;
     padding: 5px;
@@ -1325,7 +1357,7 @@ input[type="button"] {
     -webkit-box-shadow: none;
     box-shadow: none;
     font-size: inherit;
-    cursor: pointer; 
+    cursor: pointer;
 
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -1339,8 +1371,8 @@ input[type="button"] {
     padding: 0 2em;
     color: #fff;
     background-color: #000;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); 
+    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     line-height: 2em;
 }
 
@@ -1350,8 +1382,80 @@ input[type="submit"]:active,
 input[type="submit"]:focus,
 input[type="button"]:active,
 input[type="button"]:focus {
-    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.button.button-cta-outlined,
+button.button-cta-outlined {
+    display: inline-block;
+    min-width: 238px;
+    margin: 2px 0;
+    padding: 0;
+    padding: 5px 30px;
+    padding: 0.5em 1em;
+    border: none;
+    border: 2px solid #fff;
+    color: inherit;
+    color: #fff;
+    background-color: transparent;
+    font: inherit;
+    font-size: 19px;
+    line-height: 28px;
+    text-align: center;
+    text-decoration: none; 
+    cursor: pointer;
+}
+
+/**
+  * Button component
+  */
+.button {
+    display: inline-block;
+    margin: 2px 0;
+    padding: 0;
+    padding: 0.5em 1em;
+    border: none;
+    border: solid 1px transparent;
+    color: inherit;
+    color: #fff;
+    background-color: transparent;
+    font: inherit;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+.button:active {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+
+    -webkit-filter: saturate(150%);
+    filter: saturate(150%);
+}
+
+.button:hover {
+    border-color: currentColor;
+    color: #000;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+.button::-moz-focus-inner {
+    border: none;
+}
+
+.button:focus {
+    outline: none;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.js-focus-visible .button:focus:not(.focus-visible) {
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 /*--------------------------------------------------------------
@@ -1386,7 +1490,7 @@ input[type="button"]:focus {
 --------------------------------------------------------------*/
 .section {
     -webkit-box-sizing: border-box;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     max-width: 1800px;
     margin-right: auto;
     margin-left: auto;
@@ -1397,6 +1501,116 @@ input[type="button"]:focus {
 .section.section-form {
     padding-top: 100px;
     padding-bottom: 100px;
+}
+
+/*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+.section {
+    min-height: 400px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.section-background-overlay {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-color: #333;
+}
+
+.section-background-image {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./img/pilot-scheme-cta-background.png");
+    background-size: cover;
+}
+
+.section-content {
+    z-index: 10;
+}
+
+.section-pilot-scheme {
+    position: relative;
+    background-color: #4a4a4a;
+}
+.section-pilot-scheme h2 {
+    margin-bottom: 100px;
+    color: #fff;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 42px;
+}
+
+.section-projects {
+    padding-top: 50px;
+}
+.section-projects h2 {
+    margin-bottom: 50px;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+}
+
+.tile {
+    margin-bottom: 50px;
+    padding: 20px;
+    padding-bottom: 50px;
+}
+
+.tile:hover .projects-headline {
+    text-decoration: underline;
+}
+
+.section-register {
+    color: white;
+    background-color: #972d45;
+}
+.section-register h2,
+.section-register h3,
+.section-register p {
+    color: white;
+}
+
+.heading-register-email {
+    font-size: 30px;
+    font-style: oblique;
+    line-height: 42px;
+}
+
+.heading-stay-connected {
+    font-size: 24px;
+    font-style: oblique;
+    line-height: 42px;
+}
+
+.projects-headline {
+    color: #972d45;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.projects-intro {
+    font-size: 19px;
+    line-height: 24px;
+}
+
+.image-projects {
+    max-width: 400px;
+    height: 225px;
+    margin-bottom: 30px;
+    background-image: url("./img/placeholder-thumbnail.png");
+    background-size: cover;
 }
 
 /*--------------------------------------------------------------

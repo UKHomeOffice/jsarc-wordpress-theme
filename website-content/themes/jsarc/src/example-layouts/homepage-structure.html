@@ -1,0 +1,1087 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+} .row {
+    position: relative;
+    z-index: 1;
+} .row::before,
+.row::after {
+    display: table;
+    content: " ";;
+} .row::after {
+    clear: both;
+} .column {
+    float: left;
+    position: relative;
+    z-index: 1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 2px;
+    margin: 0;
+    padding: 0;;
+} .large-offset-0 {
+    margin-left: 0;
+} .large-push-0 {
+    right: auto;
+    left: auto;;
+} .large-pull-0 {
+    right: auto;
+    left: auto;
+} .large-1 {
+    width: 8.33333%;
+} .large-offset-1 {
+    margin-left: 8.33333%;
+} .large-push-1 {
+    right: auto;
+    left: 8.33333%;;
+} .large-pull-1 {
+    right: 8.33333%;
+    left: auto;
+} .large-2 {
+    width: 16.66667%;
+} .large-offset-2 {
+    margin-left: 16.66667%;
+} .large-push-2 {
+    right: auto;
+    left: 16.66667%;;
+} .large-pull-2 {
+    right: 16.66667%;
+    left: auto;
+} .large-3 {
+    width: 25%;
+} .large-offset-3 {
+    margin-left: 25%;
+} .large-push-3 {
+    right: auto;
+    left: 25%;;
+} .large-pull-3 {
+    right: 25%;
+    left: auto;
+} .large-4 {
+    width: 33.33333%;
+} .large-offset-4 {
+    margin-left: 33.33333%;
+} .large-push-4 {
+    right: auto;
+    left: 33.33333%;;
+} .large-pull-4 {
+    right: 33.33333%;
+    left: auto;
+} .large-5 {
+    width: 41.66667%;
+} .large-offset-5 {
+    margin-left: 41.66667%;
+} .large-push-5 {
+    right: auto;
+    left: 41.66667%;;
+} .large-pull-5 {
+    right: 41.66667%;
+    left: auto;
+} .large-6 {
+    width: 50%;
+} .large-offset-6 {
+    margin-left: 50%;
+} .large-push-6 {
+    right: auto;
+    left: 50%;;
+} .large-pull-6 {
+    right: 50%;
+    left: auto;
+} .large-7 {
+    width: 58.33333%;
+} .large-offset-7 {
+    margin-left: 58.33333%;
+} .large-push-7 {
+    right: auto;
+    left: 58.33333%;;
+} .large-pull-7 {
+    right: 58.33333%;
+    left: auto;
+} .large-8 {
+    width: 66.66667%;
+} .large-offset-8 {
+    margin-left: 66.66667%;
+} .large-push-8 {
+    right: auto;
+    left: 66.66667%;;
+} .large-pull-8 {
+    right: 66.66667%;
+    left: auto;
+} .large-9 {
+    width: 75%;
+} .large-offset-9 {
+    margin-left: 75%;
+} .large-push-9 {
+    right: auto;
+    left: 75%;;
+} .large-pull-9 {
+    right: 75%;
+    left: auto;
+} .large-10 {
+    width: 83.33333%;
+} .large-offset-10 {
+    margin-left: 83.33333%;
+} .large-push-10 {
+    right: auto;
+    left: 83.33333%;;
+} .large-pull-10 {
+    right: 83.33333%;
+    left: auto;
+} .large-11 {
+    width: 91.66667%;
+} .large-offset-11 {
+    margin-left: 91.66667%;
+} .large-push-11 {
+    right: auto;
+    left: 91.66667%;;
+} .large-pull-11 {
+    right: 91.66667%;
+    left: auto;
+} .large-12 {
+    width: 100%;
+} .large-offset-12 {
+    margin-left: 100%;
+} .large-push-12 {
+    right: auto;
+    left: 100%;;
+} .large-pull-12 {
+    right: 100%;
+    left: auto;
+} .large-centered {
+    float: none;
+    margin-right: auto;
+    margin-left: auto;;
+} .large-uncentered {
+    margin-right: 0;
+    margin-left: 0;;
+} .large-last {
+    float: right;
+} .large-notlast {
+    float: left;
+} @media only screen and (min-width: 1800px) {
+    .xlarge-offset-0 {
+        margin-left: 0;
+    } .xlarge-push-0 {
+        right: auto;
+        left: auto;;
+    } .xlarge-pull-0 {
+        right: auto;
+        left: auto;
+    } .xlarge-1 {
+        width: 8.33333%;
+    } .xlarge-offset-1 {
+        margin-left: 8.33333%;
+    } .xlarge-push-1 {
+        right: auto;
+        left: 8.33333%;;
+    } .xlarge-pull-1 {
+        right: 8.33333%;
+        left: auto;
+    } .xlarge-2 {
+        width: 16.66667%;
+    } .xlarge-offset-2 {
+        margin-left: 16.66667%;
+    } .xlarge-push-2 {
+        right: auto;
+        left: 16.66667%;;
+    } .xlarge-pull-2 {
+        right: 16.66667%;
+        left: auto;
+    } .xlarge-3 {
+        width: 25%;
+    } .xlarge-offset-3 {
+        margin-left: 25%;
+    } .xlarge-push-3 {
+        right: auto;
+        left: 25%;;
+    } .xlarge-pull-3 {
+        right: 25%;
+        left: auto;
+    } .xlarge-4 {
+        width: 33.33333%;
+    } .xlarge-offset-4 {
+        margin-left: 33.33333%;
+    } .xlarge-push-4 {
+        right: auto;
+        left: 33.33333%;;
+    } .xlarge-pull-4 {
+        right: 33.33333%;
+        left: auto;
+    } .xlarge-5 {
+        width: 41.66667%;
+    } .xlarge-offset-5 {
+        margin-left: 41.66667%;
+    } .xlarge-push-5 {
+        right: auto;
+        left: 41.66667%;;
+    } .xlarge-pull-5 {
+        right: 41.66667%;
+        left: auto;
+    } .xlarge-6 {
+        width: 50%;
+    } .xlarge-offset-6 {
+        margin-left: 50%;
+    } .xlarge-push-6 {
+        right: auto;
+        left: 50%;;
+    } .xlarge-pull-6 {
+        right: 50%;
+        left: auto;
+    } .xlarge-7 {
+        width: 58.33333%;
+    } .xlarge-offset-7 {
+        margin-left: 58.33333%;
+    } .xlarge-push-7 {
+        right: auto;
+        left: 58.33333%;;
+    } .xlarge-pull-7 {
+        right: 58.33333%;
+        left: auto;
+    } .xlarge-8 {
+        width: 66.66667%;
+    } .xlarge-offset-8 {
+        margin-left: 66.66667%;
+    } .xlarge-push-8 {
+        right: auto;
+        left: 66.66667%;;
+    } .xlarge-pull-8 {
+        right: 66.66667%;
+        left: auto;
+    } .xlarge-9 {
+        width: 75%;
+    } .xlarge-offset-9 {
+        margin-left: 75%;
+    } .xlarge-push-9 {
+        right: auto;
+        left: 75%;;
+    } .xlarge-pull-9 {
+        right: 75%;
+        left: auto;
+    } .xlarge-10 {
+        width: 83.33333%;
+    } .xlarge-offset-10 {
+        margin-left: 83.33333%;
+    } .xlarge-push-10 {
+        right: auto;
+        left: 83.33333%;;
+    } .xlarge-pull-10 {
+        right: 83.33333%;
+        left: auto;
+    } .xlarge-11 {
+        width: 91.66667%;
+    } .xlarge-offset-11 {
+        margin-left: 91.66667%;
+    } .xlarge-push-11 {
+        right: auto;
+        left: 91.66667%;;
+    } .xlarge-pull-11 {
+        right: 91.66667%;
+        left: auto;
+    } .xlarge-12 {
+        width: 100%;
+    } .xlarge-offset-12 {
+        margin-left: 100%;
+    } .xlarge-push-12 {
+        right: auto;
+        left: 100%;;
+    } .xlarge-pull-12 {
+        right: 100%;
+        left: auto;
+    } .xlarge-centered {
+        float: none;
+        margin-right: auto;
+        margin-left: auto;;
+    } .xlarge-uncentered {
+        margin-right: 0;
+        margin-left: 0;;
+    } .xlarge-last {
+        float: right;
+    } .xlarge-notlast {
+        float: left;
+    }
+} @media only screen and (max-width: 1068px) {
+    .medium-offset-0 {
+        margin-left: 0;
+    } .medium-push-0 {
+        right: auto;
+        left: auto;;
+    } .medium-pull-0 {
+        right: auto;
+        left: auto;
+    } .medium-1 {
+        width: 8.33333%;
+    } .medium-offset-1 {
+        margin-left: 8.33333%;
+    } .medium-push-1 {
+        right: auto;
+        left: 8.33333%;;
+    } .medium-pull-1 {
+        right: 8.33333%;
+        left: auto;
+    } .medium-2 {
+        width: 16.66667%;
+    } .medium-offset-2 {
+        margin-left: 16.66667%;
+    } .medium-push-2 {
+        right: auto;
+        left: 16.66667%;;
+    } .medium-pull-2 {
+        right: 16.66667%;
+        left: auto;
+    } .medium-3 {
+        width: 25%;
+    } .medium-offset-3 {
+        margin-left: 25%;
+    } .medium-push-3 {
+        right: auto;
+        left: 25%;;
+    } .medium-pull-3 {
+        right: 25%;
+        left: auto;
+    } .medium-4 {
+        width: 33.33333%;
+    } .medium-offset-4 {
+        margin-left: 33.33333%;
+    } .medium-push-4 {
+        right: auto;
+        left: 33.33333%;;
+    } .medium-pull-4 {
+        right: 33.33333%;
+        left: auto;
+    } .medium-5 {
+        width: 41.66667%;
+    } .medium-offset-5 {
+        margin-left: 41.66667%;
+    } .medium-push-5 {
+        right: auto;
+        left: 41.66667%;;
+    } .medium-pull-5 {
+        right: 41.66667%;
+        left: auto;
+    } .medium-6 {
+        width: 50%;
+    } .medium-offset-6 {
+        margin-left: 50%;
+    } .medium-push-6 {
+        right: auto;
+        left: 50%;;
+    } .medium-pull-6 {
+        right: 50%;
+        left: auto;
+    } .medium-7 {
+        width: 58.33333%;
+    } .medium-offset-7 {
+        margin-left: 58.33333%;
+    } .medium-push-7 {
+        right: auto;
+        left: 58.33333%;;
+    } .medium-pull-7 {
+        right: 58.33333%;
+        left: auto;
+    } .medium-8 {
+        width: 66.66667%;
+    } .medium-offset-8 {
+        margin-left: 66.66667%;
+    } .medium-push-8 {
+        right: auto;
+        left: 66.66667%;;
+    } .medium-pull-8 {
+        right: 66.66667%;
+        left: auto;
+    } .medium-9 {
+        width: 75%;
+    } .medium-offset-9 {
+        margin-left: 75%;
+    } .medium-push-9 {
+        right: auto;
+        left: 75%;;
+    } .medium-pull-9 {
+        right: 75%;
+        left: auto;
+    } .medium-10 {
+        width: 83.33333%;
+    } .medium-offset-10 {
+        margin-left: 83.33333%;
+    } .medium-push-10 {
+        right: auto;
+        left: 83.33333%;;
+    } .medium-pull-10 {
+        right: 83.33333%;
+        left: auto;
+    } .medium-11 {
+        width: 91.66667%;
+    } .medium-offset-11 {
+        margin-left: 91.66667%;
+    } .medium-push-11 {
+        right: auto;
+        left: 91.66667%;;
+    } .medium-pull-11 {
+        right: 91.66667%;
+        left: auto;
+    } .medium-12 {
+        width: 100%;
+    } .medium-offset-12 {
+        margin-left: 100%;
+    } .medium-push-12 {
+        right: auto;
+        left: 100%;;
+    } .medium-pull-12 {
+        right: 100%;
+        left: auto;
+    } .medium-centered {
+        float: none;
+        margin-right: auto;
+        margin-left: auto;;
+    } .medium-uncentered {
+        margin-right: 0;
+        margin-left: 0;;
+    } .medium-last {
+        float: right;
+    } .medium-notlast {
+        float: left;
+    }
+} @media only screen and (max-width: 735px) {
+    .small-offset-0 {
+        margin-left: 0;
+    } .small-push-0 {
+        right: auto;
+        left: auto;;
+    } .small-pull-0 {
+        right: auto;
+        left: auto;
+    } .small-1 {
+        width: 8.33333%;
+    } .small-offset-1 {
+        margin-left: 8.33333%;
+    } .small-push-1 {
+        right: auto;
+        left: 8.33333%;;
+    } .small-pull-1 {
+        right: 8.33333%;
+        left: auto;
+    } .small-2 {
+        width: 16.66667%;
+    } .small-offset-2 {
+        margin-left: 16.66667%;
+    } .small-push-2 {
+        right: auto;
+        left: 16.66667%;;
+    } .small-pull-2 {
+        right: 16.66667%;
+        left: auto;
+    } .small-3 {
+        width: 25%;
+    } .small-offset-3 {
+        margin-left: 25%;
+    } .small-push-3 {
+        right: auto;
+        left: 25%;;
+    } .small-pull-3 {
+        right: 25%;
+        left: auto;
+    } .small-4 {
+        width: 33.33333%;
+    } .small-offset-4 {
+        margin-left: 33.33333%;
+    } .small-push-4 {
+        right: auto;
+        left: 33.33333%;;
+    } .small-pull-4 {
+        right: 33.33333%;
+        left: auto;
+    } .small-5 {
+        width: 41.66667%;
+    } .small-offset-5 {
+        margin-left: 41.66667%;
+    } .small-push-5 {
+        right: auto;
+        left: 41.66667%;;
+    } .small-pull-5 {
+        right: 41.66667%;
+        left: auto;
+    } .small-6 {
+        width: 50%;
+    } .small-offset-6 {
+        margin-left: 50%;
+    } .small-push-6 {
+        right: auto;
+        left: 50%;;
+    } .small-pull-6 {
+        right: 50%;
+        left: auto;
+    } .small-7 {
+        width: 58.33333%;
+    } .small-offset-7 {
+        margin-left: 58.33333%;
+    } .small-push-7 {
+        right: auto;
+        left: 58.33333%;;
+    } .small-pull-7 {
+        right: 58.33333%;
+        left: auto;
+    } .small-8 {
+        width: 66.66667%;
+    } .small-offset-8 {
+        margin-left: 66.66667%;
+    } .small-push-8 {
+        right: auto;
+        left: 66.66667%;;
+    } .small-pull-8 {
+        right: 66.66667%;
+        left: auto;
+    } .small-9 {
+        width: 75%;
+    } .small-offset-9 {
+        margin-left: 75%;
+    } .small-push-9 {
+        right: auto;
+        left: 75%;;
+    } .small-pull-9 {
+        right: 75%;
+        left: auto;
+    } .small-10 {
+        width: 83.33333%;
+    } .small-offset-10 {
+        margin-left: 83.33333%;
+    } .small-push-10 {
+        right: auto;
+        left: 83.33333%;;
+    } .small-pull-10 {
+        right: 83.33333%;
+        left: auto;
+    } .small-11 {
+        width: 91.66667%;
+    } .small-offset-11 {
+        margin-left: 91.66667%;
+    } .small-push-11 {
+        right: auto;
+        left: 91.66667%;;
+    } .small-pull-11 {
+        right: 91.66667%;
+        left: auto;
+    } .small-12 {
+        width: 100%;
+    } .small-offset-12 {
+        margin-left: 100%;
+    } .small-push-12 {
+        right: auto;
+        left: 100%;;
+    } .small-pull-12 {
+        right: 100%;
+        left: auto;
+    } .small-centered {
+        float: none;
+        margin-right: auto;
+        margin-left: auto;;
+    } .small-uncentered {
+        margin-right: 0;
+        margin-left: 0;;
+    } .small-last {
+        float: right;
+    } .small-notlast {
+        float: left;
+    }
+} @media only screen and (max-width: 320px) {
+    .xsmall-offset-0 {
+        margin-left: 0;
+    } .xsmall-push-0 {
+        right: auto;
+        left: auto;;
+    } .xsmall-pull-0 {
+        right: auto;
+        left: auto;
+    } .xsmall-1 {
+        width: 8.33333%;
+    } .xsmall-offset-1 {
+        margin-left: 8.33333%;
+    } .xsmall-push-1 {
+        right: auto;
+        left: 8.33333%;;
+    } .xsmall-pull-1 {
+        right: 8.33333%;
+        left: auto;
+    } .xsmall-2 {
+        width: 16.66667%;
+    } .xsmall-offset-2 {
+        margin-left: 16.66667%;
+    } .xsmall-push-2 {
+        right: auto;
+        left: 16.66667%;;
+    } .xsmall-pull-2 {
+        right: 16.66667%;
+        left: auto;
+    } .xsmall-3 {
+        width: 25%;
+    } .xsmall-offset-3 {
+        margin-left: 25%;
+    } .xsmall-push-3 {
+        right: auto;
+        left: 25%;;
+    } .xsmall-pull-3 {
+        right: 25%;
+        left: auto;
+    } .xsmall-4 {
+        width: 33.33333%;
+    } .xsmall-offset-4 {
+        margin-left: 33.33333%;
+    } .xsmall-push-4 {
+        right: auto;
+        left: 33.33333%;;
+    } .xsmall-pull-4 {
+        right: 33.33333%;
+        left: auto;
+    } .xsmall-5 {
+        width: 41.66667%;
+    } .xsmall-offset-5 {
+        margin-left: 41.66667%;
+    } .xsmall-push-5 {
+        right: auto;
+        left: 41.66667%;;
+    } .xsmall-pull-5 {
+        right: 41.66667%;
+        left: auto;
+    } .xsmall-6 {
+        width: 50%;
+    } .xsmall-offset-6 {
+        margin-left: 50%;
+    } .xsmall-push-6 {
+        right: auto;
+        left: 50%;;
+    } .xsmall-pull-6 {
+        right: 50%;
+        left: auto;
+    } .xsmall-7 {
+        width: 58.33333%;
+    } .xsmall-offset-7 {
+        margin-left: 58.33333%;
+    } .xsmall-push-7 {
+        right: auto;
+        left: 58.33333%;;
+    } .xsmall-pull-7 {
+        right: 58.33333%;
+        left: auto;
+    } .xsmall-8 {
+        width: 66.66667%;
+    } .xsmall-offset-8 {
+        margin-left: 66.66667%;
+    } .xsmall-push-8 {
+        right: auto;
+        left: 66.66667%;;
+    } .xsmall-pull-8 {
+        right: 66.66667%;
+        left: auto;
+    } .xsmall-9 {
+        width: 75%;
+    } .xsmall-offset-9 {
+        margin-left: 75%;
+    } .xsmall-push-9 {
+        right: auto;
+        left: 75%;;
+    } .xsmall-pull-9 {
+        right: 75%;
+        left: auto;
+    } .xsmall-10 {
+        width: 83.33333%;
+    } .xsmall-offset-10 {
+        margin-left: 83.33333%;
+    } .xsmall-push-10 {
+        right: auto;
+        left: 83.33333%;;
+    } .xsmall-pull-10 {
+        right: 83.33333%;
+        left: auto;
+    } .xsmall-11 {
+        width: 91.66667%;
+    } .xsmall-offset-11 {
+        margin-left: 91.66667%;
+    } .xsmall-push-11 {
+        right: auto;
+        left: 91.66667%;;
+    } .xsmall-pull-11 {
+        right: 91.66667%;
+        left: auto;
+    } .xsmall-12 {
+        width: 100%;
+    } .xsmall-offset-12 {
+        margin-left: 100%;
+    } .xsmall-push-12 {
+        right: auto;
+        left: 100%;;
+    } .xsmall-pull-12 {
+        right: 100%;
+        left: auto;
+    } .xsmall-centered {
+        float: none;
+        margin-right: auto;
+        margin-left: auto;;
+    } .xsmall-uncentered {
+        margin-right: 0;
+        margin-left: 0;;
+    } .xsmall-last {
+        float: right;
+    } .xsmall-notlast {
+        float: left;
+    }
+}
+
+
+/*------------------------------------
+
+Default properties for each section
+
+------------------------------------*/
+
+
+
+.section-content {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-content {
+        width: 692px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-content {
+        width: 90%;
+    }
+}
+
+
+
+/*------------------------------------
+
+Customising each section
+
+------------------------------------*/
+
+.section-hero {
+    background: green;
+}
+
+.section-hero .section-content {
+    padding: 66px 0 100px;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-hero .section-content {
+        padding: 40px 0 60px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-hero .section-content {
+        padding: 30px 0 50px;
+    }
+}
+
+
+
+
+.section-benefits {
+    background: yellow;
+}
+
+.section-benefits .section-content {
+    padding: 100px 0 200px;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-benefits .section-content {
+        padding: 80px 0 100px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-benefits .section-content {
+        padding: 60px 0 80px;
+    }
+}
+
+
+
+.brand-logo {
+    display: block;
+    overflow: hidden;
+    width: 200px;
+    height: 100px;
+    background-image: url();
+    text-indent: -9999px;
+}
+
+
+.social-icons .icon {
+    width: 50px;
+    height: 50px;
+    background-image: url(...);
+    background-position: 0 0;
+    background-size: 100px 100px;
+}
+
+.social-icons .icon.facebook {
+    background-position: 0 -50px;
+}
+
+.social-icons .icon.youtube {
+    background-position: 0 -100px;
+}
+
+.social-icons .icon.youtube:hover {
+    background-position: 50px -100px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="primary-nav-wrapper">
+	<nav id="primaryNav" class="primary-nav">
+		<div class="nav-content">
+			<a class="brand-logo" href="/">JSaRC</a>
+			
+			<ul class="menu">
+				<li class="menu-item dropdown">
+					<a class="menu-item-link" href="">Our Work</a>
+					<ul class="submenu">
+						<li class="submenu-item"><a class="submenu-item-link" href="">Video analytics showcase</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">Coaches and cars</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">Overseas protect & prepare</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">High footfall screening</a></li>
+						<li class="submenu-item"><a class="submenu-item-link current" href="">Completed projects</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">How to get involved</a></li>
+					</ul>
+				</li>
+				<li class="menu-item dropdown">
+					<a class="menu-item-link" href="">National Security Priorities</a>
+					<ul class="submenu">
+						<li class="submenu-item"><a class="submenu-item-link" href="">Video analytics showcase</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">Coaches and cars</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">Overseas protect & prepare</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">High footfall screening</a></li>
+						<li class="submenu-item"><a class="submenu-item-link current" href="">Completed projects</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">How to get involved</a></li>
+					</ul>
+				</li>
+				<li class="menu-item"><a class="menu-item-link" href="">News</a></li>
+				<li class="menu-item"><a class="menu-item-link" href="">Open Days</a></li>
+				<li class="menu-item dropdown">
+					<a class="menu-item-link" href="">About JSaRC</a>
+					<ul class="submenu">
+						<li class="submenu-item"><a class="submenu-item-link" href="">Video analytics showcase</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">Coaches and cars</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">Overseas protect & prepare</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">High footfall screening</a></li>
+						<li class="submenu-item"><a class="submenu-item-link current" href="">Completed projects</a></li>
+						<li class="submenu-item"><a class="submenu-item-link" href="">How to get involved</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="search-jsarc">
+				<form id="" action="" method="post">
+					<input id="primaryNavSearch" type="search" name="search" placeholder="Search JSaRC" />
+					<input type="submit" value="Search JSaRC" onclick="" />
+				</form>
+			</div>
+			
+			<button class="menu-anchor"><span>Open Menu</span></button>
+			<button id="searchAnchor" class="search-anchor"><span>Search</span></button>
+			
+		</div>
+	</nav>
+</div>
+
+<section class="section section-hero">
+	<figure class="section-background-image"></figure>
+	<div class="content-wrapper">
+		<div class="section-content">
+			<div class="row">
+				<div class="column large-6 small-12">
+					<h1 class="section-headline">Joint Security and Resilience centre</h1>
+					<p class="intro">The Joint Security and Resilience Centre (JSaRC) helps the UK government and suppliers from the security sector to work closely together - making it quicker and simpler to bring customers and solutions together.</p>
+					<a class="button more" href="">Call to Action</a>
+				</div>
+				<div class="column large-6 small-12">
+					<a id="videoOverlayTrigger" class="video-thumbnail" href="">
+						<figure class="video-thumbnail-image"></figure>
+					</a>
+					<p class="video-thumbnail-caption">Lorem ipsum dolor sit amet</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- <section class="section section-benefits">
+	<div class="section-content">
+		<h2 class="section-headline">Benefits of working with JSaRC</h2>
+		<div class="row">
+			<div class="column large-4 small-12">
+				<figure class="image-benefits"></figure>
+				<h3 class="benefits-caption-headline">Industry Connections</h3>
+			</div>
+			<div class="column large-4 small-12">
+				<figure class="image-benefits"></figure>
+				<h3 class="benefits-caption-headline">Funding opportunities</h3>
+			</div>
+			<div class="column large-4 small-12">
+				<figure class="image-benefits"></figure>
+				<h3 class="benefits-caption-headline">Applications Support</h3>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+
+
+<!-- START: Section Benefits -->
+<section class="section section-benefits">
+	<div class="section-content">
+		<h2 class="section-headline">Benefits of working with JSaRC</h2>
+		<div class="row">
+			<div class="column large-3 small-12">
+				<figure class="image-benefits"></figure>
+				<h3 class="benefits-caption-headline">Industry Connections</h3>
+			</div>
+			<div class="column large-3 small-12">
+				<figure class="image-benefits"></figure>
+				<h3 class="benefits-caption-headline">Funding opportunities</h3>
+			</div>
+			<div class="column large-3 small-12">
+				<figure class="image-benefits"></figure>
+				<h3 class="benefits-caption-headline">Applications Support</h3>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Section Benefits-->
+
+<!-- START: High footfall pilot section -->
+<section class="section section-pilot-scheme">
+  <figure class="section-background-image section-background-image--gradient-right"></figure>
+  <div class="section-content">
+    <div class="column large-push-6 large-6 small-push-0 small-12">
+      <h2 class="section-headline">High Footfall Pilot Scheme</h2>
+      <a class="button button-cta-outlined" href="">Read Project</a>
+    </div>
+  </div>
+  </section>
+<!-- END: High footfall pilot section -->
+
+<!-- START: Other projects section -->
+<section class="section section-projects">
+  <div class="section-content">
+    <div class="row">
+      <h2>Other Projects</h2>
+    </div>
+    <div class="row large-offset-1 small-offset-0 small-12">
+      <div class="column large-5 small-12">
+        <a class="tile" href="#">
+        <figure class="image-projects"></figure>
+        <h3 class="projects-headline">Heading text here</h3><span class="projects-intro">Body text here</span></a>
+      </div>
+      <div class="column large-5 small-12">
+        <a class="tile" href="#">
+        <figure class="image-projects"></figure>
+        <h3 class="projects-headline">Heading text here</h3><span class="projects-intro">Body text here</span></a>
+      </div>
+    </div>
+    <div class="row large-offset-1 small-offset-0">
+      <div class="column large-5 small-12">
+        <a class="tile" href="#">
+          <figure class="image-projects"></figure>
+          <h3 class="projects-headline">Heading text here</h3><span class="projects-intro">Body text here</span></a>
+      </div>
+      <div class="column large-5 small-12">
+        <a class="tile" href="#">
+        <figure class="image-projects"></figure>
+        <h3 class="projects-headline">Heading text here</h3><span class="projects-intro">Body text here</span></a>
+      </div>
+    </div>
+  </div>
+</section><!-- END: Other Projects -->
+
+<!-- START: Register for open days -->
+<!-- Temporary fontawesome include -- swap out for real icons once supplied by designers -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<section class="section section-register">
+	<div class="section-content">
+		<div class="row margin-bottom-large">
+			<div class="column large-4 small-12">
+				<h3 class="heading-register-email">Register for an open day<h3>
+			</div>
+			<div class="column large-6 large-offset-1 small-offset-0 small-12">
+            <form class="register__form" id="" action="" method="post">
+              <div class="floating-label-input">
+                <input type="text" id="email" class="register__input-email" name="email" autocorrect="off" required/>
+                <label class="register__label"for="email">Enter your email to attend</label>
+                <input type="submit" class="register__submit-button" value="Submit" onclick="" />
+              </div>
+              
+            </form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="column large-4 small-12">
+				<h3 class="heading-stay-connected">Stay connected with JSaRC<h3>
+			</div>
+			<div class="column large-6 large-offset-1 small-offset-0 small-12">
+				<ul class="social-icons ">
+					<li><a class="icon twitter" href=""><i class="fab fa-twitter fa-lg"></i><span class="visually-hidden">Twitter</span></a></li>
+					<li><a class="icon youtube" href=""><i class="fab fa-youtube fa-lg"></i><span class="visually-hidden">Youtube</span></a></li>
+					<li><a class="icon facebook" href=""><i class="fab fa-facebook-f fa-lg"></i><span class="visually-hidden">Facebook</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Register for open days -->
+
+
+
+<footer class="section section-footer">
+	<div class="section-content">
+		<div class="row">
+			<div class="column large-4 small-6">
+				<ul>
+					<li><a href="">Contact JSaRC</a></li>
+					<li><a href="">Terms and Conditions</a></li>
+					<li><a href="">Privacy Policy</a></li>
+				</ul>
+			</div>
+			<div class="column large-4 small-6">
+				<ul>
+					<li><a href="">Cookie Policy</a></li>
+					<li><a href="">Sitemap</a></li>
+				</ul>
+			</div>
+			<div class="column large-4 small-12">
+				<figure class="organisation-logo"></figure>
+				<p>© 2018 Joint Security and Resilience Centre</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+<div id="videoOverlay" class="video-overlay">
+	<div class="overlay-content">
+		<iframe id="jsarcVideo" src="https://www.youtube.com/embed/wqslA_CKub8?version=3&enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
+	<button id="videoOverlayClose" class="close">Close</button>
+</div>
+</body>
+</html>
