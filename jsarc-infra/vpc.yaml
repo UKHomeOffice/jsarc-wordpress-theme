@@ -37,6 +37,17 @@ Resources:
       CidrBlock: 10.0.2.0/24
       MapPublicIpOnLaunch: false
 
+  privateSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone:
+        Fn::Select:
+         - 1
+         - Fn::GetAZs: {Ref: 'AWS::Region'}
+      VpcId: !Ref jsarcVPC
+      CidrBlock: 10.0.3.0/24
+      MapPublicIpOnLaunch: false
+
   internetGateway:
     Type: AWS::EC2::InternetGateway
 
@@ -100,27 +111,40 @@ Resources:
       RouteTableId: !Ref privateSubnetRouteTable
       SubnetId: !Ref privateSubnet
 
+  privateSubnet1RouteAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref privateSubnetRouteTable
+      SubnetId: !Ref privateSubnet2
+
+
 Outputs:
   exportVPC:
-    Description: Export VPC value to be used in the ECS stack
+    Description: Export VPC value to be used in other stacks.
     Value: !Ref jsarcVPC
     Export:
       Name: vpc
 
   exportPublicSubnet1:
-    Description: Export the public subnet 1 value to be used for the alb.
+    Description: Export the first public subnet value to be used in other stacks.
     Value: !Ref publicSubnet1
     Export:
       Name: publicSubnet1
 
   exportPublicSubnet2:
-    Description: Export the public subnet 1 value to be used for the alb
+    Description: Export the second public subnet value to be used in other stacks.
     Value: !Ref publicSubnet2
     Export:
       Name: publicSubnet2
 
   exportPrivateSubnet:
-    Description: Export the private subnet value to be used in the ECS stack
+    Description: Export the first private subnet value to be used in the other stacks.
     Value: !Ref privateSubnet
     Export:
       Name: privateSubnet
+
+  exportPrivateSubnet2:
+    Description: Export the second private subnet value to be used in the other stacks. 
+    Value: !Ref privateSubnet2
+    Export:
+      Name: privateSubnet2

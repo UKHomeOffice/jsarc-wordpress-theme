@@ -25,7 +25,7 @@ Resources:
 
 Outputs:
   taskExecutionRoleOutput:
-    Description: ECS task execution role to allow tasks to do various stuff. 
+    Description: ECS task execution role to allow tasks to do stuff. 
     Value: !GetAtt taskExecutionRole.Arn
     Export:
       Name: taskExecutionRole

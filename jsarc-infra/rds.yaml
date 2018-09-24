@@ -1,2 +1,43 @@
+Parameters:
+  dbUserName:
+    Type: String
+    Description: Username for the database.
+
+  dbUserPassword:
+    Type: String
+    Description: Password for the database.
+
 Resources:
-  
+  myDBSubnetGroup: #DB subnet group to place db instances in. Requires atleast two subnets in different AZs by default! 
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: Private subnet for hosting the DB.
+      DBSubnetGroupName: Wordpress RDS
+      SubnetIds:
+        - !ImportValue privateSubnet
+        - !ImportValue privateSubnet2
+
+  myDBSecurityGroup: #allow access only from the ecs cluster on port 3306.
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow access from the ECS cluster only on port 3306!
+      VpcId: !ImportValue vpc
+      SecurityGroupIngress:
+        - SourceSecurityGroupId: !ImportValue containerSG
+          FromPort: 3306
+          ToPort: 3306
+          IpProtocol: -1
+
+  myWordpressDB:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      AllocatedStorage: 20
+      DBInstanceClass: db.t2.micro
+      DBName: wordpressdb
+      DBSubnetGroupName: !Ref myDBSubnetGroup
+      Engine: MySQL
+      MasterUsername: !Ref dbUserName
+      MasterUserPassword: !Ref dbUserPassword
+      PubliclyAccessible: False
+      VPCSecurityGroups:
+        - Ref: myDBSecurityGroup

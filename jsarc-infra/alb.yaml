@@ -1,5 +1,5 @@
 Resources:
-  albSecurityGroup: #Security group for the application load balancer. Ingress traffic from everywhere.
+  albSecurityGroup: #Creates a security group for the load balancer.
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Security group for the application load balancer.
@@ -8,17 +8,17 @@ Resources:
         - IpProtocol: -1
           CidrIp: 0.0.0.0/0
 
-  albLoadBalancer: #create the application load balancer
+  albLoadBalancer: #creates the application load balancer.
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
-      Name: albwordpress
+      Name: jsarc-wordpress
       Subnets:
         - !ImportValue publicSubnet1
         - !ImportValue publicSubnet2
       SecurityGroups:
         - !Ref albSecurityGroup
 
-  albLoadBalancerListener: #create a listener for the loadbalancer.
+  albLoadBalancerListener: #creates a listener for the loadbalancer.
     Type: AWS::ElasticLoadBalancingV2::Listener
     Properties:
       LoadBalancerArn: !Ref albLoadBalancer
