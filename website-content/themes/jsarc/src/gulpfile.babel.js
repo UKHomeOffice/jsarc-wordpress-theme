@@ -5,6 +5,7 @@ import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
 import beeper from 'beeper';
 import sass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'autoprefixer';
 import postcss from 'gulp-postcss';
 import csscomb from 'gulp-csscomb';
@@ -49,11 +50,13 @@ function sassCompile() {
       // Play terminal beep to notify that error occured
       beeper();
     }}))
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(postcss([autoprefixer() ]))
-    // .pipe(csscomb())
+    .pipe(csscomb())
     .pipe(rename('style.css'))
     .pipe(size({showFiles : true}))
+    .pipe(sourcemaps.write('./src/sourcemaps'))
     .pipe(gulp.dest(config.dist.cssFolder))
 };
 
