@@ -11,4 +11,4 @@ rds (creates a MySQL database)
 
 ```````
 
-Currently, infrastructure is deployed within eu-west-1, at (jsarc-wordpress-1452603498.eu-west-1.elb.amazonaws.com).
+Currently, infrastructure is deployed within eu-west-1, at [jsarc-deployment](jsarc-wordpress-1452603498.eu-west-1.elb.amazonaws.com).
