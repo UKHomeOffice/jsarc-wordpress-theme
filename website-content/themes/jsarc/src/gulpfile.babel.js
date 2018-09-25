@@ -3,6 +3,7 @@ import babel from 'gulp-babel';
 import size from 'gulp-size';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
+import beeper from 'beeper';
 import sass from 'gulp-sass';
 import autoprefixer from 'autoprefixer';
 import postcss from 'gulp-postcss';
@@ -45,12 +46,14 @@ function sassCompile() {
           title: "Gulp error in " + err.plugin,
           message:  err.toString()
       })(err);
+      // Play terminal beep to notify that error occured
+      beeper();
     }}))
-    .pipe(sass())
+    .pipe(sass().on('error', sass.logError))
     .pipe(postcss([autoprefixer() ]))
-    .pipe(csscomb())
+    // .pipe(csscomb())
     .pipe(rename('style.css'))
-    .pipe(size())
+    .pipe(size({showFiles : true}))
     .pipe(gulp.dest(config.dist.cssFolder))
 };
 
