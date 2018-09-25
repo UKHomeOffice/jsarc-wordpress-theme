@@ -8,7 +8,7 @@ Parameters:
     Description: Password for the database.
 
 Resources:
-  myDBSubnetGroup: #DB subnet group to place db instances in. Requires atleast two subnets in different AZs by default! 
+  myDBSubnetGroup: #DB subnet group to place db instances in. Requires atleast two subnets in different AZs!
     Type: AWS::RDS::DBSubnetGroup
     Properties:
       DBSubnetGroupDescription: Private subnet for hosting the DB.

@@ -1,5 +1,5 @@
 Resources:
-  albSecurityGroup: #Creates a security group for the load balancer.
+  albSecurityGroup: #creates a security group for the load balancer.
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Security group for the application load balancer.
@@ -38,11 +38,11 @@ Resources:
       Matcher:
         HttpCode: 200-499
 
-  ecsSecurityGroup: #security group for the ecs container to allow traffic only from the application load balancer
+  ecsSecurityGroup: #security group for the ecs container to allow traffic only from the application load balancer.
     Type: AWS::EC2::SecurityGroup
     Properties:
       VpcId: !ImportValue vpc
-      GroupDescription: allow traffic from the loadbalancer only!
+      GroupDescription: Allow traffic from the loadbalancer only!
       SecurityGroupIngress:
         - SourceSecurityGroupId: !Ref albSecurityGroup
           IpProtocol: -1

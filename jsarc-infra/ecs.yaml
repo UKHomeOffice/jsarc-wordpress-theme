@@ -1,10 +1,9 @@
 Parameters:
   containerImage:
     Type: String
-    Description: The container to use to launch the service.
 
 Resources:
-  ecsFargateCluster: #create an ECS cluster
+  ecsFargateCluster: 
     Type: AWS::ECS::Cluster
     Properties:
       ClusterName: wordpress-cluster
@@ -33,6 +32,7 @@ Resources:
       Cluster: !Ref ecsFargateCluster
       LaunchType: FARGATE
       DesiredCount: 2
+      ServiceName: wordpress-service
       NetworkConfiguration:
         AwsvpcConfiguration:
           Subnets:
