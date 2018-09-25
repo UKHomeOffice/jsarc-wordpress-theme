@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import babel from 'gulp-babel';
 import size from 'gulp-size';
 import plumber from 'gulp-plumber';
+import notify from 'gulp-notify';
 import sass from 'gulp-sass';
 import autoprefixer from 'autoprefixer';
 import postcss from 'gulp-postcss';
@@ -39,7 +40,12 @@ const config = {
 */
 function sassCompile() {
   return gulp.src(config.src.sass)
-    .pipe(plumber())
+    .pipe(plumber({ errorHandler: function(err) {
+      notify.onError({
+          title: "Gulp error in " + err.plugin,
+          message:  err.toString()
+      })(err);
+    }}))
     .pipe(sass())
     .pipe(postcss([autoprefixer() ]))
     .pipe(csscomb())
