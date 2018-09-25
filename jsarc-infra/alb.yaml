@@ -28,7 +28,7 @@ Resources:
         - Type: forward
           TargetGroupArn: !Ref albTargetGroup
 
-  albTargetGroup: #create a target group for the loadbalancers
+  albTargetGroup: #create a target group for the loadbalancer.
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
       TargetType: ip
