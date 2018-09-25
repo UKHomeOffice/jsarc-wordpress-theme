@@ -1,4 +1,4 @@
-# Jsarc deployment infrastructure
+# JSaRC deployment infrastructure
 
 The infrastructure for hosting the jsarc wordpress site is split across several stacks. The stacks must be created in the following order, due to export dependencies:
 
