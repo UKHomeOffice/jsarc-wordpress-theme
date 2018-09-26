@@ -1,4 +1,7 @@
 {
+  "plugins": [
+     "stylelint-no-unsupported-browser-features"
+   ],
   "defaultSeverity": "warning",
   "rules": {
     "at-rule-name-case": "lower",
@@ -70,6 +73,7 @@
     "number-leading-zero": "always",
     "number-max-precision": 6,
     "number-no-trailing-zeros": true,
+    "plugin/no-unsupported-browser-features": true,
     "property-case": "lower",
     "property-no-unknown": true,
     "rule-empty-line-before": [ "always", {
