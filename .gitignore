@@ -10,6 +10,7 @@ wp-content/uploads/
 wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
 
+
 /.htaccess
 /license.txt
 /readme.html
@@ -17,3 +18,7 @@ wp-content/plugins/hello.php
 /sitemap.xml.gz
 
 .DS_Store
+
+rds_parameters.json
+ecs_parameters.json
+
