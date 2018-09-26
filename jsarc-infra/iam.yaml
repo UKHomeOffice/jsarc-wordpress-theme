@@ -22,6 +22,15 @@ Resources:
                 - 'logs:CreateLogStream'
                 - 'logs:PutLogEvents'
                 Resource: '*'
+  iamCircleCiUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+      - arn:aws:iam::aws:policy/AmazonS3FullAccess
+      - arn:aws:iam::aws:policy/AmazonECS_FullAccess
+      - arn:aws:iam::aws:policy/IAMReadOnlyAccess
+      UserName: circleci
 
 Outputs:
   taskExecutionRoleOutput:
