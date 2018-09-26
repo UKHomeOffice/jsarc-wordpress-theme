@@ -24,13 +24,14 @@ const browserSyncServer = browserSync.create();
 const config = {
   src: {
     sass: './sass/**/*.scss',
-    js: './js/app.js',
+    js: './js/*.js',
+    jsPolyfill: 'node_modules/babel-polyfill/dist/polyfill.js',
     php: '../**/*.php',
     htmlPrototypes: './example-layouts/**.*'
   },
   dist: {
     cssFolder: '../',
-    js: '../js/app.js'  
+    js: '../js/'  
   }
 }
 
@@ -44,7 +45,7 @@ function sassCompile() {
   return gulp.src(config.src.sass)
     .pipe(plumber({ errorHandler: function(err) {
       notify.onError({
-          title: "Gulp error in " + err.plugin,
+          title: "Sass compile error in " + err.plugin,
           message:  err.toString()
       })(err);
       // Play terminal beep to notify that error occured
@@ -62,13 +63,26 @@ function sassCompile() {
 
 /**
  * Compile JS
- * TODO: Add more details
+ * TODO: Add minification step - not needed yet while prototyping
+ * // .pipe(uglify())
+ * // .pipe(concat('index.min.js'))
 */
-function javascriptCompile() {
-  return gulp.src(config.src.js, { sourcemaps: true })
+function jsCompile() {
+  return gulp.src(
+    [
+      config.src.jsPolyfill,
+      config.src.js,
+    ], { sourcemaps: true })
+    .pipe(plumber({ errorHandler: function(err) {
+      notify.onError({
+          title: "JS compile error in " + err.plugin,
+          message:  err.toString()
+      })(err);
+      // Play terminal beep to notify that error occured
+      beeper();
+    }}))
     .pipe(babel())
-    // .pipe(uglify())
-    // .pipe(concat('index.min.js'))
+    .pipe(rename('app.bundle.js'))
     .pipe(gulp.dest(config.dist.js));
 }
 
@@ -110,8 +124,8 @@ const watch = () => {
   // If change detected to sass, recompile and auto inject updated css
   gulp.watch(config.src.sass, gulp.series(sassCompile, fullBrowserReload))
   
-  // Watch JS for changes, recompile and trigger
-  // gulp.watch(config.src.js, gulp.series(jsCompile, streamReload))
+  // Watch JS for changes, recompile and trigger reload
+  gulp.watch(config.src.js, gulp.series(jsCompile, fullBrowserReload))
   
   // Watch html prototypes for changes
   gulp.watch(config.src.htmlPrototypes, gulp.series(sassCompile, fullBrowserReload))
@@ -121,9 +135,9 @@ const watch = () => {
 };
 
 
-
 export {
-  sassCompile
+  sassCompile,
+  jsCompile
 }
 
 /**
@@ -131,5 +145,5 @@ export {
  * This task has a dependancy that the WP docker container is already running 
  * on localhost:80 for the livereload task to function
  */
-const dev = gulp.series(sassCompile, liveReloadServer, watch);
+const dev = gulp.series(sassCompile, jsCompile, liveReloadServer, watch);
 export default dev;

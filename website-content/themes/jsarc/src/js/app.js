@@ -1,3 +1,6 @@
+const hello = (name) => {     return `hello ${name}`; };
+console.log(hello("Max D"));
+
 
 var searchAnchor = document.getElementById('searchAnchor');
 var primaryNav = document.getElementById('primaryNav');
