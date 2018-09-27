@@ -35,6 +35,8 @@ jobs:
           docker build -t $DOCKER_REPO/jsarcwordpress:$CIRCLE_BUILD_NUM .
           docker push $DOCKER_REPO/jsarcwordpress:$CIRCLE_BUILD_NUM
           echo "$DOCKER_REPO/jsarcwordpress:$CIRCLE_BUILD_NUM" > jsarcwordpress.txt
+        environment:
+          DOCKER_REPO: 721956817211.dkr.ecr.eu-west-1.amazonaws.com
     - persist_to_workspace:
         root: ./
         paths:
