@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		
+	
+		<style>
+		
+		/*------------------------------------
+
+Grid
+
+------------------------------------*/
+
+.row {
+    position: relative;
+    z-index: 1
+}
+
+.row::before, .row::after {
+    content: ' ';
+    display: table
+}
+
+.row::after {
+    clear: both
+}
+
+.column {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    float: left;
+    min-height: 2px
+}
+
+.large-offset-0 {
+    margin-left: 0
+}
+
+.large-push-0 {
+    left: auto;
+    right: auto
+}
+
+.large-pull-0 {
+    right: auto;
+    left: auto
+}
+
+.large-1 {
+    width: 8.33333%
+}
+
+.large-offset-1 {
+    margin-left: 8.33333%
+}
+
+.large-push-1 {
+    left: 8.33333%;
+    right: auto
+}
+
+.large-pull-1 {
+    right: 8.33333%;
+    left: auto
+}
+
+.large-2 {
+    width: 16.66667%
+}
+
+.large-offset-2 {
+    margin-left: 16.66667%
+}
+
+.large-push-2 {
+    left: 16.66667%;
+    right: auto
+}
+
+.large-pull-2 {
+    right: 16.66667%;
+    left: auto
+}
+
+.large-3 {
+    width: 25%
+}
+
+.large-offset-3 {
+    margin-left: 25%
+}
+
+.large-push-3 {
+    left: 25%;
+    right: auto
+}
+
+.large-pull-3 {
+    right: 25%;
+    left: auto
+}
+
+.large-4 {
+    width: 33.33333%
+}
+
+.large-offset-4 {
+    margin-left: 33.33333%
+}
+
+.large-push-4 {
+    left: 33.33333%;
+    right: auto
+}
+
+.large-pull-4 {
+    right: 33.33333%;
+    left: auto
+}
+
+.large-5 {
+    width: 41.66667%
+}
+
+.large-offset-5 {
+    margin-left: 41.66667%
+}
+
+.large-push-5 {
+    left: 41.66667%;
+    right: auto
+}
+
+.large-pull-5 {
+    right: 41.66667%;
+    left: auto
+}
+
+.large-6 {
+    width: 50%
+}
+
+.large-offset-6 {
+    margin-left: 50%
+}
+
+.large-push-6 {
+    left: 50%;
+    right: auto
+}
+
+.large-pull-6 {
+    right: 50%;
+    left: auto
+}
+
+.large-7 {
+    width: 58.33333%
+}
+
+.large-offset-7 {
+    margin-left: 58.33333%
+}
+
+.large-push-7 {
+    left: 58.33333%;
+    right: auto
+}
+
+.large-pull-7 {
+    right: 58.33333%;
+    left: auto
+}
+
+.large-8 {
+    width: 66.66667%
+}
+
+.large-offset-8 {
+    margin-left: 66.66667%
+}
+
+.large-push-8 {
+    left: 66.66667%;
+    right: auto
+}
+
+.large-pull-8 {
+    right: 66.66667%;
+    left: auto
+}
+
+.large-9 {
+    width: 75%
+}
+
+.large-offset-9 {
+    margin-left: 75%
+}
+
+.large-push-9 {
+    left: 75%;
+    right: auto
+}
+
+.large-pull-9 {
+    right: 75%;
+    left: auto
+}
+
+.large-10 {
+    width: 83.33333%
+}
+
+.large-offset-10 {
+    margin-left: 83.33333%
+}
+
+.large-push-10 {
+    left: 83.33333%;
+    right: auto
+}
+
+.large-pull-10 {
+    right: 83.33333%;
+    left: auto
+}
+
+.large-11 {
+    width: 91.66667%
+}
+
+.large-offset-11 {
+    margin-left: 91.66667%
+}
+
+.large-push-11 {
+    left: 91.66667%;
+    right: auto
+}
+
+.large-pull-11 {
+    right: 91.66667%;
+    left: auto
+}
+
+.large-12 {
+    width: 100%
+}
+
+.large-offset-12 {
+    margin-left: 100%
+}
+
+.large-push-12 {
+    left: 100%;
+    right: auto
+}
+
+.large-pull-12 {
+    right: 100%;
+    left: auto
+}
+
+.large-centered {
+    margin-left: auto;
+    margin-right: auto;
+    float: none
+}
+
+.large-uncentered {
+    margin-left: 0;
+    margin-right: 0
+}
+
+.large-last {
+    float: right
+}
+
+.large-notlast {
+    float: left
+}
+
+@media only screen and (min-width: 1800px) {
+    .xlarge-offset-0 {
+        margin-left: 0
+    }
+
+    .xlarge-push-0 {
+        left: auto;
+        right: auto
+    }
+
+    .xlarge-pull-0 {
+        right: auto;
+        left: auto
+    }
+
+    .xlarge-1 {
+        width: 8.33333%
+    }
+
+    .xlarge-offset-1 {
+        margin-left: 8.33333%
+    }
+
+    .xlarge-push-1 {
+        left: 8.33333%;
+        right: auto
+    }
+
+    .xlarge-pull-1 {
+        right: 8.33333%;
+        left: auto
+    }
+
+    .xlarge-2 {
+        width: 16.66667%
+    }
+
+    .xlarge-offset-2 {
+        margin-left: 16.66667%
+    }
+
+    .xlarge-push-2 {
+        left: 16.66667%;
+        right: auto
+    }
+
+    .xlarge-pull-2 {
+        right: 16.66667%;
+        left: auto
+    }
+
+    .xlarge-3 {
+        width: 25%
+    }
+
+    .xlarge-offset-3 {
+        margin-left: 25%
+    }
+
+    .xlarge-push-3 {
+        left: 25%;
+        right: auto
+    }
+
+    .xlarge-pull-3 {
+        right: 25%;
+        left: auto
+    }
+
+    .xlarge-4 {
+        width: 33.33333%
+    }
+
+    .xlarge-offset-4 {
+        margin-left: 33.33333%
+    }
+
+    .xlarge-push-4 {
+        left: 33.33333%;
+        right: auto
+    }
+
+    .xlarge-pull-4 {
+        right: 33.33333%;
+        left: auto
+    }
+
+    .xlarge-5 {
+        width: 41.66667%
+    }
+
+    .xlarge-offset-5 {
+        margin-left: 41.66667%
+    }
+
+    .xlarge-push-5 {
+        left: 41.66667%;
+        right: auto
+    }
+
+    .xlarge-pull-5 {
+        right: 41.66667%;
+        left: auto
+    }
+
+    .xlarge-6 {
+        width: 50%
+    }
+
+    .xlarge-offset-6 {
+        margin-left: 50%
+    }
+
+    .xlarge-push-6 {
+        left: 50%;
+        right: auto
+    }
+
+    .xlarge-pull-6 {
+        right: 50%;
+        left: auto
+    }
+
+    .xlarge-7 {
+        width: 58.33333%
+    }
+
+    .xlarge-offset-7 {
+        margin-left: 58.33333%
+    }
+
+    .xlarge-push-7 {
+        left: 58.33333%;
+        right: auto
+    }
+
+    .xlarge-pull-7 {
+        right: 58.33333%;
+        left: auto
+    }
+
+    .xlarge-8 {
+        width: 66.66667%
+    }
+
+    .xlarge-offset-8 {
+        margin-left: 66.66667%
+    }
+
+    .xlarge-push-8 {
+        left: 66.66667%;
+        right: auto
+    }
+
+    .xlarge-pull-8 {
+        right: 66.66667%;
+        left: auto
+    }
+
+    .xlarge-9 {
+        width: 75%
+    }
+
+    .xlarge-offset-9 {
+        margin-left: 75%
+    }
+
+    .xlarge-push-9 {
+        left: 75%;
+        right: auto
+    }
+
+    .xlarge-pull-9 {
+        right: 75%;
+        left: auto
+    }
+
+    .xlarge-10 {
+        width: 83.33333%
+    }
+
+    .xlarge-offset-10 {
+        margin-left: 83.33333%
+    }
+
+    .xlarge-push-10 {
+        left: 83.33333%;
+        right: auto
+    }
+
+    .xlarge-pull-10 {
+        right: 83.33333%;
+        left: auto
+    }
+
+    .xlarge-11 {
+        width: 91.66667%
+    }
+
+    .xlarge-offset-11 {
+        margin-left: 91.66667%
+    }
+
+    .xlarge-push-11 {
+        left: 91.66667%;
+        right: auto
+    }
+
+    .xlarge-pull-11 {
+        right: 91.66667%;
+        left: auto
+    }
+
+    .xlarge-12 {
+        width: 100%
+    }
+
+    .xlarge-offset-12 {
+        margin-left: 100%
+    }
+
+    .xlarge-push-12 {
+        left: 100%;
+        right: auto
+    }
+
+    .xlarge-pull-12 {
+        right: 100%;
+        left: auto
+    }
+
+    .xlarge-centered {
+        margin-left: auto;
+        margin-right: auto;
+        float: none
+    }
+
+    .xlarge-uncentered {
+        margin-left: 0;
+        margin-right: 0
+    }
+
+    .xlarge-last {
+        float: right
+    }
+
+    .xlarge-notlast {
+        float: left
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .medium-offset-0 {
+        margin-left: 0
+    }
+
+    .medium-push-0 {
+        left: auto;
+        right: auto
+    }
+
+    .medium-pull-0 {
+        right: auto;
+        left: auto
+    }
+
+    .medium-1 {
+        width: 8.33333%
+    }
+
+    .medium-offset-1 {
+        margin-left: 8.33333%
+    }
+
+    .medium-push-1 {
+        left: 8.33333%;
+        right: auto
+    }
+
+    .medium-pull-1 {
+        right: 8.33333%;
+        left: auto
+    }
+
+    .medium-2 {
+        width: 16.66667%
+    }
+
+    .medium-offset-2 {
+        margin-left: 16.66667%
+    }
+
+    .medium-push-2 {
+        left: 16.66667%;
+        right: auto
+    }
+
+    .medium-pull-2 {
+        right: 16.66667%;
+        left: auto
+    }
+
+    .medium-3 {
+        width: 25%
+    }
+
+    .medium-offset-3 {
+        margin-left: 25%
+    }
+
+    .medium-push-3 {
+        left: 25%;
+        right: auto
+    }
+
+    .medium-pull-3 {
+        right: 25%;
+        left: auto
+    }
+
+    .medium-4 {
+        width: 33.33333%
+    }
+
+    .medium-offset-4 {
+        margin-left: 33.33333%
+    }
+
+    .medium-push-4 {
+        left: 33.33333%;
+        right: auto
+    }
+
+    .medium-pull-4 {
+        right: 33.33333%;
+        left: auto
+    }
+
+    .medium-5 {
+        width: 41.66667%
+    }
+
+    .medium-offset-5 {
+        margin-left: 41.66667%
+    }
+
+    .medium-push-5 {
+        left: 41.66667%;
+        right: auto
+    }
+
+    .medium-pull-5 {
+        right: 41.66667%;
+        left: auto
+    }
+
+    .medium-6 {
+        width: 50%
+    }
+
+    .medium-offset-6 {
+        margin-left: 50%
+    }
+
+    .medium-push-6 {
+        left: 50%;
+        right: auto
+    }
+
+    .medium-pull-6 {
+        right: 50%;
+        left: auto
+    }
+
+    .medium-7 {
+        width: 58.33333%
+    }
+
+    .medium-offset-7 {
+        margin-left: 58.33333%
+    }
+
+    .medium-push-7 {
+        left: 58.33333%;
+        right: auto
+    }
+
+    .medium-pull-7 {
+        right: 58.33333%;
+        left: auto
+    }
+
+    .medium-8 {
+        width: 66.66667%
+    }
+
+    .medium-offset-8 {
+        margin-left: 66.66667%
+    }
+
+    .medium-push-8 {
+        left: 66.66667%;
+        right: auto
+    }
+
+    .medium-pull-8 {
+        right: 66.66667%;
+        left: auto
+    }
+
+    .medium-9 {
+        width: 75%
+    }
+
+    .medium-offset-9 {
+        margin-left: 75%
+    }
+
+    .medium-push-9 {
+        left: 75%;
+        right: auto
+    }
+
+    .medium-pull-9 {
+        right: 75%;
+        left: auto
+    }
+
+    .medium-10 {
+        width: 83.33333%
+    }
+
+    .medium-offset-10 {
+        margin-left: 83.33333%
+    }
+
+    .medium-push-10 {
+        left: 83.33333%;
+        right: auto
+    }
+
+    .medium-pull-10 {
+        right: 83.33333%;
+        left: auto
+    }
+
+    .medium-11 {
+        width: 91.66667%
+    }
+
+    .medium-offset-11 {
+        margin-left: 91.66667%
+    }
+
+    .medium-push-11 {
+        left: 91.66667%;
+        right: auto
+    }
+
+    .medium-pull-11 {
+        right: 91.66667%;
+        left: auto
+    }
+
+    .medium-12 {
+        width: 100%
+    }
+
+    .medium-offset-12 {
+        margin-left: 100%
+    }
+
+    .medium-push-12 {
+        left: 100%;
+        right: auto
+    }
+
+    .medium-pull-12 {
+        right: 100%;
+        left: auto
+    }
+
+    .medium-centered {
+        margin-left: auto;
+        margin-right: auto;
+        float: none
+    }
+
+    .medium-uncentered {
+        margin-left: 0;
+        margin-right: 0
+    }
+
+    .medium-last {
+        float: right
+    }
+
+    .medium-notlast {
+        float: left
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .small-offset-0 {
+        margin-left: 0
+    }
+
+    .small-push-0 {
+        left: auto;
+        right: auto
+    }
+
+    .small-pull-0 {
+        right: auto;
+        left: auto
+    }
+
+    .small-1 {
+        width: 8.33333%
+    }
+
+    .small-offset-1 {
+        margin-left: 8.33333%
+    }
+
+    .small-push-1 {
+        left: 8.33333%;
+        right: auto
+    }
+
+    .small-pull-1 {
+        right: 8.33333%;
+        left: auto
+    }
+
+    .small-2 {
+        width: 16.66667%
+    }
+
+    .small-offset-2 {
+        margin-left: 16.66667%
+    }
+
+    .small-push-2 {
+        left: 16.66667%;
+        right: auto
+    }
+
+    .small-pull-2 {
+        right: 16.66667%;
+        left: auto
+    }
+
+    .small-3 {
+        width: 25%
+    }
+
+    .small-offset-3 {
+        margin-left: 25%
+    }
+
+    .small-push-3 {
+        left: 25%;
+        right: auto
+    }
+
+    .small-pull-3 {
+        right: 25%;
+        left: auto
+    }
+
+    .small-4 {
+        width: 33.33333%
+    }
+
+    .small-offset-4 {
+        margin-left: 33.33333%
+    }
+
+    .small-push-4 {
+        left: 33.33333%;
+        right: auto
+    }
+
+    .small-pull-4 {
+        right: 33.33333%;
+        left: auto
+    }
+
+    .small-5 {
+        width: 41.66667%
+    }
+
+    .small-offset-5 {
+        margin-left: 41.66667%
+    }
+
+    .small-push-5 {
+        left: 41.66667%;
+        right: auto
+    }
+
+    .small-pull-5 {
+        right: 41.66667%;
+        left: auto
+    }
+
+    .small-6 {
+        width: 50%
+    }
+
+    .small-offset-6 {
+        margin-left: 50%
+    }
+
+    .small-push-6 {
+        left: 50%;
+        right: auto
+    }
+
+    .small-pull-6 {
+        right: 50%;
+        left: auto
+    }
+
+    .small-7 {
+        width: 58.33333%
+    }
+
+    .small-offset-7 {
+        margin-left: 58.33333%
+    }
+
+    .small-push-7 {
+        left: 58.33333%;
+        right: auto
+    }
+
+    .small-pull-7 {
+        right: 58.33333%;
+        left: auto
+    }
+
+    .small-8 {
+        width: 66.66667%
+    }
+
+    .small-offset-8 {
+        margin-left: 66.66667%
+    }
+
+    .small-push-8 {
+        left: 66.66667%;
+        right: auto
+    }
+
+    .small-pull-8 {
+        right: 66.66667%;
+        left: auto
+    }
+
+    .small-9 {
+        width: 75%
+    }
+
+    .small-offset-9 {
+        margin-left: 75%
+    }
+
+    .small-push-9 {
+        left: 75%;
+        right: auto
+    }
+
+    .small-pull-9 {
+        right: 75%;
+        left: auto
+    }
+
+    .small-10 {
+        width: 83.33333%
+    }
+
+    .small-offset-10 {
+        margin-left: 83.33333%
+    }
+
+    .small-push-10 {
+        left: 83.33333%;
+        right: auto
+    }
+
+    .small-pull-10 {
+        right: 83.33333%;
+        left: auto
+    }
+
+    .small-11 {
+        width: 91.66667%
+    }
+
+    .small-offset-11 {
+        margin-left: 91.66667%
+    }
+
+    .small-push-11 {
+        left: 91.66667%;
+        right: auto
+    }
+
+    .small-pull-11 {
+        right: 91.66667%;
+        left: auto
+    }
+
+    .small-12 {
+        width: 100%
+    }
+
+    .small-offset-12 {
+        margin-left: 100%
+    }
+
+    .small-push-12 {
+        left: 100%;
+        right: auto
+    }
+
+    .small-pull-12 {
+        right: 100%;
+        left: auto
+    }
+
+    .small-centered {
+        margin-left: auto;
+        margin-right: auto;
+        float: none
+    }
+
+    .small-uncentered {
+        margin-left: 0;
+        margin-right: 0
+    }
+
+    .small-last {
+        float: right
+    }
+
+    .small-notlast {
+        float: left
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .xsmall-offset-0 {
+        margin-left: 0
+    }
+
+    .xsmall-push-0 {
+        left: auto;
+        right: auto
+    }
+
+    .xsmall-pull-0 {
+        right: auto;
+        left: auto
+    }
+
+    .xsmall-1 {
+        width: 8.33333%
+    }
+
+    .xsmall-offset-1 {
+        margin-left: 8.33333%
+    }
+
+    .xsmall-push-1 {
+        left: 8.33333%;
+        right: auto
+    }
+
+    .xsmall-pull-1 {
+        right: 8.33333%;
+        left: auto
+    }
+
+    .xsmall-2 {
+        width: 16.66667%
+    }
+
+    .xsmall-offset-2 {
+        margin-left: 16.66667%
+    }
+
+    .xsmall-push-2 {
+        left: 16.66667%;
+        right: auto
+    }
+
+    .xsmall-pull-2 {
+        right: 16.66667%;
+        left: auto
+    }
+
+    .xsmall-3 {
+        width: 25%
+    }
+
+    .xsmall-offset-3 {
+        margin-left: 25%
+    }
+
+    .xsmall-push-3 {
+        left: 25%;
+        right: auto
+    }
+
+    .xsmall-pull-3 {
+        right: 25%;
+        left: auto
+    }
+
+    .xsmall-4 {
+        width: 33.33333%
+    }
+
+    .xsmall-offset-4 {
+        margin-left: 33.33333%
+    }
+
+    .xsmall-push-4 {
+        left: 33.33333%;
+        right: auto
+    }
+
+    .xsmall-pull-4 {
+        right: 33.33333%;
+        left: auto
+    }
+
+    .xsmall-5 {
+        width: 41.66667%
+    }
+
+    .xsmall-offset-5 {
+        margin-left: 41.66667%
+    }
+
+    .xsmall-push-5 {
+        left: 41.66667%;
+        right: auto
+    }
+
+    .xsmall-pull-5 {
+        right: 41.66667%;
+        left: auto
+    }
+
+    .xsmall-6 {
+        width: 50%
+    }
+
+    .xsmall-offset-6 {
+        margin-left: 50%
+    }
+
+    .xsmall-push-6 {
+        left: 50%;
+        right: auto
+    }
+
+    .xsmall-pull-6 {
+        right: 50%;
+        left: auto
+    }
+
+    .xsmall-7 {
+        width: 58.33333%
+    }
+
+    .xsmall-offset-7 {
+        margin-left: 58.33333%
+    }
+
+    .xsmall-push-7 {
+        left: 58.33333%;
+        right: auto
+    }
+
+    .xsmall-pull-7 {
+        right: 58.33333%;
+        left: auto
+    }
+
+    .xsmall-8 {
+        width: 66.66667%
+    }
+
+    .xsmall-offset-8 {
+        margin-left: 66.66667%
+    }
+
+    .xsmall-push-8 {
+        left: 66.66667%;
+        right: auto
+    }
+
+    .xsmall-pull-8 {
+        right: 66.66667%;
+        left: auto
+    }
+
+    .xsmall-9 {
+        width: 75%
+    }
+
+    .xsmall-offset-9 {
+        margin-left: 75%
+    }
+
+    .xsmall-push-9 {
+        left: 75%;
+        right: auto
+    }
+
+    .xsmall-pull-9 {
+        right: 75%;
+        left: auto
+    }
+
+    .xsmall-10 {
+        width: 83.33333%
+    }
+
+    .xsmall-offset-10 {
+        margin-left: 83.33333%
+    }
+
+    .xsmall-push-10 {
+        left: 83.33333%;
+        right: auto
+    }
+
+    .xsmall-pull-10 {
+        right: 83.33333%;
+        left: auto
+    }
+
+    .xsmall-11 {
+        width: 91.66667%
+    }
+
+    .xsmall-offset-11 {
+        margin-left: 91.66667%
+    }
+
+    .xsmall-push-11 {
+        left: 91.66667%;
+        right: auto
+    }
+
+    .xsmall-pull-11 {
+        right: 91.66667%;
+        left: auto
+    }
+
+    .xsmall-12 {
+        width: 100%
+    }
+
+    .xsmall-offset-12 {
+        margin-left: 100%
+    }
+
+    .xsmall-push-12 {
+        left: 100%;
+        right: auto
+    }
+
+    .xsmall-pull-12 {
+        right: 100%;
+        left: auto
+    }
+
+    .xsmall-centered {
+        margin-left: auto;
+        margin-right: auto;
+        float: none
+    }
+
+    .xsmall-uncentered {
+        margin-left: 0;
+        margin-right: 0
+    }
+
+    .xsmall-last {
+        float: right
+    }
+
+    .xsmall-notlast {
+        float: left
+    }
+}
+
+/*------------------------------------
+
+Reset
+
+------------------------------------*/
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: #fff;
+}
+
+body, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, hgroup, p, blockquote,
+figure, form, fieldset, input, legend, pre, abbr, button {
+    margin: 0;
+    padding: 0;
+}
+
+pre, code, address, caption, th, figcaption {
+    font-size: 1em;
+    font-weight: normal;
+    font-style: normal;
+}
+
+fieldset, iframe, img {
+    border: 0;
+}
+
+caption, th {
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+article, aside, footer, header, nav, main, section, summary, details,
+hgroup, figure, figcaption {
+    display: block;
+}
+
+audio, canvas, video, progress {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+button {
+    background: none;
+    border: 0;
+    box-sizing: content-box;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    line-height: inherit;
+    overflow: visible;
+    vertical-align: inherit;
+}
+button:disabled {
+	cursor: default;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none outside;
+}
+
+ol {
+    list-style: decimal;
+}
+
+body, input, textarea, select, button {
+    font-synthesis: none;
+    -moz-font-feature-settings: 'kern';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    direction: ltr;
+    text-align: left;
+}
+
+
+
+body, button, input, select, optgroup, textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+body {
+    min-width: 320px;
+    color: #0B0C0C;
+}
+
+
+input,
+input:focus,
+button,
+button:focus,
+button:active,
+textarea:focus {
+	background: 0 0;
+	border: 0 none;
+	outline: 0 none;
+	font: inherit;
+	color: inherit;
+}
+
+
+
+
+
+
+
+body:after {
+	content: 'large';
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: 5px 10px;
+	background: yellow;
+	color: black;
+	font-size: 12px;
+}
+
+@media only screen and (min-width: 1442px) {
+	body:after {
+		content: 'x-large';
+		background: red;
+		color: white;
+	}
+}
+
+@media only screen and (max-width: 1068px) {
+	body:after {
+		content: 'medium';
+		background: green;
+		color: white;
+	}
+}
+
+@media only screen and (max-width: 735px) {
+	body:after {
+		content: 'small';
+		background: blue;
+		color: white;
+	}
+}
+
+
+
+
+
+
+
+* { outline: 1px solid rgba(255,0,0,0.1) }
+
+
+.section {
+	position: relative;
+	overflow: hidden;
+}
+
+.section-content {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-content {
+        width: 692px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-content {
+        width: 90%;
+    }
+}
+
+
+.section-headline {
+	font-size: 36px;
+	line-height: 42px;
+	font-weight: 400;
+}
+
+@media only screen and (max-width: 735px) {
+	.section-headline {
+		font-size: 30px;
+		line-height: 36px;
+	}
+}
+
+
+.button.more {
+	display: block;
+	line-height: 50px;
+	height: 50px;
+	width: 238px;
+	border: 2px solid #000;
+	text-align: center;
+	color: #000;
+	font-size: 19px;
+	white-space: nowrap;
+}
+
+@media only screen and (max-width: 735px) {
+	.button.more {
+		line-height: 40px;
+		height: 40px;
+		width: 190px;
+	}
+}
+
+
+
+
+
+
+.section-hero .section-background-image {
+	width: 1200px;
+	height: 572px;
+	background-size: 1200px 572px;
+	background-image: url("img/Birmingham_New_Street_at_dusk.png");
+	position: relative;
+	left: 50%;
+	margin-left: -600px; 
+}
+
+@media only screen and (max-width: 1068px) {
+	.section-hero .section-background-image {
+		width: 1068px;
+		height: 509px;
+		background-size: 1068px 509px;
+		margin-left: -534px;
+	}
+}
+
+@media only screen and (max-width: 735px) {
+	.section-hero .section-background-image {
+		width: 736px;
+		height: 351px;
+		background-size: 736px 351px;
+		margin-left: -368px;
+	}
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .section-hero .section-background-image {
+		background-image: url("img/Birmingham_New_Street_at_dusk.png"); /* hero_large_2x.jpg */
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-hero .section-background-image {
+		background-image: url("img/Birmingham_New_Street_at_dusk.png"); /* hero_medium.jpg */
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 1068px) and (min-resolution: 1.5dppx), only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .section-hero .section-background-image {
+		background-image: url("img/Birmingham_New_Street_at_dusk.png"); /* hero_medium_2x.jpg */
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-hero .section-background-image {
+		background-image: url("img/Birmingham_New_Street_at_dusk.png"); /* hero_small.jpg */
+    }
+}
+
+@media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
+    .section-hero .section-background-image {
+		background-image: url("img/Birmingham_New_Street_at_dusk.png"); /* hero_small_2x.jpg */
+    }
+}
+
+
+.section-hero .content-wrapper {
+	width: 100%;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #0694A7;
+}
+
+.section-hero .section-content {
+	width: auto;
+	padding: 66px 50px;
+}
+
+@media only screen and (max-width: 1068px) {
+	.section-hero .section-content {
+        padding: 40px 0;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+	.section-hero .section-content {
+        text-align: center;
+    }
+}
+
+.section-hero .section-headline {
+	max-width: 330px;
+	color: #fff;
+	font-style: oblique;
+	margin-bottom: 28px;
+}
+
+.section-hero .intro {
+	max-width: 450px;
+	color: #fff;
+	font-size: 19px;
+	line-height: 28px;
+	margin-bottom: 37px;
+}
+
+
+@media only screen and (max-width: 1068px) {
+	.section-hero .intro {
+		max-width: 330px;
+	}
+}
+
+@media only screen and (max-width: 735px) {
+	.section-hero .section-headline {
+		max-width: none;
+	}
+
+	.section-hero .intro {
+		max-width: none;
+	}
+}
+
+
+
+
+
+
+.section-hero .button.more {
+	border-color: #fff;
+	color: #fff;
+}
+
+
+@media only screen and (max-width: 735px) {
+	.section-hero .button.more {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+
+
+.section-hero .video-thumbnail-wrapper {
+	float: right;
+}
+
+
+@media only screen and (max-width: 1068px) {
+	.section-hero .video-thumbnail-wrapper {
+		float: none;
+	}
+}
+
+.section-hero .video-thumbnail {
+	
+
+}
+
+.section-hero .video-thumbnail:before {
+
+}
+
+.section-hero .video-thumbnail:hover:before {
+
+}
+
+.section-hero .video-thumbnail .video-thumbnail-image:after {
+
+}
+
+.section-hero .video-thumbnail:hover .video-thumbnail-image:after {
+
+}
+
+.section-hero .video-thumbnail-image {
+	width: 512px;
+	height: 295px;
+	background-size: 512px 295px;
+	background-image: url("img/post-69136-0-28986900-1447534512.png");
+}
+
+@media only screen and (max-width: 1068px) {
+	.section-hero .video-thumbnail-image {
+		width: 337px;
+		height: 194px;
+		background-size: 337px 194px;
+	}
+}
+
+@media only screen and (max-width: 735px) {
+	.section-hero .video-thumbnail-image {
+		width: 280px;
+		height: 161px;
+		background-size: 280px 161px;
+		margin: 50px auto 0;
+	}
+}
+
+.section-hero .video-thumbnail-caption {
+	color: #fff;
+	font-size: 16px;
+	line-height: 1.4;
+	margin-top: 15px;
+}
+
+.section-benefits .section-content {
+	padding-top: 71px;
+	padding-bottom: 100px;
+	width: 90%;
+	max-width: 1000px
+}
+
+@media only screen and (max-width: 1068px) {
+	.section-benefits .section-content {
+        padding: 40px 0;
+    }
+}
+
+.section-benefits .section-headline {
+	text-align: center;
+	margin-bottom: 63px;
+}
+.section-benefits .benefits-tile  {
+	max-width: 300px;
+}
+
+.section-benefits .column + .column .benefits-tile {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.section-benefits .column + .column + .column .benefits-tile {
+	float: right;
+}
+
+@media only screen and (max-width: 1068px) {
+
+	.section-benefits .benefits-tile {
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 40px;
+	}
+
+
+	.section-benefits .column + .column + .column .benefits-tile {
+		float: none;
+	}
+}
+
+.section-benefits .benefits-tile .image-benefits {
+	width: 300px;
+	height: 190px;
+	background-size: 300px 190px;
+	background-image: url("img/1599px-King's_Cross_Western_Concourse.png");
+}
+
+
+@media only screen and (max-width: 1068px) {
+	.section-benefits .benefits-tile .image-benefits {
+		width: 280px;
+		height: 177px;
+		background-size: 280px 177px;
+		background-image: url("img/1599px-King's_Cross_Western_Concourse.png");
+	}
+}
+
+@media only screen and (max-width: 735px) {
+	.section-benefits .benefits-tile .image-benefits {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+
+
+.section-benefits .benefits-tile .benefits-caption-headline {
+	font-size: 24px;
+	line-height: 32px;
+	font-weight: 400;
+	margin-top: 17px;
+}
+
+@media only screen and (max-width: 1068px) {
+	.section-benefits .benefits-tile .benefits-caption-headline {
+		font-size: 22px;
+		line-height: 30px;
+	}
+}
+
+@media only screen and (max-width: 735px) {
+	.section-benefits .benefits-tile .benefits-caption-headline {
+		text-align: center;
+	}
+}
+
+
+
+
+
+.section-pilot-scheme .section-headline {
+	color: #fff;
+}
+
+.section-pilot-scheme .section-background-image {
+	width: 1200px;
+	height: 400px;
+	background-size: 1200px 400px;
+	background-image: url("img/london-britain-london-eye-sky-161762_dark.jpg");
+	position: absolute;
+	z-index: -1;
+	left: 50%;
+	margin-left: -600px; 
+}
+
+@media only screen and (max-width: 1068px) {
+	.section-pilot-scheme .section-background-image {
+		width: 1068px;
+		height: 356px;
+		background-size: 1068px 356px;
+		margin-left: -534px;
+	}
+}
+
+
+.section-pilot-scheme .section-content {
+	min-height: 400px;
+}
+
+@media only screen and (max-width: 1068px) {
+	.section-pilot-scheme .section-content {
+		min-height: 356px;
+	}
+}
+
+.section-pilot-scheme .section-headline {
+	margin-top: 124px;
+	margin-bottom: 94px;
+}
+
+
+@media only screen and (max-width: 1068px) {
+	.section-pilot-scheme .section-headline {
+		margin-top: 80px;
+		margin-bottom: 60px;
+	}
+}
+
+@media only screen and (max-width: 735px) {
+	.section-pilot-scheme .section-headline {
+		margin-top: 80px;
+		margin-bottom: 80px;
+		text-align: center;
+	}
+}
+
+.section-pilot-scheme .button.more {
+	border-color: #fff;
+	color: #fff;
+}
+
+@media only screen and (max-width: 735px) {
+	.section-pilot-scheme .button.more {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+.section-projects  .section-content {
+	padding: 67px 0;
+	width: 850px;
+}
+
+@media only screen and (max-width: 1068px) {
+	.section-projects  .section-content {
+		padding: 40px 0;
+		width: 650px;
+	}
+}
+
+@media only screen and (max-width: 735px) {
+	.section-projects  .section-content {
+		width: 90%;
+	}
+}
+
+
+
+.section-projects .section-headline {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.section-projects .image-projects {
+	width: 400px;
+	height: 225px;
+	background-size: 400px 225px;
+	background-image: url("img/london-sightseeing-tours-by-london-explorer-pass.png");
+}
+
+@media only screen and (max-width: 1068px) {
+	.section-projects .image-projects {
+		width: 300px;
+		height: 169px;
+		background-size: 300px 169px;
+	}
+}
+
+@media only screen and (max-width: 735px) {
+	.section-projects .image-projects {
+		width: 280px;
+		height: 158px;
+		background-size: 280px 158px;
+	}
+}
+
+.section-projects .column .tile {
+	display: block;
+}
+
+.section-projects .column.large-last .tile {
+	float: right;
+}
+
+@media only screen and (max-width: 735px) {
+	.section-projects .column .tile,
+	.section-projects .column.large-last .tile {
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		width: 280px;
+		text-align: center;
+	}	
+}
+
+.section-projects .projects-headline {
+	margin-top: 30px;
+	margin-bottom: 9px;
+	color: #982D46;
+	font-size: 24px;
+	line-height: 24px;
+	font-weight: 400;
+}
+
+.section-projects .projects-intro {
+	font-size: 19px;
+	line-height: 24px;
+	margin-bottom: 50px;
+}
+
+
+
+
+.section-register .content-wrapper {
+	width: 100%;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #982D46;
+	min-height: 308px;
+}
+
+.section-register .section-content {
+	width: auto;
+	padding: 66px 50px;
+}
+
+@media only screen and (max-width: 1068px) {
+	.section-register .section-content {
+        padding: 40px 0;
+        width: 90%;
+    }
+}
+
+.section-register .register {
+}
+
+
+.section-register .register .headline {
+	font-size: 30px;
+	font-style: oblique;
+	line-height: 42px;
+	font-weight: 400;
+	color: #fff;
+	margin-bottom: 57px;
+}
+
+
+.section-register .register label {
+
+}
+
+.section-register .register input[type="text"] {
+	border-style: solid;
+	border-color: #fff;
+	border-width: 0 0 2px 0;
+}
+
+
+.section-register .register input[type="submit"] {
+	
+}
+
+
+.section-register .social {
+	
+}
+
+.section-register .social .headline {
+	font-size: 24px;
+	font-style: oblique;
+	line-height: 42px;
+	font-weight: 400;
+	color: #fff;
+}
+
+
+
+
+
+
+
+
+.video-overlay .overlay-content, .video-overlay .close {
+
+}
+
+.video-overlay.active .overlay-content, .video-overlay.active .close {
+
+}
+
+.video-overlay {
+
+}
+
+.video-overlay.active {
+
+}
+
+.video-overlay .overlay-content {
+
+}
+
+.video-overlay .overlay-content iframe {
+
+}
+
+.video-overlay .close {
+
+}
+
+.video-overlay .close:before, .video-overlay .close:after {
+
+}
+
+.video-overlay .close:hover:before, .video-overlay .close:hover:after {
+
+}
+
+.video-overlay .close:before {
+
+}
+
+.video-overlay .close:after {
+
+}
+
+
+
+
+		</style>
+	</head>
+	<body>
+		<section class="section section-hero">
+			<figure class="section-background-image"></figure>
+			<div class="content-wrapper">
+				<div class="section-content">
+					<div class="row">
+						<div class="column large-7 medium-6 small-12 small-centered">
+							<h1 class="section-headline">Joint Security and Resilience centre</h1>
+							<p class="intro">The Joint Security and Resilience Centre (JSaRC) helps the UK government and suppliers from the security sector to work closely together - making it quicker and simpler to bring customers and solutions together.</p>
+							<a class="button more" href="#">Call to Action</a>
+						</div>
+						<div class="column large-5 medium-6 small-12 small-centered">
+							<div class="video-thumbnail-wrapper">
+								<a id="videoOverlayTrigger" class="video-thumbnail" href="#">
+									<figure class="video-thumbnail-image"></figure>
+								</a>
+								<p class="video-thumbnail-caption">Lorem ipsum dolor sit amet</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section section-benefits">
+			<div class="section-content">
+				<h2 class="section-headline">Benefits of working with JSaRC</h2>
+				<div class="row">
+					<div class="column large-4 medium-12">
+						<div class="benefits-tile">
+							<figure class="image-benefits"></figure>
+							<h3 class="benefits-caption-headline">Industry Connections</h3>
+						</div>
+					</div>
+					<div class="column large-4 medium-12">
+						<div class="benefits-tile">
+							<figure class="image-benefits"></figure>
+							<h3 class="benefits-caption-headline">Funding opportunities</h3>
+						</div>
+					</div>
+					<div class="column large-4 large-last medium-12">
+						<div class="benefits-tile">
+							<figure class="image-benefits"></figure>
+							<h3 class="benefits-caption-headline">Applications Support</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section section-pilot-scheme">
+			<figure class="section-background-image"></figure>
+			<div class="section-content">
+				<div class="row">
+					<div class="column large-6 large-push-6 small-12 small-push-0">
+						<h2 class="section-headline">High Footfall Pilot Scheme</h2>
+						<a class="button more" href="#">Call to Action</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="section section-projects">
+			<div class="section-content">
+				<h2 class="section-headline">Other Projects</h2>
+				<div class="row">
+					<div class="column large-6 small-12">
+						<a class="tile" href="#">
+							<figure class="image-projects"></figure>
+							<h3 class="projects-headline">Heading text here</h3>
+							<p class="projects-intro">Heading text here</p>
+						</a>
+					</div>
+					<div class="column large-6 large-last small-12">
+						<a class="tile" href="#">
+							<figure class="image-projects"></figure>
+							<h3 class="projects-headline">Heading text here</h3>
+							<p class="projects-intro">Heading text here</p>
+						</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="column large-6 small-12">
+						<a class="tile" href="#">
+							<figure class="image-projects"></figure>
+							<h3 class="projects-headline">Heading text here</h3>
+							<p class="projects-intro">Heading text here</p>
+						</a>
+					</div>
+					<div class="column large-6 large-last small-12">
+						<a class="tile" href="#">
+							<figure class="image-projects"></figure>
+							<h3 class="projects-headline">Heading text here</h3>
+							<p class="projects-intro">Heading text here</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--section class="section section-register">
+			<div class="content-wrapper">
+				<div class="secti on-content">
+					<div class="row register">
+						<div class="column large-5 small-12">
+							<h3 class="headline">Register for an open day<h3>
+						</div>
+						<div class="column large-7 small-12">
+							<form id="register" action="" method="post">
+								<label for="email">Enter your email to attend</label>
+								<input type="text" name="email" autocorrect="off" />
+								<input type="submit" value="Submit" onclick="" />
+							</form>
+						</div>
+					</div>
+					<div class="row social">
+						<div class="column large-5 small-12">
+							<h3 class="headline">Stay connected with JSaRC<h3>
+						</div>
+						<div class="column large-7 small-12">
+							<ul class="social-icons">
+								<li class="menu-item"><a class="icon twitter" href="#">Twitter</a></li>
+								<li class="menu-item"><a class="icon youtube" href="#">Youtube</a></li>
+								<li class="menu-item"><a class="icon facebook" href="#">Facebook</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="section footer">
+			<div class="section-content">
+				<div class="row">
+					<div class="column large-4 small-6">
+						<ul>
+							<li class="menu-item"><a href="#">Contact JSaRC</a></li>
+							<li class="menu-item"><a href="#">Terms and Conditions</a></li>
+							<li class="menu-item"><a href="#">Privacy Policy</a></li>
+						</ul>
+					</div>
+					<div class="column large-4 small-6">
+						<ul>
+							<li class="menu-item"><a href="#">Cookie Policy</a></li>
+							<li class="menu-item"><a href="#">Sitemap</a></li>
+						</ul>
+					</div>
+					<div class="column large-4 small-12">
+						<figure class="organisation-logo"></figure>
+						<p>© 2018 Joint Security and Resilience Centre</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<div id="videoOverlay" class="video-overlay">
+			<div class="overlay-content">
+				<iframe id="jsarcVideo" src="https://www.youtube.com/embed/wqslA_CKub8?version=3&enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			</div>
+			<button id="videoOverlayClose" class="close">Close</button>
+		</div-->
+	</body>
