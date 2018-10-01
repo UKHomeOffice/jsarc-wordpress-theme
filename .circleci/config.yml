@@ -51,6 +51,9 @@ jobs:
 
     - attach_workspace:
         at: /tmp/workspace
+    - run:
+        name: Setup aws cli
+        command: sudo pip install awscli
 
     - run:
         name: Deploy to ECS
