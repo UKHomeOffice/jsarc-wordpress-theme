@@ -42,6 +42,26 @@ jobs:
         paths:
         - jsarcwordpress.txt
 
+  deploy:
+    docker:
+    - image: circleci/python:2.7-jessie
+    working_directory: ~/repo
+    steps:
+    - checkout
+
+    - attach_workspace:
+        at: /tmp/workspace
+
+    - run:
+        name: Deploy to ECS
+        working_directory: jsarc-infra/
+        command: |
+          aws cloudformation update-stack \
+          --stack-name ecs \
+          --template-body file://ecs.yaml \
+          --parameters ParameterKey=containerImage,ParameterValue="$(cat /tmp/workspace/jsarcwordpress.txt)"
+
+
 workflows:
   version: 2
   build:
@@ -53,3 +73,11 @@ workflows:
           branches:
             only:
             - master
+    - deploy:
+        context: jsarc
+        requires:
+          - dockerise
+        filters:
+          branches:
+            only:
+              - master
