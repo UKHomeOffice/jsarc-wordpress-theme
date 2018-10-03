@@ -85,3 +85,28 @@ document.addEventListener('DOMContentLoaded', function () {
     videoOverlay.classList.remove('active');
   });
 }, false);
+
+
+
+
+
+
+
+// Register for opendays email input - (Animated floating label input)
+var registerTextInput = document.querySelector('.register-input__text-field');
+
+if (registerTextInput) {
+
+  // When text input field is changed, if it contains content add 'active' class
+  // so the input label remains floated above the input
+  registerTextInput.addEventListener('change', function() {
+    if (registerTextInput && registerTextInput.value) {
+      registerTextInput.classList.add('active');
+    }
+    else {
+      registerTextInput.classList.remove('active');
+    }
+  });
+}
+
+
