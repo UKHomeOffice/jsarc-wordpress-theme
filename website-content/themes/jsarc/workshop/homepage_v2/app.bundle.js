@@ -9,6 +9,7 @@ console.log("hello");
 var searchAnchor = document.getElementById('searchAnchor');
 var primaryNav = document.getElementById('primaryNav');
 var primaryNavSearch = document.getElementById('primaryNavSearch');
+
 document.addEventListener('DOMContentLoaded', function () {
   /*
   // primary nav list item dropdown
@@ -32,17 +33,20 @@ document.addEventListener('DOMContentLoaded', function () {
   var specifiedElement = document.getElementById('a');
   */
   // search field trigger
-  searchAnchor.addEventListener('click', function () {
-    primaryNav.classList.toggle('searchActive');
-    primaryNavSearch.focus();
-    /*
-    	// close dropdown submenu
-    	const active = document.querySelector('.dropdown.active');
-    	if(active) {
-    		active.classList.remove('active');
-    	}
-    */
-  });
+  if (searchAnchor) {
+    searchAnchor.addEventListener('click', function () {
+      primaryNav.classList.toggle('searchActive');
+      primaryNavSearch.focus();
+      /*
+        // close dropdown submenu
+        const active = document.querySelector('.dropdown.active');
+        if(active) {
+          active.classList.remove('active');
+        }
+      */
+    });
+  }
+
   /*
   // close dropdown field on scroll
   window.addEventListener('scroll', function() {
@@ -77,13 +81,49 @@ document.addEventListener('DOMContentLoaded', function () {
   var videoOverlayTrigger = document.getElementById('videoOverlayTrigger');
   var videoOverlay = document.getElementById('videoOverlay');
   var videoOverlayClose = document.getElementById('videoOverlayClose');
-  videoOverlayTrigger.addEventListener('click', function (e) {
-    e.preventDefault();
-    videoOverlay.classList.add('active');
-  });
-  videoOverlayClose.addEventListener('click', function () {
-    videoOverlay.classList.remove('active');
-  });
+
+  if (videoOverlayTrigger) {
+    videoOverlayTrigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      videoOverlay.classList.add('active');
+    });
+    videoOverlayClose.addEventListener('click', function () {
+      videoOverlay.classList.remove('active');
+    });
+  }
+
+
+
+
+
+  // Register for open days email input
+  // (animated floating label style text input)
+  var registerTextInput = document.querySelector('.register-input__text-field');
+
+  if (registerTextInput) {
+
+
+    registerTextInput.addEventListener('change', function() {
+
+      // When text input field is changed, if it contains content add 'active' class
+      // To ensure input label remains floated above the input if text has been added
+      if (registerTextInput && registerTextInput.value) {
+        registerTextInput.classList.add('active');
+      }
+      else {
+        registerTextInput.classList.remove('active');
+      }
+    });
+  }
+
+
+
+
+
+
+
+
+
 }, false);
 
 
@@ -92,24 +132,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// Register for open days email input
-// (animated floating label style text input)
-var registerTextInput = document.querySelector('.register-input__text-field');
-
-if (registerTextInput) {
-
-
-  registerTextInput.addEventListener('change', function() {
-
-    // When text input field is changed, if it contains content add 'active' class
-    // To ensure input label remains floated above the input if text has been added
-    if (registerTextInput && registerTextInput.value) {
-      registerTextInput.classList.add('active');
-    }
-    else {
-      registerTextInput.classList.remove('active');
-    }
-  });
-}
 
 
