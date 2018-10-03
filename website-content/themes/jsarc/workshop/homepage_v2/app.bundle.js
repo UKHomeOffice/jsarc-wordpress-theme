@@ -61,22 +61,26 @@ document.addEventListener('DOMContentLoaded', function () {
   // close dropdown & serach field if clicked outside the nav
 
   document.addEventListener('click', function (event) {
-    var isClickInside = primaryNav.contains(event.target);
 
-    if (!isClickInside) {
-      // the click was outside the specifiedElement
+    if (primaryNav) {
+      var isClickInside = primaryNav.contains(event.target);
 
-      /*
-      // close dropdown submenu
-      const active = document.querySelector('.dropdown.active');
-      if(active) {
-      active.classList.remove('active');
+      if (!isClickInside) {
+        // the click was outside the specifiedElement
+
+        /*
+        // close dropdown submenu
+        const active = document.querySelector('.dropdown.active');
+        if(active) {
+        active.classList.remove('active');
+        }
+        */
+        // close search field
+        primaryNav.classList.remove('searchActive');
       }
-      */
-      // close search field
-      primaryNav.classList.remove('searchActive');
     }
-  }); // video overlay trigger
+
+  });
 
   var videoOverlayTrigger = document.getElementById('videoOverlayTrigger');
   var videoOverlay = document.getElementById('videoOverlay');
@@ -85,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (videoOverlayTrigger) {
     videoOverlayTrigger.addEventListener('click', function (e) {
       e.preventDefault();
+      console.log("video button clicked");
       videoOverlay.classList.add('active');
     });
     videoOverlayClose.addEventListener('click', function () {
