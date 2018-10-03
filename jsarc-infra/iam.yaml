@@ -30,6 +30,7 @@ Resources:
       - arn:aws:iam::aws:policy/AmazonS3FullAccess
       - arn:aws:iam::aws:policy/AmazonECS_FullAccess
       - arn:aws:iam::aws:policy/IAMReadOnlyAccess
+      - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess
       UserName: circleci
 
 Outputs:
