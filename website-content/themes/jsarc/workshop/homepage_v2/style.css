@@ -1566,8 +1566,8 @@ body:after {
 
 .button.more {
     display: block;
-    width: 238px;
-    height: 50px;
+    max-width: 238px;
+    min-height: 50px;
     border: 2px solid #000;
     color: #000;
     font-size: 19px;
@@ -1578,8 +1578,12 @@ body:after {
 
 @media only screen and (max-width: 735px) {
     .button.more {
+        width: auto;
         min-width: 190px;
+        max-width: 238px;
         min-height: 40px;
+        font-size: 17px;
+        line-height: 40px;
     }
 }
 
@@ -1713,6 +1717,13 @@ body:after {
     }
 }
 
+@media only screen and (max-width: 735px) {
+    .section-hero .section-headline {
+        font-size: 36px;
+        line-height: 40px;
+    }
+}
+
 .section-hero .intro {
     max-width: 655px;
     margin-bottom: 50px;
@@ -1754,8 +1765,12 @@ body:after {
 
 @media only screen and (max-width: 735px) {
     .section-hero .button.more {
+        max-width: 238px;
+        height: 40px;
         margin-right: auto;
         margin-left: auto;
+        font-size: 17px;
+        line-height: 40px;
     }
 }
 
@@ -2474,7 +2489,6 @@ body:after {
     width: 100%;
     height: auto;
     padding-bottom: 63%;
-    background-color: blue;
     background-image: url("https://via.placeholder.com/300x190");
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -2537,8 +2551,8 @@ body:after {
 
 @media only screen and (max-width: 1068px) {
     .section-projects .projects-3up__read-more-link {
-        font-size: 16px;
-        line-height: 20px;
+        font-size: 17px;
+        line-height: 27px;
     }
 }
 
@@ -2616,16 +2630,17 @@ body:after {
 @media only screen and (max-width: 735px) {
     .section-register .register .headline {
         margin-bottom: 40px;
+        font-size: 30px;
+        line-height: 36px;
     }
 }
 
 .section-register .register-form {
-    display: relative;
     padding-left: 20px;
 }
 
 @media only screen and (max-width: 735px) {
-    .section-register .register {
+    .section-register .register-form {
         padding-left: 0;
     }
 }
@@ -2633,40 +2648,50 @@ body:after {
 .section-register .register-input {
     display: inline-block;
     position: relative;
-    width: 100%;
-    max-width: 320px;
+    width: 320px;
     height: 50px;
     background: transparent;
 }
 
 @media only screen and (max-width: 1068px) {
     .section-register .register-input {
-        max-width: 280px;
+        width: 280px;
     }
 }
 
 @media only screen and (max-width: 735px) {
     .section-register .register-input {
         display: block;
+        width: 270px;
+        height: 40px;
         margin-right: auto;
         margin-left: 0;
     }
 }
 
 .section-register .register-input__text-field {
+    display: block;
     position: absolute;
     box-sizing: border-box;
     width: 100%;
     height: 50px;
-    padding: 0 5px;
+    padding: 0 5px 0 5px;
     border-bottom: solid 2px #fff;
     color: #fff;
     font-size: 19px;
     line-height: 42px;
 }
 
+@media only screen and (max-width: 735px) {
+    .section-register .register-input__text-field {
+        height: 40px;
+        font-size: 17px;
+        line-height: 27px;
+    }
+}
+
 .section-register .register-input__text-field:focus {
-    border-bottom: solid 2px #000;
+    border-bottom: solid 2px rgba(0,0,0,0.5);
     background-color: rgba(255,255,255, 0.2);
 }
 
@@ -2689,8 +2714,7 @@ body:after {
 }
 
 .section-register .register-submit-button {
-    position: absolute;
-    top: 0;
+    display: inline-block;
     width: 100px;
     height: 50px;
     margin: 0 20px;
@@ -2710,9 +2734,11 @@ body:after {
     .section-register .register-submit-button {
         display: block;
         position: static;
+        height: 40px;
         margin-top: 30px;
         margin-right: auto;
         margin-left: 0;
+        line-height: 40px;
     }
 }
 
@@ -2755,10 +2781,10 @@ body:after {
 }
 
 
-
-
-.section-footer {
-    background-color: #e3e3e3;
+@media only screen and (max-width: 1068px) {
+    .section-footer {
+        background-color: #e3e3e3;
+    }
 }
 
 .section-footer .section-content {
@@ -2769,6 +2795,7 @@ body:after {
     margin-right: auto;
     margin-left: auto;
     padding: 66px 50px;
+    background-color: #e3e3e3;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -2783,11 +2810,25 @@ body:after {
     line-height: 42px;
 }
 
+
+
 .section-footer .organisation-logo {
     width: 187px;
     height: 80px;
     margin-top: 20px;
+    margin-right: 40px;
     margin-bottom: 40px;
+    margin-left: auto;
     background-image: url("img/home-office-logo.png");
     background-size: 100% auto;
 }
+
+
+@media only screen and (max-width: 735px) {
+    .section-footer .organisation-logo {
+        margin-top: 40px;
+        margin-right: auto;
+        margin-left: 0;
+    }
+}
+;

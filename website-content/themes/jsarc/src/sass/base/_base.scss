@@ -40,45 +40,57 @@
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-.section-footer {
-    background-color: #dcdcdc;
-    a {
-        font-size: 19px;
-        line-height: 42px;
+@media only screen and (max-width: 1068px) {
+    .section-footer {
+        background-color: #e3e3e3;
     }
-    a:hover {
-        text-decoration: underline;
-    }
-    .organisation-logo {
-        max-width: 187px;
-        height: 80px;
-        margin-top: 15px;
-        margin-right: 60px;
-        margin-bottom: 60px;
-        margin-left: auto;
-        background: url("./img/home-office-logo.png");
-        background-size: contain;
-    }
-}
-.copyright-text {
-    text-align: right;
 }
 
-@media only screen and (max-width: $small) {
+.section-footer .section-content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 308px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 66px 50px;
+    background-color: #e3e3e3;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-footer .section-content {
+        width: 90%;
+        padding: 40px 0;
+    }
+}
+
+.section-footer .menu-item {
+    font-size: 19px;
+    line-height: 42px;
+}
+
+
+
+.section-footer .organisation-logo {
+    width: 187px;
+    height: 80px;
+    margin-top: 20px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    background-image: url("img/home-office-logo.png");
+    background-size: 100% auto;
+}
+
+
+@media only screen and (max-width: 735px) {
     .section-footer .organisation-logo {
-        margin-top: 60px;
+        margin-top: 40px;
         margin-right: auto;
-        margin-bottom: 30px;
-        margin-left: auto;
-    }
-
-    .section-footer .column:nth-child(2) {
-        padding-left: 30px;
-    }
-    .copyright-text {
-        text-align: center;
+        margin-left: 0;
     }
 }
+
 
 
 
@@ -95,7 +107,7 @@
 /*------------------------------------
 
 
-FROM MAX below here: 
+FROM MAX below here:
 
 Primary nav
 

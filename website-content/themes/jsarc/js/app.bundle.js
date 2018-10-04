@@ -1,6 +1,10 @@
 "use strict";
 
-// const hello = (name) => {     return `hello ${name}`; };
+var hello = function hello(name) {
+  return "hello ".concat(name);
+};
+
+console.log(hello("Max D"));
 var searchAnchor = document.getElementById('searchAnchor');
 var primaryNav = document.getElementById('primaryNav');
 var primaryNavSearch = document.getElementById('primaryNavSearch');
@@ -78,5 +82,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   videoOverlayClose.addEventListener('click', function () {
     videoOverlay.classList.remove('active');
-  });
+  }); // Register for open days email input
+  // (animated floating label style text input)
+
+  var registerTextInput = document.querySelector('.register-input__text-field');
+
+  if (registerTextInput) {
+    registerTextInput.addEventListener('change', function () {
+      // When text input field is changed, if it contains content add 'active' class
+      // To ensure input label remains floated above the input if text has been added
+      if (registerTextInput && registerTextInput.value) {
+        registerTextInput.classList.add('active');
+      } else {
+        registerTextInput.classList.remove('active');
+      }
+    });
+  }
 }, false);
