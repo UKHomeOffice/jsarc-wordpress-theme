@@ -225,3 +225,111 @@ function wpse200296_before_admin_bar_render() {
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('customize');
 }
+
+
+
+
+
+
+/**********************************************************************************
+*
+*					JSARC PRIMARY NAV
+*
+***********************************************************************************/
+
+
+
+/**
+ * Register JSaRC Primary Nav
+ */
+
+
+
+function register_jsarc_primary_nav() {
+  register_nav_menu('jsarc-primary-nav',__( 'JSaRC Primary Nav' ));
+}
+add_action( 'init', 'register_jsarc_primary_nav' );
+
+
+
+
+
+// class description_walker extends Walker_Nav_Menu {
+class Walker_Quickstart_Menu extends Walker_Nav_Menu {
+//  function start_el(&$output, $item, $depth, $args) {
+	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+
+	global $wp_query;
+	$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+	
+	$class_names = $value = '';
+	$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+	
+	
+	
+	
+	
+	
+	
+	 if ($args->walker->has_children) {
+	  if (0 === $depth) {
+		$classes[] = 'dropdown';
+	  } else {
+		$classes[] = 'dropdown-submenu';
+	  }
+	} 
+	
+		
+	
+
+	
+
+	$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+	$class_names = ' class="primary-nav-item '. esc_attr( $class_names ) . '"';
+	//$output .= $indent . '<li id="primary-nav-item-'. $item->ID . '"' . $value . $class_names .'>';
+	$output .= $indent . '<li ' . $value . $class_names .'>';
+	
+	$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+	$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+	$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+	$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+	$description  = ! empty( $item->description ) ? '<span>'.esc_attr( $item->description ).'</span>' : '';
+	/*
+	$prepend = '<span>';
+	$append = '</span>';
+	*/
+	$description  = ! empty( $item->description ) ? ' <span class="hidden">'.esc_attr( $item->description ).'</span>' : '';
+
+	if($depth != 0) {
+		$description = $append = $prepend = "";
+	}
+
+	$item_output = $args->before;
+	$item_output .= '<a class="primary-nav-link"'. $attributes .'>';
+	$item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
+	$item_output .= $description.$args->link_after;
+	$item_output .= '</a>';
+	$item_output .= $args->after;
+
+	$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	
+	
+	
+  }
+}
+
+
+
+//Remove all classes and ID from Nav Menu
+function remove_css_id_filter($var) {
+	return is_array($var) ? array_intersect($var, array('current-menu-item', 'dropdown')) : '';
+}
+
+
+add_filter('page_css_class', 'remove_css_id_filter', 100, 1);
+add_filter('nav_menu_item_id', 'remove_css_id_filter', 100, 1);
+add_filter('nav_menu_css_class', 'remove_css_id_filter', 100, 1);
+
+
+
+
