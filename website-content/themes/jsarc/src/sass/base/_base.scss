@@ -1,3 +1,77 @@
+/*
+body:before {
+	content: '';
+	display: block;
+	left: 0;
+	right: 0;
+	top: 0;
+	margin: auto;
+	position: absolute;
+	z-index: -22;
+	width: 1200px;
+	height: 1000vh;
+	background-size: 1200px auto;
+	background-image: url("./img/320841302.png");
+	filter: grayscale(100%);
+	opacity: 1 !important;
+}
+
+* { opacity: .9; }
+*/
+
+
+
+.section-content {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+@media only screen and (max-width: 1068px) {
+    .section-content {
+        width: 692px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-content {
+        width: 90%;
+    }
+}
+
+
+
+
+buton,
+buton:focus,
+buton:active {
+	background: 0 0;
+	outline: 0 none;
+	border: 0 none;
+}
+
+.button-more {
+    display: block;
+    box-sizing: border-box;
+    width: 238px;
+    border: 2px solid #fff;
+    font-size: 19px;
+    line-height: 50px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.video-close {
+
+}
+
+
+.menu-close {
+
+}
+
 .clearfix {
     @include clearfix();
 }
@@ -94,14 +168,6 @@
 
 
 
-/*--------------------------------------------------------------
-# Margins
---------------------------------------------------------------*/
-
-.margin-bottom-large {
-    margin-bottom: 100px;
-}
-
 
 
 /*------------------------------------
@@ -121,7 +187,7 @@ Primary nav
     z-index: 9997;
     top: 0;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 17px;
     margin-bottom: 20px;
     padding: 5px 0;
     background-color: #fff;
@@ -348,7 +414,6 @@ Primary nav
 
 .primary-nav .submenu > .submenu-item > .submenu-item-link {
     display: block;
-    height: 24px;
     padding: 12px 0;
     font-size: 15px;
     line-height: 24px;
@@ -370,45 +435,13 @@ Primary nav
 }
 
 
-/* Small screen */
 @media only screen and (max-width: 735px) {
     .primary-nav .menu > .menu-item {
         display: block;
     }
 }
 
-/*------------------------------------
 
-Default properties for each section
-
-------------------------------------*/
-
-
-
-.section-content {
-    width: 980px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-@media only screen and (max-width: 1068px) {
-    .section-content {
-        width: 692px;
-    }
-}
-
-@media only screen and (max-width: 735px) {
-    .section-content {
-        width: 90%;
-    }
-}
-
-
-/* ----------------------------------
-
-SECTION HERO
-
-------------------------------------*/
 
 .section-hero .section-background-image {
     width: 1200px;
@@ -451,21 +484,13 @@ SECTION HERO
     line-height: 28px;
 }
 
-.button.more {
-    display: block;
-    box-sizing: border-box;
-    width: 238px;
-    border: 2px solid #fff;
-    font-size: 19px;
-    line-height: 50px;
-    text-align: center;
-    white-space: nowrap;
-}
-.video-thumbnail {
+
+
+.section-hero .video-thumbnail {
     display: block;
     position: relative;
 }
-.video-thumbnail:before {
+.section-hero .video-thumbnail:before {
     display: block;
     position: absolute;
     z-index: 2;
@@ -484,11 +509,11 @@ SECTION HERO
     transition: opacity 0.5s;
     pointer-events: none;
 }
-.video-thumbnail:hover:before {
+.section-hero .video-thumbnail:hover:before {
     opacity: 1;
 }
 
-.video-thumbnail .video-thumbnail-image:after {
+.section-hero .video-thumbnail .video-thumbnail-image:after {
     display: block;
     position: absolute;
     z-index: 1;
@@ -496,8 +521,7 @@ SECTION HERO
     left: 0;
     width: 525px;
     height: 295px;
-    background: rgba(0, 0, 0, 0.15);
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.15);
     content: "";
     -webkit-transition: 500ms background-color cubic-bezier(0.4, 0, 0.6, 1);
     transition: 500ms background-color cubic-bezier(0.4, 0, 0.6, 1);
@@ -528,6 +552,9 @@ SECTION HERO
 SECTION BENEFITS
 
 ------------------------------------*/
+.section-benefits .section-content {
+	padding-top: 37px;
+}
 
 .section-benefits .section-headline {
     margin-bottom: 63px;
@@ -540,7 +567,7 @@ SECTION BENEFITS
 .section-benefits .image-benefits {
     width: 300px;
     height: 190px;
-    margin: 27px;
+    margin-left: 27px;
     background-image: url("./img/image-benefits_2x.jpg");
     background-size: 300px 190px;
 }
@@ -677,3 +704,319 @@ SECTION BENEFITS
     width: 0.1em;
     height: 36px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------------------------------
+
+
+P
+
+
+------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.section-pilot-scheme  h2 {
+	margin-top: 110px;
+	margin-bottom: 95px;
+	color: #fff;
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 42px;
+}
+
+
+.section-pilot-scheme {
+	position: relative;
+	overflow: hidden;
+	min-height: 400px;
+		
+}
+.section-pilot-scheme .secrtion-content {
+	height: 400px;
+}
+
+
+.section-pilot-scheme .section-background-image {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -600px;
+	width: 1200px;
+	height: 400px;
+	background-size: 1200px 400px;
+	background-image: url("./img/pilot-scheme-cta-background_2x.png");
+}
+
+.section-pilot-scheme .button.more {
+	color: #fff;
+}
+
+
+
+
+
+
+
+.section-benefits {
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+.section-benefits h2 {
+        font-size: 36px;
+        line-height: 42px;
+    }
+.section-benefits .column {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+
+.image-benefits {
+    max-width: 300px;
+    height: 190px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    background-color: $color__jsarc-purple;
+}
+
+
+.section-projects,
+.section-register {
+	margin-bottom: 100px;
+	overflow: hidden;
+}
+
+
+.section-projects h2 {
+    margin-top: 100px;
+    margin-bottom: 27px;
+	font-size: 36px;
+	line-height: 42px;
+	text-align: center;
+}
+
+.section-projects .tile {
+	margin-left: 46px;
+}
+
+
+
+.section-register {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $color__jsarc-purple;
+}
+
+.section-register .section-content {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	color: white;
+    
+}
+.section-register h2,
+.section-register h3,
+.section-register p {
+        color: white;
+    }
+   
+
+
+
+
+// reusable variables -- may want to move to project settings.sass file
+
+
+$jsarc__animation-easing: cubic-bezier(0, 0, 0.2, 1);
+$jsarc__animation-timing: 0.25s;
+$jsarc__default-transition: all $jsarc__animation-timing $jsarc__animation-easing;
+
+
+
+
+
+
+.register__form {
+    input {
+        display: inline-block;
+        font-size: 19px;
+        line-height: 42px;
+    }
+
+    .register__label {
+        font-size: 19px;
+        line-height: 42px;
+        transition: $jsarc__default-transition;
+    }
+
+    .register__input-email {
+        min-width: 300px;
+        border: 0;
+        border-bottom: solid 2px white;
+        color: white;
+        background-color: transparent;
+        outline: 0 none;
+    }
+
+
+  
+/*
+styles for floating input
+TODO: refactor to generic floating input styles to allow re-use
+*/
+    .register__input-email:focus + .register__label,
+    .register__input-email:valid + .register__label {
+        text-align: left;
+        transition: $jsarc__default-transition;
+        -webkit-transform: translateY(-80%) translateX(-10%) scale(0.75, 0.75);
+        transform: translateY(-80%) translateX(-10%) scale(0.75, 0.75);
+    }
+
+    .register__submit-button {
+        height: 54px;
+        border-bottom: solid 2px transparent;
+        color: transparent;
+        background-color: transparent;
+        background-image: url("./img/icons/arrow-right-white.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 40px 40px;
+    }
+
+    .register__submit-button:hover,
+    .register__submit-button:focus {
+        background-color: rgba(255,255,255,0.2);
+        transition: $jsarc__default-transition;
+    }
+    .register__submit-button:active {
+        background-position: 60% center;
+        transition: $jsarc__default-transition;
+    }
+}
+
+
+// Floating input styles
+.floating-label-input {
+    position: relative;
+}
+.floating-label-input label {
+    position: absolute;
+    left: 0;
+}
+
+.heading-register-email {
+    font-size: 30px;
+    font-style: oblique;
+    line-height: 42px;
+}
+
+.heading-stay-connected {
+    font-size: 24px;
+    font-style: oblique;
+    line-height: 42px;
+}
+
+.projects-headline {
+    margin-bottom: 12px;
+    color: $color__jsarc-purple;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.projects-intro {
+    font-size: 19px;
+    line-height: 24px;
+}
+
+.image-projects {
+    overflow: hidden;
+    position: relative;
+    max-width: 400px;
+    height: 225px;
+    margin-bottom: 30px;
+    background-image: url("./img/placeholder-thumbnail.png");
+    background-size: cover;
+    transition: $jsarc__default-transition;
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-image: linear-gradient(to bottom right,#f5f5f5,#000);
+        content: "";
+        transition: opacity 0.25s cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+/*--------------------------------------------------------------
+# Social Icons
+--------------------------------------------------------------*/
+.social-icons li {
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+
+    a {
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border: solid 2px white;
+        border-radius: 50%;
+        background-color: white;
+        line-height: 42px;
+    }
+    a:hover {
+        border: solid 2px white;
+        color: white;
+        background-color: $color__jsarc-purple;
+        transition: all 0.25s cubic-bezier(0.0, 0.0, 0.2, 1);
+        i {
+            color: white;
+        }
+    }
+
+    i {
+        color: $color__jsarc-purple;
+    }
+}
+
+.social-icons li:not(:first-child) {
+    margin-left: 20px;
+}
+
