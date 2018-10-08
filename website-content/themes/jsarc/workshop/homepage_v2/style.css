@@ -27,7 +27,7 @@ Grid
     box-sizing: border-box;
     min-height: 2px;
     margin: 0;
-    padding: 0;;
+    padding: 0;
 }
 
 .large-offset-0 {
@@ -1825,6 +1825,7 @@ body:after {
 }
 
 .section-about-jsarc .button.more {
+    max-width: 265px;
     margin-top: 58px;
     border-color: #fff;
     color: #fff;
@@ -2436,6 +2437,7 @@ body:after {
     width: 300px;
     min-height: 400px;
     margin-bottom: 50px;
+    vertical-align: top;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -2495,17 +2497,23 @@ body:after {
 }
 
 .section-projects .projects-3up__content-wrapper {
-    min-height: 150px;
+    min-height: 313px;
     padding: 30px;
     background-color: white;
 }
 
 @media only screen and (max-width: 1068px) {
     .section-projects .projects-3up__content-wrapper {
+        min-height: 270px;
         padding: 20px;
     }
 }
 
+@media only screen and (max-width: 735px) {
+    .section-projects .projects-3up__content-wrapper {
+        min-height: auto;
+    }
+}
 
 
 .section-projects .projects-3up__heading {
@@ -2523,8 +2531,6 @@ body:after {
         line-height: 30px;
     }
 }
-
-
 
 .section-projects .projects-3up__text {
     font-size: 19px;
@@ -2581,6 +2587,7 @@ body:after {
 
 
 .section-projects .see-all-projects-button {
+    max-width: 360px;
     margin-right: auto;
     margin-left: auto;
 }
