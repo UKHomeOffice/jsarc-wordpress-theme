@@ -1,0 +1,41 @@
+Resources:
+  taskExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: [ecs-tasks.amazonaws.com]
+            Action: ['sts:AssumeRole']
+      Path: /
+      Policies:
+        - PolicyName: AmazonECSTaskExecutionRolePolicy
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action:
+                - 'ecr:GetAuthorizationToken'
+                - 'ecr:BatchCheckLayerAvailability'
+                - 'ecr:GetDownloadUrlForLayer'
+                - 'ecr:BatchGetImage'
+                - 'logs:CreateLogStream'
+                - 'logs:PutLogEvents'
+                Resource: '*'
+  iamCircleCiUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+      - arn:aws:iam::aws:policy/AmazonS3FullAccess
+      - arn:aws:iam::aws:policy/AmazonECS_FullAccess
+      - arn:aws:iam::aws:policy/IAMReadOnlyAccess
+      - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess
+      UserName: circleci
+
+Outputs:
+  taskExecutionRoleOutput:
+    Description: ECS task execution role to allow tasks to do stuff. 
+    Value: !GetAtt taskExecutionRole.Arn
+    Export:
+      Name: taskExecutionRole
