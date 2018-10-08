@@ -189,7 +189,7 @@ button {
 }
 .row::after {
     display: table;
-    clear: both; 
+    clear: both;
     content: "";
 }
 
@@ -1132,7 +1132,7 @@ button {
 /*------------------------------------
 
 
-FROM MAX below here: 
+FROM MAX below here:
 
 Primary nav
 
@@ -2490,7 +2490,7 @@ textarea {
 #menuanchor:after {
     display: block;
     width: 100%;
-    height: 100%; 
+    height: 100%;
     content: "";
 }
 
@@ -2514,7 +2514,7 @@ textarea {
 #primary-menu ul li a {
     display: block;
     padding: 5px 10px;
-    color: #fff; 
+    color: #fff;
     background-color: #1d4189;
 }
 
@@ -2527,5 +2527,3 @@ textarea {
         display: block;
     }
 }
-
-/*# sourceMappingURL=src/sourcemaps/style.css.map */
