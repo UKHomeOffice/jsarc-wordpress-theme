@@ -1512,7 +1512,8 @@ body:after {
 }
 
 .section-content {
-    width: 980px;
+    /* width: 980px; */
+    width: 1000px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -1531,14 +1532,17 @@ body:after {
 
 
 .viewport-content {
-    max-width: 980px;
+    /* max-width: 980px; */
+    max-width: 1000px;
     margin-right: auto;
     margin-left: auto;
 }
 
 @media only screen and (max-width: 1068px) {
     .viewport-content {
-        width: 87.5%;
+        /* TODO: re-examine scaling down viewport to tablet and small size screens
+        without text overflowing with orphans */
+        /* width: 87.5%;  */
         margin-right: auto;
         margin-left: auto;
     }
