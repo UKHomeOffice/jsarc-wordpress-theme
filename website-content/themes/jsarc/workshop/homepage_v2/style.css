@@ -1501,9 +1501,9 @@ body:after {
 
 
 /* DEBUG LAYOUT - OUTLINES AROUND EVERYTHING */
-/* * {
+* {
     outline: 1px solid rgba(255,0,0,0.1);
-} */
+}
 
 
 .section {
@@ -1558,6 +1558,7 @@ body:after {
 
 @media only screen and (max-width: 735px) {
     .section-headline {
+        margin-bottom: 30px;
         font-size: 30px;
         line-height: 36px;
     }
@@ -1696,7 +1697,7 @@ body:after {
 @media only screen and (max-width: 735px) {
     .section-hero .section-content {
         width: 90%;
-        padding: 100px 0 40px 0;
+        padding: 70px 0 40px 0;
     }
 }
 
@@ -1736,6 +1737,8 @@ body:after {
 @media only screen and (max-width: 1068px) {
     .section-hero .intro {
         max-width: 430px;
+        font-size: 17px;
+        line-height: 27px;
     }
 }
 
@@ -1746,6 +1749,7 @@ body:after {
 
     .section-hero .intro {
         max-width: none;
+        margin-bottom: 30px;
     }
 }
 
@@ -1815,6 +1819,13 @@ body:after {
     line-height: 42px;
 }
 
+@media only screen and (max-width: 1068px) {
+    .section-about-jsarc .section-headline {
+        font-size: 27px;
+        line-height: 36px;
+    }
+}
+
 .section-about-jsarc .about-jsarc-text {
     max-width: 700px;
     margin-bottom: 28px;
@@ -1822,6 +1833,13 @@ body:after {
     font-size: 19px;
     line-height: 28px;
     text-align: left;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-about-jsarc .about-jsarc-text {
+        font-size: 17px;
+        line-height: 27px;
+    }
 }
 
 .section-about-jsarc .button.more {
@@ -1930,9 +1948,16 @@ body:after {
     line-height: 42px;
 }
 
+
+@media only screen and (max-width: 1068px) {
+    .section-video .section-headline {
+        font-size: 27px;
+        line-height: 36px;
+    }
+}
 @media only screen and (max-width: 735px) {
     .section-video .section-headline {
-        font-size: 30px;
+        font-size: 27px;
         line-height: 36px;
         text-align: center;
     }
@@ -1948,11 +1973,13 @@ body:after {
 @media only screen and (max-width: 1068px) {
     .section-video .speaker {
         margin-bottom: 40px;
+        line-height: 30px;
     }
 }
 
 @media only screen and (max-width: 735px) {
     .section-video .speaker {
+        font-size: 17px;
         text-align: center;
     }
 }
@@ -1975,6 +2002,9 @@ body:after {
 
 
 .section-benefits {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: #e3e3e3;
 }
 
@@ -1983,6 +2013,12 @@ body:after {
     padding-bottom: 100px;
 }
 
+@media only screen and (max-width: 735px) {
+    .section-benefits .section-content {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
 
 .section-benefits .media-block {
     position: relative;
@@ -2112,20 +2148,20 @@ body:after {
     }
 }
 
-
-
-
-
-
-
-
-
 .section-benefits .section-headline {
     margin-bottom: 63px;
     color: #0c0b0b;
     font-size: 36px;
     font-weight: bold;
     line-height: 42px;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-benefits .section-headline {
+        margin-bottom: 40px;
+        font-size: 27px;
+        line-height: 36px;
+    }
 }
 
 .section-benefits .media-block__title {
@@ -2181,6 +2217,9 @@ body:after {
 
 
 .section-contact-us {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: #e3e3e3;
 }
 
@@ -2213,7 +2252,7 @@ body:after {
 
 @media only screen and (max-width: 1068px) {
     .section-contact-us .section-content {
-        padding: 40px 0 40px 0;
+        padding: 60px 0 60px 0;
     }
 }
 
@@ -2234,9 +2273,19 @@ body:after {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 1068px) {
+    .section-contact-us .button-contact-us {
+        margin-top: 40px;
+    }
+}
+
+
 
 
 .section-innovation-call {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: #e3e3e3;
 }
 
@@ -2286,6 +2335,13 @@ body:after {
     line-height: 42px;
 }
 
+@media only screen and (max-width: 1068px) {
+    .section-innovation-call .section-headline {
+        font-size: 27px;
+        line-height: 36px;
+    }
+}
+
 .section-innovation-call .about-jsarc-text {
     margin-bottom: 28px;
     color: #0c0b0b;
@@ -2310,6 +2366,9 @@ body:after {
 
 
 .section-pilot-scheme {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: #e3e3e3;
 }
 
@@ -2361,9 +2420,17 @@ body:after {
 
 @media only screen and (max-width: 1068px) {
     .section-pilot-scheme .section-content {
-        min-height: 356px;
+        /* min-height: 420px; */
     }
 }
+
+@media only screen and (max-width: 735px) {
+    .section-pilot-scheme .section-content {
+        min-height: 380px;
+    }
+}
+
+
 
 .section-pilot-scheme .section-headline {
     margin-top: 124px;
@@ -2376,6 +2443,8 @@ body:after {
     .section-pilot-scheme .section-headline {
         margin-top: 80px;
         margin-bottom: 60px;
+        font-size: 27px;
+        line-height: 36px;
     }
 }
 
@@ -2408,6 +2477,9 @@ body:after {
 
 
 .section-projects {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: #e3e3e3;
 }
 
@@ -2451,7 +2523,7 @@ body:after {
 }
 @media only screen and (max-width: 735px) {
     .section-projects .projects-3up__item {
-        width: 300px;
+        width: 280px;
     }
 
     .section-projects .projects-3up__item:first-child {
@@ -2504,7 +2576,7 @@ body:after {
 
 @media only screen and (max-width: 1068px) {
     .section-projects .projects-3up__content-wrapper {
-        min-height: 270px;
+        min-height: 338px;
         padding: 20px;
     }
 }
@@ -2527,8 +2599,8 @@ body:after {
 
 @media only screen and (max-width: 1068px) {
     .section-projects .projects-3up__heading {
-        font-size: 22px;
-        line-height: 30px;
+        font-size: 20px;
+        line-height: 28px;
     }
 }
 
@@ -2540,7 +2612,7 @@ body:after {
 @media only screen and (max-width: 1068px) {
     .section-projects .projects-3up__text {
         font-size: 16px;
-        line-height: 20px;
+        line-height: 22px;
     }
 }
 
@@ -2594,6 +2666,9 @@ body:after {
 
 
 .section-register {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: #e3e3e3;
 }
 
@@ -2668,7 +2743,7 @@ body:after {
 
 @media only screen and (max-width: 735px) {
     .section-register .register-input {
-        width: 270px;
+        width: 200px;
         height: 40px;
         margin-left: 0;
     }
@@ -2798,6 +2873,12 @@ body:after {
     line-height: 42px;
 }
 
+@media only screen and (max-width: 735px) {
+    .section-register .social .headline {
+        line-height: 32px;
+    }
+}
+
 
 .section-register .social-icons {
     padding-left: 20px;
@@ -2815,9 +2896,9 @@ body:after {
 
 .section-register .social-icons .icon {
     display: block;
-    width: 42px;
-    height: 42px;
-    margin-right: 20px;
+    width: 36px;
+    height: 36px;
+    margin-right: 40px;
     border-radius: 50%;
     color: rgba(255,255,255,0);
     background-color: #fff;
@@ -2825,6 +2906,14 @@ body:after {
     background-position: center;
     background-size: 50%;
 }
+
+@media only screen and (max-width: 1068px) {
+    .section-register .social-icons .icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
 
 
 .section-register .icon.twitter {
@@ -2870,6 +2959,13 @@ body:after {
     line-height: 42px;
 }
 
+@media only screen and (max-width: 1068px) {
+    .section-footer .menu-item {
+        margin-bottom: 20px;
+        font-size: 17px;
+        line-height: 27px;
+    }
+}
 
 
 .section-footer .organisation-logo {
@@ -2891,4 +2987,3 @@ body:after {
         margin-left: 0;
     }
 }
-;
