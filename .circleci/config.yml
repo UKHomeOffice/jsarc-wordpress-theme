@@ -63,11 +63,9 @@ jobs:
           --stack-name ecs \
           --template-body file://ecs.yaml \
           --parameters ParameterKey=containerImage,ParameterValue="$(cat /tmp/workspace/jsarcwordpress.txt)"
-          aws cloudformation wait \
-          stack-update-complete \
-          --stack-name ecs \
-          --region eu-west-1 \
-          
+          aws cloudformation wait stack-update-complete --stack-name ecs --region eu-west-1
+      
+
 
 
 workflows:
