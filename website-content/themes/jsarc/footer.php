@@ -14,22 +14,22 @@
 <footer class="section section-footer">
   <div class="section-content">
     <div class="row">
-      <div class="column large-4 small-6">
+      <div class="column large-4 small-5">
         <ul>
-          <li class="menu-item"><a href="#">Contact JSaRC</a></li>
-          <li class="menu-item"><a href="#">Terms and Conditions</a></li>
-          <li class="menu-item"><a href="#">Privacy Policy</a></li>
+          <li class="menu-item"><a class="text-link" href="#">Contact JSaRC</a></li>
+          <li class="menu-item"><a class="text-link" href="#">Terms and Conditions</a></li>
+          <li class="menu-item"><a class="text-link" href="#">Privacy Policy</a></li>
         </ul>
       </div>
-      <div class="column large-4 small-6">
+      <div class="column large-4 small-5 small-offset-1">
         <ul>
-          <li class="menu-item"><a href="#">Cookie Policy</a></li>
-          <li class="menu-item"><a href="#">Sitemap</a></li>
+          <li class="menu-item"><a class="text-link" href="#">Cookie Policy</a></li>
+          <li class="menu-item"><a class="text-link" href="#">Sitemap</a></li>
         </ul>
       </div>
       <div class="column large-4 small-12">
         <figure class="organisation-logo"></figure>
-        <p>© 2018 Joint Security and Resilience Centre</p>
+        <small class="copyright">© 2018 Joint Security and Resilience Centre</small>
       </div>
     </div>
   </div>

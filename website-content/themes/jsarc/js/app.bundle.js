@@ -1,20 +1,13 @@
 "use strict";
 
-var hello = function hello(name) {
-  return "hello ".concat(name);
-};
-
-console.log(hello("Max D"));
 var searchAnchor = document.getElementById('searchAnchor');
 var primaryNav = document.getElementById('primaryNav');
 var primaryNavSearch = document.getElementById('primaryNavSearch');
 document.addEventListener('DOMContentLoaded', function () {
   /*
   // primary nav list item dropdown
-  
-  let dropDowns = Array.from(document.querySelectorAll('.dropdown'));
-  
-  const handleClick = (e) => {
+   let dropDowns = Array.from(document.querySelectorAll('.dropdown'));
+   const handleClick = (e) => {
     e.preventDefault();
     const active = document.querySelector('.dropdown.active');
     if(active) {
@@ -22,13 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     e.currentTarget.classList.add('active');
   }
-  
-  dropDowns.forEach(node => {
+   dropDowns.forEach(node => {
     node.addEventListener('click', handleClick)
   });
-  
-  
-  var specifiedElement = document.getElementById('a');
+    var specifiedElement = document.getElementById('a');
   */
   // search field trigger
   searchAnchor.addEventListener('click', function () {
@@ -50,8 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
   	if(active) {
   		active.classList.remove('active');
   	}
-  
-  });
+   });
   */
   // close dropdown & serach field if clicked outside the nav
 
