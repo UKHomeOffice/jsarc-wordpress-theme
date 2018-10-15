@@ -78,7 +78,7 @@ if ( ! function_exists( 'jsarc_setup' ) ) :
 			'width'       => 250,
 			'flex-width'  => true,
 			'flex-height' => true,
-		) );
+    ) );
 	}
 endif;
 add_action( 'after_setup_theme', 'jsarc_setup' );
@@ -156,6 +156,12 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+
+/**
+ * Load wordpres page/post creator class
+ */
+require get_template_directory() . '/inc/post-creator.php';
 
 
 
@@ -327,5 +333,48 @@ add_filter('nav_menu_item_id', 'remove_css_id_filter', 100, 1);
 add_filter('nav_menu_css_class', 'remove_css_id_filter', 100, 1);
 
 
+// Create Pages needed for JSaRC prototype
+$Homepage = new PostController;
+$Homepage->set_title( "homepage" );
+$Homepage->add_category(array(1,2,8));
+$Homepage->set_type( "page" );
+$Homepage->set_content( "" );
+$Homepage->set_author_id( 1 );
+$Homepage->set_post_slug( 'homepage' );
+$Homepage->set_page_template( "template-jsarc-page.php" );
+$Homepage->set_post_state( "publish" );
+$Homepage->create();
+
+$AboutPage = new PostController;
+$AboutPage->set_title( "about" );
+$AboutPage->add_category(array(1,2,8));
+$AboutPage->set_type( "page" );
+$AboutPage->set_content( "" );
+$AboutPage->set_author_id( 1 );
+$AboutPage->set_post_slug( 'about' );
+$AboutPage->set_page_template( "template-jsarc-page.php" );
+$AboutPage->set_post_state( "publish" );
+$AboutPage->create();
+
+$CaseStudyPage = new PostController;
+$CaseStudyPage->set_title( "case-study" );
+$CaseStudyPage->add_category(array(1,2,8));
+$CaseStudyPage->set_type( "page" );
+$CaseStudyPage->set_content( "" );
+$CaseStudyPage->set_author_id( 1 );
+$CaseStudyPage->set_post_slug( 'case-study' );
+$CaseStudyPage->set_page_template( "template-jsarc-page.php" );
+$CaseStudyPage->set_post_state( "publish" );
+$CaseStudyPage->create();
 
 
+// TODO: Set homepage as default start page for the website on theme activation
+
+/**
+ * Set homepage as default start page for the JSaRC website
+ */
+add_action('init', 'update_reading_settings');
+function update_reading_settings() {
+  update_option( 'show_on_front', 'page' );
+  update_option( 'page_for_posts', 'homepage' );
+}
