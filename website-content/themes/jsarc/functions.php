@@ -244,9 +244,6 @@ function wpse200296_before_admin_bar_render() {
 /**
  * Register JSaRC Primary Nav
  */
-
-
-
 function register_jsarc_primary_nav() {
   register_nav_menu('jsarc-primary-nav',__( 'JSaRC Primary Nav' ));
 }
@@ -268,11 +265,6 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 	
 	
-	
-	
-	
-	
-	
 	 if ($args->walker->has_children) {
 	  if (0 === $depth) {
 		$classes[] = 'dropdown';
@@ -282,10 +274,6 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	} 
 	
 		
-	
-
-	
-
 	$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
 	$class_names = ' class="primary-nav-item '. esc_attr( $class_names ) . '"';
 	//$output .= $indent . '<li id="primary-nav-item-'. $item->ID . '"' . $value . $class_names .'>';
@@ -314,9 +302,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	$item_output .= $args->after;
 
 	$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-	
-	
-	
+
   }
 }
 
@@ -370,11 +356,115 @@ $CaseStudyPage->create();
 
 // TODO: Set homepage as default start page for the website on theme activation
 
+
+// function my_after_setup_theme() {
+// }
+// add_action( 'after_setup_theme', 'my_after_setup_theme') ;
+
+
+
+
 /**
  * Set homepage as default start page for the JSaRC website
  */
 add_action('init', 'update_reading_settings');
+
 function update_reading_settings() {
   update_option( 'show_on_front', 'page' );
   update_option( 'page_for_posts', 'homepage' );
 }
+
+
+
+
+/**
+ * Gets a menu id by name
+ * 
+ * @param string $name The menu name
+ * @return int|boolean The menu id or false if not found
+ */
+function wp_menu_id_by_name( $name ) {
+  $menus = get_terms( 'nav_menu' ); 
+
+  foreach ( $menus as $menu ) {
+      if( $name === $menu->name ) {
+          return $menu->term_id;
+      }
+  }
+  return false;
+}
+
+
+/**  
+ * Generic generate custom menu link
+*/
+(used when generating the default top nav for the jsarc theme)
+function generate_site_nav_menu_item( $term_id, $title, $url ) {
+    
+  wp_update_nav_menu_item($term_id, 0, array(
+    'menu-item-title'   =>  sprintf( __('%s', 'text_domain'), $title ),
+    'menu-item-url'     =>  home_url( '/' . $url ), 
+    'menu-item-status'  =>  'publish'
+  ) );
+
+}
+
+/**  
+ * Generic generate nav-menu 
+*/
+function generate_site_nav_menu( $menu_name, $menu_items_array, $location_target ) {
+    
+  $menu_primary = $menu_name;
+  wp_create_nav_menu( $menu_primary );
+  $menu_primary_obj = get_term_by( 'name', $menu_primary, 'nav_menu' );
+  
+  foreach( $menu_items_array as $page_name => $page_location ){
+    generate_site_nav_menu_item( $menu_primary_obj->term_id, $page_name, $page_location );
+  }
+  
+  $locations_primary_arr = get_theme_mod( 'nav_menu_locations' );
+  $locations_primary_arr[$location_target] = $menu_primary_obj->term_id;
+  set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
+      
+  update_option( 'menu_check', true );
+  
+}
+
+/**  
+ * Generate default JSaRC menu 
+ * 
+ *  Default menu links:
+ * "National Security Priorities", 
+ * "Our Work", 
+ * "News and Events", 
+ * "About JSaRC"
+*/
+
+/**
+ * After switching to JSaRC theme, 
+ * auto-populate wordpress menu with default page links 
+ */
+function my_after_switch_theme() {   
+    $run_menu_maker_once = get_option('menu_check');
+    
+    /**
+     *  Uncomment this conditional to make sure the default menu items 
+     *  are only generated once on the first the theme is activated. 
+     */
+     /* if ( ! $run_menu_maker_once ){ */
+      $primary_menu_items = array(
+          'National Security Priorities'  =>  'national-security-priorities',
+          'Our Work' =>  'our-work',        
+          'News and Events'   =>  'news-events',
+          'About JSaRC'    =>  'about-jsarc'
+      );
+      generate_site_nav_menu( 'JSaRC Primary Nav', $primary_menu_items, 'primary' );
+    /* } */
+
+    $locations = get_theme_mod('nav_menu_locations');
+
+    $myMenuId = wp_menu_id_by_name( 'JSaRC Primary Nav' );
+    $locations['jsarc-primary-nav'] = $myMenuId;
+    set_theme_mod( 'nav_menu_locations', $locations );
+  }
+  add_action( 'after_switch_theme', 'my_after_switch_theme');
