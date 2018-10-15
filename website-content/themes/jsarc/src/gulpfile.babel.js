@@ -23,7 +23,7 @@ const browserSyncServer = browserSync.create();
 */
 const config = {
   src: {
-    sass: './sass/**/style.scss',
+    sass: './sass/**/*.scss',
     js: './js/*.js',
     jsPolyfill: 'node_modules/babel-polyfill/dist/polyfill.js',
     php: '../**/*.php',

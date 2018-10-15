@@ -171,7 +171,7 @@ button:active {
     margin-top: 0;
     margin-bottom: 60px;
     margin-left: auto;
-    background-image: url("img/home-office-logo.png");
+    background-image: url("img/v/generic/logos/a/home-office-logo.png");
     background-size: 100% auto;
 }
 
@@ -333,17 +333,25 @@ button:active {
 }
 
 .section-register .section-content {
+    box-sizing: border-box;
+    width: auto;
+    width: 100%;
     max-width: 1200px;
-    min-height: 308px;
-    padding-top: 70px;
-    padding-bottom: 70px;
-    background-color: lightgray;
+    min-height: 310px;
+    padding: 60px 50px;
+    /* background-color: yellow; */
 }
 
-@media only screen and (max-width: 735px) {
+@media only screen and (max-width: 1068px) {
     .section-register .section-content {
+        width: 90%;
         padding: 40px 0;
     }
+}
+
+
+.section-register .register {
+    margin-bottom: 40px;
 }
 
 
@@ -359,7 +367,7 @@ button:active {
 @media only screen and (max-width: 735px) {
     .section-register .register .headline {
         margin-bottom: 25px;
-        font-size: 30px;
+        font-size: 28px;
         line-height: 36px;
     }
 }
@@ -508,6 +516,8 @@ button:active {
     }
 }
 
+
+
 .section-register .social .headline {
     color: #fff;
     font-size: 24px;
@@ -518,6 +528,7 @@ button:active {
 
 @media only screen and (max-width: 735px) {
     .section-register .social .headline {
+        font-size: 22px;
         line-height: 32px;
     }
 }

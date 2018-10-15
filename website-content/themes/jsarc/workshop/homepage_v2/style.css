@@ -2273,16 +2273,6 @@ body:after {
     background-color: #07a7e1;
 }
 
-/* .section-contact-us .content-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    min-height: 200px;
-    margin-right: auto;
-    margin-left: auto;
-    background-color: #07a7e1;
-} */
-
 .section-contact-us .section-content {
     /* width: 90%; */
     padding: 40px 100px 40px 100px;
@@ -2432,6 +2422,8 @@ body:after {
         margin-left: auto;
     }
 }
+
+
 
 
 .section-case-study {

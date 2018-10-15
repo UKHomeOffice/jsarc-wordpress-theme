@@ -6,8 +6,8 @@
   <div class="content-wrapper">
     <div class="section-content">
       <div class="row">
-        <div class="column large-8 medium-7 small-12 small-centered">
-          <h1 class="section-headline">Explosive Detection Technology Review</h1>
+        <div class="column large-12 medium-7 small-12 small-centered">
+          <h1 class="section-headline">Explosive Detection Technology Review (EDTR)</h1>
           <p class="intro">JSaRC worked with the security sector and academia to carry out a review of the current position and availability of explosives detection technology in the UK.</p>
           <a class="button more" href="#">Read the case study</a>
         </div>
@@ -18,16 +18,14 @@
 
 
 <section class="section section-about-jsarc">
-  <div class="content-wrapper">
-    <div class="section-content">
-      <div class="viewport-content">
-        <div class="row">
-          <div class="column large-12 medium-7 small-12 small-offset-0 small-centered">
-            <h2 class="section-headline">Joint Security and Resilience Centre</h2>
-            <p class="about-jsarc-text">The Joint Security and Resilience Centre (JSaRC) is a government department that brings together government representatives, members of academia and the security sector to form a joint response to national security challenges.</p>
-            <p class="about-jsarc-text">Drawing on a wide pool of expertise, JSaRC works collaboratively with these diverse specialists to encourage innovation and to grow future opportunities in the security sector. </p>
-            <a class="button more" href="#">Read more about JSaRC</a>
-          </div>
+  <div class="section-content">
+    <div class="viewport-content">
+      <div class="row">
+        <div class="column large-12 medium-7 small-12 small-offset-0 small-centered">
+          <h2 class="section-headline">Joint Security and Resilience Centre</h2>
+          <p class="about-jsarc-text">The Joint Security and Resilience Centre (JSaRC) is a government department that brings together government representatives, members of academia and the security sector to form a joint response to national security challenges.</p>
+          <p class="about-jsarc-text">Drawing on a wide pool of expertise, JSaRC works collaboratively with these diverse specialists to encourage innovation and to grow future opportunities in the security sector.</p>
+          <a class="button more" href="#">Find out more <span class="u-hide-sm-only">about working with JSaRC</span></a>
         </div>
       </div>
     </div>
@@ -35,17 +33,14 @@
 </section>
 
 
-
 <section class="section section-video">
-  <div class="content-wrapper">
+  <div class="section-content">
     <figure class="section-background-image"></figure>
-    <div class="section-content">
-      <div class="row">
-        <div class="column large-offset-6 large-6 medium-6 small-12 small-centered">
-          <h2 class="section-headline">How JSaRC is changing the face of National Security</h2>
-          <p class="speaker">Shaun Hipgrave, Head of JSaRC</p>
-          <a id="videoOverlayTrigger" class="button more" href="#">Watch Video</a>
-        </div>
+    <div class="row">
+      <div class="column large-offset-6 large-6 medium-6 small-12 small-centered">
+        <h2 class="section-headline">How JSaRC is changing the face of National Security</h2>
+        <p class="speaker">Shaun Hipgrave, Head of JSaRC</p>
+        <a id="videoOverlayTrigger" class="button more" href="#">Watch Video</a>
       </div>
     </div>
   </div>
@@ -77,115 +72,106 @@
 
 
 <section class="section section-contact-us">
-  <div class="content-wrapper">
-    <div class="section-content">
-        <div class="row">
-          <div class="column large-5 medium-6 small-12 ">
-            <p class="contact-us-text">If you are a member of industry, an academic or someone in government with a concept or project you think can contribute to the security of the nation, JSaRC wants to hear from you.
-          </div>
-          <div class="column large-4 large-offset-2 medium-4 medium-offset-1 small-12 small-offset-0">
-            <a class="button more button-contact-us">Contact Us</a>
-          </div>
+  <div class="section-content">
+      <div class="row">
+        <div class="column large-5 medium-6 small-12 ">
+          <p class="contact-us-text">If you are a member of industry, an academic or someone in government with a concept or project you think can contribute to the security of the nation, JSaRC wants to hear from you.
         </div>
-    </div>
+        <div class="column large-4 large-offset-3 medium-4 medium-offset-1 small-12 small-offset-0">
+          <a class="button more button-contact-us">Contact Us</a>
+        </div>
+      </div>
   </div>
 </section>
-
 
 <section class="section section-innovation-call">
-  <div class="content-wrapper">
+  <div class="section-content">
     <figure class="section-background-image"></figure>
-    <div class="section-content">
-      <div class="row">
-        <div class="column large-7 medium-7 small-12 small-offset-0 small-centered">
-          <h2 class="section-headline">Innovation call</h2>
-          <p class="about-jsarc-text">You can tell JSaRC about a product or service you can provide to the government, or you can respond to an Innovation Call.</p>
-          <p class="about-jsarc-text">JSaRC makes Innovation Calls for engagement from people and organisations and we welcome people’s responses. You can look at JSaRC’s current opportunities and register your interest in updates and events.</p>
-          <a class="button more" href="#">Contact JSaRC</a>
-        </div>
+    <div class="row">
+      <div class="column large-7 medium-7 small-12 small-offset-0 small-centered">
+        <h2 class="section-headline">Innovation call</h2>
+        <p class="about-jsarc-text">You can tell JSaRC about a product or service you can provide to the government, or you can respond to an Innovation Call.</p>
+        <p class="about-jsarc-text">JSaRC makes Innovation Calls for engagement from people and organisations and we welcome people’s responses. You can look at JSaRC’s current opportunities and register your interest in updates and events.</p>
+        <a class="button more" href="#">Contact JSaRC</a>
       </div>
     </div>
   </div>
 </section>
 
 
-
-<section class="section section-pilot-scheme">
-  <div class="content-wrapper">
+<section class="section section-case-study">
+  <div class="section-content">
     <figure class="section-background-image"></figure>
-    <div class="section-content">
-      <div class="row">
-        <div class="column large-offset-6 large-6 medium-6 small-12 small-centered">
-          <h2 class="section-headline">Measurable impact made from High Footfall Screening Concept </h2>
-          <a class="button more" href="#">Read the case study</a>
-        </div>
+    <div class="row">
+      <div class="column large-8 medium-6 small-12 small-centered">
+        <h2 class="section-headline">JSaRC Projects and Case Studies</h2>
+        <p class="section-sub-heading">High Footfall Screening Trials</p>
+        <a class="button more" href="#">Read the case study</a>
       </div>
     </div>
   </div>
 </section>
+
 
 
 <section class="section section-projects">
-  <div class="content-wrapper">
-    <figure class="section-background-image"></figure>
-    <div class="section-content">
-      <div class="row">
-        <ul class="projects-3up">
-          <li class="projects-3up__item">
+  <div class="section-content">
+    <div class="row">
+      <ul class="projects-3up">
+        <li class="projects-3up__item">
+          <div class="projects-3up__image-wrapper">
+            <a href="#">
+              <figure class="projects-3up__image" style="background-image: url('/wp-content/themes/jsarc/img/v/homepage/a/project-thumb1.png'"></figure>
+            </a>
+          </div>
+          <div class="projects-3up__content-wrapper">
+            <h3 class="projects-3up__heading">Explosive Detection Technology Review (EDTR)</h3>
+            <p class="projects-3up__text">
+              JSaRC worked with the security sector and academics to review the current position and availability of explosives detection technology in the UK.</p>
+            <a href="#" class="projects-3up__read-more-link">
+              Read the case study
+            </a>
+          </div>
+        </li>
+        <li class="projects-3up__item">
             <div class="projects-3up__image-wrapper">
               <a href="#">
-                <figure class="projects-3up__image"></figure>
+                <figure class="projects-3up__image"  style="background-image: url('/wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png'"></figure>
               </a>
             </div>
             <div class="projects-3up__content-wrapper">
-              <h3 class="projects-3up__heading">Explosive Detection Technology Review (EDTR)</h3>
+              <h3 class="projects-3up__heading">Joint Overseas Protect and Prepare (JOPP)</h3>
               <p class="projects-3up__text">
-                JSaRC worked with the security sector and academics to review the current position and availability of explosives detection technology in the UK.</p>
+                The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. Security and protection remain our top priorities.</p>
               <a href="#" class="projects-3up__read-more-link">
-                Read more
+                Read the case study
               </a>
             </div>
-          </li>
-          <li class="projects-3up__item">
-              <div class="projects-3up__image-wrapper">
-                <a href="#">
-                  <figure class="projects-3up__image" style="background-image: url('/wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png');"></figure>
-                </a>
-              </div>
-              <div class="projects-3up__content-wrapper">
-                <h3 class="projects-3up__heading">Joint Overseas Protect and Prepare (JOPP)</h3>
-                <p class="projects-3up__text">
-                  The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. Security and protection remain our top priorities.</p>
-                <a href="#" class="projects-3up__read-more-link">
-                  Read more
-                </a>
-              </div>
-          </li>
-          <li class="projects-3up__item">
-            <div class="projects-3up__image-wrapper">
-              <a href="#">
-                <figure class="projects-3up__image" style="background-image: url('/wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png');"></figure>
-              </a>
-            </div>
-            <div class="projects-3up__content-wrapper">
-              <h3 class="projects-3up__heading">Vehicle passengers and borders</h3>
-              <p class="projects-3up__text">
-              The volume of border crossings is addressed in JSaRC's coaches, cars and bottlenecks review.</p>
-              <a href="#" class="projects-3up__read-more-link">
-                Read more
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
+        </li>
+        <li class="projects-3up__item">
+          <div class="projects-3up__image-wrapper">
+            <a href="#">
+              <figure class="projects-3up__image" style="background-image: url('/wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png'"></figure>
+            </a>
+          </div>
+          <div class="projects-3up__content-wrapper">
+            <h3 class="projects-3up__heading">Vehicle passengers and borders</h3>
+            <p class="projects-3up__text">
+            The volume of border crossings is addressed in JSaRC's coaches, cars and bottlenecks review.</p>
+            <a href="#" class="projects-3up__read-more-link">
+              Read the case study
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-      <div class="row">
-        <a href="#" class="button more see-all-projects-button">Find out more about JSaRC projects</a>
-      </div>
+    <div class="row">
+      <a href="#" class="button more see-all-projects-button">Find out more about JSaRC projects</a>
     </div>
   </div>
-</section>
 
+</section>
 
 
 <section class="section section-register">
