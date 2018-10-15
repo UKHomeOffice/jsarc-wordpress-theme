@@ -397,8 +397,8 @@ function wp_menu_id_by_name( $name ) {
 
 /**  
  * Generic generate custom menu link
+ * (used when generating the default top nav for the jsarc theme)
 */
-(used when generating the default top nav for the jsarc theme)
 function generate_site_nav_menu_item( $term_id, $title, $url ) {
     
   wp_update_nav_menu_item($term_id, 0, array(
