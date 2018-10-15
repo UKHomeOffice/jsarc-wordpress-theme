@@ -1576,6 +1576,13 @@ body:after {
     white-space: nowrap;
 }
 
+.button.more:active {
+    transition: all 0.2s cubic-bezier(0, 0.6, 0.25, 1);
+    transform: scale(0.97);
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 @media only screen and (max-width: 735px) {
     .button.more {
         width: auto;

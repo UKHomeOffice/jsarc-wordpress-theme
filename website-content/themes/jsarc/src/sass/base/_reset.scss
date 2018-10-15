@@ -126,5 +126,141 @@ button {
     direction: ltr;
 }
 
+/*------------------------------------
+
+Reset
+
+------------------------------------*/
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    min-width: 320px;
+    background-color: #fff;
+}
+
+body,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hgroup,
+p,
+blockquote,
+figure,
+form,
+fieldset,
+input,
+legend,
+pre,
+abbr,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+pre,
+code,
+address,
+caption,
+th,
+figcaption {
+    font-size: 1em;
+    font-weight: normal;
+    font-style: normal;
+}
+
+fieldset,
+iframe,
+img {
+    border: 0;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+main,
+section,
+summary,
+details,
+hgroup,
+figure,
+figcaption {
+    display: block;
+}
+
+audio,
+canvas,
+video,
+progress {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+button {
+    overflow: visible;
+    box-sizing: content-box;
+    border: 0;
+    color: inherit;
+    background: none;
+    font: inherit;
+    line-height: inherit;
+    vertical-align: inherit;
+    cursor: pointer;
+}
+button:disabled {
+    cursor: default;
+}
 
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none outside;
+}
+
+ol {
+    list-style: decimal;
+}
+
+
+
+
+input,
+input:focus,
+button,
+button:focus,
+button:active,
+textarea:focus {
+    border: 0 none;
+    outline: 0 none;
+    color: inherit;
+    background: 0 0;
+    font: inherit;
+}

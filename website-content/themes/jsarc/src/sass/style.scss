@@ -32,6 +32,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Buttons
 # Elements
 # Navigation
+
+# Homepage
 --------------------------------------------------------------*/
 @import "mixins/mixins-master";
 
@@ -81,3 +83,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Navigation
 --------------------------------------------------------------*/
 @import "base/navigation";
+
+/*--------------------------------------------------------------
+# Homepage 
+--------------------------------------------------------------*/
+@import "pages/homepage";

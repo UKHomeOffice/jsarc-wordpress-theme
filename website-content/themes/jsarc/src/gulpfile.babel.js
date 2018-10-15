@@ -17,9 +17,9 @@ const browserSyncServer = browserSync.create();
 
 /**
  * Folder and file path config.
- * Make edits here to change source 
+ * Make edits here to change source
  * or destination folder paths
- * 
+ *
 */
 const config = {
   src: {
@@ -31,14 +31,14 @@ const config = {
   },
   dist: {
     cssFolder: '../',
-    js: '../js/'  
+    js: '../js/'
   }
 }
 
 /**
- * Compile SCSS into CSS & auto-inject css 
+ * Compile SCSS into CSS & auto-inject css
  * into browsers if browserSync is running.
- * This task also runs autoprefixer 
+ * This task also runs autoprefixer
  * and CSS comb before outputting style.css
 */
 function sassCompile() {
@@ -123,10 +123,10 @@ function streamReload(done) {
 const watch = () => {
   // If change detected to sass, recompile and auto inject updated css
   gulp.watch(config.src.sass, gulp.series(sassCompile, fullBrowserReload))
-  
+
   // Watch JS for changes, recompile and trigger reload
   gulp.watch(config.src.js, gulp.series(jsCompile, fullBrowserReload))
-  
+
   // Watch html prototypes for changes
   gulp.watch(config.src.htmlPrototypes, gulp.series(sassCompile, fullBrowserReload))
 
@@ -142,7 +142,7 @@ export {
 
 /**
  * Local dev server task - compile and watch scss/php files for changes
- * This task has a dependancy that the WP docker container is already running 
+ * This task has a dependancy that the WP docker container is already running
  * on localhost:80 for the livereload task to function
  */
 const dev = gulp.series(sassCompile, jsCompile, liveReloadServer, watch);

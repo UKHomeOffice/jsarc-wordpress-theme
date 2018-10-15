@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var videoOverlay = document.getElementById('videoOverlay');
   var videoOverlayClose = document.getElementById('videoOverlayClose');
 
-  if (videoOverlayTrigger) {
+  if (videoOverlayTrigger && videoOverlay && videoOverlay) {
     videoOverlayTrigger.addEventListener('click', function (e) {
       e.preventDefault();
       console.log("video button clicked");

@@ -1,11 +1,8 @@
 <?php
-/**
+/*
+ * Template Name: JSaRC Page Template
  * The template for displaying all pages
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -15,30 +12,39 @@
 get_header();
 ?>
 
-	<div class="row">
-		<div class="column large-8 small-12">
-
+<main>
 		<?php
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			// get_template_part( 'template-parts/content', 'page' );
+
+
+      // Select page content based on current page slug
+      if (is_page('homepage')) {
+        get_template_part( 'template-parts/content', 'prototype-homepage');
+      }
+
+      // Example for multiple page match, using array of pages to match
+      if( is_page( array( 'about', 'contact', 'management') ) ) {
+        get_template_part( 'template-parts/content', 'prototype-about-page');
+      }
+ 
+      if( is_page( 'case-study') ) {
+        get_template_part( 'template-parts/content', 'prototype-case-study');
+      }
+
+
 
 			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+			// if ( comments_open() || get_comments_number() ) :
+			// 	comments_template();
+			// endif;
 
 		endwhile; // End of the loop.
 		?>
+</main>
 
-		</div>
-		<div class="column large-4 small-12">
 
-<?php
-get_sidebar();
-?>
-		</div>
-	</div>
 <?php
 get_footer();
