@@ -1,6 +1,8 @@
 Parameters:
   containerImage:
     Type: String
+  dbPassword:
+    Type: String
 
 Resources:
   ecsFargateCluster: 
@@ -24,6 +26,15 @@ Resources:
           PortMappings:
             - ContainerPort: 80
               Protocol: tcp
+          Environment:
+            - Name: WORDPRESS_DB_HOST
+              Value: rms82q70ifgr4z.cqnkoaefoayv.eu-west-1.rds.amazonaws.com:3306
+            - Name: WORDPRESS_DB_USER
+              Value: userwordpress
+            - Name: WORDPRESS_DB_NAME
+              Value: wordpressdb
+            - Name: WORDPRESS_DB_PASSWORD
+              Value: !Ref dbPassword
 
   Service:
     Type: AWS::ECS::Service
@@ -31,7 +42,7 @@ Resources:
       TaskDefinition: !Ref task
       Cluster: !Ref ecsFargateCluster
       LaunchType: FARGATE
-      DesiredCount: 2
+      DesiredCount: 1
       ServiceName: wordpress-service
       NetworkConfiguration:
         AwsvpcConfiguration:
