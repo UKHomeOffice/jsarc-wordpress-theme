@@ -1,7 +1,13 @@
-<style>
-</style>
+<section>
 
-<section class="section section-hero">
+<h2>case study content here</h2>
+
+</section>
+
+
+
+
+<!-- <section class="section section-hero">
   <figure class="section-background-image"></figure>
   <div class="content-wrapper">
     <div class="section-content">
@@ -173,6 +179,8 @@
 
 </section>
 
+-->
+
 
 <section class="section section-register">
   <div class="section-content">
@@ -203,7 +211,8 @@
       </div>
     </div>
   </div>
-</section>
+</section> 
+
 
 <script>
   // Register for open days email input

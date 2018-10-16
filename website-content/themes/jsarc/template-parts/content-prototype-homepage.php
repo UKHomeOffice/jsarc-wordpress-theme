@@ -8,8 +8,8 @@
       <div class="row">
         <div class="column large-12 medium-7 small-12 small-centered">
           <h1 class="section-headline">Explosive Detection Technology Review (EDTR)</h1>
-          <p class="intro">JSaRC worked with the security sector and academia to carry out a review of the current position and availability of explosives detection technology in the UK.</p>
-          <a class="button more" href="#">Read the case study</a>
+          <p class="intro">JSaRC worked with the security sector and academia to carry out a review of the current position and availability of explosives detection technology in the UK.</p>
+          <a class="button more" href="/case-study">Read the case study</a>
         </div>
       </div>
     </div>
@@ -106,7 +106,7 @@
       <div class="column large-8 medium-6 small-12 small-centered">
         <h2 class="section-headline">JSaRC Projects and Case Studies</h2>
         <p class="section-sub-heading">High Footfall Screening Trials</p>
-        <a class="button more" href="#">Read the case study</a>
+        <a class="button more" href="/case-study">Read the case study</a>
       </div>
     </div>
   </div>
@@ -128,7 +128,7 @@
             <h3 class="projects-3up__heading">Explosive Detection Technology Review (EDTR)</h3>
             <p class="projects-3up__text">
               JSaRC worked with the security sector and academics to review the current position and availability of explosives detection technology in the UK.</p>
-            <a href="#" class="projects-3up__read-more-link">
+            <a href="/case-study" class="projects-3up__read-more-link">
               Read the case study
             </a>
           </div>
@@ -143,7 +143,7 @@
               <h3 class="projects-3up__heading">Joint Overseas Protect and Prepare (JOPP)</h3>
               <p class="projects-3up__text">
                 The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. Security and protection remain our top priorities.</p>
-              <a href="#" class="projects-3up__read-more-link">
+              <a href="/case-study" class="projects-3up__read-more-link">
                 Read the case study
               </a>
             </div>
@@ -158,7 +158,7 @@
             <h3 class="projects-3up__heading">Vehicle passengers and borders</h3>
             <p class="projects-3up__text">
             The volume of border crossings is addressed in JSaRC's coaches, cars and bottlenecks review.</p>
-            <a href="#" class="projects-3up__read-more-link">
+            <a href="/case-study" class="projects-3up__read-more-link">
               Read the case study
             </a>
           </div>
