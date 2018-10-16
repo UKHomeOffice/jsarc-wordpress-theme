@@ -62,8 +62,7 @@ jobs:
           aws cloudformation update-stack \
           --stack-name ecs \
           --template-body file://ecs.yaml \
-          --parameters ParameterKey=containerImage,ParameterValue="$(cat /tmp/workspace/jsarcwordpress.txt)"
-          --parameters ParameterKey=dbPassword,ParameterValue="$DB_PASSWORD"
+          --parameters ParameterKey=containerImage,ParameterValue="$(cat /tmp/workspace/jsarcwordpress.txt)" ParameterKey=dbPassword,ParameterValue="$DB_PASSWORD"
           aws cloudformation wait stack-update-complete --stack-name ecs --region eu-west-1
       
 
