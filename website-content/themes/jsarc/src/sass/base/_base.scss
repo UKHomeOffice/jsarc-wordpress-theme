@@ -63,7 +63,6 @@ button:active {
 
 
 
-
 .clearfix {
     @include clearfix();
 }
@@ -103,100 +102,178 @@ button:active {
 
 
 
+
+
 /*--------------------------------------------------------------
-# Footer
+# Page Header / Title
 --------------------------------------------------------------*/
 
-.section-footer {
-    background-color: #e3e3e3;
-}
-
-.section-footer .section-content {
-    box-sizing: border-box;
+.section-page-header .content-wrapper {
     width: 100%;
-    max-width: 1200px;
-    min-height: 308px;
+    // max-width: 1200px;
+    height: 300px;
     margin-right: auto;
     margin-left: auto;
-    padding: 66px 50px;
-    background-color: #e3e3e3;
+    background-color: rgba(30,66,137, 0.11);
+    background-color: lightblue;
+    /* background-image: url("img/about-hero-image.jpg"); */
+    background-size: cover;
 }
 
 @media only screen and (max-width: 1068px) {
-    .section-footer .section-content {
+    .section-page-header .content-wrapper {
+        height: 200px;
+    }
+
+    .section-page-header .section-content {
         width: 90%;
-        padding: 40px 0;
     }
 }
 
-.section-footer .menu-item {
-    padding-right: 40px;
+@media only screen and (max-width: 735px) {
+    .section-page-header .content-wrapper {
+        height: 170px;
+    }
 }
 
+
+.section-page-header .section-headline {
+    margin-top: 100px;
+    margin-left: 100px;
+    color: white;
+    text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 75px;
+}
 
 
 @media only screen and (max-width: 1068px) {
-    .section-footer .menu-item {
-        margin-bottom: 20px;
-        padding-right: 10px;
-        font-size: 17px;
-        line-height: 24px;
-        text-decoration: underline;
+    .section-page-header .section-headline {
+        margin-left: 0;
+        font-size: 36px;
+        line-height: 40px;
     }
 }
 
-.section-footer .text-link {
-    display: inline-block;
-    width: 100%;
-    font-size: 19px;
-    line-height: 42px;
+@media only screen and (max-width: 735px) {
+    .section-page-header .section-headline {
+        text-align: left;
+    }
 }
 
-.section-footer .text-link:hover {
+
+
+
+/*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+
+.section-breadcrumbs {
+    min-height: 50px;
+}
+
+@media only screen and (max-width: 735px) {
+    .section-breadcrumbs {
+        min-height: 40px;
+    }
+}
+
+.section-breadcrumbs .content-wrapper {
+    width: 100%;
+    // max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #e6eaf2;
+}
+
+.section-breadcrumbs .section-content {
+    width: auto;
+    padding: 0 80px 0 80px;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-breadcrumbs .section-content {
+        width: 90%;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-breadcrumbs .section-content {
+        text-align: left;
+    }
+}
+
+
+.section-breadcrumbs .breadcrumbs {
+    display: block;
+}
+
+@media only screen and (max-width: 735px) {
+    .section-breadcrumbs .breadcrumbs__list {
+        padding: 5px 0;
+    }
+}
+.section-breadcrumbs .breadcrumbs__list-item {
+    display: inline-block;
+    position: relative;
+    padding-right: 10px;
+    list-style-type: none;
+}
+
+/* Add the '>' after any breadcrumb items that are not the last item in the trail */
+.section-breadcrumbs .breadcrumbs__list-item:not(:last-child):after {
+    display: block;
+    position: absolute;
+    top: -1px;
+    right: 5px;
+    bottom: 1px;
+    width: 8px;
+    height: 8px;
+    margin: auto 0;
+    border: solid;
+    border-width: 1px 1px 0 0;
+    border-color: #6f777b;
+    content: "";
+    transform: rotate(45deg);
+}
+
+@media only screen and (max-width: 735px) {
+    .section-breadcrumbs .breadcrumbs__list-item:not(:last-child):after {
+        top: 0;
+        width: 5px;
+        height: 5px;
+    }
+}
+
+.section-breadcrumbs .breadcrumbs__link {
+    padding-right: 10px;
+    color: #0c0b0b;
+    font-size: 16px;
+    line-height: 50px;
+}
+
+@media only screen and (max-width: 735px) {
+    .section-breadcrumbs .breadcrumbs__link {
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        font-size: 12px;
+        line-height: 30px;
+    }
+}
+
+.section-breadcrumbs .breadcrumbs__link:hover {
     text-decoration: underline;
 }
 
-@media only screen and (max-width: 1068px) {
-    .section-footer .text-link {
-        font-size: 16px;
-        line-height: 24px;
-        /* text-decoration: underline; */
-    }
-}
 
 
-.section-footer .organisation-logo {
-    width: 187px;
-    height: 80px;
-    margin-top: 0;
-    margin-bottom: 60px;
-    margin-left: auto;
-    background-image: url("img/v/generic/logos/a/home-office-logo.png");
-    background-size: 100% auto;
-}
 
 
-@media only screen and (max-width: 735px) {
-    .section-footer .organisation-logo {
-        width: 120px;
-        height: 51px;
-        margin-top: 50px;
-        margin-right: auto;
-        margin-left: 0;
-    }
-}
 
-.section-footer .copyright {
-    float: right;
-    font-size: 14px;
-    text-align: right;
-}
 
-@media only screen and (max-width: 735px) {
-    .section-footer .copyright {
-        float: none;
-    }
-}
 
 
 
@@ -579,4 +656,107 @@ button:active {
 
 .section-register .icon.facebook {
     background-image: url("img/v/generic/icons/a/icon-facebook.svg");
+}
+
+
+
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+
+.section-footer {
+    max-height: 308px;
+    background-color: #e3e3e3;
+}
+
+.section-footer .section-content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 308px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 66px 50px;
+    background-color: #e3e3e3;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-footer .section-content {
+        width: 90%;
+        padding: 40px 0;
+    }
+}
+
+.section-footer .menu-item {
+    padding-right: 40px;
+}
+
+
+
+@media only screen and (max-width: 1068px) {
+    .section-footer .menu-item {
+        margin-bottom: 20px;
+        padding-right: 10px;
+        font-size: 17px;
+        line-height: 24px;
+        text-decoration: underline;
+    }
+}
+
+.section-footer .text-link {
+    display: inline-block;
+    width: 100%;
+    font-size: 19px;
+    line-height: 42px;
+}
+
+.section-footer .text-link:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-footer .text-link {
+        font-size: 16px;
+        line-height: 24px;
+        /* text-decoration: underline; */
+    }
+}
+
+.section-footer {
+    min-height: 100px !important;
+    max-height: 310px !important;
+}
+.section-footer .organisation-logo {
+    width: 187px;
+    height: 80px;
+    margin-top: 0;
+    margin-bottom: 60px;
+    margin-left: auto;
+    background-image: url("img/v/generic/logos/a/home-office-logo.png");
+    background-size: 100% auto;
+}
+
+
+@media only screen and (max-width: 735px) {
+    .section-footer .organisation-logo {
+        width: 120px;
+        height: 51px;
+        margin-top: 50px;
+        margin-right: auto;
+        margin-left: 0;
+    }
+}
+
+.section-footer .copyright {
+    float: right;
+    font-size: 14px;
+    text-align: right;
+}
+
+@media only screen and (max-width: 735px) {
+    .section-footer .copyright {
+        float: none;
+    }
 }

@@ -448,10 +448,10 @@ function my_after_switch_theme() {
     $run_menu_maker_once = get_option('menu_check');
     
     /**
-     *  Uncomment this conditional to make sure the default menu items 
-     *  are only generated once on the first the theme is activated. 
+     *  Comment out the conditional below to make sure the default menu items 
+     *  are generated every time the theme is activated. 
      */
-     /* if ( ! $run_menu_maker_once ){ */
+    if ( ! $run_menu_maker_once ) { 
       $primary_menu_items = array(
           'National Security Priorities'  =>  'national-security-priorities',
           'Our Work' =>  'our-work',        
@@ -459,7 +459,7 @@ function my_after_switch_theme() {
           'About JSaRC'    =>  'about-jsarc'
       );
       generate_site_nav_menu( 'JSaRC Primary Nav', $primary_menu_items, 'primary' );
-    /* } */
+    } 
 
     $locations = get_theme_mod('nav_menu_locations');
 
