@@ -667,6 +667,7 @@ button:active {
 --------------------------------------------------------------*/
 
 .section-footer {
+    max-height: 308px;
     background-color: #e3e3e3;
 }
 
@@ -723,7 +724,10 @@ button:active {
     }
 }
 
-
+.section-footer {
+    min-height: 100px !important;
+    max-height: 310px !important;
+}
 .section-footer .organisation-logo {
     width: 187px;
     height: 80px;
