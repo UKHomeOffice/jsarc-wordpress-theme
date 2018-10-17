@@ -7,8 +7,8 @@
     <div class="section-content">
       <div class="row">
         <div class="column large-12 medium-7 small-12 small-centered">
-          <h1 class="section-headline">Explosive Detection Technology Review (EDTR)</h1>
-          <p class="intro">JSaRC worked with the security sector and academia to carry out a review of the current position and availability of explosives detection technology in the UK.</p>
+          <h1 class="section-headline">Securing crowded spaces </h1>
+          <p class="intro">Providing visitors with easy access and security. Screening large numbers of people quickly, cost-effectively and proportionately.</p>
           <a class="button more" href="/case-study">Read the case study</a>
         </div>
       </div>
@@ -24,7 +24,8 @@
         <div class="column large-12 medium-7 small-12 small-offset-0 small-centered">
           <h2 class="section-headline">Joint Security and Resilience Centre</h2>
           <p class="about-jsarc-text">The Joint Security and Resilience Centre (JSaRC) is a government department that brings together government representatives, members of academia and the security sector to form a joint response to national security challenges.</p>
-          <p class="about-jsarc-text">Drawing on a wide pool of expertise, JSaRC works collaboratively with these diverse specialists to encourage innovation and to grow future opportunities in the security sector.</p>
+          <p class="about-jsarc-text">Drawing on a wide pool of expertise, JSaRC works collaboratively with these diverse specialists to encourage innovation and to grow future opportunities in the security sector. 
+</p>
           <a class="button more" href="#">Find out more <span class="u-hide-sm-only">about working with JSaRC</span></a>
         </div>
       </div>
@@ -49,7 +50,7 @@
 
 <section class="section section-benefits">
   <div class="section-content">
-    <h2 class="section-headline">Benefits of working with JSaRC</h2>
+    <h2 class="section-headline">Benefits of engaging with JSaRC</h2>
       <div class="media-block">
         <figure class="benefits-image-1"></figure>
         <div class="media-block__text-content">
@@ -62,7 +63,7 @@
       <div class="row media-block media-block--image-left">
         <figure class="benefits-image-2"></figure>
         <div class="media-block__text-content">
-          <h3 class="media-block__title">Academic Engagement</h3>
+          <h3 class="media-block__title">Funding Opportunities</h3>
           <p class="media-block__text">Working with JSaRC, you will broaden your connections, gain valuable exposure and contribute to ongoing security sector development with Her Majesty’s Government. You can gain access to available funding opportunities. JSaRC also provides support with applications for funding made by interested members of the security sector.
           <a class="media-block__read-more-link">Read more</a>
         </div>
@@ -120,8 +121,8 @@
       <ul class="projects-3up">
         <li class="projects-3up__item">
           <div class="projects-3up__image-wrapper">
-            <a href="#">
-              <figure class="projects-3up__image" style="background-image: url('/wp-content/themes/jsarc/img/v/homepage/a/project-thumb1.png'"></figure>
+            <a href="/case-study">
+              <figure class="projects-3up__image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb1.png'"></figure>
             </a>
           </div>
           <div class="projects-3up__content-wrapper">
@@ -135,8 +136,8 @@
         </li>
         <li class="projects-3up__item">
             <div class="projects-3up__image-wrapper">
-              <a href="#">
-                <figure class="projects-3up__image"  style="background-image: url('/wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png'"></figure>
+              <a href="/case-study">
+                <figure class="projects-3up__image"  style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png'"></figure>
               </a>
             </div>
             <div class="projects-3up__content-wrapper">
@@ -150,12 +151,12 @@
         </li>
         <li class="projects-3up__item">
           <div class="projects-3up__image-wrapper">
-            <a href="#">
-              <figure class="projects-3up__image" style="background-image: url('/wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png'"></figure>
+            <a href="/case-study">
+              <figure class="projects-3up__image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png'"></figure>
             </a>
           </div>
           <div class="projects-3up__content-wrapper">
-            <h3 class="projects-3up__heading">Vehicle passengers and borders</h3>
+            <h3 class="projects-3up__heading">Passengers and borders</h3>
             <p class="projects-3up__text">
             The volume of border crossings is addressed in JSaRC's coaches, cars and bottlenecks review.</p>
             <a href="/case-study" class="projects-3up__read-more-link">
@@ -178,13 +179,13 @@
   <div class="section-content">
     <div class="row register">
       <div class="column large-4 small-12">
-        <h3 class="headline">Register for an open day<h3>
+        <h3 class="headline">Register for a JSaRC Open Day or event<h3>
       </div>
       <div class="column large-7 small-12">
         <form id="register" class="register-form" action="" method="post">
               <div class="register-input">
-                <input class="register-input__text-field" type="text" name="register-input">
-                <label class="register-input__label" for="register-input">Enter your email to attend</label>
+                <input id="register-input" class="register-input__text-field" type="text" name="register-input__input">
+                <label class="register-input__label" for="register-input">Enter your email to receive information</label>
               </div>
           <input type="submit" class="button register-submit-button" value="submit" onclick="" />
         </form>
