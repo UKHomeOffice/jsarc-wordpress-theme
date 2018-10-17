@@ -1,6 +1,6 @@
 FROM wordpress:php7.2-apache
 
 COPY website-content/ /var/www/html/wp-content
-RUN sudo chmod -R +w /wp-content/uploads
+RUN chmod -R +w /var/www/html/wp-content
 
 EXPOSE 80
