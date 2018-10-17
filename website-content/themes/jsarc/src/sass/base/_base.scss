@@ -108,6 +108,11 @@ button:active {
 # Page Header / Title
 --------------------------------------------------------------*/
 
+.section-page-header {
+    background-color: #e3e3e3;
+}
+
+
 .section-page-header .content-wrapper {
     width: 100%;
     // max-width: 1200px;
@@ -115,9 +120,20 @@ button:active {
     margin-right: auto;
     margin-left: auto;
     background-color: rgba(30,66,137, 0.11);
-    background-color: lightblue;
-    /* background-image: url("img/about-hero-image.jpg"); */
-    background-size: cover;
+    // background-color: lightblue;
+    background-size: contain;
+}
+
+
+.section-page-header .section-background-image {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 300px;
+    background-repeat: no-repeat;
+    // background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -140,11 +156,18 @@ button:active {
 .section-page-header .section-headline {
     margin-top: 100px;
     margin-left: 100px;
+    opacity: 0;
     color: white;
     text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
     font-size: 48px;
     font-weight: bold;
     line-height: 75px;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1), cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-duration: 1.2s, 1.4s;
+    transition-property: opacity, transform;
+    animation: headline-reveal 1.4s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+
+    will-change: transform;
 }
 
 
@@ -404,9 +427,17 @@ button:active {
 
 
 .section-register {
+    min-height: 100px !important;
+    max-height: 345px;
     margin-right: auto;
     margin-left: auto;
     background-color: #982d46;
+}
+
+@media only screen and (max-width: 735px) {
+    .section-register {
+        max-height: 600px;
+    }
 }
 
 .section-register .section-content {
@@ -435,7 +466,7 @@ button:active {
 .section-register .register .headline {
     margin-bottom: 57px;
     color: #fff;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 400;
     font-style: oblique;
     line-height: 42px;
@@ -462,7 +493,7 @@ button:active {
 .section-register .register-input {
     display: inline-block;
     position: relative;
-    width: 320px;
+    width: 480px;
     height: 50px;
     background: transparent;
     vertical-align: top;
@@ -667,8 +698,15 @@ button:active {
 --------------------------------------------------------------*/
 
 .section-footer {
-    max-height: 308px;
+    min-height: 100px !important;
+    max-height: 310px !important;
     background-color: #e3e3e3;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-footer {
+        max-height: 380px !important;
+    }
 }
 
 .section-footer .section-content {
@@ -724,10 +762,7 @@ button:active {
     }
 }
 
-.section-footer {
-    min-height: 100px !important;
-    max-height: 310px !important;
-}
+
 .section-footer .organisation-logo {
     width: 187px;
     height: 80px;
@@ -758,5 +793,23 @@ button:active {
 @media only screen and (max-width: 735px) {
     .section-footer .copyright {
         float: none;
+    }
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Animations
+--------------------------------------------------------------*/
+@keyframes headline-reveal {
+    0% {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

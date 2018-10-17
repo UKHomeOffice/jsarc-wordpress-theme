@@ -73,7 +73,7 @@
                 <button id="primary-nav-searchform-reset" class="primary-nav-searchform-reset" type="reset" disabled aria-label="Clear Search"></button>
             </div>
         </form>
-        <button id="primary-nav-searchview-close" class="primary-nav-searchview-close">
+        <button id="primary-nav-searchview-close" class="primary-nav-searchview-close" aria-hidden="true">
         <span class="primary-nav-searchview-close-wrapper">
         <span class="primary-nav-searchview-close-left"></span>
         <span class="primary-nav-searchview-close-right"></span>
