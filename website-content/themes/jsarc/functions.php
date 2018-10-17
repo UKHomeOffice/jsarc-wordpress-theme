@@ -466,5 +466,5 @@ function my_after_switch_theme() {
     $myMenuId = wp_menu_id_by_name( 'JSaRC Primary Nav' );
     $locations['jsarc-primary-nav'] = $myMenuId;
     set_theme_mod( 'nav_menu_locations', $locations );
-  }
-  add_action( 'after_switch_theme', 'my_after_switch_theme');
+}
+add_action( 'after_switch_theme', 'my_after_switch_theme');
