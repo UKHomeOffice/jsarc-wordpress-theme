@@ -2,7 +2,7 @@
 </style>
 
 <section class="section section-hero">
-  <figure class="section-background-image"></figure>
+  <figure class="section-background-image" role="img" aria-label="[place alt text here]"></figure>
   <div class="content-wrapper">
     <div class="section-content">
       <div class="row">
@@ -36,7 +36,7 @@
 
 <section class="section section-video">
   <div class="section-content">
-    <figure class="section-background-image"></figure>
+    <figure class="section-background-image" role="img" aria-label="[place alt text here]"></figure>
     <div class="row">
       <div class="column large-offset-6 large-6 medium-6 small-12 small-centered">
         <h2 class="section-headline">How JSaRC is changing the face of National Security</h2>
@@ -87,7 +87,7 @@
 
 <section class="section section-innovation-call">
   <div class="section-content">
-    <figure class="section-background-image"></figure>
+    <figure class="section-background-image" role="img" aria-label="[place alt text here]"></figure>
     <div class="row">
       <div class="column large-7 medium-7 small-12 small-offset-0 small-centered">
         <h2 class="section-headline">Innovation call</h2>
@@ -102,7 +102,7 @@
 
 <section class="section section-case-study">
   <div class="section-content">
-    <figure class="section-background-image"></figure>
+    <figure class="section-background-image" role="img" aria-label="[place alt text here]"></figure>
     <div class="row">
       <div class="column large-8 medium-6 small-12 small-centered">
         <h2 class="section-headline">JSaRC Projects and Case Studies</h2>
@@ -122,7 +122,7 @@
         <li class="projects-3up__item">
           <div class="projects-3up__image-wrapper">
             <a href="/case-study">
-              <figure class="projects-3up__image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb1.png'"></figure>
+              <figure class="projects-3up__image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb1.png'" alt="[place alt text here]"></figure>
             </a>
           </div>
           <div class="projects-3up__content-wrapper">
@@ -137,7 +137,7 @@
         <li class="projects-3up__item">
             <div class="projects-3up__image-wrapper">
               <a href="/case-study">
-                <figure class="projects-3up__image"  style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png'"></figure>
+                <figure class="projects-3up__image"  style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png'" alt="[place alt text here]"></figure>
               </a>
             </div>
             <div class="projects-3up__content-wrapper">
@@ -152,7 +152,7 @@
         <li class="projects-3up__item">
           <div class="projects-3up__image-wrapper">
             <a href="/case-study">
-              <figure class="projects-3up__image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png'"></figure>
+              <figure class="projects-3up__image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png'" alt="[place alt text here]"></figure>
             </a>
           </div>
           <div class="projects-3up__content-wrapper">
@@ -184,7 +184,7 @@
       <div class="column large-7 small-12">
         <form id="register" class="register-form" action="" method="post">
               <div class="register-input">
-                <input class="register-input__text-field" type="text" name="register-input">
+                <input id="register-input" class="register-input__text-field" type="text" name="register-input__input">
                 <label class="register-input__label" for="register-input">Enter your email to receive information</label>
               </div>
           <input type="submit" class="button register-submit-button" value="submit" onclick="" />

@@ -28,7 +28,7 @@
         </ul>
       </div>
       <div class="column large-4 small-12">
-        <figure class="organisation-logo"></figure>
+        <figure class="organisation-logo" alt="Home Office Logo"></figure>
         <small class="copyright">© 2018 Joint Security and Resilience Centre</small>
       </div>
     </div>
