@@ -1,0 +1,51 @@
+Resources:
+  allowedIP:
+    Type: AWS::WAFRegional::IPSet
+    Properties:
+      Name: iptoallowfromPoise
+      IPSetDescriptors:
+        - Type: IPV4
+          Value: 90.5.79.243/32
+
+  stringRegexMatch:
+    Type: AWS::WAFRegional::ByteMatchSet
+    Properties:
+      Name: stringmatch
+      ByteMatchTuples:
+        - FieldToMatch:
+            Type: URI
+          TargetString: wp-admin
+          TextTransformation: URL_DECODE
+          PositionalConstraint: CONTAINS
+
+  wafRule:
+    Type: AWS::WAFRegional::Rule
+    Properties:
+      Name: wpadminlockdown
+      MetricName: wpadminlockdown
+      Predicates:
+        - DataId: !Ref allowedIP
+          Negated: false
+          Type: IPMatch
+        - DataId: !Ref stringRegexMatch
+          Negated: false
+          Type: ByteMatch
+
+  wafACL:
+    Type: AWS::WAFRegional::WebACL
+    Properties:
+      Name: Web ACL with a rule for IP and string regex.
+      DefaultAction:
+        Type: ALLOW
+      MetricName: mywebacl
+      Rules:
+        - Action:
+            Type: ALLOW
+          Priority: 1
+          RuleId: !Ref wafRule
+
+  wafAssociatealb:
+    Type: AWS::WAFRegional::WebACLAssociation
+    Properties:
+      ResourceArn: !ImportValue alb
+      WebACLId: !Ref wafACL
