@@ -3,9 +3,10 @@ services:
   wordpress:
     depends_on:
     - database
-    image: wordpress:latest
-    volumes:
-    - ./website-content:/var/www/html/wp-content
+#    image: wordpress:latest
+    build: .
+#    volumes:
+#    - ./website-content:/var/www/html/wp-content
     environment:
       WORDPRESS_DB_HOST: database:3306
       WORDPRESS_DB_PASSWORD: jsarc #for demo purposes only otherwise this is called from an environment file
@@ -20,12 +21,14 @@ services:
       MYSQL_DATABASE: jsarc
       MYSQL_USER: jsarc
       MYSQL_PASSWORD: jsarc
-  phpmyadmin:
-    depends_on:
-    - database
-    image: phpmyadmin/phpmyadmin
     ports:
-    - 8080:80
-    environment:
-      PMA_HOST: database
-      MYSQL_ROOT_PASSWORD: demopassword #for demo purposes only otherwise this called from an environment file
+    - 3306:3306
+#  phpmyadmin:
+#    depends_on:
+#    - database
+#    image: phpmyadmin/phpmyadmin
+#    ports:
+#    - 8080:80
+#    environment:
+#      PMA_HOST: database
+#      MYSQL_ROOT_PASSWORD: demopassword #for demo purposes only otherwise this called from an environment file
