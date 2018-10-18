@@ -1,14 +1,14 @@
 Resources:
   allowedIP:
-    Type: AWS::WAF::IPSet
+    Type: AWS::WAFRegional::IPSet
     Properties:
-      Name: iptoallow
+      Name: iptoallowfromPoise
       IPSetDescriptors:
         - Type: IPV4
-          Value: 213.251.23.187/32
+          Value: 90.5.79.243/32
 
   stringRegexMatch:
-    Type: AWS::WAF::ByteMatchSet
+    Type: AWS::WAFRegional::ByteMatchSet
     Properties:
       Name: stringmatch
       ByteMatchTuples:
@@ -19,7 +19,7 @@ Resources:
           PositionalConstraint: CONTAINS
 
   wafRule:
-    Type: AWS::WAF::Rule
+    Type: AWS::WAFRegional::Rule
     Properties:
       Name: wpadminlockdown
       MetricName: wpadminlockdown
@@ -31,13 +31,12 @@ Resources:
           Negated: false
           Type: ByteMatch
 
-
   wafACL:
-    Type: AWS::WAF::WebACL
+    Type: AWS::WAFRegional::WebACL
     Properties:
       Name: Web ACL with a rule for IP and string regex.
       DefaultAction:
-        Type: BLOCK
+        Type: ALLOW
       MetricName: mywebacl
       Rules:
         - Action:
@@ -45,9 +44,8 @@ Resources:
           Priority: 1
           RuleId: !Ref wafRule
 
-
   wafAssociatealb:
     Type: AWS::WAFRegional::WebACLAssociation
     Properties:
-      ResourceArn: arn:aws:elasticloadbalancing:eu-west-1:721956817211:loadbalancer/app/jsarc-wordpress/5c06ed0149d5b2cc
+      ResourceArn: !ImportValue alb
       WebACLId: !Ref wafACL
