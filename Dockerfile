@@ -46,3 +46,4 @@ RUN chown -R www-data:www-data . && \
     mv .htaccess.wp .htaccess
 
 CMD ["apache2-foreground"]
+EXPOSE 80 
