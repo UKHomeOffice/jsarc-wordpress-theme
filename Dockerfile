@@ -39,10 +39,9 @@ RUN { \
 		echo 'opcache.enable_cli=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
-RUN a2enmod rewrite expires
-
 COPY website-content/ .
-RUN chown -R www-data:www-data . && \
+RUN a2enmod rewrite expires && \
+    chown -R www-data:www-data . && \
     mv .htaccess.wp .htaccess
 
 CMD ["apache2-foreground"]
