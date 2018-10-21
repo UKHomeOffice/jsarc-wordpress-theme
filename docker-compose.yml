@@ -3,7 +3,7 @@ services:
   wordpress:
     depends_on:
     - database
-#    image: wordpress:latest
+    #image: 721956817211.dkr.ecr.eu-west-1.amazonaws.com/jsarcwordpress:191
     build: .
 #    volumes:
 #    - ./website-content:/var/www/html/wp-content
