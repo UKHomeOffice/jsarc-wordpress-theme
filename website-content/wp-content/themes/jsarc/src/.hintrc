@@ -1,7 +1,0 @@
-{
-    "extends": [
-        "web-recommended"
-    ],
-    "formatters": "stylish",
-    "hintsTimeout": 120000,
-}
