@@ -26,6 +26,12 @@ Resources:
           PortMappings:
             - ContainerPort: 80
               Protocol: tcp
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: "jsarc"
+              awslogs-region: "eu-west-1"
+              awslogs-stream-prefix: "wp"
           Environment:
             - Name: WORDPRESS_DB_HOST
               Value: rms82q70ifgr4z.cqnkoaefoayv.eu-west-1.rds.amazonaws.com:3306
