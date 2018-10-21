@@ -1,0 +1,100 @@
+/*!
+Theme Name: JSaRC
+Author: 6point6 Limited
+Author URI: https://www.6point6.co.uk
+Description: WP Theme for JSaRC website
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: jsarc
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+JSaRC is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Mixins
+# Reset
+# Settings
+# Colors
+# Grid
+# Base
+# Typography
+# Buttons
+# Elements
+# Navigation
+
+# Homepage
+--------------------------------------------------------------*/
+@import "mixins/mixins-master";
+
+
+
+/*--------------------------------------------------------------
+# Reset
+--------------------------------------------------------------*/
+@import "base/reset";
+
+/*--------------------------------------------------------------
+# Settings
+--------------------------------------------------------------*/
+@import "base/settings";
+
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+@import "base/colors";
+
+/*--------------------------------------------------------------
+# Grid
+--------------------------------------------------------------*/
+@import "base/grid";
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+@import "base/base";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@import "base/typography";
+
+/*--------------------------------------------------------------
+# Buttons
+--------------------------------------------------------------*/
+@import "base/buttons";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+@import "base/elements";
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+@import "base/navigation";
+
+/*--------------------------------------------------------------
+# Homepage
+--------------------------------------------------------------*/
+@import "pages/homepage";
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+@import "pages/about";
+
+/*--------------------------------------------------------------
+# Case Study
+--------------------------------------------------------------*/
+@import "pages/case-study";
