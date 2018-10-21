@@ -79,7 +79,6 @@ workflows:
           branches:
             only:
             - master
-            - move-theme
     - deploy:
         context: jsarc
         requires:
@@ -88,4 +87,3 @@ workflows:
           branches:
             only:
               - master
-              - move-theme
