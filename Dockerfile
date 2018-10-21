@@ -1,48 +1,29 @@
-FROM php:7.2-apache
+FROM wordpress:php7.2-apache
 
-# install the PHP extensions we need
+RUN apt-get update && apt-get install -y gnupg2
+
+ENV WORDPRESS_CLI_GPG_KEY 63AF7AA15067C05616FDDD88A3A2E8F226F0BC06
+
+ENV WORDPRESS_CLI_VERSION 2.0.1
+ENV WORDPRESS_CLI_SHA512 21b9c1d65993f88bf81cc73c0a832532cc424bea8c15563a77af1905d0dc4714f2af679dfadedd3b683f3968902b4b6be4c6cf94285da9f5582b30c1dac5397f
+
 RUN set -ex; \
+	curl -o /usr/local/bin/wp.gpg -fSL "https://github.com/wp-cli/wp-cli/releases/download/v${WORDPRESS_CLI_VERSION}/wp-cli-${WORDPRESS_CLI_VERSION}.phar.gpg"; \
 	\
-	savedAptMark="$(apt-mark showmanual)"; \
+	export GNUPGHOME="$(mktemp -d)"; \
+	ls -la; \
+	gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$WORDPRESS_CLI_GPG_KEY"; \
+	gpg --batch --decrypt --output /usr/local/bin/wp /usr/local/bin/wp.gpg; \
+	command -v gpgconf && gpgconf --kill all || :; \
+	rm -rf "$GNUPGHOME" /usr/local/bin/wp.gpg; \
 	\
-	apt-get update; \
-	apt-get install -y --no-install-recommends \
-		libjpeg-dev \
-		libpng-dev \
-	; \
-	\
-	docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
-	docker-php-ext-install gd mysqli opcache zip; \
-	\
-# reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
-	apt-mark auto '.*' > /dev/null; \
-	apt-mark manual $savedAptMark; \
-	ldd "$(php -r 'echo ini_get("extension_dir");')"/*.so \
-		| awk '/=>/ { print $3 }' \
-		| sort -u \
-		| xargs -r dpkg-query -S \
-		| cut -d: -f1 \
-		| sort -u \
-		| xargs -rt apt-mark manual; \
-	\
-	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
-	rm -rf /var/lib/apt/lists/*
+	echo "$WORDPRESS_CLI_SHA512 */usr/local/bin/wp" | sha512sum -c -; \
+	chmod +x /usr/local/bin/wp; \
+	wp --allow-root --version
 
-# set recommended PHP.ini settings
-# see https://secure.php.net/manual/en/opcache.installation.php
-RUN { \
-		echo 'opcache.memory_consumption=128'; \
-		echo 'opcache.interned_strings_buffer=8'; \
-		echo 'opcache.max_accelerated_files=4000'; \
-		echo 'opcache.revalidate_freq=2'; \
-		echo 'opcache.fast_shutdown=1'; \
-		echo 'opcache.enable_cli=1'; \
-	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
+RUN mkdir -p /var/www/themes/
+COPY apache2-startwp.sh /usr/local/bin
+COPY website-content/themes/jsarc/ /var/www/themes/jsarc
+RUN chown www-data:www-data -R /var/www/themes
 
-COPY website-content/ .
-RUN a2enmod rewrite expires && \
-    chown -R www-data:www-data . && \
-    mv .htaccess.wp .htaccess
-
-CMD ["apache2-foreground"]
-EXPOSE 80 
+CMD ["apache2-startwp.sh", "apache2-foreground"]
