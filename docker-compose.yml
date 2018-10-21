@@ -12,6 +12,7 @@ services:
       WORDPRESS_DB_PASSWORD: jsarc #for demo purposes only otherwise this is called from an environment file
       WORDPRESS_DB_USER: jsarc
       WORDPRESS_DB_NAME: jsarc
+      #WORDPRESS_DEBUG: "yes"
     ports:
     - 80:80
   database:
