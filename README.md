@@ -5,7 +5,7 @@
 To run the website on a docker, run the following command from within the directory:
 
 ````
-docker-compose up -d
+docker-compose up
 ````
 Wordpress should be available on port 80 and phpmyadmin on port 8080.
 
