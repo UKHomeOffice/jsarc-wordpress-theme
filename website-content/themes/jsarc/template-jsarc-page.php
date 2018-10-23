@@ -33,7 +33,11 @@ get_header();
       if( is_page( 'case-study') ) {
         get_template_part( 'template-parts/content', 'prototype-case-study');
       }
-
+      
+      // HOMEPAGE V2
+      if( is_page( 'homepage-v2') ) {
+        get_template_part( 'template-parts/content', 'prototype-homepage-v2');
+      }
 
 
 			// If comments are open or we have at least one comment, load up the comment template.
