@@ -12,6 +12,8 @@ services:
       #WORDPRESS_DEBUG: "yes"
     ports:
     - 80:80
+    volumes:
+    - ./website-content/themes/jsarc:/var/www/jsarc
   database:
     image: mysql:5.7
     environment:
