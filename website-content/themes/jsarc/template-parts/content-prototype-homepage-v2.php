@@ -1,6 +1,6 @@
 <style>
 </style>
-<h1 style="color:red">HOMEPAGE V2</h1>
+
 <section class="section section-hero">
   <figure class="section-background-image"></figure>
   <div class="content-wrapper">
@@ -15,7 +15,7 @@
     </div>
   </div>
 </section>
-
+<h1 style="color:red">HOMEPAGE V2</h1>
 
 <section class="section section-about-jsarc">
   <div class="section-content">
