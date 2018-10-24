@@ -114,14 +114,14 @@ document.addEventListener('DOMContentLoaded', function() {
         primaryNavSearch.focus();
     });
 
-    p = 50;
+
 
     window.addEventListener('scroll', function() {
 
         //var y = window.pageYOffset | document.body.scrollTop;
         var y = window.scrollY;
 
-        if (y > p) {
+        if (y > 50) {
             primaryNav.classList.add('sticky');
         }
         else {
