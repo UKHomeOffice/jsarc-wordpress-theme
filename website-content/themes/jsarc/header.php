@@ -132,5 +132,56 @@ document.addEventListener('DOMContentLoaded', function() {
     navAnchor.addEventListener('click', function() {
         primaryNav.classList.toggle('nav-active');
     });
+    
+    
+    
+    
+ /*   
+    
+var menuItems = document.querySelectorAll('.primary-nav-item.dropdown');
+
+Array.prototype.forEach.call(menuItems, function(el, i){
+	el.addEventListener('mouseover', function(event){
+		this.classList.add = "open";
+		clearTimeout(timer);
+	});
+	el.addEventListener('mouseout', function(event){
+		timer = setTimeout(function(event){
+			document.querySelector('.primary-nav-item.dropdown.open').classList.remove = 'open';
+		}, 1000);
+	});
+});
+*/ 
+    
+    
+    
+    
+var navItems = document.querySelectorAll('.primary-nav-item.dropdown');
+
+Array.prototype.forEach.call(navItems, function(el, i){
+	
+	el.addEventListener("mouseover",  function(event){
+		this.classList.add('active');
+		this.querySelector('a').setAttribute('aria-expanded', "true");
+	});
+	el.addEventListener("mouseout",  function(event){
+		this.classList.remove('active');
+		this.querySelector('a').setAttribute('aria-expanded', "false");
+	});
+	
+});
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 });
 </script>
