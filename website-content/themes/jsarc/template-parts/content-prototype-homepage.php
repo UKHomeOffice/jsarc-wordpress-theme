@@ -53,19 +53,19 @@
     <h2 class="section-headline">Benefits of engaging with JSaRC</h2>
       <div class="media-block">
         <figure class="benefits-image-1"></figure>
-        <div class="media-block__text-content">
-          <h3 class="media-block__title">Partnerships</h3>
-          <p class="media-block__text">JSaRC helps the UK government, academia and suppliers from the security sector to work closely together and forge new partnerships. It is an effective and efficient way to collaborate, share ideas and make contacts. JSaRC enables people and organisations to work together to meet the security challenges and issues facing Great Britain today.
-          <a class="media-block__read-more-link">Read more</a>
+        <div class="media-block-text-content">
+          <h3 class="media-block-title">Partnerships</h3>
+          <p class="media-block-text">JSaRC helps the UK government, academia and suppliers from the security sector to work closely together and forge new partnerships. It is an effective and efficient way to collaborate, share ideas and make contacts. JSaRC enables people and organisations to work together to meet the security challenges and issues facing Great Britain today.
+          <a class="media-block-read-more-link">Read more</a>
         </div>
       </div>
 
       <div class="row media-block media-block--image-left">
         <figure class="benefits-image-2"></figure>
-        <div class="media-block__text-content">
-          <h3 class="media-block__title">Funding Opportunities</h3>
-          <p class="media-block__text">Working with JSaRC, you will broaden your connections, gain valuable exposure and contribute to ongoing security sector development with Her Majesty’s Government. You can gain access to available funding opportunities. JSaRC also provides support with applications for funding made by interested members of the security sector.
-          <a class="media-block__read-more-link">Read more</a>
+        <div class="media-block-text-content">
+          <h3 class="media-block-title">Funding Opportunities</h3>
+          <p class="media-block-text">Working with JSaRC, you will broaden your connections, gain valuable exposure and contribute to ongoing security sector development with Her Majesty’s Government. You can gain access to available funding opportunities. JSaRC also provides support with applications for funding made by interested members of the security sector.
+          <a class="media-block-read-more-link">Read more</a>
         </div>
       </div>
   </div>
@@ -119,47 +119,47 @@
   <div class="section-content">
     <div class="row">
       <ul class="projects-3up">
-        <li class="projects-3up__item">
-          <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+          <div class="projects-3up-image-wrapper">
             <a href="/case-study">
-              <figure class="projects-3up__image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb1.png'"></figure>
+              <figure class="projects-3up-image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb1.png'"></figure>
             </a>
           </div>
-          <div class="projects-3up__content-wrapper">
-            <h3 class="projects-3up__heading">Explosive Detection Technology Review (EDTR)</h3>
-            <p class="projects-3up__text">
+          <div class="projects-3up-content-wrapper">
+            <h3 class="projects-3up-heading">Explosive Detection Technology Review (EDTR)</h3>
+            <p class="projects-3up-text">
               JSaRC worked with the security sector and academics to review the current position and availability of explosives detection technology in the UK.</p>
-            <a href="/case-study" class="projects-3up__read-more-link">
+            <a href="/case-study" class="projects-3up-read-more-link">
               Read the case study
             </a>
           </div>
         </li>
-        <li class="projects-3up__item">
-            <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+            <div class="projects-3up-image-wrapper">
               <a href="/case-study">
-                <figure class="projects-3up__image"  style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png'"></figure>
+                <figure class="projects-3up-image"  style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png'"></figure>
               </a>
             </div>
-            <div class="projects-3up__content-wrapper">
-              <h3 class="projects-3up__heading">Joint Overseas Protect and Prepare (JOPP)</h3>
-              <p class="projects-3up__text">
+            <div class="projects-3up-content-wrapper">
+              <h3 class="projects-3up-heading">Joint Overseas Protect and Prepare (JOPP)</h3>
+              <p class="projects-3up-text">
                 The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. Security and protection remain our top priorities.</p>
-              <a href="/case-study" class="projects-3up__read-more-link">
+              <a href="/case-study" class="projects-3up-read-more-link">
                 Read the case study
               </a>
             </div>
         </li>
-        <li class="projects-3up__item">
-          <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+          <div class="projects-3up-image-wrapper">
             <a href="/case-study">
-              <figure class="projects-3up__image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png'"></figure>
+              <figure class="projects-3up-image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png'"></figure>
             </a>
           </div>
-          <div class="projects-3up__content-wrapper">
-            <h3 class="projects-3up__heading">Passengers and borders</h3>
-            <p class="projects-3up__text">
+          <div class="projects-3up-content-wrapper">
+            <h3 class="projects-3up-heading">Passengers and borders</h3>
+            <p class="projects-3up-text">
             The volume of border crossings is addressed in JSaRC's coaches, cars and bottlenecks review.</p>
-            <a href="/case-study" class="projects-3up__read-more-link">
+            <a href="/case-study" class="projects-3up-read-more-link">
               Read the case study
             </a>
           </div>
@@ -184,8 +184,8 @@
       <div class="column large-7 small-12">
         <form id="register" class="register-form" action="" method="post">
               <div class="register-input">
-                <input id="register-input" class="register-input__text-field" type="text" name="register-input__input">
-                <label class="register-input__label" for="register-input">Enter your email to receive information</label>
+                <input id="register-input" class="register-input-text-field" type="text" name="register-input-input">
+                <label class="register-input-label" for="register-input">Enter your email to receive information</label>
               </div>
           <input type="submit" class="button register-submit-button" value="submit" onclick="" />
         </form>
@@ -209,7 +209,7 @@
 <script>
   // Register for open days email input
   // (animated floating label style text input)
-  var registerTextInput = document.querySelector('.register-input__text-field');
+  var registerTextInput = document.querySelector('.register-input-text-field');
 
   if (registerTextInput) {
 
