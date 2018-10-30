@@ -125,21 +125,21 @@ section,figure { display: block; }
       <div class="viewport-content">
         <div class="row">
           <div class="breadcrumbs">
-            <ol class="breadcrumbs__list">
-              <li class="breadcrumbs__list-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="#" class="breadcrumbs__link" itemprop="url">Home</a>
+            <ol class="breadcrumbs-list">
+              <li class="breadcrumbs-list-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                <a href="#" class="breadcrumbs-link" itemprop="url">Home</a>
               </li>
-              <li class="breadcrumbs__list-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-              <a href="#" class="breadcrumbs__link" itemprop="url">Case Study</a>
+              <li class="breadcrumbs-list-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+              <a href="#" class="breadcrumbs-link" itemprop="url">Case Study</a>
               </li>
-              <!-- <li class="breadcrumbs__list-item">
-                <a href="#" class="breadcrumbs__link">third-level deep</a>
+              <!-- <li class="breadcrumbs-list-item">
+                <a href="#" class="breadcrumbs-link">third-level deep</a>
               </li>
-              <li class="breadcrumbs__list-item">
-                  <a href="#" class="breadcrumbs__link">fourth-level deep</a>
+              <li class="breadcrumbs-list-item">
+                  <a href="#" class="breadcrumbs-link">fourth-level deep</a>
               </li>
-              <li class="breadcrumbs__list-item">
-                <a href="#" class="breadcrumbs__link">fifth-level deep</a>
+              <li class="breadcrumbs-list-item">
+                <a href="#" class="breadcrumbs-link">fifth-level deep</a>
               </li> -->
             </ol>
         </div>
@@ -289,47 +289,47 @@ section,figure { display: block; }
   <div class="section-content">
     <div class="row">
       <ul class="projects-3up">
-        <li class="projects-3up__item">
-          <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+          <div class="projects-3up-image-wrapper">
             <a href="/case-study">
-              <figure class="projects-3up__image" style="background-image: url('../wp-content/themes/jsarc/img/v/homepage/a/project-thumb1.png'"></figure>
+              <figure class="projects-3up-image" style="background-image: url('../wp-content/themes/jsarc/img/v/homepage/a/project-thumb1.png'"></figure>
             </a>
           </div>
-          <div class="projects-3up__content-wrapper">
-            <h3 class="projects-3up__heading">Explosive Detection Technology Review (EDTR)</h3>
-            <p class="projects-3up__text">
+          <div class="projects-3up-content-wrapper">
+            <h3 class="projects-3up-heading">Explosive Detection Technology Review (EDTR)</h3>
+            <p class="projects-3up-text">
               JSaRC worked with the security sector and academics to review the current position and availability of explosives detection technology in the UK.</p>
-            <a href="/case-study" class="projects-3up__read-more-link">
+            <a href="/case-study" class="projects-3up-read-more-link">
               Read the case study
             </a>
           </div>
         </li>
-        <li class="projects-3up__item">
-            <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+            <div class="projects-3up-image-wrapper">
               <a href="/case-study">
-                <figure class="projects-3up__image"  style="background-image: url('../wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png'"></figure>
+                <figure class="projects-3up-image"  style="background-image: url('../wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png'"></figure>
               </a>
             </div>
-            <div class="projects-3up__content-wrapper">
-              <h3 class="projects-3up__heading">Joint Overseas Protect and Prepare (JOPP)</h3>
-              <p class="projects-3up__text">
+            <div class="projects-3up-content-wrapper">
+              <h3 class="projects-3up-heading">Joint Overseas Protect and Prepare (JOPP)</h3>
+              <p class="projects-3up-text">
                 The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. Security and protection remain our top priorities.</p>
-              <a href="/case-study" class="projects-3up__read-more-link">
+              <a href="/case-study" class="projects-3up-read-more-link">
                 Read the case study
               </a>
             </div>
         </li>
-        <li class="projects-3up__item">
-          <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+          <div class="projects-3up-image-wrapper">
             <a href="/case-study">
-              <figure class="projects-3up__image" style="background-image: url('../wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png'"></figure>
+              <figure class="projects-3up-image" style="background-image: url('../wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png'"></figure>
             </a>
           </div>
-          <div class="projects-3up__content-wrapper">
-            <h3 class="projects-3up__heading">Passengers and borders</h3>
-            <p class="projects-3up__text">
+          <div class="projects-3up-content-wrapper">
+            <h3 class="projects-3up-heading">Passengers and borders</h3>
+            <p class="projects-3up-text">
             The volume of border crossings is addressed in JSaRC's coaches, cars and bottlenecks review.</p>
-            <a href="/case-study" class="projects-3up__read-more-link">
+            <a href="/case-study" class="projects-3up-read-more-link">
               Read the case study
             </a>
           </div>
@@ -353,8 +353,8 @@ section,figure { display: block; }
       <div class="column large-7 small-12">
         <form id="register" class="register-form" action="" method="post">
               <div class="register-input">
-                <input class="register-input__text-field" type="text" name="register-input">
-                <label class="register-input__label" for="register-input">Enter your email to attend</label>
+                <input class="register-input-text-field" type="text" name="register-input">
+                <label class="register-input-label" for="register-input">Enter your email to attend</label>
               </div>
           <input type="submit" class="button register-submit-button" value="submit" onclick="" />
         </form>
@@ -422,7 +422,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Register for open days email input
   // (animated floating label style text input)
-  var registerTextInput = document.querySelector('.register-input__text-field');
+  var registerTextInput = document.querySelector('.register-input-text-field');
 
   if (registerTextInput) {
 

@@ -295,7 +295,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	}
 
 	$item_output = $args->before;
-	$item_output .= '<a class="primary-nav-link"'. $attributes .'>';
+	$item_output .= '<a class="primary-nav-link" aria-haspopup="true" aria-expanded="false"'. $attributes .'>';
 	$item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
 	$item_output .= $description.$args->link_after;
 	$item_output .= '</a>';
