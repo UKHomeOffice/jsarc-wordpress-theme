@@ -26,7 +26,7 @@ body {
 }
 
 .section-content {
-    max-width: 980px;
+    width: 980px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -35,13 +35,13 @@ body {
 
 @media only screen and (max-width: 1068px) {
     .section-content {
-        max-width: 692px;
+        width: 692px;
     }
 }
 
 @media only screen and (max-width: 735px) {
     .section-content {
-        max-width: 90%;
+        width: 90%;
     }
 }
 
