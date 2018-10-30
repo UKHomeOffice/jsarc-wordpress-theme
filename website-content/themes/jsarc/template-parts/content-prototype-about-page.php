@@ -18,21 +18,21 @@
       <div class="viewport-content">
         <div class="row">
           <div class="breadcrumbs">
-            <ol class="breadcrumbs__list">
-              <li class="breadcrumbs__list-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a href="#" class="breadcrumbs__link" itemprop="url">Home</a>
+            <ol class="breadcrumbs-list">
+              <li class="breadcrumbs-list-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                <a href="#" class="breadcrumbs-link" itemprop="url">Home</a>
               </li>
-              <li class="breadcrumbs__list-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-              <a href="#" class="breadcrumbs__link" itemprop="url">About</a>
+              <li class="breadcrumbs-list-item" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+              <a href="#" class="breadcrumbs-link" itemprop="url">About</a>
               </li>
-              <!-- <li class="breadcrumbs__list-item">
-                <a href="#" class="breadcrumbs__link">third-level deep</a>
+              <!-- <li class="breadcrumbs-list-item">
+                <a href="#" class="breadcrumbs-link">third-level deep</a>
               </li>
-              <li class="breadcrumbs__list-item">
-                  <a href="#" class="breadcrumbs__link">fourth-level deep</a>
+              <li class="breadcrumbs-list-item">
+                  <a href="#" class="breadcrumbs-link">fourth-level deep</a>
               </li>
-              <li class="breadcrumbs__list-item">
-                <a href="#" class="breadcrumbs__link">fifth-level deep</a>
+              <li class="breadcrumbs-list-item">
+                <a href="#" class="breadcrumbs-link">fifth-level deep</a>
               </li> -->
             </ol>
         </div>
@@ -98,28 +98,28 @@
     <h2 class="section-headline">Benefits of working with JSaRC</h2>
       <div class="media-block">
         <figure class="benefits-image benefits-image-1"></figure>
-        <div class="media-block__text-content">
-          <h3 class="media-block__title">Industry Cooperation</h3>
-          <p class="media-block__text">If you work with us at JSaRC, you will be involved in important and rewarding projects. We make great use of the many fields of expertise that exist in the security sector in order to meet the UK’s security challenges and to ensure resilience for the country.
-          <a class="media-block__read-more-link">Read more</a>
+        <div class="media-block-text-content">
+          <h3 class="media-block-title">Industry Cooperation</h3>
+          <p class="media-block-text">If you work with us at JSaRC, you will be involved in important and rewarding projects. We make great use of the many fields of expertise that exist in the security sector in order to meet the UK’s security challenges and to ensure resilience for the country.
+          <a class="media-block-read-more-link">Read more</a>
         </div>
       </div>
 
       <div class="row media-block media-block--image-left">
         <figure class="benefits-image benefits-image-2"></figure>
-        <div class="media-block__text-content">
-          <h3 class="media-block__title">JSaRC brings people and innovation together</h3>
-          <p class="media-block__text">Our team draws on a wide pool of expertise spanning security policy, academic and industry specialists. We pride ourselves on working collaboratively with diverse experts and industry leaders to encourage innovation and grow opportunities for the future in the security sector.
-          <a class="media-block__read-more-link">Read more</a>
+        <div class="media-block-text-content">
+          <h3 class="media-block-title">JSaRC brings people and innovation together</h3>
+          <p class="media-block-text">Our team draws on a wide pool of expertise spanning security policy, academic and industry specialists. We pride ourselves on working collaboratively with diverse experts and industry leaders to encourage innovation and grow opportunities for the future in the security sector.
+          <a class="media-block-read-more-link">Read more</a>
         </div>
       </div>
 
       <div class="media-block">
         <figure class="benefits-image benefits-image-1" style="background-image: url(../wp-content/themes/jsarc/img/v/about/a/image-benefits-3.png)"></figure>
-        <div class="media-block__text-content">
-          <h3 class="media-block__title">Help to ensure security and national resilience</h3>
-          <p class="media-block__text">If you are involved in industry, either in a larger company in the security sector or a small/medium enterprise, your business, products and acumen could prove to be enormously important to achieving JSaRC's aims and meeting security and resilience objectives.
-          <a class="media-block__read-more-link">Read more</a>
+        <div class="media-block-text-content">
+          <h3 class="media-block-title">Help to ensure security and national resilience</h3>
+          <p class="media-block-text">If you are involved in industry, either in a larger company in the security sector or a small/medium enterprise, your business, products and acumen could prove to be enormously important to achieving JSaRC's aims and meeting security and resilience objectives.
+          <a class="media-block-read-more-link">Read more</a>
         </div>
       </div>
 
@@ -157,48 +157,48 @@
     
     <div class="row">
       <ul class="projects-3up">
-        <li class="projects-3up__item">
-          <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+          <div class="projects-3up-image-wrapper">
             <a href="#">
-              <figure class="projects-3up__image" style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile1.png'"></figure>
+              <figure class="projects-3up-image" style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile1.png'"></figure>
             </a>
           </div>
-          <div class="projects-3up__content-wrapper">
-            <h3 class="projects-3up__heading">Shaun Hipgrave</h3>
-            <p class="projects-3up__text">
+          <div class="projects-3up-content-wrapper">
+            <h3 class="projects-3up-heading">Shaun Hipgrave</h3>
+            <p class="projects-3up-text">
               Head of JSaRC
             </p>
-            <a href="#" class="projects-3up__read-more-link">
+            <a href="#" class="projects-3up-read-more-link">
               Read Biography
             </a>
           </div>
         </li>
-        <li class="projects-3up__item">
-            <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+            <div class="projects-3up-image-wrapper">
               <a href="#">
-                <figure class="projects-3up__image"  style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile2.png'"></figure>
+                <figure class="projects-3up-image"  style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile2.png'"></figure>
               </a>
             </div>
-            <div class="projects-3up__content-wrapper">
-              <h3 class="projects-3up__heading">Angela Essel</h3>
-              <p class="projects-3up__text">
+            <div class="projects-3up-content-wrapper">
+              <h3 class="projects-3up-heading">Angela Essel</h3>
+              <p class="projects-3up-text">
                 Head of Joint Response Team</p>
-              <a href="#" class="projects-3up__read-more-link">
+              <a href="#" class="projects-3up-read-more-link">
                 Read Biography
               </a>
             </div>
         </li>
-        <li class="projects-3up__item">
-          <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+          <div class="projects-3up-image-wrapper">
             <a href="#">
-              <figure class="projects-3up__image" style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile3.png'"></figure>
+              <figure class="projects-3up-image" style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile3.png'"></figure>
             </a>
           </div>
-          <div class="projects-3up__content-wrapper">
-            <h3 class="projects-3up__heading">Nick Smith</h3>
-            <p class="projects-3up__text">
+          <div class="projects-3up-content-wrapper">
+            <h3 class="projects-3up-heading">Nick Smith</h3>
+            <p class="projects-3up-text">
             Head of Strategy and Operations</p>
-            <a href="#" class="projects-3up__read-more-link">
+            <a href="#" class="projects-3up-read-more-link">
               Read Biography
             </a>
           </div>
@@ -208,47 +208,47 @@
     
     <div class="row">
       <ul class="projects-3up">
-        <li class="projects-3up__item">
-          <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+          <div class="projects-3up-image-wrapper">
             <a href="#">
-              <figure class="projects-3up__image" style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile2.png'"></figure>
+              <figure class="projects-3up-image" style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile2.png'"></figure>
             </a>
           </div>
-          <div class="projects-3up__content-wrapper">
-            <h3 class="projects-3up__heading">Claire Green</h3>
-            <p class="projects-3up__text">
+          <div class="projects-3up-content-wrapper">
+            <h3 class="projects-3up-heading">Claire Green</h3>
+            <p class="projects-3up-text">
               Industry Secondee <br>Hart international</p>
-            <a href="#" class="projects-3up__read-more-link">
+            <a href="#" class="projects-3up-read-more-link">
               Read Biography
             </a>
           </div>
         </li>
-        <li class="projects-3up__item">
-            <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+            <div class="projects-3up-image-wrapper">
               <a href="#">
-                <figure class="projects-3up__image"  style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile5.png'"></figure>
+                <figure class="projects-3up-image"  style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile5.png'"></figure>
               </a>
             </div>
-            <div class="projects-3up__content-wrapper">
-              <h3 class="projects-3up__heading">Dr Neil Hipps</h3>
-              <p class="projects-3up__text">
+            <div class="projects-3up-content-wrapper">
+              <h3 class="projects-3up-heading">Dr Neil Hipps</h3>
+              <p class="projects-3up-text">
                 Academic Secondee <br>University of Kent</p>
-              <a href="#" class="projects-3up__read-more-link">
+              <a href="#" class="projects-3up-read-more-link">
                 Read Biography
               </a>
             </div>
         </li>
-        <li class="projects-3up__item">
-          <div class="projects-3up__image-wrapper">
+        <li class="projects-3up-item">
+          <div class="projects-3up-image-wrapper">
             <a href="#">
-              <figure class="projects-3up__image" style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile6.png'"></figure>
+              <figure class="projects-3up-image" style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/team-profile6.png'"></figure>
             </a>
           </div>
-          <div class="projects-3up__content-wrapper">
-            <h3 class="projects-3up__heading">Rhodri Atwell</h3>
-            <p class="projects-3up__text">
+          <div class="projects-3up-content-wrapper">
+            <h3 class="projects-3up-heading">Rhodri Atwell</h3>
+            <p class="projects-3up-text">
             Industry Secondee <br>Chapel Associates</p>
-            <a href="#" class="projects-3up__read-more-link">
+            <a href="#" class="projects-3up-read-more-link">
               Read Biography
             </a>
           </div>
@@ -276,32 +276,32 @@
     <div class="row">
       <ul class="projects-2up">
         
-        <li class="projects-2up__item">
-            <div class="projects-2up__image-wrapper">
+        <li class="projects-2up-item">
+            <div class="projects-2up-image-wrapper">
               <a href="/case-study">
-                <figure class="projects-2up__image"  style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/project-thumb1.png'"></figure>
+                <figure class="projects-2up-image"  style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/project-thumb1.png'"></figure>
               </a>
             </div>
-            <div class="projects-2up__content-wrapper">
-              <h3 class="projects-2up__heading">Explosive Detection Technology Review (EDTR)</h3>
-              <!-- <p class="projects-2up__text">
+            <div class="projects-2up-content-wrapper">
+              <h3 class="projects-2up-heading">Explosive Detection Technology Review (EDTR)</h3>
+              <!-- <p class="projects-2up-text">
                 Title here </p> -->
-              <a href="/case-study" class="projects-2up__read-more-link">
+              <a href="/case-study" class="projects-2up-read-more-link">
                 Read the case study
               </a>
             </div>
         </li>
-        <li class="projects-2up__item">
-          <div class="projects-2up__image-wrapper">
+        <li class="projects-2up-item">
+          <div class="projects-2up-image-wrapper">
             <a href="/case-study">
-              <figure class="projects-2up__image" style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/project-thumb2.png'"></figure>
+              <figure class="projects-2up-image" style="background-image: url('../wp-content/themes/jsarc/img/v/about/a/project-thumb2.png'"></figure>
             </a>
           </div>
-          <div class="projects-2up__content-wrapper">
-            <h3 class="projects-2up__heading">Joint Overseas Protect and Prepare (JOPP)</h3>
-            <!-- <p class="projects-2up__text">
+          <div class="projects-2up-content-wrapper">
+            <h3 class="projects-2up-heading">Joint Overseas Protect and Prepare (JOPP)</h3>
+            <!-- <p class="projects-2up-text">
             Title here</p> -->
-            <a href="/case-study" class="projects-2up__read-more-link">
+            <a href="/case-study" class="projects-2up-read-more-link">
               Read the case study
             </a>
           </div>
@@ -329,8 +329,8 @@
       <div class="column large-7 small-12">
         <form id="register" class="register-form" action="" method="post">
               <div class="register-input">
-                <input class="register-input__text-field" type="text" name="register-input">
-                <label class="register-input__label" for="register-input">Enter your email to receive information</label>
+                <input class="register-input-text-field" type="text" name="register-input">
+                <label class="register-input-label" for="register-input">Enter your email to receive information</label>
               </div>
           <input type="submit" class="button register-submit-button" value="submit" onclick="" />
         </form>
@@ -355,7 +355,7 @@
 
   // Register for open days email input
   // (animated floating label style text input)
-  var registerTextInput = document.querySelector('.register-input__text-field');
+  var registerTextInput = document.querySelector('.register-input-text-field');
 
   if (registerTextInput) {
 
