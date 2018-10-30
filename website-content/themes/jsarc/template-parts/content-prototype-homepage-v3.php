@@ -960,3 +960,349 @@ S E C T I O N  F O O T E R
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+
+
+/*--------------------------------------
+
+S E C T I O N  S T A Y  C O N N E C T E D  V2
+
+---------------------------------------*/
+
+.section.section-stay-connected-v2 {
+    background-color: #982d46;
+    margin: 150px auto !important;
+}
+
+.section.section-stay-connected-v2 .section-content {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.section.section-stay-connected-v2 .section-headline {
+	color: #fff;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	margin-bottom: 10px;
+}
+
+.section.section-stay-connected-v2 .description {
+	color: #fff;
+	font-size: 19px;
+	line-height: 24px;
+	margin-bottom: 40px;
+}
+
+
+.section.section-stay-connected-v2 .button.more {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.section.section-stay-connected-v2 .content-wrapper {
+    padding: 0 50px;
+}
+
+.section.section-stay-connected-v2 .content-wrapper.social {
+    position: relative;
+    padding-right: 0;
+    padding-left: 20%;
+}
+.section.section-stay-connected-v2 .content-wrapper.social:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 160px;
+    background-color: #fff;
+}
+
+.section.section-stay-connected-v2 .social-headline {
+	color: #fff;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	margin-bottom: 32px;
+}
+
+.section.section-stay-connected-v2 .social-list {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.section.section-stay-connected-v2 .social-list .social-item {
+    display: inline-block;
+    margin-right: 25px;
+}
+
+.section.section-stay-connected-v2 .social-list .social-item .social-link {
+    display: block;
+    width: 36px;
+    height: 36px;
+    background-size: 36px 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    text-indent: -999px;
+}
+
+
+/* 
+.section.section-stay-connected-v2 .social-list .social-item .social-link.twitter {
+    background-image: url("img/v/homepage/b/icon-twitter.png");
+}
+
+.section.section-stay-connected-v2 .social-list .social-item .social-link.youtube {
+    background-image: url("img/v/homepage/b/icon-youtube.png");
+}
+
+.section.section-stay-connected-v2 .social-list .social-item .social-link.facebook {
+    background-image: url("img/v/homepage/b/icon-facebook.png");
+}
+ */
+
+
+</style>
+
+
+
+
+
+
+
+
+
+<section class="section section-stay-connected-v2">
+	<div class="section-content">
+		<div class="row">
+			<div class="column large-6 first">
+				<div class="content-wrapper">
+					<h3 class="section-headline">Stay connected with JSaRC</h3>
+					<p class="description">To receive the latest news and updates</p>
+					<a class="button more" href="">Register with JSaRC</a>
+				</div>
+				<div class="divider"></div>
+			</div>
+			<div class="column large-6">
+				<div class="content-wrapper social">
+					<h4 class="social-headline">Follow us on</h4>
+					<ul class="social-list">
+						<li class="social-item"><a class="social-link twitter" href="">Twitter</a></li>
+						<li class="social-item"><a class="social-link youtube" href="">YouTube</a></li>
+						<li class="social-item"><a class="social-link facebook" href="">Facebook</a></li>
+					</ul>
+				<div>
+			</div>
+		</div></div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+<style>
+
+
+/*--------------------------------------
+
+S E C T I O N  S T A Y  C O N N E C T E D  V3
+
+---------------------------------------*/
+
+.section.section-stay-connected-v3 {
+    background-color: #982d46;
+    margin: 150px auto !important;
+}
+
+.section.section-stay-connected-v3 .section-content {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.section.section-stay-connected-v3 .section-headline {
+	color: #fff;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	margin-bottom: 10px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+
+.section.section-stay-connected-v3 .section-sub-headline {
+	color: #fff;
+	font-size: 23px;
+	font-weight: normal;
+	line-height: 1.3;
+	margin-bottom: 10px;
+	min-height: 80px;
+}
+
+.section.section-stay-connected-v3 .description {
+	color: #fff;
+	font-size: 19px;
+	line-height: 24px;
+	margin-bottom: 40px;
+}
+
+
+.section.section-stay-connected-v3 .button.more {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.section.section-stay-connected-v3 .content-wrapper {
+    padding: 0 50px;
+}
+
+.section.section-stay-connected-v3 .content-wrapper.social {
+    position: relative;
+    padding-right: 0;
+    padding-left: 20%;
+}
+.section.section-stay-connected-v3 .content-wrapper.social:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 160px;
+    background-color: #fff;
+}
+
+.section.section-stay-connected-v3 .social-headline {
+	color: #fff;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	margin-bottom: 32px;
+}
+
+.section.section-stay-connected-v3 .social-list {
+    display: block;
+}
+
+.section.section-stay-connected-v3 .social-list .social-item {
+    display: inline-block;
+    margin-right: 25px;
+}
+
+.section.section-stay-connected-v3 .social-list .social-item .social-link {
+    display: block;
+    width: 36px;
+    height: 36px;
+    background-size: 36px 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    text-indent: -999px;
+}
+
+
+/* 
+.section.section-stay-connected-v3 .social-list .social-item .social-link.twitter {
+    background-image: url("img/v/homepage/b/icon-twitter.png");
+}
+
+.section.section-stay-connected-v3 .social-list .social-item .social-link.youtube {
+    background-image: url("img/v/homepage/b/icon-youtube.png");
+}
+
+.section.section-stay-connected-v3 .social-list .social-item .social-link.facebook {
+    background-image: url("img/v/homepage/b/icon-facebook.png");
+}
+ */
+
+
+</style>
+
+
+
+
+
+
+
+
+
+<section class="section section-stay-connected-v3">
+	<div class="section-content">
+		<h3 class="section-headline">Stay connected with JSaRC</h3>
+		<div class="row">
+			<div class="column large-6 first">
+				<div class="content-wrapper">
+					<h3 class="section-sub-headline">Register with JSaRC to receive the latest news and updates</h3>
+					<a class="button more" href="">Register</a>
+				</div>
+				<div class="divider"></div>
+			</div>
+			<div class="column large-6">
+				<div class="content-wrapper social">
+					<h4 class="section-sub-headline">Follow us on</h4>
+					<ul class="social-list">
+						<li class="social-item"><a class="social-link twitter" href="">Twitter</a></li>
+						<li class="social-item"><a class="social-link youtube" href="">YouTube</a></li>
+						<li class="social-item"><a class="social-link facebook" href="">Facebook</a></li>
+					</ul>
+				<div>
+			</div>
+		</div></div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
