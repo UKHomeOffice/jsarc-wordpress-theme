@@ -3882,6 +3882,35 @@ S E C T I O N  V I D E O
     }
 }
 
+/*--------------------------------------
+
+S E C T I O N  S T A Y  C O N N E C T E D  V2/V3
+
+---------------------------------------*/
+.section.section-stay-connected-v2 .social-list .social-item .social-link.twitter {
+    background-image: url("img/v/homepage/b/icon-twitter.png");
+}
+
+.section.section-stay-connected-v2 .social-list .social-item .social-link.youtube {
+    background-image: url("img/v/homepage/b/icon-youtube.png");
+}
+
+.section.section-stay-connected-v2 .social-list .social-item .social-link.facebook {
+    background-image: url("img/v/homepage/b/icon-facebook.png");
+}
+
+.section.section-stay-connected-v3 .social-list .social-item .social-link.twitter {
+    background-image: url("img/v/homepage/b/icon-twitter.png");
+}
+
+.section.section-stay-connected-v3 .social-list .social-item .social-link.youtube {
+    background-image: url("img/v/homepage/b/icon-youtube.png");
+}
+
+.section.section-stay-connected-v3 .social-list .social-item .social-link.facebook {
+    background-image: url("img/v/homepage/b/icon-facebook.png");
+}
+
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
@@ -4830,28 +4859,5 @@ S E C T I O N  V I D E O
 /*--------------------------------------------------------------
 # Case Study
 --------------------------------------------------------------*/
-.section-case-study-content .heading {
-    margin-bottom: 35px;
-    color: #4a4a4a;
-    font-size: 32px;
-    font-weight: bold;
-    line-height: 40px;
-}
-
-.section-case-study-content .body-text {
-    margin-bottom: 35px;
-    color: #4a4a4a;
-    font-size: 18px;
-    line-height: 24px;
-}
-
-.section-case-study-content .in-page-image {
-    margin-bottom: 35px;
-}
-
-.section-content.on-dark-bg .heading,
-.section-content.on-dark-bg .body-text {
-    color: #e3e3e3 !important;
-}
 
 /*# sourceMappingURL=src/sourcemaps/style.css.map */
