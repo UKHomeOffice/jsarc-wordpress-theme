@@ -1,5 +1,9 @@
 <style>
 
+.section {
+	position: static !important; /* Fixing issue with scroll animation */
+}
+
 .section-content {
     width: 980px;
     margin-right: auto;
@@ -118,7 +122,7 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 
 ----------------------------------*/
 .section.section-case-study-content {
-	position: static !important;
+
 }
 
 .section.section-case-study-content.dark {
@@ -128,19 +132,30 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 	background-color: #fff;
 }
 
-.section.section-case-study-content .section-image {
+.section.section-case-study-content .section-image-full-with {
 	width: 100%;
 	height: 100vh;
 	min-height: 568px;
 	background-size: cover;
 }
 
-.section.section-case-study-content .section-image.case-study-1 {
+.section.section-case-study-content .section-image-full-with.case-study-1 {
 	background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/case-study-1.png");
 }
 
-.section.section-case-study-content .section-image.case-study-2 {
+.section.section-case-study-content .section-image-full-with.case-study-2 {
 	background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/case-study-2.png");
+}
+
+
+.section.section-case-study-content .section-content .section-image.case-study-results {
+	width: 100%;
+	height: auto;
+	padding-bottom: 50%;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/case-study-results.png");
+	margin-bottom: 75px;
 }
 
 .sticky-container {
@@ -169,15 +184,15 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 }
 
 .section.section-case-study-content .section-headline {
-	color: #4a4a4a;
-	font-size: 18px;
+	color: #0C0B0B;
+	font-size: 24px;
 	line-height: 24px;
 	margin-bottom: 24px;
 	font-weight: bold;
 }
 
 .section.section-case-study-content .section-text {
-	color: #4a4a4a;
+	color: #0C0B0B;
 	font-size: 18px;
 	line-height: 24px;
 	margin-bottom: 24px;
@@ -203,7 +218,7 @@ PAGE CASE STUDY / SECTION PROJECTS
 	padding-bottom: 75px;
 }
 
-.section.section-projects-and-case-studies .section-image {
+.section.section-projects-and-case-studies .section-image-full-with {
 	position: absolute;
 	max-width: 2560px;
 	width: 100%;
@@ -211,6 +226,11 @@ PAGE CASE STUDY / SECTION PROJECTS
 	background-size: cover;
 	background-position: 50% 50%;
 	background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/projects-image.png");
+	opacity: 1;
+	transition: opacity 1s;
+}
+
+.section.section-projects-and-case-studies.reveal .section-image-full-with {
 	opacity: .5;
 }
 
@@ -229,6 +249,13 @@ PAGE CASE STUDY / SECTION PROJECTS
 	text-align: right;
 	margin-bottom: 22px;
 	font-weight: normal;
+	opacity: 0;
+	transform: 
+}
+
+
+.section.section-projects-and-case-studies.reveal .section-image-full-with {
+	opacity: .5;
 }
 
 .button.more {
@@ -248,11 +275,28 @@ PAGE CASE STUDY / SECTION PROJECTS
 }
 
 .section.section-projects-and-case-studies .button.more {
-	color: #0694a7;
+	color: #000;
 	background-color: #fff;
 	border:0;
 	float: right;
 }
+
+
+.section.section-projects-and-case-studies .section-headline,
+.section.section-projects-and-case-studies .section-sub-heading,
+.section.section-projects-and-case-studies .button.more {
+	transform: translateY(50px);
+	transition: transform 1s, opacity 1s;
+	opacity: 0;
+}
+
+.section.section-projects-and-case-studies.reveal .section-headline,
+.section.section-projects-and-case-studies.reveal .section-sub-heading,
+.section.section-projects-and-case-studies.reveal .button.more {
+	transform: translateY(0);
+	opacity: 1;
+}
+
 
 /*---------------------------------
 
@@ -492,7 +536,8 @@ PAGE CASE STUDY / SECTION STAY CONNECTED
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
 			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-			<li class="breadcrumbs-item">Our work</li>
+			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="">Our work</a></li>
+			<li class="breadcrumbs-item">Securing crowded spaces</li>
 		</ul>
 	</div>
 </nav>
@@ -509,7 +554,7 @@ PAGE CASE STUDY / SECTION STAY CONNECTED
 
 <section class="section section-case-study-content dark">
 	<div class="sticky-container">
-		<figure class="section-image case-study-1 sticky-item"></figure>
+		<figure class="section-image-full-with case-study-1 sticky-item"></figure>
 	</div>
 	<div class="section-content">
 		<h3 class="section-headline">Solutions implemented</h3>
@@ -522,6 +567,7 @@ PAGE CASE STUDY / SECTION STAY CONNECTED
 
 <section class="section section-case-study-content">
 	<div class="section-content">
+		<figure class="section-image case-study-results"></figure>
 		<h3 class="section-headline">Results</h3>
 		<p class="section-text">In total, 5 sites and 6 technology providers volunteered to participate in trials.</p>
 		<p class="section-text">The trials involved real users, which demonstrated a real world impact. This helped to engage all stakeholder groups.</p>
@@ -535,7 +581,7 @@ PAGE CASE STUDY / SECTION STAY CONNECTED
 
 <section class="section section-case-study-content light">
 	<div class="sticky-container">
-		<figure class="section-image case-study-2 sticky-item"></figure>
+		<figure class="section-image-full-with case-study-2 sticky-item"></figure>
 	</div>
 	<div class="section-content">
 		<h3 class="section-headline">Outcomes</h3>
@@ -547,8 +593,8 @@ PAGE CASE STUDY / SECTION STAY CONNECTED
 	</div>
 </section>
 
-<section class="section section-projects-and-case-studies">
-	<figure class="section-image"></figure>
+<section class="section section-projects-and-case-studies" data-anim-classname='{"cssClass":"reveal"}'>
+	<figure class="section-image-full-with"></figure>
 	<div class="section-content">
 		<h3 class="section-headline">JSaRC projects and case studies</h3>
 		<h4 class="section-sub-heading">High Footfall Screening Trials</h4>
@@ -600,7 +646,7 @@ PAGE CASE STUDY / SECTION STAY CONNECTED
 <section class="section section-alt-stay-connected">
 	<div class="section-content">
 		<h3 class="section-headline">Stay connected with JSaRC</h3>
-		<a class="button more" href="">Register with JSaRC</a>
+		<a class="button more" href="/register/">Register with JSaRC</a>
 		<p class="description">To receive the latest news and updates</p>
 		<div class="social">
 			<h4 class="social-headline">Follow us on</h4>
@@ -635,7 +681,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	var a = '.sticky-container',
 		b = '.sticky-item';
-		
+
     document.querySelectorAll(a).forEach(function(el) {
 
     	var stickyItem = el.querySelector(b);
@@ -663,7 +709,49 @@ document.addEventListener('DOMContentLoaded', function() {
 			} 
     	});
 	});
+
+	var isInViewPortPlusWH = function (el) {
 	
+			var y = window.scrollY || window.pageYOffset;
+		
+				elT = el.offsetTop,
+				elH = el.offsetHeight,
+				elB = elT + elH,
+				
+				wh = window.innerHeight;
+				
+				
+				
+				
+				
+			
+			return (y+wh/2 > elT);
+		
+		
+		};
+ 
+	
+	// Array.prototype.forEach.call(a, function(el, i){
+	document.querySelectorAll('[data-anim-classname]').forEach(function(el) {
+    
+    	var alldata = JSON.parse(el.dataset.animClassname);
+    
+    	var elClassName = alldata['cssClass'];
+		
+
+		
+		
+
+        window.addEventListener('scroll', function() {
+        
+			if (isInViewPortPlusWH(el)) {
+				el.classList.add(elClassName);
+			}
+			else {
+				el.classList.remove(elClassName);
+			}
+    	});
+	});
 	
 	
 	
