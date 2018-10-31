@@ -38,6 +38,11 @@ get_header();
       if( is_page( 'homepage-v3') ) {
         get_template_part( 'template-parts/content', 'prototype-homepage-v3');
       }
+      
+      // REGISTER
+      if( is_page( 'register') ) {
+        get_template_part( 'template-parts/content', 'prototype-register');
+      }
 
 
 			// If comments are open or we have at least one comment, load up the comment template.
