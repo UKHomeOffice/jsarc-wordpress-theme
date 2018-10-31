@@ -141,13 +141,6 @@ PAGE REGISTER / SECTION REGISTER FORM
 	transform-origin: 0 50%;
 }
 
-
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px white inset;
-  -webkit-text-fill-color: #333;
-}
-
 .section.section-register-form .text-field-wrapper .text-field:focus ~ .text-field-label,
 .section.section-register-form .text-field-wrapper.active .text-field-label {
 	transform: translate(-17px, -24px) scale(0.8);
@@ -489,8 +482,8 @@ PAGE REGISTER / SECTION STAY CONNECTED
 			<div class="column large-7 medium-10 small-12">
 				<div class="content-inner">
 					<h1 class="section-headline">Register with JSaRC</h1>
-					<p class="intro">Register here to receive information about JSaRC news, funding opportunities and up coming events.</p>
-					<p class="intro">Your information will not be shared wih any organisations or government departments ouitside of JSaRC.</p>
+					<p class="intro">Register here to receive information about JSaRC news, funding opportunities and upcoming events.</p>
+					<p class="intro">Your information will not be shared with any organisations or government departments outside of JSaRC.</p>
 					<div class="form-wrapper">
 						<form>
 							<div class="row col2">
