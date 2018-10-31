@@ -112,6 +112,7 @@ PAGE REGISTER / SECTION REGISTER FORM
 
 .section.section-register-form .form-wrapper {
 	padding-top: 25px;
+	background-color: #fff;
 }
 
 .section.section-register-form .text-field-wrapper {
@@ -139,9 +140,18 @@ PAGE REGISTER / SECTION REGISTER FORM
 	transition: transform 0.3s;
 	transform-origin: 0 50%;
 }
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+  -webkit-text-fill-color: #333;
+}
+
 .section.section-register-form .text-field-wrapper .text-field:focus ~ .text-field-label,
 .section.section-register-form .text-field-wrapper.active .text-field-label {
 	transform: translate(-17px, -24px) scale(0.8);
+	z-index: 1;
 }
 
 
@@ -517,7 +527,7 @@ PAGE REGISTER / SECTION STAY CONNECTED
 									</div>
 								</div>
 								<div class="column large-12">
-									<button class="button"><span class="load-spinner"></span>Submit</button>
+									<button class="button"><span class="~load-spinner"></span>Submit</button>
 								</div>
 							</div>
 						</form>
