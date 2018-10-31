@@ -609,7 +609,7 @@ PAGE CASE STUDY / SECTION STAY CONNECTED
 				<li class="social-item"><a  class="social-link youtube" href="">YouTube</a></li>
 				<li class="social-item"><a  class="social-link facebook" href="">Facebook</a></li>
 			</ul>
-		<div>
+		</div>
 	</div>
 </section>
 
@@ -663,6 +663,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			} 
     	});
 	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 });
