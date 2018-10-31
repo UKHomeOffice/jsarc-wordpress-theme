@@ -894,7 +894,7 @@ S E C T I O N  F O O T E R
 		<p class="section-body-text">Exploring solutions for securing large, high footfall spaces.
 
 </p>
-		<a style="border:none;" class="button more" href="">Read the case study</a>
+		<a style="border:none;" class="button more" href="/case-study/">Read the case study</a>
 	</div>
 </section>
 
@@ -945,7 +945,7 @@ S E C T I O N  F O O T E R
 <section class="section section-alt-stay-connected">
 	<div class="section-content">
 		<h3 class="section-headline">Stay connected with JSaRC</h3>
-		<a class="button more" href="">Register with JSaRC</a>
+		<a class="button more" href="/register/">Register with JSaRC</a>
 		<p class="description">To receive the latest news and updates</p>
 		<div class="social">
 			<h4 class="social-headline">Follow us on</h4>
