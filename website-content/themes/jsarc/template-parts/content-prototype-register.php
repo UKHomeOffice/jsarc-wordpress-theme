@@ -20,54 +20,6 @@
     }
 }
 
-
-/*---------------------------------
-
-PAGE REGISTER / BREADCRUMBS
-
-----------------------------------*/
-
-.breadcrumbs {
-	background-color: #E8EBF2;
-}
-
-.breadcrumbs .breadcrumbs-list {
-	display: block;
-	width: 100%;
-}
-
-.breadcrumbs .breadcrumbs-list .breadcrumbs-item {
-	display: inline-block;
-	margin-right: 10px;
-	padding: 13px 0;
-	height: 24px;
-	font-size: 16px;
-	line-height: 24px;
-}
-.breadcrumbs .breadcrumbs-list .breadcrumbs-item:after {
-	content: "";
-	display: inline-block;
-	margin-left: 5px;
-	vertical-align: middle;
-	width: 5px;
-	height: 5px;
-	border: 1px solid #000;
-	border-width: 1px 1px 0 0;
-	transform: rotate(45deg) scale(1.3);
-}
-
-.breadcrumbs .breadcrumbs-list .breadcrumbs-item:last-child:after {
-	display: none;
-}
-
-.breadcrumbs .breadcrumbs-list .breadcrumbs-item .breadcrumbs-link {
-
-}
-
-.breadcrumbs .breadcrumbs-list .breadcrumbs-item .breadcrumbs-link:hover {
-	text-decoration: underline;
-}
-
 /*---------------------------------
 
 PAGE REGISTER / SECTION REGISTER FORM
