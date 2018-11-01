@@ -34,12 +34,15 @@ PAGE CASE STUDY / SECTION HEADER
 
 ----------------------------------*/
 .section.section-header {
-
+	height: 300px;
+	background-color: #000;
 }
 
 .section.section-header .section-content {
 	display: table;
 	height: 300px;
+	position: relative;
+	z-index: 1;
 }
 
 .section.section-header .hero-image {
@@ -49,7 +52,21 @@ PAGE CASE STUDY / SECTION HEADER
 	height: 300px;
 	background-size: cover;
 	background-position: 50% 50%;
-	background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/case-study-header-bg.png"); 
+	background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/case-study-header-bg.png");
+	opacity: .5;
+}
+
+.section.section-header .hero-image {
+	animation: background-opacity 1s forwards;
+}
+
+@keyframes background-opacity {
+    0% {
+		opacity: 1;	
+    }
+    100% {
+		opacity: 0.5;
+    }
 }
 
 .section.section-header .hero-headline {
@@ -62,59 +79,31 @@ PAGE CASE STUDY / SECTION HEADER
 	text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
 }
 
+
+.section.section-header .hero-headline {
+	transform: translateY(50px);
+	opacity: 0;
+	animation: headline-reveal 1s forwards;
+}
+
+@keyframes headline-reveal {
+    0% {
+    	transform: translateY(50px);
+		opacity: 0;	
+    }
+    100% {
+    	transform: translateY(0);
+		opacity: 1;
+    }
+}
+
+
 @media only screen and (max-width: 1068px) {
 	.section.section-header .hero-headline {
 		font-size: 38px;
 	}
 }
 
-
-/*---------------------------------
-
-PAGE CASE STUDY / BREADCRUMBS
-
-----------------------------------*/
-
-.breadcrumbs {
-	background-color: #E8EBF2;
-}
-
-.breadcrumbs .breadcrumbs-list {
-	display: block;
-	width: 100%;
-}
-
-.breadcrumbs .breadcrumbs-list .breadcrumbs-item {
-	display: inline-block;
-	margin-right: 10px;
-	padding: 13px 0;
-	height: 24px;
-	font-size: 16px;
-	line-height: 24px;
-}
-.breadcrumbs .breadcrumbs-list .breadcrumbs-item:after {
-	content: "";
-	display: inline-block;
-	margin-left: 5px;
-	vertical-align: middle;
-	width: 5px;
-	height: 5px;
-	border: 1px solid #000;
-	border-width: 1px 1px 0 0;
-	transform: rotate(45deg) scale(1.3);
-}
-
-.breadcrumbs .breadcrumbs-list .breadcrumbs-item:last-child:after {
-	display: none;
-}
-
-.breadcrumbs .breadcrumbs-list .breadcrumbs-item .breadcrumbs-link {
-
-}
-
-.breadcrumbs .breadcrumbs-list .breadcrumbs-item .breadcrumbs-link:hover {
-	text-decoration: underline;
-}
 
 /*---------------------------------
 
@@ -216,6 +205,8 @@ PAGE CASE STUDY / SECTION PROJECTS
 .section.section-projects-and-case-studies .section-content {
 	padding-top: 75px;
 	padding-bottom: 75px;
+	position: relative;
+	z-index: 1;
 }
 
 .section.section-projects-and-case-studies .section-image-full-with {
@@ -250,28 +241,11 @@ PAGE CASE STUDY / SECTION PROJECTS
 	margin-bottom: 22px;
 	font-weight: normal;
 	opacity: 0;
-	transform: 
 }
 
 
 .section.section-projects-and-case-studies.reveal .section-image-full-with {
 	opacity: .5;
-}
-
-.button.more {
-    display: block;
-    font-size: 19px;
-    line-height: 50px;
-    width: 250px;
-    text-align: center;
-}
-
-@media only screen and (max-width: 1068px) {
-    .button.more {
-        font-size: 17px;
-        line-height: 45px;
-        width: 230px;
-    }
 }
 
 .section.section-projects-and-case-studies .button.more {
@@ -306,11 +280,11 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
 
 
 
-.section.section-alt-projects {
+.section.section-projects {
     background-color: #e3e3e3;
 }
 
-.section.section-alt-projects .section-content {
+.section.section-projects .section-content {
     padding-top: 81px;
     padding-bottom: 75px;
     max-width: 1000px;
@@ -318,7 +292,7 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
     padding-right: 20px;
 }
 
-.section.section-alt-projects .section-headline {
+.section.section-projects .section-headline {
     font-size: 36px;
 	font-weight: bold;
 	line-height: 42px;
@@ -335,19 +309,19 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
     .section-content {
         max-width: 90%;
     }
-    .section.section-alt-projects .section-headline {
+    .section.section-projects .section-headline {
         text-align: center;
     }
 }
 
 
-.section.section-alt-projects .tiles-list {
+.section.section-projects .tiles-list {
     display: block;
     overflow: hidden;
     width: 100%;
     margin-bottom: 62px;
 }
-.section.section-alt-projects .tile-item {
+.section.section-projects .tile-item {
     float: left;
     display: block;
     width: 30%;
@@ -355,18 +329,18 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
     background-color: #fff;
 }
 
-.section.section-alt-projects .tile-item .tile-link {
+.section.section-projects .tile-item .tile-link {
     display: block;
 }
 
 
-.section.section-alt-projects .tile-item:first-child {
+.section.section-projects .tile-item:first-child {
     margin-left: 0;
 }
 
 @media only screen and (max-width: 735px) {
-    .section.section-alt-projects .tile-item,
-    .section.section-alt-projects .tile-item:first-child {
+    .section.section-projects .tile-item,
+    .section.section-projects .tile-item:first-child {
         float: none;
         width: 300px;
         margin-left: auto;
@@ -375,7 +349,7 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
     }
 }
 
-.section.section-alt-projects .tile-image {
+.section.section-projects .tile-image {
     width: 100%;
     height: auto;
     padding-bottom: 63%;
@@ -383,21 +357,21 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
 }
 
 
-.section.section-alt-projects .tile-image.tile1 {
+.section.section-projects .tile-image.tile1 {
     background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/project-thumb1.png");
 }
-.section.section-alt-projects .tile-image.tile2 {
+.section.section-projects .tile-image.tile2 {
     background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/project-thumb2.png");
 }
-.section.section-alt-projects .tile-image.tile3 {
+.section.section-projects .tile-image.tile3 {
     background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/project-thumb3.png");
 }
 
 
-.section.section-alt-projects .caption-wrapper {
+.section.section-projects .caption-wrapper {
     padding: 25px;
 }
-.section.section-alt-projects .tile-headline {
+.section.section-projects .tile-headline {
     color: #1e4289;
 	font-size: 20px;
 	font-weight: bold;
@@ -405,20 +379,20 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
 	margin-bottom: 20px;
 }
 
-.section.section-alt-projects .tile-caption {
+.section.section-projects .tile-caption {
     font-size: 18px;
 	line-height: 24px;
 }
 
-.section.section-alt-projects .more-link {
-	color: #07a7e1;
+.section.section-projects .more-link {
+	color: #01749F;
 	font-size: 19px;
 	font-style: oblique;
 	line-height: 1;
 }
 
 
-.section.section-alt-projects .button.more {
+.section.section-projects .button.more {
 	width: 360px;
 	min-width: 360px;
 	border: 2px solid #000;
@@ -426,98 +400,6 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
 
 
 
-
-
-
-
-/*---------------------------------
-
-PAGE CASE STUDY / SECTION STAY CONNECTED
-
-----------------------------------*/
-
-.section.section-alt-stay-connected {
-    background-color: #982d46;
-}
-
-.section.section-alt-stay-connected .section-content {
-    padding-top: 75px;
-    padding-bottom: 75px;
-}
-
-.section.section-alt-stay-connected .section-headline {
-	color: #fff;
-	font-size: 36px;
-	font-weight: bold;
-	line-height: 42px;
-	margin-bottom: 32px;
-}
-
-.section.section-alt-stay-connected .button.more {
-    display: inline-block;
-    border: 2px solid #fff;
-    color: #fff;
-}
-.section.section-alt-stay-connected .description {
-    display: inline;
-    vertical-align: middle;
-	color: #fff;
-	font-size: 19px;
-	line-height: 24px;
-	margin-left: 30px;
-}
-
-.section.section-alt-stay-connected .social {
-    margin-top: 48px;
-}
-
-.section.section-alt-stay-connected .social-headline {
-    display: inline;
-	color: #fff;
-	font-size: 19px;
-	line-height: 24px;
-	font-weight: normal;
-}
-
-.section.section-alt-stay-connected .social-list {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 50px;
-}
-
-.section.section-alt-stay-connected .social-list .social-item {
-    display: inline-block;
-    margin-right: 25px;
-}
-
-.section.section-alt-stay-connected .social-list .social-item .social-link {
-    display: block;
-    width: 36px;
-    height: 36px;
-    background-size: 36px 36px;
-    border-radius: 50%;
-    overflow: hidden;
-    text-indent: -999px;
-}
-
-@media only screen and (max-width: 1068px) {
-    .section-register .social-icons .icon {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-.section.section-alt-stay-connected .social-list .social-item .social-link.twitter {
-    background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/icon-twitter.png");
-}
-
-.section.section-alt-stay-connected .social-list .social-item .social-link.youtube {
-    background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/icon-youtube.png");
-}
-
-.section.section-alt-stay-connected .social-list .social-item .social-link.facebook {
-    background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/icon-facebook.png");
-}
 
 
 </style>
@@ -602,7 +484,7 @@ PAGE CASE STUDY / SECTION STAY CONNECTED
 	</div>
 </section>
 
-<section class="section section-alt-projects">
+<section class="section section-projects">
 	<div class="section-content">
 
 		<ul class="tiles-list">
@@ -643,7 +525,8 @@ PAGE CASE STUDY / SECTION STAY CONNECTED
 	</div>
 </section>
 
-<section class="section section-alt-stay-connected">
+
+<section class="section section-register">
 	<div class="section-content">
 		<h3 class="section-headline">Stay connected with JSaRC</h3>
 		<a class="button more" href="/register/">Register with JSaRC</a>
@@ -655,7 +538,7 @@ PAGE CASE STUDY / SECTION STAY CONNECTED
 				<li class="social-item"><a  class="social-link youtube" href="">YouTube</a></li>
 				<li class="social-item"><a  class="social-link facebook" href="">Facebook</a></li>
 			</ul>
-		</div>
+		<div>
 	</div>
 </section>
 
