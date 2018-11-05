@@ -1,4 +1,4 @@
-## ws-core-theme (docker_branch README)
+## JSaRC Wordpress Theme
 
 # Running on docker:
 
