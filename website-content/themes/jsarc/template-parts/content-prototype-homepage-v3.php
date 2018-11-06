@@ -241,7 +241,7 @@ SECTION WORKING
 ---------------------------------------*/
 
 .section.section-working {
-    background-color: #0694a7;
+    background-color: #047989;
 }
 
 .section.section-working .section-content {
@@ -513,7 +513,7 @@ SECTION CASESTUDY
     height: 100%;
     background-size: cover;
     background-position: 50% 50%;
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/casestudy-1.png");
+    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/case-study-1.png");
 }
 
 

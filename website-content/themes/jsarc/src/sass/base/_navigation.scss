@@ -140,6 +140,10 @@ nav list
     background-color: #fff;
 }
 
+.primary-nav-list > .primary-nav-item.dropdown:hover .sub-menu  {
+   box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+
 .primary-nav-list > .primary-nav-item.dropdown.active .sub-menu {
     display: block;
     animation: sub-menu-reveal 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;

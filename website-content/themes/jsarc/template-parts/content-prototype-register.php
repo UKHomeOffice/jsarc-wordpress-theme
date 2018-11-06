@@ -1,3 +1,5 @@
+
+
 <style>
 
 .section-content {
@@ -189,7 +191,7 @@ PAGE REGISTER / SECTION PROJECTS
 }
 
 .section.section-projects-and-case-studies .button.more {
-	color: #0694a7;
+	color: #047989;
 	background-color: #fff;
 	border:0;
 	float: right;
@@ -437,42 +439,59 @@ PAGE REGISTER / SECTION STAY CONNECTED
 					<p class="intro">Register here to receive information about JSaRC news, funding opportunities and upcoming events.</p>
 					<p class="intro">Your information will not be shared with any organisations or government departments outside of JSaRC.</p>
 					<div class="form-wrapper">
-						<form>
+					
+						<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+						<input type=hidden name="oid" value="00D1t000000G0d6">
+						<input type=hidden name="retURL" value="https://jsarc.demo.sixpointsix.net">
+
+
 							<div class="row col2">
 								<div class="column large-5 small-12">
 									<div class="text-field-wrapper">
-										<input class="text-field" type="text">
-										<label class="text-field-label">First name</label>
+										<input  id="first_name" class="text-field" name="first_name"  type="text" />
+										<label class="text-field-label" label for="first_name">First Name</label>
 									</div>
 								</div>
 								<div class="column large-5 large-last small-12">
 									<div class="text-field-wrapper">
-										<input class="text-field" type="text">
-										<label class="text-field-label">Last name</label>
+										
+										
+										
+										
+										<input  id="last_name" class="text-field" name="last_name"  type="text" />
+										<label class="text-field-label" label for="last_name">Last Name</label>
+										
+										
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="column large-12">
 									<div class="text-field-wrapper">
-										<input class="text-field" type="text">
+										<input class="text-field"  type="text">
 										<label class="text-field-label">Job title</label>
+										
+										
 									</div>
 								</div>
 								<div class="column large-12">
 									<div class="text-field-wrapper">
-										<input class="text-field" type="text">
-										<label class="text-field-label">Organisation</label>
+										<input id="company" class="text-field" name="company"  type="text" />
+										<label class="text-field-label" label for="company">Organisation</label>
 									</div>
 								</div>
 								<div class="column large-12">
 									<div class="text-field-wrapper">
-										<input class="text-field" type="text">
-										<label class="text-field-label">Email</label>
+										<input  id="email"  class="text-field" name="email"  type="text" />
+										<label class="text-field-label" label for="email">Email</label>
+
+
 									</div>
 								</div>
 								<div class="column large-12">
-									<button class="button"><span class="~load-spinner"></span>Submit</button>
+									<!-- <button class="button"><span class="~load-spinner"></span>Submit</button> -->
+									<input class="button" type="submit" name="submit">
 								</div>
 							</div>
 						</form>
@@ -542,7 +561,30 @@ PAGE REGISTER / SECTION STAY CONNECTED
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
+
+
+
+
 document.addEventListener('DOMContentLoaded',function() {
 
 
