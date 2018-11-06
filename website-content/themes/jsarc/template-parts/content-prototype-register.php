@@ -199,17 +199,17 @@ PAGE REGISTER / SECTION PROJECTS
 
 /*---------------------------------
 
-PAGE REGISTER / SECTION PROGECTS / TILES
+PAGE CASE STUDY / SECTION PROGECTS / TILES
 
 ----------------------------------*/
 
 
 
-.section.section-alt-projects {
+.section.section-projects {
     background-color: #e3e3e3;
 }
 
-.section.section-alt-projects .section-content {
+.section.section-projects .section-content {
     padding-top: 81px;
     padding-bottom: 75px;
     max-width: 1000px;
@@ -217,7 +217,7 @@ PAGE REGISTER / SECTION PROGECTS / TILES
     padding-right: 20px;
 }
 
-.section.section-alt-projects .section-headline {
+.section.section-projects .section-headline {
     font-size: 36px;
 	font-weight: bold;
 	line-height: 42px;
@@ -234,19 +234,19 @@ PAGE REGISTER / SECTION PROGECTS / TILES
     .section-content {
         max-width: 90%;
     }
-    .section.section-alt-projects .section-headline {
+    .section.section-projects .section-headline {
         text-align: center;
     }
 }
 
 
-.section.section-alt-projects .tiles-list {
+.section.section-projects .tiles-list {
     display: block;
     overflow: hidden;
     width: 100%;
     margin-bottom: 62px;
 }
-.section.section-alt-projects .tile-item {
+.section.section-projects .tile-item {
     float: left;
     display: block;
     width: 30%;
@@ -254,18 +254,19 @@ PAGE REGISTER / SECTION PROGECTS / TILES
     background-color: #fff;
 }
 
-.section.section-alt-projects .tile-item .tile-link {
+.section.section-projects .tile-item .tile-link {
     display: block;
+    overflow: hidden;
 }
 
 
-.section.section-alt-projects .tile-item:first-child {
+.section.section-projects .tile-item:first-child {
     margin-left: 0;
 }
 
 @media only screen and (max-width: 735px) {
-    .section.section-alt-projects .tile-item,
-    .section.section-alt-projects .tile-item:first-child {
+    .section.section-projects .tile-item,
+    .section.section-projects .tile-item:first-child {
         float: none;
         width: 300px;
         margin-left: auto;
@@ -274,29 +275,45 @@ PAGE REGISTER / SECTION PROGECTS / TILES
     }
 }
 
-.section.section-alt-projects .tile-image {
+
+.section.section-projects .tile-image-box {
+	position: relative;
+	padding-bottom: 63%;
+	overflow: hidden;
+}
+
+.section.section-projects .tile-image {
+	position: absolute;
+	top: 0;
+	left: 0;
     width: 100%;
-    height: auto;
-    padding-bottom: 63%;
+    height: 100%;
     background-size: cover;
+    transition: transform 0.5s;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+}
+
+.section.section-projects .tile-item .tile-link:hover .tile-image {
+    transform: scale(1.1);
 }
 
 
-.section.section-alt-projects .tile-image.tile1 {
+.section.section-projects .tile-image.tile1 {
     background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/project-thumb1.png");
 }
-.section.section-alt-projects .tile-image.tile2 {
+.section.section-projects .tile-image.tile2 {
     background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/project-thumb2.png");
 }
-.section.section-alt-projects .tile-image.tile3 {
+.section.section-projects .tile-image.tile3 {
     background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/project-thumb3.png");
 }
 
 
-.section.section-alt-projects .caption-wrapper {
+.section.section-projects .caption-wrapper {
     padding: 25px;
 }
-.section.section-alt-projects .tile-headline {
+.section.section-projects .tile-headline {
     color: #1e4289;
 	font-size: 20px;
 	font-weight: bold;
@@ -304,25 +321,41 @@ PAGE REGISTER / SECTION PROGECTS / TILES
 	margin-bottom: 20px;
 }
 
-.section.section-alt-projects .tile-caption {
+.section.section-projects .tile-caption {
     font-size: 18px;
 	line-height: 24px;
+	margin-bottom: 1em;
 }
 
-.section.section-alt-projects .more-link {
-	color: #07a7e1;
+.section.section-projects .more-link {
+	color: #01749F;
 	font-size: 19px;
 	font-style: oblique;
 	line-height: 1;
 }
 
+.section.section-projects .more-link:after {
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+	width: 6px;
+	height: 6px;
+	transform: rotate(45deg);
+	border: 1px solid #01749F;
+	border-width: 0.1em 0.1em 0 0;
+}
 
-.section.section-alt-projects .button.more {
+.section.section-projects .tile-item .tile-link:hover .more-link {
+    text-decoration: underline;
+}
+
+
+.section.section-projects .button.more {
 	width: 360px;
 	min-width: 360px;
 	border: 2px solid #000;
 }
-
 
 
 
@@ -335,16 +368,16 @@ PAGE REGISTER / SECTION STAY CONNECTED
 
 ----------------------------------*/
 
-.section.section-alt-stay-connected {
+.section.section-stay-connected {
     background-color: #982d46;
 }
 
-.section.section-alt-stay-connected .section-content {
+.section.section-stay-connected .section-content {
     padding-top: 75px;
     padding-bottom: 75px;
 }
 
-.section.section-alt-stay-connected .section-headline {
+.section.section-stay-connected .section-headline {
 	color: #fff;
 	font-size: 36px;
 	font-weight: bold;
@@ -352,12 +385,12 @@ PAGE REGISTER / SECTION STAY CONNECTED
 	margin-bottom: 32px;
 }
 
-.section.section-alt-stay-connected .button.more {
+.section.section-stay-connected .button.more {
     display: inline-block;
     border: 2px solid #fff;
     color: #fff;
 }
-.section.section-alt-stay-connected .description {
+.section.section-stay-connected .description {
     display: inline;
     vertical-align: middle;
 	color: #fff;
@@ -366,11 +399,11 @@ PAGE REGISTER / SECTION STAY CONNECTED
 	margin-left: 30px;
 }
 
-.section.section-alt-stay-connected .social {
+.section.section-stay-connected .social {
     margin-top: 48px;
 }
 
-.section.section-alt-stay-connected .social-headline {
+.section.section-stay-connected .social-headline {
     display: inline;
 	color: #fff;
 	font-size: 19px;
@@ -378,18 +411,18 @@ PAGE REGISTER / SECTION STAY CONNECTED
 	font-weight: normal;
 }
 
-.section.section-alt-stay-connected .social-list {
+.section.section-stay-connected .social-list {
     display: inline-block;
     vertical-align: middle;
     margin-left: 50px;
 }
 
-.section.section-alt-stay-connected .social-list .social-item {
+.section.section-stay-connected .social-list .social-item {
     display: inline-block;
     margin-right: 25px;
 }
 
-.section.section-alt-stay-connected .social-list .social-item .social-link {
+.section.section-stay-connected .social-list .social-item .social-link {
     display: block;
     width: 36px;
     height: 36px;
@@ -406,15 +439,15 @@ PAGE REGISTER / SECTION STAY CONNECTED
     }
 }
 
-.section.section-alt-stay-connected .social-list .social-item .social-link.twitter {
+.section.section-stay-connected .social-list .social-item .social-link.twitter {
     background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/icon-twitter.png");
 }
 
-.section.section-alt-stay-connected .social-list .social-item .social-link.youtube {
+.section.section-stay-connected .social-list .social-item .social-link.youtube {
     background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/icon-youtube.png");
 }
 
-.section.section-alt-stay-connected .social-list .social-item .social-link.facebook {
+.section.section-stay-connected .social-list .social-item .social-link.facebook {
     background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/icon-facebook.png");
 }
 
@@ -502,37 +535,43 @@ PAGE REGISTER / SECTION STAY CONNECTED
 	</div>
 </section>
 
-<section class="section section-alt-projects">
+<section class="section section-projects">
 	<div class="section-content">
 
 		<ul class="tiles-list">
 			<li class="tile-item">
 				<a class="tile-link" href="">
-					<figure class="tile-image tile1"></figure>
+					<div class="tile-image-box">
+						<figure class="tile-image tile1"></figure>
+					</div>
 					<div class="caption-wrapper">
 						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
 						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. </div>
-						<span class="more-link">Read the case study ></span>
+						<span class="more-link">Read the case study</span>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
 				<a class="tile-link" href="">
-					<figure class="tile-image tile2"></figure>
+					<div class="tile-image-box">
+						<figure class="tile-image tile2"></figure>
+					</div>
 					<div class="caption-wrapper">
 						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
 						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. </div>
-						<span class="more-link">Read the case study ></span>
+						<span class="more-link">Read the case study</span>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
 				<a class="tile-link" href="">
-					<figure class="tile-image tile3"></figure>
+					<div class="tile-image-box">
+						<figure class="tile-image tile3"></figure>
+					</div>
 					<div class="caption-wrapper">
 						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
 						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. </div>
-						<span class="more-link">Read the case study ></span>
+						<span class="more-link">Read the case study</span>
 					</div>
 				</a>
 			</li>
@@ -543,7 +582,7 @@ PAGE REGISTER / SECTION STAY CONNECTED
 	</div>
 </section>
 
-<section class="section section-alt-stay-connected">
+<section class="section section-stay-connected">
 	<div class="section-content">
 		<h3 class="section-headline">Stay connected with JSaRC</h3>
 		<a class="button more" href="">Register with JSaRC</a>
