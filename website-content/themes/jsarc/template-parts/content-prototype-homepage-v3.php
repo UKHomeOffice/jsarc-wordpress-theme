@@ -381,10 +381,20 @@ SECTION BENEFITS
 
 ---------------------------------------*/
 
-
-
 .section.section-benefits {
     background-color: #e3e3e3;
+}
+.section.section-benefits .section-headline {
+    font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 735px) {
+    .section.section-benefits .section-headline {
+        text-align: center;
+    }
 }
 
 .section.section-benefits .section-content {
@@ -422,6 +432,7 @@ SECTION BENEFITS
     display: block;
     overflow: hidden;
     width: 100%;
+    margin-bottom: 62px;
 }
 .section.section-benefits .tile-item {
     float: left;
@@ -429,7 +440,11 @@ SECTION BENEFITS
     width: 30%;
     margin-left: 5%;
     background-color: #fff;
-    padding-bottom: 3%;
+}
+
+.section.section-benefits .tile-item .tile-link {
+    display: block;
+    overflow: hidden;
 }
 
 
@@ -449,12 +464,28 @@ SECTION BENEFITS
 }
 
 
-.section.section-benefits .tile-image {
-    width: 100%;
-    height: auto;
-    padding-bottom: 63%;
-    background-size: cover;
+.section.section-benefits .tile-image-box {
+	position: relative;
+	padding-bottom: 63%;
+	overflow: hidden;
 }
+
+.section.section-benefits .tile-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    transition: transform 0.5s;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+}
+
+.section.section-benefits .tile-item .tile-link:hover .tile-image {
+    transform: scale(1.1);
+}
+
 
 .section.section-benefits .tile-image.tile1 {
     background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/tile1.png");
@@ -481,6 +512,37 @@ SECTION BENEFITS
 .section.section-benefits .tile-caption {
     font-size: 18px;
 	line-height: 24px;
+	margin-bottom: 1em;
+}
+
+.section.section-benefits .more-link {
+	color: #01749F;
+	font-size: 19px;
+	font-style: oblique;
+	line-height: 1;
+}
+
+.section.section-benefits .more-link:after {
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+	width: 6px;
+	height: 6px;
+	transform: rotate(45deg);
+	border: 1px solid #01749F;
+	border-width: 0.1em 0.1em 0 0;
+}
+
+.section.section-benefits .tile-item .tile-link:hover .more-link {
+    text-decoration: underline;
+}
+
+
+.section.section-benefits .button.more {
+	width: 360px;
+	min-width: 360px;
+	border: 2px solid #000;
 }
 
 /*--------------------------------------
@@ -556,11 +618,12 @@ SECTION CASESTUDY
 
 
 
-/*--------------------------------------
 
-SECTION PROJECTS
+/*---------------------------------
 
----------------------------------------*/
+PAGE CASE STUDY / SECTION PROGECTS
+
+----------------------------------*/
 
 
 
@@ -615,6 +678,7 @@ SECTION PROJECTS
 
 .section.section-projects .tile-item .tile-link {
     display: block;
+    overflow: hidden;
 }
 
 
@@ -633,21 +697,38 @@ SECTION PROJECTS
     }
 }
 
-.section.section-projects .tile-image {
-    width: 100%;
-    height: auto;
-    padding-bottom: 63%;
-    background-size: cover;
+
+.section.section-projects .tile-image-box {
+	position: relative;
+	padding-bottom: 63%;
+	overflow: hidden;
 }
 
+.section.section-projects .tile-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    transition: transform 0.5s;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+}
+
+.section.section-projects .tile-item .tile-link:hover .tile-image {
+    transform: scale(1.1);
+}
+
+
 .section.section-projects .tile-image.tile1 {
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/project-thumb1.png");
+    background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/project-thumb1.png");
 }
 .section.section-projects .tile-image.tile2 {
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/project-thumb2.png");
+    background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/project-thumb2.png");
 }
 .section.section-projects .tile-image.tile3 {
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/project-thumb3.png");
+    background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/project-thumb3.png");
 }
 
 
@@ -665,6 +746,7 @@ SECTION PROJECTS
 .section.section-projects .tile-caption {
     font-size: 18px;
 	line-height: 24px;
+	margin-bottom: 1em;
 }
 
 .section.section-projects .more-link {
@@ -674,12 +756,28 @@ SECTION PROJECTS
 	line-height: 1;
 }
 
-
-.section.section-projects .button.more {
-	width: 360px !important;
-	border: 2px solid #000;
+.section.section-projects .more-link:after {
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+	width: 6px;
+	height: 6px;
+	transform: rotate(45deg);
+	border: 1px solid #01749F;
+	border-width: 0.1em 0.1em 0 0;
 }
 
+.section.section-projects .tile-item .tile-link:hover .more-link {
+    text-decoration: underline;
+}
+
+
+.section.section-projects .button.more {
+	width: 360px;
+	min-width: 360px;
+	border: 2px solid #000;
+}
 
 
 
@@ -747,34 +845,59 @@ SECTION PROJECTS
 
 <section class="section section-benefits">
 	<div class="section-content">
+	
 		<h3 class="section-headline">Benefits of engaging with JSaRC</h3>
 
 		<ul class="tiles-list">
 			<li class="tile-item">
-				<figure class="tile-image tile1"></figure>
-				<div class="caption-wrapper">
-					<h3 class="tile-headline">Funding opportunities</h3>
-					<div class="tile-caption">Ensuring the development of the right solutions for today’s security priorities</div>
-				<div>
+				<a class="tile-link" href="">
+					<div class="tile-image-box">
+						<figure class="tile-image tile1"></figure>
+					</div>
+					<div class="caption-wrapper">
+						<h3 class="tile-headline">Funding opportunities</h3>
+						<div class="tile-caption">Ensuring the development of the right solutions for today’s security priorities</div>
+						<span class="more-link">Read about funding opportunities</span>
+					</div>
+				</a>
 			</li>
 			<li class="tile-item">
-				<figure class="tile-image tile2"></figure>
-				<div class="caption-wrapper">
-					<h3 class="tile-headline">Research Support</h3>
-					<div class="tile-caption">Support for the research and development of products and services</div>
-				<div>
+				<a class="tile-link" href="">
+					<div class="tile-image-box">
+						<figure class="tile-image tile2"></figure>
+					</div>
+					<div class="caption-wrapper">
+						<h3 class="tile-headline">Research Support</h3>
+						<div class="tile-caption">Support for the research and development of products and services</div>
+						<span class="more-link">Read about research support</span>
+					</div>
+				</a>
 			</li>
 			<li class="tile-item">
-				<figure class="tile-image tile3"></figure>
-				<div class="caption-wrapper">
-					<h3 class="tile-headline">Access to Expertise</h3>
-					<div class="tile-caption">Access to industry, academic and government experience and expertise</div>
-				<div>
+				<a class="tile-link" href="">
+					<div class="tile-image-box">
+						<figure class="tile-image tile3"></figure>
+					</div>
+					<div class="caption-wrapper">
+						<h3 class="tile-headline">Access to Expertise</h3>
+						<div class="tile-caption">Access to industry, academic and government experience and expertise</div>
+						<span class="more-link">Read about access to expertise</span>
+					</div>
+				</a>
 			</li>
 		</ul>
 
 	</div>
 </section>
+
+
+
+
+
+
+
+
+
 
 
 <section class="section section-casestudy">
@@ -785,49 +908,54 @@ SECTION PROJECTS
 		<p class="section-body-text">Exploring solutions for securing large, high footfall spaces.
 
 </p>
-		<a style="border:none;" class="button more" href="/casestudy/">Read the case study</a>
+		<a style="border:none;" class="button more" href="/case-study/">Read the case study</a>
 	</div>
 </section>
 
 
 <section class="section section-projects">
 	<div class="section-content">
-		<h3 class="section-headline">Latest updates</h3>
 
 		<ul class="tiles-list">
 			<li class="tile-item">
 				<a class="tile-link" href="">
-					<figure class="tile-image tile1"></figure>
+					<div class="tile-image-box">
+						<figure class="tile-image tile1"></figure>
+					</div>
 					<div class="caption-wrapper">
 						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
 						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. </div>
-						<span class="more-link">Read the case study ></span>
+						<span class="more-link">Read the case study</span>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
 				<a class="tile-link" href="">
-					<figure class="tile-image tile2"></figure>
+					<div class="tile-image-box">
+						<figure class="tile-image tile2"></figure>
+					</div>
 					<div class="caption-wrapper">
 						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
 						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. </div>
-						<span class="more-link">Read the case study ></span>
+						<span class="more-link">Read the case study</span>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
 				<a class="tile-link" href="">
-					<figure class="tile-image tile3"></figure>
+					<div class="tile-image-box">
+						<figure class="tile-image tile3"></figure>
+					</div>
 					<div class="caption-wrapper">
 						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
 						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. </div>
-						<span class="more-link">Read the case study ></span>
+						<span class="more-link">Read the case study</span>
 					</div>
 				</a>
 			</li>
 		</ul>
 		
-		<a style="min-width: 360px;" class="button more" href="">See all JSaRC news and updates</a>
+		<a class="button more" href="">Find out about more JSaRC projects </a>
 
 	</div>
 </section>
