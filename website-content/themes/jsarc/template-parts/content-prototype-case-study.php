@@ -331,6 +331,7 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
 
 .section.section-projects .tile-item .tile-link {
     display: block;
+    overflow: hidden;
 }
 
 
@@ -349,11 +350,27 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
     }
 }
 
+
+.section.section-projects .tile-image-box {
+	position: relative;
+	padding-bottom: 63%;
+	overflow: hidden;
+}
+
 .section.section-projects .tile-image {
+	position: absolute;
+	top: 0;
+	left: 0;
     width: 100%;
-    height: auto;
-    padding-bottom: 63%;
+    height: 100%;
     background-size: cover;
+    transition: transform 0.5s;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+}
+
+.section.section-projects .tile-item .tile-link:hover .tile-image {
+    transform: scale(1.1);
 }
 
 
@@ -382,6 +399,7 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
 .section.section-projects .tile-caption {
     font-size: 18px;
 	line-height: 24px;
+	margin-bottom: 1em;
 }
 
 .section.section-projects .more-link {
@@ -389,6 +407,22 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
 	font-size: 19px;
 	font-style: oblique;
 	line-height: 1;
+}
+
+.section.section-projects .more-link:after {
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+	width: 6px;
+	height: 6px;
+	transform: rotate(45deg);
+	border: 1px solid #01749F;
+	border-width: 0.1em 0.1em 0 0;
+}
+
+.section.section-projects .tile-item .tile-link:hover .more-link {
+    text-decoration: underline;
 }
 
 
@@ -490,31 +524,37 @@ PAGE CASE STUDY / SECTION PROGECTS / TILES
 		<ul class="tiles-list">
 			<li class="tile-item">
 				<a class="tile-link" href="">
-					<figure class="tile-image tile1"></figure>
+					<div class="tile-image-box">
+						<figure class="tile-image tile1"></figure>
+					</div>
 					<div class="caption-wrapper">
 						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
 						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. </div>
-						<span class="more-link">Read the case study ></span>
+						<span class="more-link">Read the case study</span>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
 				<a class="tile-link" href="">
-					<figure class="tile-image tile2"></figure>
+					<div class="tile-image-box">
+						<figure class="tile-image tile2"></figure>
+					</div>
 					<div class="caption-wrapper">
 						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
 						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. </div>
-						<span class="more-link">Read the case study ></span>
+						<span class="more-link">Read the case study</span>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
 				<a class="tile-link" href="">
-					<figure class="tile-image tile3"></figure>
+					<div class="tile-image-box">
+						<figure class="tile-image tile3"></figure>
+					</div>
 					<div class="caption-wrapper">
 						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
 						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. </div>
-						<span class="more-link">Read the case study ></span>
+						<span class="more-link">Read the case study</span>
 					</div>
 				</a>
 			</li>
