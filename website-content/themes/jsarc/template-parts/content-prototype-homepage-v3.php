@@ -174,7 +174,7 @@
 
 /*--------------------------------------
 
-SECTION INNOVATION CALL
+HOMEPAGE / SECTION INNOVATION CALL
 
 ---------------------------------------*/
 
@@ -236,7 +236,7 @@ SECTION INNOVATION CALL
 
 /*--------------------------------------
 
-SECTION WORKING
+HOMEPAGE / SECTION WORKING
 
 ---------------------------------------*/
 
@@ -282,7 +282,7 @@ SECTION WORKING
 
 /*--------------------------------------
 
-SECTION VIDEO
+HOMEPAGE / SECTION VIDEO
 
 ---------------------------------------*/
 .section.section-video {
@@ -377,7 +377,7 @@ SECTION VIDEO
 
 /*--------------------------------------
 
-SECTION BENEFITS
+HOMEPAGE / SECTION BENEFITS
 
 ---------------------------------------*/
 
@@ -547,7 +547,7 @@ SECTION BENEFITS
 
 /*--------------------------------------
 
-SECTION CASESTUDY
+HOMEPAGE / SECTION CASESTUDY
 
 ---------------------------------------*/
 
@@ -621,7 +621,7 @@ SECTION CASESTUDY
 
 /*---------------------------------
 
-PAGE CASE STUDY / SECTION PROGECTS
+HOMEPAGE / SECTION PROGECTS
 
 ----------------------------------*/
 
