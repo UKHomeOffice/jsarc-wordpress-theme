@@ -76,14 +76,9 @@ button:active {
     height: 1px;
     padding: 0;
     border: 0;
-
     -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
     clip-path: inset(0px 0px 99.9% 99.9%);
 }
-
-
-
-
 
 
 
@@ -135,197 +130,42 @@ BREADCRUMBS
 }
 
 
-/*--------------------------------------
-
-SECTION REGISTER
-
----------------------------------------*/
-
-
-.section.section-register {
-    background-color: #982d46;
-}
-
-.section.section-register .section-content {
-    padding-top: 75px;
-    padding-bottom: 75px;
-}
-
-.section.section-register .section-headline {
-	color: #fff;
-	font-size: 36px;
-	font-weight: bold;
-	line-height: 42px;
-	margin-bottom: 32px;
-}
-
-.section.section-register .button.more {
-    display: inline-block;
-    border: 2px solid #fff;
-    color: #fff;
-}
-.section.section-register .description {
-    display: inline;
-    vertical-align: middle;
-	color: #fff;
-	font-size: 19px;
-	line-height: 24px;
-	margin-left: 30px;
-}
-
-.section.section-register .social {
-    margin-top: 48px;
-}
-
-.section.section-register .social-headline {
-    display: inline;
-	color: #fff;
-	font-size: 19px;
-	line-height: 24px;
-	font-weight: normal;
-}
-
-.section.section-register .social-list {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 50px;
-}
-
-.section.section-register .social-list .social-item {
-    display: inline-block;
-    margin-right: 25px;
-}
-
-.section.section-register .social-list .social-item .social-link {
-    display: block;
-    width: 36px;
-    height: 36px;
-    background-size: 36px 36px;
-    border-radius: 50%;
-    overflow: hidden;
-    text-indent: -999px;
-}
-
-@media only screen and (max-width: 1068px) {
-    .section-register .social-icons .icon {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-
-.section.section-register .social-list .social-item .social-link.twitter {
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/icon-twitter.png");
-}
-
-.section.section-register .social-list .social-item .social-link.youtube {
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/icon-youtube.png");
-}
-
-.section.section-register .social-list .social-item .social-link.facebook {
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/icon-facebook.png");
-}
-
-
 /*---------------------------------
 
 FOOTER
 
 ----------------------------------*/
-.section-footer {
-    min-height: 100px !important;
-    max-height: 310px !important;
+.footer {
     background-color: #e3e3e3;
 }
-
-@media only screen and (max-width: 1068px) {
-    .section-footer {
-        max-height: 380px !important;
-    }
+.footer .section-content {
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
-
-.section-footer .section-content {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 1200px;
-    min-height: 308px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 66px 50px;
-    background-color: #e3e3e3;
+.footer .jsarc-directory .directory-item {
+    margin-bottom: 5px;
 }
-
-@media only screen and (max-width: 1068px) {
-    .section-footer .section-content {
-        width: 90%;
-        padding: 40px 0;
-    }
-}
-
-.section-footer .menu-item {
-    padding-right: 40px;
-}
-
-
-
-@media only screen and (max-width: 1068px) {
-    .section-footer .menu-item {
-        margin-bottom: 20px;
-        padding-right: 10px;
-        font-size: 17px;
-        line-height: 24px;
-        text-decoration: underline;
-    }
-}
-
-.section-footer .text-link {
-    display: inline-block;
+.footer .jsarc-directory .directory-item .directory-link {
     font-size: 14px;
-    line-height: 31px;
+    line-height: 20px;
 }
-
-.section-footer .text-link:hover {
+.footer .jsarc-directory .directory-item .directory-link:hover {
     text-decoration: underline;
 }
-
-@media only screen and (max-width: 1068px) {
-    .section-footer .text-link {
-        font-size: 16px;
-        line-height: 24px;
-        /* text-decoration: underline; */
-    }
-}
-
-
-.section-footer .organisation-logo {
-    width: 187px;
-    height: 80px;
-    margin-top: 0;
-    margin-bottom: 60px;
-    margin-left: auto;
-    background-image: url("img/v/generic/logos/a/home-office-logo.png");
-    background-size: 100% auto;
-}
-
-
-@media only screen and (max-width: 735px) {
-    .section-footer .organisation-logo {
-        width: 120px;
-        height: 51px;
-        margin-top: 50px;
-        margin-right: auto;
-        margin-left: 0;
-    }
-}
-
-.section-footer .copyright {
+.footer .organisation-logo {
     float: right;
+    width: 127px;
+    height: 54px;
+    background-size: 127px 54px;
+    background-image: url("/wp-content/themes/jsarc/img/v/generic/logos/a/home-office-logo.png");
+}
+.footer .footer-legal {
     font-size: 14px;
     text-align: right;
+    padding-top: 40px
 }
-
 @media only screen and (max-width: 735px) {
-    .section-footer .copyright {
-        float: none;
+    .footer .footer-legal {
+        text-align: left;
     }
 }

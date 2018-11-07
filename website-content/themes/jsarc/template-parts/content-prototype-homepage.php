@@ -1,228 +1,714 @@
 <style>
+
+
+.section {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+
+
+.section-content {
+    max-width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+@media only screen and (max-width: 1068px) {
+    .section-content {
+        max-width: 692px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-content {
+        max-width: 90%;
+    }
+}
+
+
+
+
+
+
+.section.section-hero .section-content {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.section.section-hero .intro-wrapper {
+    display: table;
+    width: 100%;
+    height: 80vh;
+    min-height: 568px;
+}
+
+.section.section-hero .intro-wrapper .intro {
+     display: table-cell;
+     vertical-align: middle;
+}
+
+
+.section.section-hero .hero-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 0;
+    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/homepage-hero.png");
+    position: absolute;
+    background-repeat: no-repeat;
+}
+
+.section.section-hero {
+	background-color: #000;
+}
+.section.section-hero .hero-image {
+	opacity: .5;
+}
+
+.section.section-hero .hero-image {
+	animation: background-opacity 1s forwards;
+}
+
+@keyframes background-opacity {
+    0% {
+		opacity: 1;	
+    }
+    100% {
+		opacity: 0.5;
+    }
+}
+
+
+
+.section.section-hero .hero-headline {
+    color: #fff;
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 75px;
+    text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    margin-bottom: 36px;
+}
+
+
+
+
+.section.section-hero .hero-intro {
+    color: #fff;
+    font-size: 19px;
+    line-height: 28px;
+    text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    margin-bottom: 40px;
+    max-width: 676px;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section.section-hero .hero-headline {
+        max-width: 500px;
+        font-size: 50px;
+        line-height: 1.1;
+        margin-bottom: 25px;
+    }
+    .section.section-hero .hero-intro {
+        max-width: 450px;
+    }
+}
+
+.section.section-hero .button.more  {
+    background-color: #fff;
+}
+
+
+
+
+.section.section-hero .hero-headline {
+    opacity: 0;
+    -webkit-animation: headline-reveal 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: headline-reveal 1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    will-change: transform;
+}
+
+.section.section-hero .hero-intro,
+.section.section-hero .more  {
+    opacity: 0;
+    -webkit-animation: headline-reveal 1s 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: headline-reveal 1s 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    will-change: transform;
+}
+
+
+
+@keyframes headline-reveal {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(25px);
+        transform: translateY(25px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+}
+
+
+/*--------------------------------------
+
+HOMEPAGE / SECTION INNOVATION CALL
+
+---------------------------------------*/
+
+
+.section.section-innovation-call {
+    background-color: #982d46;
+}
+.section.section-innovation-call .section-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.section.section-innovation-call .eyebrow {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 28px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.section.section-innovation-call .eyebrow:after {
+    content: '';
+    display: inline-block;
+    vertical-align: baseline;
+    width: 42px;
+    height: 42px;
+    background-size: 42px 42px;
+    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/call-icon.png");
+    margin-left: 15px;
+}
+
+
+.section.section-innovation-call .section-headline {
+    color: #fff;
+    max-width: 500px;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 38px;
+    margin-bottom: 20px;
+}
+.section.section-innovation-call .section-body-text {
+    color: #fff;
+	max-width: 654px;
+	color: #fff;
+	font-size: 19px;
+	line-height: 28px;
+	float: left;
+	margin-bottom: 40px;
+
+}
+@media only screen and (max-width: 735px) {
+	.section.section-innovation-call .section-body-text {
+		float: none;
+	}
+}
+
+.section.section-innovation-call .button.more {
+    float: right;
+    border: 2px solid #fff !important;
+    color: #fff;
+    margin-bottom: 76px;
+}
+
+/*--------------------------------------
+
+HOMEPAGE / SECTION WORKING
+
+---------------------------------------*/
+
+.section.section-working {
+    background-color: #047989;
+}
+
+.section.section-working .section-content {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.section.section-working .section-headline {
+	max-width: 655px;
+	color: #fff;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	margin-bottom: 40px;
+}
+
+.section.section-working .section-body-text {
+    max-width: 800px;
+	color: #fff;
+	font-size: 19px;
+	line-height: 28px;
+	margin-bottom: 30px;
+}
+.section.section-working .section-body-text + .section-body-text {
+    margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section.section-working .section-body-text {
+        max-width: 800px;
+    }
+}
+
+.section.section-working .button.more {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+/*--------------------------------------
+
+HOMEPAGE / SECTION VIDEO
+
+---------------------------------------*/
+.section.section-video {
+    background-color: #000;
+}
+.section.section-video .section-content {
+    max-width: 2560px;
+    width: auto !important;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section.section-video .section-content {
+       max-width: 2560px;
+        width: auto !important;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section.section-video .section-content {
+        max-width: 100%;
+         width: auto !important;
+    }
+}
+
+.section.section-video .section-image {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: 50% 0;
+    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/section-video-bg.png");
+    position: relative;
+}
+
+.section.section-video .section-image:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 50px;
+    background-image: linear-gradient(to right, transparent 0%, #000 100%);
+
+}
+
+@media only screen and (max-width: 735px) {
+    .section.section-video .section-image:after {
+        height: 50px;
+        width: 100%;
+        background-image: linear-gradient(to bottom, transparent 0%, #000 100%);
+    }
+}
+
+
+.section.section-video .content-wrapper {
+    padding-top: 100px;
+    max-width: 500px;
+    padding-right: 20px;
+}
+
+.section.section-video .section-headline {
+    color: #fff;
+    font-size: 36px;
+	line-height: 42px;
+	max-width: 500px;
+}
+.section.section-video .speaker {
+    color: #fff;
+    font-size: 20px;
+    line-height: 42px;
+    margin-bottom: 60px;
+}
+.section.section-video .button.more {
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+@media only screen and (max-width: 735px) {
+    .section.section-video .content-wrapper {
+        margin-top: 360px;
+        padding-bottom: 60px;
+    }
+}
+
+
+/*--------------------------------------
+
+HOMEPAGE / SECTION BENEFITS
+
+---------------------------------------*/
+
+.section.section-benefits {
+    background-color: #e3e3e3;
+}
+.section.section-benefits .section-headline {
+    font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 735px) {
+    .section.section-benefits .section-headline {
+        text-align: center;
+    }
+}
+
+.section.section-benefits .section-content {
+    padding-top: 81px;
+    padding-bottom: 75px;
+    max-width: 1000px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.section.section-benefits .section-headline {
+    font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-content {
+        max-width: 692px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-content {
+        max-width: 90%;
+    }
+    .section.section-benefits .section-headline {
+        text-align: center;
+    }
+}
+
+
+.section.section-benefits .tiles-list {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 62px;
+}
+.section.section-benefits .tile-item {
+    float: left;
+    display: block;
+    width: 30%;
+    margin-left: 5%;
+    background-color: #fff;
+}
+
+.section.section-benefits .tile-item .tile-link {
+    display: block;
+    overflow: hidden;
+}
+
+
+.section.section-benefits .tile-item:first-child {
+    margin-left: 0;
+}
+
+@media only screen and (max-width: 735px) {
+    .section.section-benefits .tile-item,
+    .section.section-benefits .tile-item:first-child {
+        float: none;
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+    }
+}
+
+
+.section.section-benefits .tile-image-box {
+	position: relative;
+	padding-bottom: 63%;
+	overflow: hidden;
+}
+
+.section.section-benefits .tile-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    transition: transform 0.5s;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+}
+
+.section.section-benefits .tile-item .tile-link:hover .tile-image {
+    transform: scale(1.1);
+}
+
+
+.section.section-benefits .tile-image.tile1 {
+    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/tile1.png");
+}
+.section.section-benefits .tile-image.tile2 {
+    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/tile2.png");
+}
+.section.section-benefits .tile-image.tile3 {
+    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/tile3.png");
+}
+
+
+.section.section-benefits .caption-wrapper {
+    padding: 25px;
+}
+.section.section-benefits .tile-headline {
+    color: #1e4289;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 24px;
+	margin-bottom: 20px;
+}
+
+.section.section-benefits .tile-caption {
+    font-size: 18px;
+	line-height: 24px;
+	margin-bottom: 1em;
+}
+
+.section.section-benefits .more-link {
+	color: #01749F;
+	font-size: 19px;
+	font-style: oblique;
+	line-height: 1;
+}
+
+.section.section-benefits .more-link:after {
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+	width: 6px;
+	height: 6px;
+	transform: rotate(45deg);
+	border: 1px solid #01749F;
+	border-width: 0.1em 0.1em 0 0;
+}
+
+.section.section-benefits .tile-item .tile-link:hover .more-link {
+    text-decoration: underline;
+}
+
+
+.section.section-benefits .button.more {
+	width: 360px;
+	border: 2px solid #000;
+}
+
+/*--------------------------------------
+
+HOMEPAGE / SECTION CASESTUDY
+
+---------------------------------------*/
+
+.section.section-casestudy {
+    height: 400px;
+    background-color: #000;
+}
+
+.section.section-casestudy .section-image:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+	height: 100%;
+	width: 100%;
+	background: linear-gradient(to right, rgba(0,0,0,.9) 0%, rgba(0,0,0,0) 100%);
+}
+
+.section.section-casestudy .section-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/case-study-1.png");
+}
+
+
+.section.section-casestudy .section-content {
+    padding-top: 83px;
+    padding-bottom: 81px;
+    position: relative;
+    z-index: 1;
+}
+.section.section-casestudy .eyebrow {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 28px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.section.section-casestudy .section-headline {
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 38px;
+    margin-bottom: 20px;
+}
+.section.section-casestudy .section-body-text {
+    color: #fff;
+	max-width: 654px;
+	color: #fff;
+	font-size: 19px;
+	line-height: 28px;
+	margin-bottom: 50px;
+
+}
+
+.section.section-casestudy .button.more {
+    background-color: #fff;
+    color: #000;
+}
 </style>
 
+
+
 <section class="section section-hero">
-  <figure class="section-background-image"></figure>
-  <div class="content-wrapper">
-    <div class="section-content">
-      <div class="row">
-        <div class="column large-12 medium-7 small-12 small-centered">
-          <h1 class="section-headline">Securing crowded spaces </h1>
-          <p class="intro">Providing visitors with easy access and security. Screening large numbers of people quickly, cost-effectively and proportionately.</p>
-          <a class="button more" href="/case-study">Read the case study</a>
-        </div>
-      </div>
-    </div>
-  </div>
+	<figure class="hero-image"></figure>
+	<div class="section-content">
+		<div class="intro-wrapper">
+			<div class="intro">
+				<h1 class="hero-headline">The Joint Security and Resilience Centre</h1>
+				<p class="hero-intro">Providing a centralised service to coordinate, shape, evolve and grow the security industry to address the UK’s national security priorities.</p>
+				<a style="border:none;" class="button more" href="">Current Security Priorities</a>
+			</div>
+  		</div>
+	</div>
 </section>
 
 
-<section class="section section-about-jsarc">
-  <div class="section-content">
-    <div class="viewport-content">
-      <div class="row">
-        <div class="column large-12 medium-7 small-12 small-offset-0 small-centered">
-          <h2 class="section-headline">Joint Security and Resilience Centre</h2>
-          <p class="about-jsarc-text">The Joint Security and Resilience Centre (JSaRC) is a government department that brings together government representatives, members of academia and the security sector to form a joint response to national security challenges.</p>
-          <p class="about-jsarc-text">Drawing on a wide pool of expertise, JSaRC works collaboratively with these diverse specialists to encourage innovation and to grow future opportunities in the security sector. 
-</p>
-          <a class="button more" href="#">Find out more <span class="u-hide-sm-only">about working with JSaRC</span></a>
-        </div>
-      </div>
-    </div>
-  </div>
+	<section class="section section-innovation-call">
+		<div class="section-content">
+			<h2 class="eyebrow">Innovation Call</h2>
+			<h3 class="section-headline">The Overseas Protect and Prepare programme</h3>
+			<p class="section-body-text">This call to industry seeks to explore what industry can do to help deliver OPP’s goals.</p>
+			<a class="button more" href="">Find out more</a>
+		</div>
+	</section>
+
+
+<section class="section section-working">
+	<div class="section-content">
+		<h3 class="section-headline">What we do</h3>
+		<p class="section-body-text">The Joint Security and Resilience Centre (JSaRC) is a government department that brings together government representatives, members of academia and the security sector to form a joint response to national security challenges.</p>
+		<p class="section-body-text">
+		Drawing on a wide pool of expertise, JSaRC works collaboratively with these diverse specialists to encourage innovation and to grow future opportunities in the security sector.</p>
+		<a class="button more" href="">Find out more</a>
+	</div>
 </section>
 
 
 <section class="section section-video">
-  <div class="section-content">
-    <figure class="section-background-image"></figure>
-    <div class="row">
-      <div class="column large-offset-6 large-6 medium-6 small-12 small-centered">
-        <h2 class="section-headline">How JSaRC is changing the face of National Security</h2>
-        <p class="speaker">Shaun Hipgrave, Head of JSaRC</p>
-        <a id="videoOverlayTrigger" class="button more" href="#">Watch Video</a>
-      </div>
-    </div>
-  </div>
+	<div class="section-content">
+		<div class="row">
+			<div class="column large-6 small-12">
+				<figure class="section-image"></figure>
+			</div>
+			<div class="column large-6 small-11 small-centered">
+				<div class="content-wrapper">
+					<h3 class="section-headline">How JSaRC is changing the face of National Security</h3>
+					<p class="speaker">Shaun Hipgrave, Head of JSaRC</p>
+					<a class="button more" href="">Find out more</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 
 <section class="section section-benefits">
-  <div class="section-content">
-    <h2 class="section-headline">Benefits of engaging with JSaRC</h2>
-      <div class="media-block">
-        <figure class="benefits-image-1"></figure>
-        <div class="media-block-text-content">
-          <h3 class="media-block-title">Partnerships</h3>
-          <p class="media-block-text">JSaRC helps the UK government, academia and suppliers from the security sector to work closely together and forge new partnerships. It is an effective and efficient way to collaborate, share ideas and make contacts. JSaRC enables people and organisations to work together to meet the security challenges and issues facing Great Britain today.
-          <a class="media-block-read-more-link">Read more</a>
-        </div>
-      </div>
+	<div class="section-content">
+	
+		<h3 class="section-headline">Benefits of engaging with JSaRC</h3>
 
-      <div class="row media-block media-block--image-left">
-        <figure class="benefits-image-2"></figure>
-        <div class="media-block-text-content">
-          <h3 class="media-block-title">Funding Opportunities</h3>
-          <p class="media-block-text">Working with JSaRC, you will broaden your connections, gain valuable exposure and contribute to ongoing security sector development with Her Majesty’s Government. You can gain access to available funding opportunities. JSaRC also provides support with applications for funding made by interested members of the security sector.
-          <a class="media-block-read-more-link">Read more</a>
-        </div>
-      </div>
-  </div>
+		<ul class="tiles-list">
+			<li class="tile-item">
+				<a class="tile-link" href="">
+					<div class="tile-image-box">
+						<figure class="tile-image tile1"></figure>
+					</div>
+					<div class="caption-wrapper">
+						<h3 class="tile-headline">Funding opportunities</h3>
+						<div class="tile-caption">Ensuring the development of the right solutions for today’s security priorities</div>
+						<span class="more-link">Read about funding opportunities</span>
+					</div>
+				</a>
+			</li>
+			<li class="tile-item">
+				<a class="tile-link" href="">
+					<div class="tile-image-box">
+						<figure class="tile-image tile2"></figure>
+					</div>
+					<div class="caption-wrapper">
+						<h3 class="tile-headline">Research Support</h3>
+						<div class="tile-caption">Support for the research and development of products and services</div>
+						<span class="more-link">Read about research support</span>
+					</div>
+				</a>
+			</li>
+			<li class="tile-item">
+				<a class="tile-link" href="">
+					<div class="tile-image-box">
+						<figure class="tile-image tile3"></figure>
+					</div>
+					<div class="caption-wrapper">
+						<h3 class="tile-headline">Access to Expertise</h3>
+						<div class="tile-caption">Access to industry, academic and government experience and expertise</div>
+						<span class="more-link">Read about access to expertise</span>
+					</div>
+				</a>
+			</li>
+		</ul>
+
+	</div>
+</section>
+
+<section class="section section-casestudy">
+	<figure class="section-image"></figure>
+	<div class="section-content">
+		<h2 class="eyebrow">Case study</h2>
+		<h3 class="section-headline">High Footfall Screening Trials</h3>
+		<p class="section-body-text">Exploring solutions for securing large, high footfall spaces.
+
+</p>
+		<a style="border:none;" class="button more" href="/case-study/">Read the case study</a>
+	</div>
 </section>
 
 
-<section class="section section-contact-us">
-  <div class="section-content">
-      <div class="row">
-        <div class="column large-5 medium-6 small-12 ">
-          <p class="contact-us-text">If you are a member of industry, an academic or someone in government with a concept or project you think can contribute to the security of the nation, JSaRC wants to hear from you.
-        </div>
-        <div class="column large-4 large-offset-3 medium-4 medium-offset-1 small-12 small-offset-0">
-          <a class="button more button-contact-us">Contact Us</a>
-        </div>
-      </div>
-  </div>
-</section>
+<?php get_template_part( 'template-parts/content', 'section-projects'); ?>
 
-<section class="section section-innovation-call">
-  <div class="section-content">
-    <figure class="section-background-image"></figure>
-    <div class="row">
-      <div class="column large-7 medium-7 small-12 small-offset-0 small-centered">
-        <h2 class="section-headline">Innovation call</h2>
-        <p class="about-jsarc-text">You can tell JSaRC about a product or service you can provide to the government, or you can respond to an Innovation Call.</p>
-        <p class="about-jsarc-text">JSaRC makes Innovation Calls for engagement from people and organisations and we welcome people’s responses. You can look at JSaRC’s current opportunities and register your interest in updates and events.</p>
-        <a class="button more" href="#">Contact JSaRC</a>
-      </div>
-    </div>
-  </div>
-</section>
+<?php get_template_part( 'template-parts/content', 'section-register'); ?>
 
 
-<section class="section section-case-study">
-  <div class="section-content">
-    <figure class="section-background-image"></figure>
-    <div class="row">
-      <div class="column large-8 medium-6 small-12 small-centered">
-        <h2 class="section-headline">JSaRC Projects and Case Studies</h2>
-        <p class="section-sub-heading">High Footfall Screening Trials</p>
-        <a class="button more" href="/case-study">Read the case study</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="section section-projects">
-  <div class="section-content">
-    <div class="row">
-      <ul class="projects-3up">
-        <li class="projects-3up-item">
-          <div class="projects-3up-image-wrapper">
-            <a href="/case-study">
-              <figure class="projects-3up-image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb1.png'"></figure>
-            </a>
-          </div>
-          <div class="projects-3up-content-wrapper">
-            <h3 class="projects-3up-heading">Explosive Detection Technology Review (EDTR)</h3>
-            <p class="projects-3up-text">
-              JSaRC worked with the security sector and academics to review the current position and availability of explosives detection technology in the UK.</p>
-            <a href="/case-study" class="projects-3up-read-more-link">
-              Read the case study
-            </a>
-          </div>
-        </li>
-        <li class="projects-3up-item">
-            <div class="projects-3up-image-wrapper">
-              <a href="/case-study">
-                <figure class="projects-3up-image"  style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png'"></figure>
-              </a>
-            </div>
-            <div class="projects-3up-content-wrapper">
-              <h3 class="projects-3up-heading">Joint Overseas Protect and Prepare (JOPP)</h3>
-              <p class="projects-3up-text">
-                The JOPP programme is reducing the ongoing risk from terrorism at home and abroad. Security and protection remain our top priorities.</p>
-              <a href="/case-study" class="projects-3up-read-more-link">
-                Read the case study
-              </a>
-            </div>
-        </li>
-        <li class="projects-3up-item">
-          <div class="projects-3up-image-wrapper">
-            <a href="/case-study">
-              <figure class="projects-3up-image" style="background-image: url('wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png'"></figure>
-            </a>
-          </div>
-          <div class="projects-3up-content-wrapper">
-            <h3 class="projects-3up-heading">Passengers and borders</h3>
-            <p class="projects-3up-text">
-            The volume of border crossings is addressed in JSaRC's coaches, cars and bottlenecks review.</p>
-            <a href="/case-study" class="projects-3up-read-more-link">
-              Read the case study
-            </a>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="row">
-      <a href="#" class="button more see-all-projects-button">Find out more about JSaRC projects</a>
-    </div>
-  </div>
-
-</section>
-
-
-<section class="section section-register">
-  <div class="section-content">
-    <div class="row register">
-      <div class="column large-4 small-12">
-        <h3 class="headline">Register for a JSaRC Open Day or event<h3>
-      </div>
-      <div class="column large-7 small-12">
-        <form id="register" class="register-form" action="" method="post">
-              <div class="register-input">
-                <input id="register-input" class="register-input-text-field" type="text" name="register-input-input">
-                <label class="register-input-label" for="register-input">Enter your email to receive information</label>
-              </div>
-          <input type="submit" class="button register-submit-button" value="submit" onclick="" />
-        </form>
-      </div>
-    </div>
-    <div class="row social">
-      <div class="column large-4 small-12">
-        <h3 class="headline">Stay connected with JSaRC</h3>
-      </div>
-      <div class="column large-7 small-12">
-        <ul class="social-icons">
-          <li class="menu-item"><a class="icon twitter" href="#">Twitter</a></li>
-          <li class="menu-item"><a class="icon youtube" href="#">Youtube</a></li>
-          <li class="menu-item"><a class="icon facebook" href="#">Facebook</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  // Register for open days email input
-  // (animated floating label style text input)
-  var registerTextInput = document.querySelector('.register-input-text-field');
-
-  if (registerTextInput) {
-
-    registerTextInput.addEventListener('change', function() {
-
-      // When text input field is changed, if it contains content add 'active' class
-      // To ensure input label remains floated above the input if text has been added
-      if (registerTextInput && registerTextInput.value) {
-        registerTextInput.classList.add('active');
-      }
-      else {
-        registerTextInput.classList.remove('active');
-      }
-    });
-  }
-</script>

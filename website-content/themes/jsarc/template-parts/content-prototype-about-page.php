@@ -236,6 +236,14 @@ PAGE ABOUT / SECTION MISSION
 }
 
 @media only screen and (max-width: 735px) {
+	.section.section-mission .button.more {
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media only screen and (max-width: 735px) {
 	.section.section-mission .section-headline {
 		text-align: center;
 		max-width: 100%;
@@ -465,81 +473,16 @@ SECTION LEADERSHIP
 
 .section.section-leadership .button.more {
 	border: 2px solid #000;
-	min-width: 290px;
-}
-
-@media only screen and (max-width: 1068px) {
-	.section.section-leadership .button.more {
-		min-width: 250px;
-	}
+	width: 290px;
 }
 
 @media only screen and (max-width: 735px) {
 	.section.section-leadership .button.more {
-		min-width: 290px;
+		float: none;
 		margin-left: auto;
 		margin-right: auto;
 	}
 }
-
-
-
-/*---------------------------------
-
-SECTION PROJECTS & CASESTUDIES
-
-----------------------------------*/
-.section.section-projects-and-case-studies {
-	min-height: 400px;
-	background-color: #000;
-}
-
-.section.section-projects-and-case-studies .section-content {
-	padding-top: 75px;
-	padding-bottom: 75px;
-	position: relative;
-	z-index: 1;
-}
-
-.section.section-projects-and-case-studies .section-image-full-with {
-	position: absolute;
-	max-width: 2560px;
-	width: 100%;
-	height: 400px;
-	background-size: cover;
-	background-position: 50% 50%;
-	background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/projects-image.png");
-	opacity: .5;
-}
-
-.section.section-projects-and-case-studies .section-headline {
-	color: #fff;
-	font-size: 36px;
-	font-weight: bold;
-	line-height: 42px;
-	margin-bottom: 90px;
-}
-
-.section.section-projects-and-case-studies .section-sub-heading {
-	color: #fff;
-	font-size: 30px;
-	line-height: 42px;
-	text-align: right;
-	margin-bottom: 22px;
-	font-weight: normal;
-}
-
-.section.section-projects-and-case-studies .button.more {
-	color: #000;
-	background-color: #fff;
-	border: 0;
-	float: right;
-}
-
-
-
-
-
 
 
 /*---------------------------------
@@ -879,14 +822,8 @@ SECTION PROJECTS
 	</div>
 </section>
 
-<section class="section section-projects-and-case-studies" data-anim-classname='{"cssClass":"reveal"}'>
-	<figure class="section-image-full-with"></figure>
-	<div class="section-content">
-		<h3 class="section-headline">JSaRC projects and case studies</h3>
-		<h4 class="section-sub-heading">High Footfall Screening Trials</h4>
-		<a class="button more" href="">Read the case study</a>
-	</div>
-</section>
+<?php get_template_part( 'template-parts/content', 'section-casestudies-no-animation'); ?>
+
 
 <section class="section section-projects">
 	<div class="section-content">
@@ -923,18 +860,4 @@ SECTION PROJECTS
 	</div>
 </section>
 
-<section class="section section-register">
-	<div class="section-content">
-		<h3 class="section-headline">Stay connected with JSaRC</h3>
-		<a class="button more" href="/register/">Register with JSaRC</a>
-		<p class="description">To receive the latest news and updates</p>
-		<div class="social">
-			<h4 class="social-headline">Follow us on</h4>
-			<ul class="social-list">
-				<li class="social-item"><a  class="social-link twitter" href="">Twitter</a></li>
-				<li class="social-item"><a  class="social-link youtube" href="">YouTube</a></li>
-				<li class="social-item"><a  class="social-link facebook" href="">Facebook</a></li>
-			</ul>
-		<div>
-	</div>
-</section>
+<?php get_template_part( 'template-parts/content', 'section-register'); ?>
