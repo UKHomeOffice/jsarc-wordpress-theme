@@ -34,12 +34,6 @@ get_header();
         get_template_part( 'template-parts/content', 'prototype-case-study');
       }
       
-      // HOMEPAGE V3
-      if( is_page( 'homepage-v3') ) {
-        get_template_part( 'template-parts/content', 'prototype-homepage-v3');
-      }
-      
-      // REGISTER
       if( is_page( 'register') ) {
         get_template_part( 'template-parts/content', 'prototype-register');
       }
