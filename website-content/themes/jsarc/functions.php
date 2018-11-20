@@ -223,7 +223,22 @@ function wpse200296_before_admin_bar_render() {
 }
 
 
-
+/**
+ *  Remove main page editor from wordpress dashboard
+ */
+// add_filter( 'user_can_richedit' , '__return_false', 50 );
+function reset_editor()
+{
+     global $_wp_post_type_features;
+     $post_type="page";
+     $feature = "editor";
+     if ( !isset($_wp_post_type_features[$post_type]) )
+     {
+     }
+     elseif ( isset($_wp_post_type_features[$post_type][$feature]) )
+     unset($_wp_post_type_features[$post_type][$feature]);
+}
+add_action("init","reset_editor");
 
 
 
