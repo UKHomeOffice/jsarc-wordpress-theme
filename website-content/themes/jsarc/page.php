@@ -17,7 +17,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			// get_template_part( 'template-parts/content', 'page' );
 
 
       // Select page content based on current page slug
@@ -33,7 +33,10 @@ get_header();
       if( is_page( 'case-study') ) {
         get_template_part( 'template-parts/content', 'prototype-case-study');
       }
-
+      
+      if( is_page( 'register') ) {
+        get_template_part( 'template-parts/content', 'prototype-register');
+      }
 
 
 			// If comments are open or we have at least one comment, load up the comment template.
