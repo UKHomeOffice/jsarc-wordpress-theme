@@ -131,7 +131,7 @@ const watch = () => {
   gulp.watch(config.src.htmlPrototypes, gulp.series(sassCompile, fullBrowserReload))
 
   // If change detected to php pages, trigger browser reload
-  gulp.watch(config.src.php, fullBrowserReload)
+  // gulp.watch(config.src.php, fullBrowserReload)
 };
 
 
