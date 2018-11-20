@@ -158,6 +158,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 
+/**
+ * Load wordpres page/post creator class
+ */
+require get_template_directory() . '/inc/post-creator.php';
+
+
 
 /**********************************************************************************
 *
@@ -311,4 +317,177 @@ function remove_css_id_filter($var) {
 add_filter('page_css_class', 'remove_css_id_filter', 100, 1);
 add_filter('nav_menu_item_id', 'remove_css_id_filter', 100, 1);
 add_filter('nav_menu_css_class', 'remove_css_id_filter', 100, 1);
+
+
+
+
+/**
+ *  Remove main page editor from wordpress dashboard
+ */
+
+// add_filter( 'user_can_richedit' , '__return_false', 50 );
+function reset_editor()
+{
+     global $_wp_post_type_features;
+
+     $post_type="page";
+     $feature = "editor";
+     if ( !isset($_wp_post_type_features[$post_type]) )
+     {
+
+     }
+     elseif ( isset($_wp_post_type_features[$post_type][$feature]) )
+     unset($_wp_post_type_features[$post_type][$feature]);
+}
+
+add_action("init","reset_editor");
+
+
+
+// Create Pages needed for JSaRC prototype
+$Homepage = new PostController;
+$Homepage->set_title( "homepage" );
+$Homepage->add_category(array(1,2,8));
+$Homepage->set_type( "page" );
+$Homepage->set_content( "" );
+$Homepage->set_author_id( 1 );
+$Homepage->set_post_slug( 'homepage' );
+$Homepage->set_page_template( "template-jsarc-page.php" );
+$Homepage->set_post_state( "publish" );
+$Homepage->create();
+
+$AboutPage = new PostController;
+$AboutPage->set_title( "about" );
+$AboutPage->add_category(array(1,2,8));
+$AboutPage->set_type( "page" );
+$AboutPage->set_content( "" );
+$AboutPage->set_author_id( 1 );
+$AboutPage->set_post_slug( 'about' );
+$AboutPage->set_page_template( "template-jsarc-page.php" );
+$AboutPage->set_post_state( "publish" );
+$AboutPage->create();
+
+$CaseStudyPage = new PostController;
+$CaseStudyPage->set_title( "case-study" );
+$CaseStudyPage->add_category(array(1,2,8));
+$CaseStudyPage->set_type( "page" );
+$CaseStudyPage->set_content( "" );
+$CaseStudyPage->set_author_id( 1 );
+$CaseStudyPage->set_post_slug( 'case-study' );
+$CaseStudyPage->set_page_template( "template-jsarc-page.php" );
+$CaseStudyPage->set_post_state( "publish" );
+$CaseStudyPage->create();
+
+
+// TODO: Set homepage as default start page for the website on theme activation
+
+/**
+ * Set homepage as default start page for the JSaRC website
+ */
+// add_action('init', 'update_reading_settings');
+
+// function update_reading_settings() {
+//   update_option( 'show_on_front', 'page' );
+//   update_option( 'page_for_posts', 'homepage' );
+// }
+
+
+
+
+/**
+ * Gets a menu id by name
+ *
+ * @param string $name The menu name
+ * @return int|boolean The menu id or false if not found
+ */
+// function wp_menu_id_by_name( $name ) {
+//   $menus = get_terms( 'nav_menu' );
+
+//   foreach ( $menus as $menu ) {
+//       if( $name === $menu->name ) {
+//           return $menu->term_id;
+//       }
+//   }
+//   return false;
+// }
+
+
+/**
+ * Generic generate custom menu link
+ * (used when generating the default top nav for the jsarc theme)
+*/
+// function generate_site_nav_menu_item( $term_id, $title, $url ) {
+
+//   wp_update_nav_menu_item($term_id, 0, array(
+//     'menu-item-title'   =>  sprintf( __('%s', 'text_domain'), $title ),
+//     'menu-item-url'     =>  home_url( '/' . $url ),
+//     'menu-item-status'  =>  'publish'
+//   ) );
+
+// }
+
+/**
+ * Generic generate nav-menu
+*/
+// function generate_site_nav_menu( $menu_name, $menu_items_array, $location_target ) {
+
+//   $menu_primary = $menu_name;
+//   wp_create_nav_menu( $menu_primary );
+//   $menu_primary_obj = get_term_by( 'name', $menu_primary, 'nav_menu' );
+
+//   foreach( $menu_items_array as $page_name => $page_location ){
+//     generate_site_nav_menu_item( $menu_primary_obj->term_id, $page_name, $page_location );
+//   }
+
+//   $locations_primary_arr = get_theme_mod( 'nav_menu_locations' );
+//   $locations_primary_arr[$location_target] = $menu_primary_obj->term_id;
+//   set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
+
+//   update_option( 'menu_check', true );
+
+// }
+
+/**
+ * Generate default JSaRC menu
+ *
+ *  Default menu links:
+ * "National Security Priorities",
+ * "Our Work",
+ * "News and Events",
+ * "About JSaRC"
+*/
+
+/**
+ * After switching to JSaRC theme,
+ * auto-populate wordpress menu with default page links
+ */
+// function my_after_switch_theme() {
+//     $run_menu_maker_once = get_option('menu_check');
+
+//     /**
+//      *  Comment out the conditional below to make sure the default menu items
+//      *  are generated every time the theme is activated.
+//      */
+//     if ( ! $run_menu_maker_once ) {
+//       $primary_menu_items = array(
+//           'National Security Priorities'  =>  'national-security-priorities',
+//           'Our Work' =>  'our-work',
+//           'News and Events'   =>  'news-events',
+//           'About JSaRC'    =>  'about-jsarc'
+//       );
+//       generate_site_nav_menu( 'JSaRC Primary Nav', $primary_menu_items, 'primary' );
+//     }
+
+//     $locations = get_theme_mod('nav_menu_locations');
+
+//     $myMenuId = wp_menu_id_by_name( 'JSaRC Primary Nav' );
+//     $locations['jsarc-primary-nav'] = $myMenuId;
+//     set_theme_mod( 'nav_menu_locations', $locations );
+// }
+// add_action( 'after_switch_theme', 'my_after_switch_theme');
+
+
+
+
+
 

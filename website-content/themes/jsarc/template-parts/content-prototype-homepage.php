@@ -31,8 +31,9 @@
 
 
 
-
-
+.section.section-hero {
+	background-color: #000;
+}
 
 .section.section-hero .section-content {
     padding-top: 100px;
@@ -56,31 +57,23 @@
     height: 100%;
     background-size: cover;
     background-position: 50% 0;
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/homepage-hero.png");
+    background-image: url(<?php the_field('hero_image_large'); ?>);
     position: absolute;
     background-repeat: no-repeat;
+    opacity: 0.5;
 }
 
-.section.section-hero {
-	background-color: #000;
-}
-.section.section-hero .hero-image {
-	opacity: .5;
-}
-
-.section.section-hero .hero-image {
-	animation: background-opacity 1s forwards;
+@media only screen and (max-width: 1068px) {
+	.section.section-hero .hero-image {
+		background-image: url(<?php the_field('hero_image_medium'); ?>);
+	}
 }
 
-@keyframes background-opacity {
-    0% {
-		opacity: 1;	
-    }
-    100% {
-		opacity: 0.5;
-    }
+@media only screen and (max-width: 735px) {
+	.section.section-hero .hero-image {
+		background-image: url(<?php the_field('hero_image_small'); ?>);
+	}
 }
-
 
 
 .section.section-hero .hero-headline {
@@ -156,7 +149,7 @@
 
 /*--------------------------------------
 
-HOMEPAGE / SECTION INNOVATION CALL
+SECTION INNOVATION CALL
 
 ---------------------------------------*/
 
@@ -220,7 +213,7 @@ HOMEPAGE / SECTION INNOVATION CALL
 
 /*--------------------------------------
 
-HOMEPAGE / SECTION WORKING
+SECTION WORKING
 
 ---------------------------------------*/
 
@@ -266,7 +259,7 @@ HOMEPAGE / SECTION WORKING
 
 /*--------------------------------------
 
-HOMEPAGE / SECTION VIDEO
+SECTION VIDEO
 
 ---------------------------------------*/
 .section.section-video {
@@ -296,9 +289,24 @@ HOMEPAGE / SECTION VIDEO
     height: 400px;
     background-size: cover;
     background-position: 50% 0;
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/section-video-bg.png");
+    background-image: url(<?php the_field('section_video_image_large'); ?>);
     position: relative;
 }
+
+@media only screen and (max-width: 1068px) {
+	.section.section-video .section-image {
+		background-image: url(<?php the_field('section_video_image_medium'); ?>);
+	}
+}
+
+@media only screen and (max-width: 735px) {
+	.section.section-video .section-image {
+		background-image: url(<?php the_field('section_video_image_small'); ?>);
+	}
+}
+
+
+
 
 .section.section-video .section-image:after {
     content: '';
@@ -354,7 +362,7 @@ HOMEPAGE / SECTION VIDEO
 
 /*--------------------------------------
 
-HOMEPAGE / SECTION BENEFITS
+SECTION BENEFITS
 
 ---------------------------------------*/
 
@@ -465,13 +473,13 @@ HOMEPAGE / SECTION BENEFITS
 
 
 .section.section-benefits .tile-image.tile1 {
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/tile1.png");
+    background-image: url(<?php the_field('section_benefits_1'); ?>);
 }
 .section.section-benefits .tile-image.tile2 {
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/tile2.png");
+    background-image: url(<?php the_field('section_benefits_2'); ?>);
 }
 .section.section-benefits .tile-image.tile3 {
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/tile3.png");
+    background-image: url(<?php the_field('section_benefits_3'); ?>);
 }
 
 
@@ -523,7 +531,7 @@ HOMEPAGE / SECTION BENEFITS
 
 /*--------------------------------------
 
-HOMEPAGE / SECTION CASESTUDY
+SECTION CASESTUDY
 
 ---------------------------------------*/
 
@@ -551,7 +559,7 @@ HOMEPAGE / SECTION CASESTUDY
     height: 100%;
     background-size: cover;
     background-position: 50% 50%;
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/case-study-1.png");
+    background-image: url(<?php the_field('section_casestudy'); ?>);
 }
 
 
@@ -599,35 +607,34 @@ HOMEPAGE / SECTION CASESTUDY
 	<div class="section-content">
 		<div class="intro-wrapper">
 			<div class="intro">
-				<h1 class="hero-headline">The Joint Security and Resilience Centre</h1>
-				<p class="hero-intro">Providing a centralised service to coordinate, shape, evolve and grow the security industry to address the UK’s national security priorities.</p>
-				<a style="border:none;" class="button more" href="">Current Security Priorities</a>
+				<h1 class="hero-headline"><?php the_field('hero_headline'); ?></h1>
+				<p class="hero-intro"><?php the_field('hero_intro'); ?></p>
+				<a class="button more" aria-label="<?php the_field('hero_button_label'); ?>" href="<?php the_field('hero_button_link_path'); ?>"><?php the_field('hero_button'); ?></a>
 			</div>
   		</div>
 	</div>
 </section>
 
 
-	<section class="section section-innovation-call">
-		<div class="section-content">
-			<h2 class="eyebrow">Innovation Call</h2>
-			<h3 class="section-headline">The Overseas Protect and Prepare programme</h3>
-			<p class="section-body-text">This call to industry seeks to explore what industry can do to help deliver OPP’s goals.</p>
-			<a class="button more" href="">Find out more</a>
-		</div>
-	</section>
+
+<section class="section section-innovation-call">
+	<div class="section-content">
+		<h2 class="eyebrow"><?php the_field('section_innovation_call_headline_small'); ?></h2>
+		<h3 class="section-headline"><?php the_field('section_innovation_call_headline'); ?></h3>
+		<p class="section-body-text"><?php the_field('section_innovation_call_body_text'); ?></p>
+		<a class="button more" aria-label="<?php the_field('section_innovation_call_button_label'); ?>" href="<?php the_field('section_innovation_call_button_link_path'); ?>"><?php the_field('section_innovation_call_button'); ?></a>
+	</div>
+</section>
 
 
 <section class="section section-working">
 	<div class="section-content">
-		<h3 class="section-headline">What we do</h3>
-		<p class="section-body-text">The Joint Security and Resilience Centre (JSaRC) is a government department that brings together government representatives, members of academia and the security sector to form a joint response to national security challenges.</p>
-		<p class="section-body-text">
-		Drawing on a wide pool of expertise, JSaRC works collaboratively with these diverse specialists to encourage innovation and to grow future opportunities in the security sector.</p>
-		<a class="button more" href="">Find out more</a>
+		<h3 class="section-headline"><?php the_field('section_working_headline'); ?></h3>
+		<p class="section-body-text"><?php the_field('section_working_body_text_1'); ?></p>
+		<p class="section-body-text"><?php the_field('section_working_body_text_2'); ?></p>
+		<a class="button more" aria-label="<?php the_field('section_working_button_label'); ?>" href="<?php the_field('section_working_button_link_path'); ?>"><?php the_field('section_working_button'); ?></a>
 	</div>
 </section>
-
 
 <section class="section section-video">
 	<div class="section-content">
@@ -637,9 +644,10 @@ HOMEPAGE / SECTION CASESTUDY
 			</div>
 			<div class="column large-6 small-11 small-centered">
 				<div class="content-wrapper">
-					<h3 class="section-headline">How JSaRC is changing the face of National Security</h3>
-					<p class="speaker">Shaun Hipgrave, Head of JSaRC</p>
-					<a class="button more" href="">Find out more</a>
+
+					<h3 class="section-headline"><?php the_field('section_video_headline'); ?></h3>
+					<p class="speaker"><?php the_field('section_video_speaker'); ?></p>
+					<a class="button more" aria-label="<?php the_field('section_video_button_label'); ?>" href="<?php the_field('section_video_buttonn_link_path'); ?>"><?php the_field('section_video_button'); ?></a>
 				</div>
 			</div>
 		</div>
@@ -650,42 +658,42 @@ HOMEPAGE / SECTION CASESTUDY
 <section class="section section-benefits">
 	<div class="section-content">
 	
-		<h3 class="section-headline">Benefits of engaging with JSaRC</h3>
+		<h3 class="section-headline"><?php the_field('section_benefits_headline'); ?></h3>
 
 		<ul class="tiles-list">
 			<li class="tile-item">
-				<a class="tile-link" href="">
+				<a class="tile-link" href="<?php the_field('section_benefits_tile_1_link_link_path'); ?>">
 					<div class="tile-image-box">
 						<figure class="tile-image tile1"></figure>
 					</div>
 					<div class="caption-wrapper">
-						<h3 class="tile-headline">Funding opportunities</h3>
-						<div class="tile-caption">Ensuring the development of the right solutions for today’s security priorities</div>
-						<span class="more-link">Read about funding opportunities</span>
+						<h3 class="tile-headline"><?php the_field('section_benefits_tile_1_headline'); ?></h3>
+						<div class="tile-caption"><?php the_field('section_benefits_tile_1_caption'); ?></div>
+						<span class="more-link"><?php the_field('section_benefits_tile_1_link'); ?></span>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
-				<a class="tile-link" href="">
+				<a class="tile-link" href="<?php the_field('section_benefits_tile_2_link_link_path'); ?>">
 					<div class="tile-image-box">
 						<figure class="tile-image tile2"></figure>
 					</div>
 					<div class="caption-wrapper">
-						<h3 class="tile-headline">Research Support</h3>
-						<div class="tile-caption">Support for the research and development of products and services</div>
-						<span class="more-link">Read about research support</span>
+						<h3 class="tile-headline"><?php the_field('section_benefits_tile_2_headline'); ?></h3>
+						<div class="tile-caption"><?php the_field('section_benefits_tile_2_caption'); ?></div>
+						<span class="more-link"><?php the_field('section_benefits_tile_2_link'); ?></span>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
-				<a class="tile-link" href="">
+				<a class="tile-link" href="<?php the_field('section_benefits_tile_3_link_link_path'); ?>">
 					<div class="tile-image-box">
 						<figure class="tile-image tile3"></figure>
 					</div>
 					<div class="caption-wrapper">
-						<h3 class="tile-headline">Access to Expertise</h3>
-						<div class="tile-caption">Access to industry, academic and government experience and expertise</div>
-						<span class="more-link">Read about access to expertise</span>
+						<h3 class="tile-headline"><?php the_field('section_benefits_tile_3_headline'); ?></h3>
+						<div class="tile-caption"><?php the_field('section_benefits_tile_3_caption'); ?></div>
+						<span class="more-link"><?php the_field('section_benefits_tile_3_link'); ?></span>
 					</div>
 				</a>
 			</li>
@@ -697,12 +705,10 @@ HOMEPAGE / SECTION CASESTUDY
 <section class="section section-casestudy">
 	<figure class="section-image"></figure>
 	<div class="section-content">
-		<h2 class="eyebrow">Case study</h2>
-		<h3 class="section-headline">High Footfall Screening Trials</h3>
-		<p class="section-body-text">Exploring solutions for securing large, high footfall spaces.
-
-</p>
-		<a style="border:none;" class="button more" href="/case-study/">Read the case study</a>
+		<h2 class="eyebrow"><?php the_field('section_casestudy_headline_small'); ?></h2>
+		<h3 class="section-headline"><?php the_field('section_casestudy_headline'); ?></h3>
+		<p class="section-body-text"><?php the_field('section_casestudy_body_text'); ?></p>
+		<a class="button more" aria-label="<?php the_field('section_casestudy_button_label'); ?>" href="<?php the_field('section_casestudy_button_link_path'); ?>"><?php the_field('section_casestudy_button'); ?></a>
 	</div>
 </section>
 
