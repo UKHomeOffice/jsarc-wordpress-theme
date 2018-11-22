@@ -1314,16 +1314,16 @@ FOOTER
     padding-bottom: 40px;
 }
 
-.footer .jsarc-directory .directory-item {
+.footer .footer-menu .footer-menu-item {
     margin-bottom: 5px;
 }
 
-.footer .jsarc-directory .directory-item .directory-link {
+.footer .footer-menu .footer-menu-item .footer-menu-link {
     font-size: 14px;
     line-height: 20px;
 }
 
-.footer .jsarc-directory .directory-item .directory-link:hover {
+.footer .footer-menu .footer-menu-item .footer-menu-link:hover {
     text-decoration: underline;
 }
 
