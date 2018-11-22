@@ -99,13 +99,13 @@ SECTION PROGECTS
 
 
 .section.section-projects .tile-image.tile1 {
-    background-image: url(<?php the_field('section_projects_tile_1_image'); ?>);
+    background-image: url(<?php the_field('section_projects_tile_1_image', 'option', 'option'); ?>);
 }
 .section.section-projects .tile-image.tile2 {
-    background-image: url(<?php the_field('section_projects_tile_2_image'); ?>);
+    background-image: url(<?php the_field('section_projects_tile_2_image', 'option', 'option'); ?>);
 }
 .section.section-projects .tile-image.tile3 {
-    background-image: url(<?php the_field('section_projects_tile_3_image'); ?>);
+    background-image: url(<?php the_field('section_projects_tile_3_image', 'option', 'option'); ?>);
 }
 
 
@@ -169,44 +169,88 @@ SECTION PROGECTS
 
 		<ul class="tiles-list">
 			<li class="tile-item">
-				<a class="tile-link" aria-label="<?php the_field('section_projects_tile_1_link_label'); ?>" href="<?php the_field('section_projects_tile_1_link_link_path'); ?>">
+				<a class="tile-link" aria-label="<?php the_field('section_projects_tile_1_link_label', 'option'); ?>" href="<?php the_field('section_projects_tile_1_link_link_path', 'option'); ?>">
 					<div class="tile-image-box">
 						<figure class="tile-image tile1"></figure>
 					</div>
 					<div class="caption-wrapper">
-						<h3 class="tile-headline"><?php the_field('section_projects_tile_1_headline'); ?></h3>
-						<div class="tile-caption"><?php the_field('section_projects_tile_1_caption'); ?></div>
-						<span class="more-link"><?php the_field('section_projects_tile_1_link'); ?></span>
+						<h3 class="tile-headline"><?php the_field('section_projects_tile_1_headline', 'option'); ?></h3>
+						<div class="tile-caption"><?php the_field('section_projects_tile_1_caption', 'option'); ?></div>
+						<span class="more-link"><?php the_field('section_projects_tile_1_link', 'option'); ?></span>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
-				<a class="tile-link" aria-label="<?php the_field('section_projects_tile_2_link_label'); ?>" href="<?php the_field('section_projects_tile_2_link_link_path'); ?>">
+				<a class="tile-link" aria-label="<?php the_field('section_projects_tile_2_link_label', 'option'); ?>" href="<?php the_field('section_projects_tile_2_link_link_path', 'option'); ?>">
 					<div class="tile-image-box">
 						<figure class="tile-image tile2"></figure>
 					</div>
 					<div class="caption-wrapper">
-						<h3 class="tile-headline"><?php the_field('section_projects_tile_2_headline'); ?></h3>
-						<div class="tile-caption"><?php the_field('section_projects_tile_2_caption'); ?></div>
-						<span class="more-link"><?php the_field('section_projects_tile_2_link'); ?></span>
+						<h3 class="tile-headline"><?php the_field('section_projects_tile_2_headline', 'option'); ?></h3>
+						<div class="tile-caption"><?php the_field('section_projects_tile_2_caption', 'option'); ?></div>
+						<span class="more-link"><?php the_field('section_projects_tile_2_link', 'option'); ?></span>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
-				<a class="tile-link" aria-label="<?php the_field('section_projects_tile_3_link_label'); ?>" href="<?php the_field('section_projects_tile_3_link_link_path'); ?>">
+				<a class="tile-link" aria-label="<?php the_field('section_projects_tile_3_link_label', 'option'); ?>" href="<?php the_field('section_projects_tile_3_link_link_path', 'option'); ?>">
 					<div class="tile-image-box">
 						<figure class="tile-image tile3"></figure>
 					</div>
 					<div class="caption-wrapper">
-						<h3 class="tile-headline"><?php the_field('section_projects_tile_3_headline'); ?></h3>
-						<div class="tile-caption"><?php the_field('section_projects_tile_3_caption'); ?></div>
-						<span class="more-link"><?php the_field('section_projects_tile_3_link'); ?></span>
+						<h3 class="tile-headline"><?php the_field('section_projects_tile_3_headline', 'option'); ?></h3>
+						<div class="tile-caption"><?php the_field('section_projects_tile_3_caption', 'option'); ?></div>
+						<span class="more-link"><?php the_field('section_projects_tile_3_link', 'option'); ?></span>
 					</div>
 				</a>
 			</li>
-		</ul>
+		</ul
 		
-		<a class="button more" aria-label="<?php the_field('section_projects_button_label'); ?>" href="<?php the_field('section_projects_button_link_path'); ?>"><?php the_field('section_projects_button'); ?></a>
+		<!--
+		/*
+		<?php if( have_rows('section_projects', 'option') ): ?>
+								
+			<ul class="tiles-list">
+			<?php while( have_rows('section_projects', 'option') ): the_row(); 
+				
+				$class_name = get_sub_field('class_name');
+				$headline = get_sub_field('headline');
+				$text = get_sub_field('text');
+				$link = get_sub_field('link');
+				$link_path = get_sub_field('link_path');
+			?>
+
+				<li class="tile-item <?php the_field('class'); ?>">
+					<?php if( $link ): ?>
+						<a class="tile-link" href="<?php echo $link_path; ?>">
+					<?php endif; ?>
+							<div class="tile-image-box">
+								<figure class="tile-image"></figure>
+							</div>
+							<div class="caption-wrapper">
+								<h3 class="tile-headline"><?php the_field('headline'); ?></h3>
+								<div class="tile-caption"><?php the_field('text'); ?></div>
+								<span class="more-link"><?php the_field('link'); ?></span>
+							</div>
+					<?php if( $link ): ?>
+						</a>
+					<?php endif; ?>
+				</li>
+
+			<?php endwhile; ?>
+
+			</ul>
+			
+			<a class="button more" href="<?php the_field('more_projects_button_link', 'option'); ?>"><?php the_field('more_projects_button', 'option'); ?></a>
+
+		<?php endif; ?>
+		*/
+		-->
+		
+		
+		
+		
+		
 
 	</div>
 </section>

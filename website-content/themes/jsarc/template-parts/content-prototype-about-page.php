@@ -36,9 +36,9 @@ PAGE ABOUT / SECTION HEADER
 .section.section-header .section-content {
 	display: table;
 	height: 300px;
-	position: relative;
 
 }
+
 .section.section-header .hero-image {
 	position: absolute;
 	max-width: 2560px;
@@ -47,7 +47,7 @@ PAGE ABOUT / SECTION HEADER
 	background-size: cover;
 	background-position: 80% 50%;
 	background-image: url("/wp-content/themes/jsarc/img/v/about/b/about-header-bg.png");
-	opacity: 0.7;
+	opacity: .5;
 }
 
 .section.section-header .hero-image {
@@ -56,10 +56,10 @@ PAGE ABOUT / SECTION HEADER
 
 @keyframes background-opacity {
     0% {
-		opacity: 1;
+		opacity: 1;	
     }
     100% {
-		opacity: 0.7;
+		opacity: 0.5;
     }
 }
 
@@ -703,7 +703,7 @@ SECTION PROJECTS
 
 <section class="section section-mission">
 	<figure class="section-image"></figure>
-	<div class="#FD8D0E""section-content">
+	<div class="section-content">
 		<div class="row">
 			<div class="column large-6 large-push-6 small-12 small-push-0">
 				<h2 class="section-headline">The JSaRC Mission, Strategy and Objectives</h2>

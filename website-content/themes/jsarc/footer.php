@@ -15,20 +15,61 @@
 	<div class="section-content">
 		<div class="row">
 			<div class="column large-6 medium-8  small-6">
-				<nav class="jsarc-directory" aria-label="JSaRC Directory" role="navigation">
+				<nav class="footer-menu" aria-label="JSaRC Footer Menu" role="navigation">
 					<div class="row">
 						<div class="column large-6 small-12">
-							<ul>
-								<li class="directory-item"><a class="directory-link" href="<?php the_field('footer_link_1_path'); ?>"><?php the_field('footer_link_1'); ?></a></li>
-								<li class="directory-item"><a class="directory-link" href="<?php the_field('footer_link_1_path'); ?>"><?php the_field('footer_link_2'); ?></a></li>
-								<li class="directory-item"><a class="directory-link" href="<?php the_field('footer_link_1_path'); ?>"><?php the_field('footer_link_3'); ?></a></li>
-							</ul>
+							<?php if( have_rows('footer_menu_first_column', 'option') ): ?>
+								
+								<ul>
+								<?php while( have_rows('footer_menu_first_column', 'option') ): the_row(); 
+		
+									$link = get_sub_field('link');
+									$link_content = get_sub_field('link_content');
+
+									?>
+
+									<li class="footer-menu-item">
+										<?php if( $link ): ?>
+											<a class="footer-menu-link" href="<?php echo $link; ?>">
+										<?php endif; ?>
+											<?php echo $link_content; ?>
+										<?php if( $link ): ?>
+											</a>
+										<?php endif; ?>
+									</li>
+
+								<?php endwhile; ?>
+
+								</ul>
+
+							<?php endif; ?>
 						</div>
 						<div class="column large-6 small-12">
-							<ul>
-								<li class="directory-item"><a class="directory-link" href="<?php the_field('footer_link_1_path'); ?>"><?php the_field('footer_link_4'); ?></a></li>
-								<li class="directory-item"><a class="directory-link" href="<?php the_field('footer_link_1_path'); ?>"><?php the_field('footer_link_5'); ?></a></li>
-							</ul>
+							<?php if( have_rows('footer_menu_second_column', 'option') ): ?>
+								
+								<ul>
+								<?php while( have_rows('footer_menu_second_column', 'option') ): the_row(); 
+		
+									$link = get_sub_field('link');
+									$link_content = get_sub_field('link_content');
+
+									?>
+
+									<li class="footer-menu-item">
+										<?php if( $link ): ?>
+											<a class="footer-menu-link" href="<?php echo $link; ?>">
+										<?php endif; ?>
+											<?php echo $link_content; ?>
+										<?php if( $link ): ?>
+											</a>
+										<?php endif; ?>
+									</li>
+
+								<?php endwhile; ?>
+
+								</ul>
+
+							<?php endif; ?>
 						</div>
 					</div>
 				</nav>
@@ -39,13 +80,11 @@
 		</div>
 		<div class="row">
 			<div class="column large-6 large-last small-12">
-				<div class="footer-legal"><?php the_field('footer_legal'); ?></div>
+				<div class="footer-legal"><?php the_field('footer_legal', 'option'); ?></div>
 			</div>
 		</div>
 	</div>
 </footer>
-
-
 
 
 

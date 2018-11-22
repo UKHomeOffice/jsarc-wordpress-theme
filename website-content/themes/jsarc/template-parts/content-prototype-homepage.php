@@ -559,7 +559,7 @@ SECTION CASESTUDY
     height: 100%;
     background-size: cover;
     background-position: 50% 50%;
-    background-image: url(<?php the_field('section_casestudy'); ?>);
+    background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/projects-image.png");
 }
 
 
@@ -600,9 +600,9 @@ SECTION CASESTUDY
 }
 </style>
 
-
-
 <section class="section section-hero">
+
+
 	<figure class="hero-image"></figure>
 	<div class="section-content">
 		<div class="intro-wrapper">

@@ -240,6 +240,59 @@ function reset_editor()
 }
 add_action("init","reset_editor");
 
+/**
+ *  The options page feature provides a set of functions to add extra admin pages to edit ACF fields
+ */
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page();
+	acf_add_options_sub_page('Footer');
+	acf_add_options_sub_page('Section Projects');
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme Options',
+		'menu_title'	=> 'Theme Options',
+		'parent_slug'	=> 'theme-options',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> '',
+		'position'		=> false,
+		'icon_url'		=> false,
+		'redirect'		=> false
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Footer',
+		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'theme-options-footer',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> 'theme-options',
+		'position'		=> false,
+		'icon_url'		=> false
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Section Projects',
+		'menu_title'	=> 'Section Projects',
+		'parent_slug'	=> 'theme-options-footer',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> 'theme-options',
+		'position'		=> false,
+		'icon_url'		=> false
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Post Settings',
+		'menu_title'	=> 'Post Settings',
+		'parent_slug'	=> 'post-settings',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> 'edit.php',
+		'position'		=> false,
+		'icon_url'		=> false
+	));
+	
+}
+
 
 
 /**********************************************************************************
