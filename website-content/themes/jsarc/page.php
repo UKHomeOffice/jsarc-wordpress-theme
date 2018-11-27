@@ -37,6 +37,10 @@ get_header();
       if( is_page( 'register') ) {
         get_template_part( 'template-parts/content', 'prototype-register');
       }
+      
+      if( is_page( 'our-work') ) {
+        get_template_part( 'template-parts/content', 'prototype-our-work-page');
+      }
 
 
 			// If comments are open or we have at least one comment, load up the comment template.
