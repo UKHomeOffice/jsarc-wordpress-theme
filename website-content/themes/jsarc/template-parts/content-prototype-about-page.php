@@ -109,7 +109,7 @@ PAGE ABOUT / SECTION INTRO
 	padding-bottom: 75px;
 }
 
-.section-intro .leader-text {
+.section-intro .section-headline {
 	font-size: 24px;
 	line-height: 32px;
 	font-weight: bold;
@@ -122,6 +122,11 @@ PAGE ABOUT / SECTION INTRO
 	line-height: 28px;
 	color: #4A4A4A;
 	margin-bottom: 34px;
+}
+.section-intro ol {
+	list-style-position: outside;
+	margin: 0;
+	padding: 0 24px;
 }
 
 
@@ -256,7 +261,50 @@ PAGE ABOUT / SECTION MISSION
 	}
 }
 
+/*---------------------------------
 
+PAGE ABOUT / SECTION ENGAGE
+
+----------------------------------*/
+
+
+.section-engage .section-content {
+	padding-top: 75px;
+	padding-bottom: 75px;
+}
+
+.section-engage .section-headline {
+	font-size: 36px;
+	line-height: 42px;
+	font-weight: bold;
+	margin-bottom: 45px;
+}
+.section-engage .subheading {
+font-size: 24px;
+font-weight: bold;
+line-height: 34px;
+margin-bottom: 22px;
+}
+.section-engage .body-text {
+	font-size: 18px;
+	line-height: 28px;
+	margin-bottom: 34px;
+}
+
+.section-engage ul.body-text {
+	margin-top: -15px;
+}
+
+.section-engage ul.body-text li:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 20px 0 40px;
+	width: 6px;
+	height: 6px;
+	background-color: #000;
+	border-radius: 50%;
+}
 /*---------------------------------
 
 PAGE ABOUT / SECTION BENEFITS
@@ -677,11 +725,21 @@ SECTION PROJECTS
 	<div class="section-content">
 		<div class="row">
 			<div class="column large-8 small-12"> 
-				<h2 class="leader-text">The Joint Security and Resilience Centre (JSaRC) is a Home Office unit within the Office for Security and Counter Terrorism. It was established to better engage the Security Sector (Industry and Academia) and wider private sector to respond to the security challenges faced by Her Majesty's Government.</h2>
+				<h2 class="section-headline">The primary aim of The Joint Security and Resilience Centre (JSaRC) is to combine government, academic and private sector expertise to provide security outcomes for the United Kingdom. JSaRC is a Home Office unit, established by the Office of Security and Counter-Terrorism (OSCT) in 2016.</h2>
 
-				<p class="body-text">JSaRC is jointly staffed by civil servants and security sector secondees. Its focus is on responding to and identifying market ready solutions for current problems. It does this mainly by cross-government engagement with policy holders, engaging and working with industry, followed by the live testing and trials of concepts, technologies and processes.</p>
+				<p class="body-text">JSaRC works to overcome the traditional barriers that have prevented successful collaboration between the private and public sectors.</p>
 
-				<p class="body-text">This is done to promote uptake by government or the wider private sector, such as infrastructure owners. Each of JSARC's projects are intended to raise the standards of security in the UK to better protect UK citizens. JSARC can be commissioned by direct approach or via the Home Office commissioning team.</p>
+				<p class="body-text">By improving the understanding that public and private sectors have of each other, the key issues and the trends that impact on the UK’s security and resilience, both sides can work together to counter the fast-moving and ever-evolving threats to our citizens, both here and abroad.</p>
+				
+				<p class="body-text">JSaRC’s aims are reflected in the national security framework as set out in SDSR 2015, which represents the UK’s national security interests through 3 National Security Objectives:</p>
+				<ol class="body-text">
+					<li><strong>Protect our people</strong> – At home, in our Overseas Territories and abroad, and to protect our
+territory, economic security, infrastructure and way of life.</li>
+					<li><strong>Project our global influence</strong> – Reducing the likelihood of threats materialising and affecting the UK, our interests, and those of our allies and partners.</li>
+					<li><strong>Promote our prosperity</strong> – Seizing opportunities, working innovatively and supporting UK
+industry.</li>
+				</ol>
+				<p class="body-text">JSaRC’s remit is threat agnostic. We work to support the UK’s National Security Objectives and to protect our people. We collaborate with any government department, academic institution or private sector organisation that has a requirement, idea, project or solution with the potential to improve, by designing out harm, the security and resilience of the United Kingdom.</p>
 			</div>
 			<div class="column large-4 small-12">
 				<aside class="aside">
@@ -713,6 +771,39 @@ SECTION PROJECTS
 	</div>
 </section>
 
+<section class="section section-engage">
+	<div class="section-content">
+		<h2 class="section-headline">How to engage with JSaRC</h2>
+
+		<p class="body-text">JSaRC has a number of principal mechanisms through which we engage with our
+stakeholders. These include events such as the Security & Policing Home Office event, DSEI, and the International Security Expo.</p>
+		<h3 class="subheading">Commencing a project</h3>
+		<p class="body-text">Formal engagements and projects are the primary means by which we deliver upon our business objectives. Once a project is commenced it can last up to 1 year and can include:</p>
+		
+		<ul class="body-text">
+			<li>Expression of interest</li>
+			<li>Call to market</li>
+			<li>Market Capability Assessment</li>
+			<li>Live trial/testing support</li>
+		</ul>
+		
+		<h3 class="subheading">JSaRC Open Days</h3>
+		<p class="body-text">JSaRC holds regular open days at our Cambridge Headquarters. Our open days offer those in the industry and private sector, especially SMEs, the opportunity to gain advice and coaching on how best to work with government.</p>
+		
+		<h3 class="subheading">Secondees</h3>
+		<p class="body-text">JSaRC is up to 50% staffed by Industry Secondees. Our partners within industry and academia supply experienced staff who have existing networks and expertise to work in the JSaRC team to help deliver projects.</p>
+		
+		<h3 class="subheading">Informal Scoping Discussions</h3>
+		<p class="body-text">Prior to a formal engagement commencing, JSaRC will often hold several informal discussions with government departments to help clarify their requirements and what help they may need.</p>
+		
+		<h3 class="subheading">One-to-one meetings with JSaRC</h3>
+		<p class="body-text">We hold one-to-one meetings with SMEs to build a familiarity with their products and to increase their understanding of how they can engage and collaborate with the government.</p>
+		
+		<h3 class="subheading">JSaRC meetings with Government Boards and Groups</h3>
+		<p class="body-text">JSaRC attends a number of government boards and working groups to build awareness of our work and to better understand the requirements of our government partners.
+We have meetings with bodies such as the Protective Security and Prepare Strategy Board, the Joint Overseas Protect and Prepare Board, the Home Office International Strategy Board and the Defence and Security Export Working Group.</p>
+	</div>
+</section>
 
 <section class="section section-benefits">
 	<div class="section-content">
