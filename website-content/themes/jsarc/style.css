@@ -1920,6 +1920,15 @@ SECTION REGISTER
     vertical-align: middle;
 }
 
+@media only screen and (max-width: 735px) {
+    .section.section-register .description {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 30px; 
+        margin-left: 0;
+    }
+}
+
 .section.section-register .social {
     margin-top: 48px;
 }
