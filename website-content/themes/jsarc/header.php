@@ -23,165 +23,289 @@
 <body <?php body_class(); ?>>
 
 
-<div class="primary-nav-placehoder"></div>
-<nav id="primary-nav" role="navigation">
-    <div class="nav-spacer"></div>
-    <div class="primary-nav-content">
-        <ul class="primary-nav-header">
-            <li class="primary-nav-item">
-                <a class="primary-nav-jsarc-logo" href="/">JSaRC</a>
+<nav class="nav" role="navigation" aria-label="Main Navigation">
+
+    <div class="nav-content">
+        
+        <ul class="nav-header">
+            <li class="list-item">
+                <a class="jsarc-logo" href="/">JSaRC</a>
             </li>
-            <li class="primary-nav-menuicon">
-                <label class="primary-nav-menuicon-label" for="primary-nav-menustate" aria-hidden="true">
-                <span class="primary-nav-menuicon primary-nav-menuicon-top"></span>
-                <span class="primary-nav-menuicon primary-nav-menuicon-middle"></span>
-                <span class="primary-nav-menuicon primary-nav-menuicon-bottom"></span>
+      
+		<li class="list-item nav-menu-icon">
+       
+<label class="nav-menu-icon-label" for="nav-menu-state" aria-hidden="true">
+					<span class="nav-menu-icon nav-menu-icon-top"></span>
+					<span class="nav-menu-icon nav-menu-icon-middle"></span>
+					<span class="nav-menu-icon nav-menu-icon-bottom"></span>
                 </label>
-                <a href="#primary-nav-menustate" class="primary-nav-menuanchor primary-nav-menuanchor-open" id="primary-nav-menuanchor-open">
-                <span class="primary-nav-menuanchor-label">Open Menu</span>
+                <!-- 
+<a href="#nav-menu-state" class="nav-menu-anchor nav-menu-anchor-open">
+                	<span class="nav-menu-anchor-label">Open Menu</span>
                 </a>
-                <a href="#" class="primary-nav-menuanchor primary-nav-menuanchor-close" id="primary-nav-menuanchor-close">
-                <span class="primary-nav-menuanchor-label">Close Menu</span>
+                <a href="/" class="nav-menu-anchor nav-menu-anchor-close">
+                	<span class="nav-menu-anchor-label">Close Menu</span>
                 </a>
+ -->
+
             </li>
+
         </ul>
-        <div class="primary-nav-list-wrapper">
-            <?php wp_nav_menu( array(
-                // 'theme_location' => 'header-menu',
-                'container' => '',
-                'container_class' => '',
-                'container_id'=> '',
-                'menu_id' => ' ',
-                'menu_class' => 'primary-nav-list',
-                'echo' => true,
-                'before' => '',
-                'after' => '',
-                // 'link_before' => '<span class="primary-nav-link-text">',
-                // 'link_after' => '</span>',
-                'depth' => 0,
-                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s<li class="primary-nav-item primary-nav-search">
-                	<a id="primary-nav-link-search" class="primary-nav-link primary-nav-link-search" href="/search" aria-label="Search JSaRC" role="button" aria-haspopup="true"><span class="search-icon">Search JSaRC</span></a></li></ul>',
-                // 'items_wrap'  => '<ul class="%2$s">%3$s</ul>',
-                // 'walker' => new description_walker()
-                'walker' => new Walker_Quickstart_Menu()
-                )); ?>
+        
+        <div class="menu-wrapper">
+            <ul class="menu">
+                
+                <li class="menu-item dropdown">
+                
+                    <a class="menu-link" aria-haspopup="true" aria-expanded="false" href="/">National Security Priorities</a>
+                    
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/">Counterterrorism</a>
+                        </li>
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/">Economic crime</a>
+                        </li>
+                    </ul>
+                    
+                </li>
+                
+                <li class="menu-item dropdown">
+                    <a class="menu-link" aria-haspopup="true" aria-expanded="false" href="/our-work/">Our Work</a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/case-study/">Overseas Protect &#038; Prepare (OPP)</a>
+                    	</li>
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/case-study/">Securing crowded places</a>
+                    	</li>
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/case-study/">Future aviation security solutions</a>
+                    	</li>
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/case-study/">Border Force Coaches &#038; Cars</a>
+                    	</li>
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/case-study/">Video Analytics Showcase</a>
+                    	</li>
+                    </ul>
+                </li>
+                <li class="menu-item dropdown">
+                    <a class="menu-link" aria-haspopup="true" aria-expanded="false" href="/register/">News and Events</a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/register/">News Article or Event Promotion</a>
+                    	</li>
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/register/">Securities &#038; Policing</a>
+                    	</li>
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/register/">JSaRC Open Days</a>
+                    	</li>
+                    </ul>
+                </li>
+                <li class="menu-item dropdown">
+                    <a class="menu-link" aria-haspopup="true" aria-expanded="false" href="/about">About JSaRC</a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/about/">Our team</a>
+                    	</li>
+                        <li class="submenu-item">
+                        	<a class="submenu-link" href="/about/">Ethical policy</a>
+                    	</li>
+                    </ul>
+                </li>
+                <!-- 
+<li class="menu-item nav-search">
+                    <a menu-link-search" class="menu-link menu-link-search" href="/search" aria-label="Search JSaRC" role="button" aria-haspopup="true"><span class="search-icon">Search JSaRC</span></a>
+                </li>
+ -->
+            </ul>
         </div>
-        <form id="primary-nav-searchform" class="primary-nav-searchform" action="/search" method="get">
-            <div class="primary-nav-searchform-wrapper">
-                <input id="primary-nav-searchform-input" class="primary-nav-searchform-input" type="text" aria-label="Search Search JSaRC" placeholder="Search JSaRC" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" />
-                <button id="primary-nav-searchform-submit" class="primary-nav-searchform-submit" type="submit" disabled aria-label="Submit Search"></button>
-                <button id="primary-nav-searchform-reset" class="primary-nav-searchform-reset" type="reset" disabled aria-label="Clear Search"></button>
+        <!-- 
+<form id="nav-searchform" class="nav-searchform" action="/search" method="get">
+            <div class="nav-searchform-wrapper">
+                <input class="nav-searchform-input" type="text" aria-label="Search Search JSaRC" placeholder="Search JSaRC" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" />
+                <button class="nav-searchform-submit" type="submit" disabled aria-label="Submit Search"></button>
+                <button class="nav-searchform-reset" type="reset" disabled aria-label="Clear Search"></button>
             </div>
         </form>
-        <button id="primary-nav-searchview-close" class="primary-nav-searchview-close" aria-hidden="true">
-        <span class="primary-nav-searchview-close-wrapper">
-        <span class="primary-nav-searchview-close-left"></span>
-        <span class="primary-nav-searchview-close-right"></span>
-        </span>
+        
+        <button class="nav-searchview-close" aria-hidden="true">
+			<span class="nav-searchview-close-wrapper">
+				<span class="nav-searchview-close-left"></span>
+				<span class="nav-searchview-close-right"></span>
+			</span>
         </button>
+ -->
     </div>
-    <div class="nav-spacer"></div>
+
 </nav>
-<!-- 
-    <div id="primary-nav-curtain" class="primary-nav-curtain"></div>
-    <div id="primary-nav-placeholder" class="primary-nav-placeholder"></div>
-    -->
+<div class="nav-curtain"></div>
+<div class="nav-placeholder"></div>
 
 
 <script>
+
 document.addEventListener('DOMContentLoaded', function() {
 
-    var primaryNav = document.querySelector('#primary-nav'),
-        searchAnchor = primaryNav.querySelector('#primary-nav-link-search'),
-        primaryNavSearch = primaryNav.querySelector('#primary-nav-searchform-input'),
-        searchX = primaryNav.querySelector('#primary-nav-searchview-close'),
-        navAnchor = primaryNav.querySelector('.primary-nav-menuicon');
-
-    searchAnchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        primaryNav.classList.add('searchform-open');
-        primaryNavSearch.focus();
-    });
-
-    searchX.addEventListener('click', function(e) {
-        e.preventDefault();
-        primaryNav.classList.remove('searchform-open');
-    });
-
-    searchAnchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        primaryNav.classList.add('searchform-open');
-        primaryNavSearch.focus();
-    });
 
 
+	// Navigate through the nav with a tab
+	
+	
 
-    window.addEventListener('scroll', function() {
+	var dropdown = document.querySelectorAll('.dropdown');
+	
+
+	
+	
+
+	Array.prototype.forEach.call(dropdown, function(el, i){
+	
+		
+		
+		
+		
+		
+
+		
+		
+		var aa = el.querySelectorAll('a')[0];
+		var a = el.querySelectorAll('a');
+		
+		
+
+		
+			
+		aa.addEventListener('click', function( event ) {
+			
+			if (window.matchMedia('(max-width: 1024px)').matches) {
+				
+
+				if (el.classList.contains('expanded')) {
+					/*
+					aa.setAttribute('aria-expanded', 'false');
+					el.classList.remove('expanded');
+					*/
+				}
+				else {
+					event.preventDefault();
+					// siblings
+					Array.prototype.filter.call(el.parentNode.children, function(el){
+					
+						var siblingsaa = el.children[0];
+						
+						el.classList.remove('expanded');
+						siblingsaa.setAttribute('aria-expanded', 'false');
+						console.log(el);
+					});
+					
+					aa.setAttribute('aria-expanded', 'true');
+					el.classList.add('expanded');
+				}
+				
+			}
+
+
+		});
+		
+		
+		Array.prototype.forEach.call(a, function(el, i){
+			el.addEventListener('focus', function( event ) { 
+			cel.classList.add('expanded');
+				aa.setAttribute('aria-expanded', 'true');
+			
+			}, true);
+		});
+		
+
+		var ullia = el.querySelectorAll('ul li a');
+		 
+		var lastchild = ullia[ullia.length-1];
+		
+
+
+		lastchild.addEventListener('blur', function( event ) { 
+
+		 	
+			aa.setAttribute('aria-expanded', 'false');
+			el.classList.remove('expanded');
+		 
+			
+		}, true);
+		
+		/*
+		var blurred, focused;
+		Array.prototype.forEach.call(blurred, function(el, i){
+			a.addEventListener('blur', function( event ) {
+			
+				console.log(blurred);
+			
+				blurred = this;
+		
+			}, true);
+		});
+		*/
+
+		
+		
+	
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var nav = document.querySelector('.nav'),
+		navAnchor = document.querySelector('.nav-menu-icon');
+		 
+	
+	
+	window.addEventListener('scroll', function() {
 
         //var y = window.pageYOffset | document.body.scrollTop;
         var y = window.scrollY;
 
         if (y > 50) {
-            primaryNav.classList.add('sticky');
+            nav.classList.add('sticky');
         }
         else {
-            primaryNav.classList.remove('sticky');
+            nav.classList.remove('sticky');
         }
     });
 
     navAnchor.addEventListener('click', function() {
-        primaryNav.classList.toggle('nav-active');
+        nav.classList.toggle('nav-active');
     });
-    
-    
-    
-    
- /*   
-    
-var menuItems = document.querySelectorAll('.primary-nav-item.dropdown');
-
-Array.prototype.forEach.call(menuItems, function(el, i){
-	el.addEventListener('mouseover', function(event){
-		this.classList.add = "open";
-		clearTimeout(timer);
-	});
-	el.addEventListener('mouseout', function(event){
-		timer = setTimeout(function(event){
-			document.querySelector('.primary-nav-item.dropdown.open').classList.remove = 'open';
-		}, 1000);
-	});
-});
-*/ 
-    
-    
-    
-    
-var navItems = document.querySelectorAll('.primary-nav-item.dropdown');
-
-Array.prototype.forEach.call(navItems, function(el, i){
 	
-	el.addEventListener("mouseover",  function(event){
-		this.classList.add('active');
-		this.querySelector('a').setAttribute('aria-expanded', "true");
-	});
-	el.addEventListener("mouseout",  function(event){
-		this.classList.remove('active');
-		this.querySelector('a').setAttribute('aria-expanded', "false");
-	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-});
+
+
+
+
+
+
+
 </script>
