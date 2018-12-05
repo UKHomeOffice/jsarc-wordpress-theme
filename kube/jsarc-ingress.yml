@@ -12,10 +12,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - jsarc-web.notprod.jsarc.homeoffice.gov.uk
+        - web.notprod.jsarc.homeoffice.gov.uk
       secretName: jsarcweb
   rules:
-    - host: jsarc-web.notprod.jsarc.homeoffice.gov.uk
+    - host: web.notprod.jsarc.homeoffice.gov.uk
       http:
         paths:
           - backend:
