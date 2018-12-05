@@ -14,8 +14,18 @@ spec:
     - hosts:
         - web.notprod.jsarc.homeoffice.gov.uk
       secretName: jsarcweb
+    - hosts:
+        - jsarc-theme.notprod.jsarc.homeoffice.gov.uk
+      secretName: jsarctheme
   rules:
     - host: web.notprod.jsarc.homeoffice.gov.uk
+      http:
+        paths:
+          - backend:
+              serviceName: jsarc
+              servicePort: 8080
+            path: /
+    - host: jsarc-theme.notprod.jsarc.homeoffice.gov.uk
       http:
         paths:
           - backend:
