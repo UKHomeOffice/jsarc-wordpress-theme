@@ -1,0 +1,41 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jsarc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: jsarc
+    spec:
+      securityContext:
+        runAsUser: 33
+      containers:
+        - name: jsarc-wordpress
+          image: {{ .IMAGE_URL }}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+          env:
+            - name: WORDPRESS_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: jsarc-rds
+                  key: username
+            - name: WORDPRESS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: jsarc-rds
+                  key: password
+            - name: WORDPRESS_DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: jsarc-rds
+                  key: default_db
+            - name: WORDPRESS_DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: jsarc-rds
+                  key: endpoint 

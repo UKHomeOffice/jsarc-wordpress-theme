@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 function wp_plugin_install() {
-su www-data -s /bin/sh -c "wp plugin install $1 --activate"
-
+wp plugin install $1 --activate
 }
+
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 
 wp_plugin_install wordpress-importer
@@ -19,4 +19,3 @@ ln -s /var/www/jsarc /var/www/html/wp-content/themes/jsarc
 fi
 
 $@
-
