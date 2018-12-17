@@ -317,7 +317,7 @@ add_action( 'init', 'register_jsarc_primary_nav' );
 
 // class description_walker extends Walker_Nav_Menu {
 class Walker_Quickstart_Menu extends Walker_Nav_Menu {
-
+//  function start_el(&$output, $item, $depth, $args) {
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
 	global $wp_query;
@@ -325,41 +325,41 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	
 	$class_names = $value = '';
 	$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-
 	
-	if ($args->walker->has_children && $depth === 0) {
+	
+	 if ($args->walker->has_children) {
+	  if (0 === $depth) {
 		$classes[] = 'dropdown';
+	  } else {
+		$classes[] = 'dropdown-submenu';
+	  }
 	} 
 	
+		
 	$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
-	
-	if($depth != 0) {
-		$class_names = ' class="sub-menu-item '. esc_attr( $class_names ) . '"';
-	}
-	else {
-		$class_names = ' class="menu-item '. esc_attr( $class_names ) . '"';
-	}
+	$class_names = ' class="primary-nav-item '. esc_attr( $class_names ) . '"';
+	//$output .= $indent . '<li id="primary-nav-item-'. $item->ID . '"' . $value . $class_names .'>';
 	$output .= $indent . '<li ' . $value . $class_names .'>';
 	
-	$attributes = ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-
-	$prepend = '<span class="link-text">';
+	$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+	$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+	$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+	$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+	$description  = ! empty( $item->description ) ? '<span>'.esc_attr( $item->description ).'</span>' : '';
+	/*
+	$prepend = '<span>';
 	$append = '</span>';
+	*/
+	$description  = ! empty( $item->description ) ? ' <span class="hidden">'.esc_attr( $item->description ).'</span>' : '';
 
-
+	if($depth != 0) {
+		$description = $append = $prepend = "";
+	}
 
 	$item_output = $args->before;
-	if($depth != 0) {
-		$item_output .= '<a class="sub-menu-link"'. $attributes .'>';
-	}
-	
-	else if ($args->walker->has_children && $depth === 0) {
-		$item_output .= '<a class="menu-link" aria-haspopup="true" aria-expanded="false"'. $attributes .'>';
-	}
-	else {
-		$item_output .= '<a class="menu-link"'. $attributes .'>';
-	}
+	$item_output .= '<a class="primary-nav-link" aria-haspopup="true" aria-expanded="false"'. $attributes .'>';
 	$item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
+	$item_output .= $description.$args->link_after;
 	$item_output .= '</a>';
 	$item_output .= $args->after;
 
