@@ -37,4 +37,5 @@ pipeline:
       - chmod +x bin/deploy.sh
       - bin/deploy.sh
     when:
-      event: deployment
+      branch: master
+      event: push 
