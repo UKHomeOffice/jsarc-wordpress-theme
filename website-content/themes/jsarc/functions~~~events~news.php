@@ -391,21 +391,46 @@ add_filter('nav_menu_css_class', 'remove_css_id_filter', 100, 1);
 ***********************************************************************************/
 
 
-
-
-
-
-
-
-
-
+/**
+ *  Rename the default "Posts" to "News"
+ */
+ /*
+ function revcon_change_post_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'News';
+    $submenu['edit.php'][5][0] = 'News';
+    $submenu['edit.php'][10][0] = 'Add News';
+    $submenu['edit.php'][16][0] = 'News Tags';
+}
+function revcon_change_post_object() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'News';
+    $labels->singular_name = 'News';
+    $labels->add_new = 'Add News';
+    $labels->add_new_item = 'Add News';
+    $labels->edit_item = 'Edit News';
+    $labels->new_item = 'News';
+    $labels->view_item = 'View News';
+    $labels->search_items = 'Search News';
+    $labels->not_found = 'No News found';
+    $labels->not_found_in_trash = 'No News found in Trash';
+    $labels->all_items = 'All News';
+    $labels->menu_name = 'News';
+    $labels->name_admin_bar = 'News';
+}
+ 
+add_action( 'admin_menu', 'revcon_change_post_label' );
+add_action( 'init', 'revcon_change_post_object' );
+*/
 
 /**
  *  Adding News Tab To Admin Menu
  */
 
 // register custom post type to work with
-function lc_create_news_post_type() {
+function lc_create_post_type_news() {
 	// set up labels
 	$labels = array (
 		'name' => 'News',
@@ -436,7 +461,55 @@ function lc_create_news_post_type() {
 	)
 	);
 }
-add_action( 'init', 'lc_create_news_post_type' );
+ add_action( 'init', 'lc_create_post_type_news' );
+
+/*------------- ADDING TEMPLATE FOR NEWS ------------------*/
+/*
+add_action('init', 'add_news_show_endpoint');
+
+function add_news_show_endpoint() {
+  add_rewrite_endpoint( 'show', EP_PERMALINK );
+}
+
+add_action('wp_head', 'set_news_permalink_filter');
+
+function set_news_permalink_filter() {
+  $single_templates = array(
+    // page template => endpoint to use
+    //'page-whatever.php' => 'whatever',
+    'single-news.php' => 'media'
+    
+  );
+  foreach ( $single_templates as $page => $endpoint) {
+    if ( is_page_template($page) ) {
+      global $news_endpoint;
+      $news_endpoint = $endpoint;
+      add_filter('post_link', 'news_permalink', 99, 3);
+      return;
+    }
+  }
+}
+
+function news_permalink ($permalink, $post, $leavename) {
+  if ( $post->post_type != 'news' ) return $permalink;
+  global $news_endpoint;
+  if ( empty($news_endpoint) ) return $permalink;
+  return user_trailingslashit($permalink) . 'show/' . $news_endpoint . '/';
+}
+
+add_filter('template_include', 'single_news_template');
+
+function single_news_template( $template ) {
+  if ( ! is_single('news') ) return $template;
+  global $wp_query;
+  $show = $wp_query->get('show');
+  if ( empty($show) ) return $template;
+  $file = locate_template( 'single-news-' . $show . '.php', true, false );
+  return $file ? : $template;
+}
+*/
+/*-------------- \END ADDING TEMPLATE FOR NEWS --------------*/
+
 
 
 /**
@@ -444,7 +517,7 @@ add_action( 'init', 'lc_create_news_post_type' );
  */
 
 // register custom post type to work with
-function lc_create_events_post_type() {
+function lc_create_post_type() {
 	// set up labels
 	$labels = array (
 		'name' => 'Events',
@@ -475,24 +548,73 @@ function lc_create_events_post_type() {
 	)
 	);
 }
-add_action( 'init', 'lc_create_events_post_type' );
+ add_action( 'init', 'lc_create_post_type' );
 
+/*-------------- ADDING TEMPLATE FOR EVENTS -----------------*/
+/*
+add_action('init', 'add_show_endpoint');
+
+function add_show_endpoint() {
+  add_rewrite_endpoint( 'show', EP_PERMALINK );
+}
+
+add_action('wp_head', 'set_event_permalink_filter');
+
+function set_event_permalink_filter() {
+  $single_templates = array(
+    // page template => endpoint to use
+    //'page-whatever.php' => 'whatever',
+    'single-event.php' => 'media'
+    
+  );
+  foreach ( $single_templates as $page => $endpoint) {
+    if ( is_page_template($page) ) {
+      global $event_endpoint;
+      $event_endpoint = $endpoint;
+      add_filter('post_link', 'event_permalink', 99, 3);
+      return;
+    }
+  }
+}
+
+function event_permalink ($permalink, $post, $leavename) {
+  if ( $post->post_type != 'events' ) return $permalink;
+  global $event_endpoint;
+  if ( empty($event_endpoint) ) return $permalink;
+  return user_trailingslashit($permalink) . 'show/' . $event_endpoint . '/';
+}
+
+add_filter('template_include', 'single_event_template');
+
+function single_event_template( $template ) {
+  if ( ! is_single('events') ) return $template;
+  global $wp_query;
+  $show = $wp_query->get('show');
+  if ( empty($show) ) return $template;
+  $file = locate_template( 'single-events-' . $show . '.php', true, false );
+  return $file ? : $template;
+}
+*/
+/*-------------- \END ADDING TEMPLATE FOR EVENTS -----------------*/
+
+
+
+/*
+remove_menu_page( 'edit.php' );                   //Posts
+remove_menu_page( 'index.php' );                 //Dashboard
+remove_menu_page( 'upload.php' );                 //Media
+remove_menu_page( 'edit.php?post_type=page' );   //Pages
+remove_menu_page( 'edit-comments.php' );         //Comments
+remove_menu_page( 'themes.php' );                 //Appearance
+remove_menu_page( 'plugins.php' );               //Plugins
+remove_menu_page( 'users.php' );                 //Users
+remove_menu_page( 'tools.php' );                 //Tools
+remove_menu_page( 'options-general.php' );       //Settings
+*/
 
 // Removes tabs from admin menu
 add_action( 'admin_menu', 'my_remove_admin_menus' );
 function my_remove_admin_menus() {
-	/*
-	remove_menu_page( 'edit.php' );                   //Posts
-	remove_menu_page( 'index.php' );                 //Dashboard
-	remove_menu_page( 'upload.php' );                 //Media
-	remove_menu_page( 'edit.php?post_type=page' );   //Pages
-	remove_menu_page( 'edit-comments.php' );         //Comments
-	remove_menu_page( 'themes.php' );                 //Appearance
-	remove_menu_page( 'plugins.php' );               //Plugins
-	remove_menu_page( 'users.php' );                 //Users
-	remove_menu_page( 'tools.php' );                 //Tools
-	remove_menu_page( 'options-general.php' );       //Settings
-	*/
 	remove_menu_page( 'edit.php' ); //Posts
     remove_menu_page( 'edit-comments.php' ); //Comments
 }
