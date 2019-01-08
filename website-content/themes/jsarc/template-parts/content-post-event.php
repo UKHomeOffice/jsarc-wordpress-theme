@@ -243,7 +243,6 @@ get_header();
 
 </style>
 
-<main>
 	<nav class="breadcrumbs">
 		<div class="section-content">
 			<ul class="breadcrumbs-list">
@@ -369,7 +368,7 @@ get_header();
 			</div>
 		</article>
 	</section>	
-</main>
+
 
 <?php
 get_footer();
@@ -390,3 +389,8 @@ document.addEventListener('DOMContentLoaded',function() {
 	});
 });
 </script>
+
+
+
+
+
