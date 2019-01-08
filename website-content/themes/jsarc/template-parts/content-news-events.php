@@ -116,7 +116,7 @@ get_header();
 
 .section.news .post.featured .text-wrapper {
 	margin-left: 58.5%;
-} 
+}
 
 
 @media only screen and (max-width: 1068px) {
