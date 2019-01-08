@@ -116,7 +116,7 @@ get_header();
 
 .section.news .post.featured .text-wrapper {
 	margin-left: 58.5%;
-}
+} 
 
 
 @media only screen and (max-width: 1068px) {
@@ -154,7 +154,7 @@ get_header();
 .section.news .post .date,
 .section.news .post .tags {
 	font-size: 14px;
-	line-height: 2;
+	line-height: 2 ;
 }
 
 .section.news .post .tags {
