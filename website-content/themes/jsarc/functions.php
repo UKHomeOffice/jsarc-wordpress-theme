@@ -392,122 +392,47 @@ add_filter('nav_menu_css_class', 'remove_css_id_filter', 100, 1);
 
 
 
-
-
-
-
-
-
-
-
 /**
- *  Adding News Tab To Admin Menu
+ * Enabling Support for Post Thumbnails
  */
+add_theme_support( 'post-thumbnails' );
+ 
 
-// register custom post type to work with
-function lc_create_news_post_type() {
-	// set up labels
-	$labels = array (
-		'name' => 'News',
-		'singular_name' => 'News',
-		'add_new' => 'Add New News',
-		'add_new_item' => 'Add New News',
-		'edit_item' => 'Edit News',
-		'new_item' => 'New News',
-		'all_items' => 'All News',
-		'view_item' => 'View News',
-		'search_items' => 'Search News',
-		'not_found' => 'No News Found',
-		'not_found_in_trash' => 'No News found in Trash',
-		'parent_item_colon' => '',
-		'menu_name' => 'News',
-	);
-	//register post type
-	register_post_type ( 'news', array(
-		'labels' => $labels,
-		'has_archive' => true,
-		'public' => true,
-		//'supports' => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
-		'supports' => array( 'title', 'custom-fields', 'thumbnail','page-attributes' ),
-		'taxonomies' => array( 'post_tag', 'category' ),
-		'exclude_from_search' => false,
-		'capability_type' => 'post',
-		'rewrite' => array( 'slug' => 'news' ),
-	)
-	);
-}
-add_action( 'init', 'lc_create_news_post_type' );
-
-
-/**
- *  Adding Events Tab To Admin Menu
- */
-
-// register custom post type to work with
-function lc_create_events_post_type() {
-	// set up labels
-	$labels = array (
-		'name' => 'Events',
-		'singular_name' => 'Event',
-		'add_new' => 'Add New Event',
-		'add_new_item' => 'Add New Event',
-		'edit_item' => 'Edit Event',
-		'new_item' => 'New Event',
-		'all_items' => 'All Events',
-		'view_item' => 'View Event',
-		'search_items' => 'Search Events',
-		'not_found' => 'No Events Found',
-		'not_found_in_trash' => 'No Events found in Trash',
-		'parent_item_colon' => '',
-		'menu_name' => 'Events',
-	);
-	//register post type
-	register_post_type ( 'event', array(
-		'labels' => $labels,
-		'has_archive' => true,
-		'public' => true,
-		//'supports' => array( 'title', 'editor', 'excerpt', 'custom-fields', 'thumbnail','page-attributes' ),
-		'supports' => array( 'title', 'custom-fields', 'thumbnail','page-attributes' ),
-		'taxonomies' => array( 'post_tag', 'category' ),
-		'exclude_from_search' => false,
-		'capability_type' => 'post',
-		'rewrite' => array( 'slug' => 'events' ),
-	)
-	);
-}
-add_action( 'init', 'lc_create_events_post_type' );
-
-
-// Removes tabs from admin menu
-add_action( 'admin_menu', 'my_remove_admin_menus' );
-function my_remove_admin_menus() {
-	/*
-	remove_menu_page( 'edit.php' );                   //Posts
-	remove_menu_page( 'index.php' );                 //Dashboard
-	remove_menu_page( 'upload.php' );                 //Media
-	remove_menu_page( 'edit.php?post_type=page' );   //Pages
-	remove_menu_page( 'edit-comments.php' );         //Comments
-	remove_menu_page( 'themes.php' );                 //Appearance
-	remove_menu_page( 'plugins.php' );               //Plugins
-	remove_menu_page( 'users.php' );                 //Users
-	remove_menu_page( 'tools.php' );                 //Tools
-	remove_menu_page( 'options-general.php' );       //Settings
-	*/
-	remove_menu_page( 'edit.php' ); //Posts
-    remove_menu_page( 'edit-comments.php' ); //Comments
-}
-
-// Removes comment from post and pages
-add_action('init', 'remove_comment_support', 100);
-
-function remove_comment_support() {
-    remove_post_type_support( 'post', 'comments' );
-    remove_post_type_support( 'page', 'comments' );
-}
-// Removes comment from admin bar
-function mytheme_admin_bar_render() {
-    global $wp_admin_bar;
-    $wp_admin_bar->remove_menu('comments');
-}
-add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
