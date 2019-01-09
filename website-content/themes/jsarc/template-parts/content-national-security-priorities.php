@@ -197,7 +197,6 @@ get_header();
 	.section.engaging:before {
 		display: none;
 	}
-	 
 	.section.engaging .blue .column-content {
 		padding-bottom: 50px;
 		padding-right: 0;
