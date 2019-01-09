@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-function wp_plugin_install() {
-wp plugin install $1 --activate
-}
 
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 
