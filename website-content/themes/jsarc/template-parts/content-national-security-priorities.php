@@ -343,19 +343,7 @@ get_header();
 			
 		
 		
-		
-		 
-		
-				
-	
-	
-		
-		
-		
-		
-		
-		
-		<?php if ( have_rows( 'section_engaging' ) ) : ?>
+<?php if ( have_rows( 'section_engaging' ) ) : ?>
 	<?php while ( have_rows( 'section_engaging' ) ) : the_row(); ?>
 	
 	<section class="section engaging">
@@ -384,11 +372,6 @@ get_header();
 	</section>
 	<?php endwhile; ?>
 <?php endif; ?>
-		
-		
-		
-		
-		
 		
 		
 		
