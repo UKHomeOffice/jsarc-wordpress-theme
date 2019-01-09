@@ -47,6 +47,7 @@ html.noscroll body {
     display: block;
     overflow: hidden;
     position: absolute;
+    z-index: 1;
     top: 0;
     bottom: 0;
     width: 178px;
