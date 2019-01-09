@@ -25,7 +25,6 @@ get_header();
 	background-size: cover;
 	background-position: 50% 50%;
 	background-image: url("<?php the_field( 'hero_image' ); ?>");
-	background-image: url("/wp-content/themes/jsarc/img/v/news/a/news-hero.png");
 }
 
 .post .post-headline {
@@ -56,9 +55,33 @@ get_header();
 	margin-bottom: 50px;
 	border-bottom: 1px solid #979797;
 }
+.post .news-text ul,
+.post .news-text ol,
 .post .news-text p {
 	margin-bottom: 1em;
 }
+
+.post .news-text ul li {
+	margin-left: 1em;
+	list-style: none;
+}
+.post .news-text ul li:before {
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	width: 5px;
+	height: 5px;
+	background-color: #000;
+	border-radius: 50%;
+	margin-right: 1em;
+}
+
+.post .news-text ol {
+	margin-left: 1em;
+}
+.post .news-text li {
+   margin-left: 1em;
+ }
 
 
 .gallery {
@@ -365,25 +388,45 @@ get_header();
 	
 	
 	
-	<section class="section related">
-		<div class="section-content">
-			<h4 class="related-posts-title"><?php the_field( 'related_news_title' ); ?></h4>
+	
 			
 			
 			
-			<ul class="row related-list">
+		<section class="section related">
+		<div class="section-content">	
+			
+			
 			<?php
-		$args = array(
-		'post_type' => 'post',
-		'post_status' => 'publish',
-		'category_name' => 'news',
-		'posts_per_page' => 3,
-		);
-		$arr_posts = new WP_Query($args);
-		if ($arr_posts->have_posts()):
-			while ($arr_posts->have_posts()):
-				$arr_posts->the_post();?>
-				<li class="column large-4 small-12 related-list-item">
+//for use in the loop, list 3 post titles related to first tag on current post
+$tags = wp_get_post_tags($post->ID);
+
+
+
+
+if ($tags) {
+$tag_ids = array();
+foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
+$args=array(
+'tag__in' => $tag_ids,
+
+
+
+'post__not_in' => array($post->ID),
+'posts_per_page'=>3,
+'orderby'=>'rand',
+'caller_get_posts'=>1,
+'category_name' => 'news',
+);
+$my_query = new WP_Query($args);
+if( $my_query->have_posts() ) {
+?>
+
+<h4 class="related-posts-title"><?php the_field( 'related_news_title' ); ?></h4>
+<ul class="row related-list">
+<?php
+while ($my_query->have_posts()) : $my_query->the_post(); ?>
+
+<li class="column large-4 small-12 related-list-item">
 					<a class="related-list-item-link" href="<?php the_permalink(); ?>">
 						<div class="related-list-item-image">
 							<?php if (has_post_thumbnail()): ?>
@@ -417,17 +460,13 @@ get_header();
 						</div>
 					</a>
 				</li>
-				
-				
-				<?php 
-			endwhile;
-		endif;
-		?>
-			</ul>
-			
-			
-			
-			<?php if ( have_rows( 'see_all_button' ) ) : ?>
+ </ul>	
+<?php
+endwhile;  
+}
+wp_reset_query();
+}
+ if ( have_rows( 'see_all_button' ) ) : ?>
 				<?php while ( have_rows( 'see_all_button' ) ) : the_row(); ?>
 					<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?></a>
 				<?php endwhile; ?>
@@ -450,10 +489,21 @@ get_header();
 					echo $html;
 				?>
 			</div>
+</div>
+	</section>			
 			
 			
-		</div>
-	</section>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		
 	
 	<?php get_template_part( 'template-parts/content', 'section-register'); ?>
 

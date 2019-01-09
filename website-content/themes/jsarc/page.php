@@ -44,6 +44,12 @@ get_header();
 			if( is_page( 'news-events') ) {
 				get_template_part( 'template-parts/content', 'news-events');
 			}
+			
+			if( is_page( 'national-security-priorities') ) {
+				get_template_part( 'template-parts/content', 'national-security-priorities');
+			}
+			
+			
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			// if ( comments_open() || get_comments_number() ) :

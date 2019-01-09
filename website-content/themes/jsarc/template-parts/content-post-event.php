@@ -19,9 +19,11 @@ get_header();
 	height: 300px;
 	background-size: cover;
 	background-position: 80% 50%;
-	/*background-image: url("<?php the_field( 'hero_image' ); ?>");*/
-	background-image: url("/wp-content/themes/jsarc/img/v/about/b/about-header-bg.png");
+	background-image: url("<?php if ( have_rows( 'section_overview' ) ) : while ( have_rows( 'section_overview' ) ) : the_row(); the_sub_field( 'hero_image' ); endwhile; endif; ?>");
 }
+
+
+
 
 .article-header .section-content {
 	display: table;
@@ -225,6 +227,32 @@ get_header();
 }
 
 
+.article-details .details-text ul,
+.article-details .details-text ol,
+.article-details .details-text p {
+margin-bottom: 1em;
+}
+.article-details .details-text ul li {
+	margin-left: 1em;
+	list-style: none;
+}
+.article-details .details-text ul li:before {
+	content: '';
+	display: inline-block;
+	vertical-align: middle;
+	width: 5px;
+	height: 5px;
+	background-color: #000;
+	border-radius: 50%;
+	margin-right: 1em;
+}
+
+.article-details .details-text ol {
+	margin-left: 1em;
+}
+.article-details .details-text ol li {
+   margin-left: 1em;
+ }
 
 
 .article-more {
@@ -241,7 +269,38 @@ get_header();
 }
 
 
+
+.article-details .event-images {
+	
+}
+
+.article-details .event-images li {
+	display: block;
+	margin-bottom: 70px;
+	width: 90%;
+	max-width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.article-details .event-images li .image {
+	display: block;
+	width: 100%;
+	height: auto;
+	padding-bottom: 66.666%;
+	background-size: cover;
+	
+}
+
+@media only screen and (max-width: 1068px) {
+	.article-details .event-images li {
+		margin-bottom: 50px;
+	}
+}
 </style>
+
+
+
 
 	<nav class="breadcrumbs">
 		<div class="section-content">
@@ -260,7 +319,7 @@ get_header();
 				<figure class="hero-image"></figure>
 				<div class="section-content">
 					<div class="headline-wrapper">
-						<h1 class="hero-headline"><span><?php the_sub_field( 'headline' ); ?></span></h1>
+						<h1 class="hero-headline"><span><?php the_title(); ?></span></h1>
 					</div>
 				</div>
 			</div>
@@ -348,12 +407,38 @@ get_header();
 						<div class="column large-7 small-12">
 							<h3 class="title"><?php the_sub_field( 'title' ); ?></h3>
 							<div class="details-text"><?php the_sub_field( 'text' ); ?></div>
-						<?php endwhile; ?>
-					<?php endif; ?>
+						
 						</div>
 						<div class="column large-4 large-last small-12">
+						
+						
+						
+						
+						<?php 
+					$images = get_sub_field('images');
+					if( $images ): ?>
+			 
+					<ul class="event-images">
+						<?php foreach( $images as $image ): ?>
+							<li>
+								<figure class="image" style="background-image:url(<?php echo $image['url']; ?>"></figure>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+				<?php endif; ?>
+						
+						
+						
+						
+						
+						
+						
+						
 						</div>
 					</div>
+				<?php endwhile; ?>
+				<?php endif; ?>
 				</div>
 			</div>
 			
@@ -369,7 +454,7 @@ get_header();
 		</article>
 	</section>	
 
-
+<?php get_template_part( 'template-parts/content', 'section-register'); ?>
 <?php
 get_footer();
 ?>
