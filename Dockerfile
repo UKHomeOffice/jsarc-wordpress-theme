@@ -30,7 +30,7 @@ RUN  mkdir -p /var/www/themes/
 
 COPY apache2-startwp.sh /usr/local/bin
 COPY website-content/themes/jsarc/ /var/www/themes/jsarc
-RUN chown www-data:www-data -R /var/www/html/wp-content 
+#RUN chown www-data:www-data -R /var/www 
 RUN chown www-data:www-data -R /var/www/themes
 RUN chown www-data:www-data -R /var/log/apache2
 
