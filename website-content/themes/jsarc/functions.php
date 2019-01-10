@@ -410,12 +410,12 @@ add_theme_support( 'post-thumbnails' );
 
 
 // 1. customize ACF path
-add_filter('advanced-custom-fields-pro/settings/path', 'my_acf_settings_path');
+add_filter('acf/settings/path', 'my_acf_settings_path');
  
 function my_acf_settings_path( $path ) {
  
     // update path
-    $path = get_stylesheet_directory() . '/advanced-custom-fields-pro/';
+    $path = get_stylesheet_directory() . '/acf/';
     
     // return
     return $path;
@@ -424,12 +424,12 @@ function my_acf_settings_path( $path ) {
  
 
 // 2. customize ACF dir
-add_filter('advanced-custom-fields-pro/settings/dir', 'my_acf_settings_dir');
+add_filter('acf/settings/dir', 'my_acf_settings_dir');
  
 function my_acf_settings_dir( $dir ) {
  
     // update path
-    $dir = get_stylesheet_directory_uri() . '/advanced-custom-fields-pro/';
+    $dir = get_stylesheet_directory_uri() . '/acf/';
     
     // return
     return $dir;
@@ -438,11 +438,11 @@ function my_acf_settings_dir( $dir ) {
  
 
 // 3. Hide ACF field group menu item
-add_filter('advanced-custom-fields-pro/settings/show_admin', '__return_false');
+add_filter('acf/settings/show_admin', '__return_false');
 
 
 // 4. Include ACF
-include_once( get_stylesheet_directory() . '/advanced-custom-fields-pro/acf.php' );
+include_once( get_stylesheet_directory() . '/acf/acf.php' );
 
  
  
