@@ -27,8 +27,10 @@ RUN set -ex; \
 
 
 RUN  mkdir -p /var/www/themes/
+RUN  mkdir -p /var/www/plugins/
 COPY apache2-startwp.sh /usr/local/bin
 COPY website-content/themes/jsarc/ /var/www/themes/jsarc
+COPY website-content/plugins/ /var/www/plugins 
 RUN chown www-data:www-data -R /var/www/themes
 RUN chown www-data:www-data -R /var/log/apache2
 
