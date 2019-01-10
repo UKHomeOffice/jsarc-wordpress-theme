@@ -27,7 +27,6 @@ RUN set -ex; \
 
 
 RUN  mkdir -p /var/www/themes/
-RUN  mkdir -p /var/www/html/wp-content/media 
 
 COPY apache2-startwp.sh /usr/local/bin
 COPY website-content/themes/jsarc/ /var/www/themes/jsarc
