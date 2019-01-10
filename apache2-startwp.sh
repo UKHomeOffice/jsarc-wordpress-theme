@@ -2,7 +2,9 @@
 
 
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
-cp -r /var/www/plugins    /var/www/html/wp-content/plugins/
+
+rm -rf /var/www/html/wp-content/uploads
+rm -rf /var/www/html/wp-content/plugins
 
 
 if [ -d "/var/www/jsarc" ] ; then
