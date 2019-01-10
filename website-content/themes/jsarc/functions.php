@@ -474,8 +474,6 @@ function my_acf_json_load_point( $paths ) {
     return $paths;
     
 }
- 
-
 
  
  
