@@ -6,7 +6,6 @@ RUN apt-get update && apt-get install -y gnupg2
 RUN echo "Listen 8081" > /etc/apache2/ports.conf && \
     sed -i /VirtualHost/s/80/8081/ /etc/apache2/sites-available/000-default.conf
 
-RUN echo "define( ‘UPLOADS’, ‘wp-content/media');" > /var/www/html/wp-config.php 
 
 ENV WORDPRESS_CLI_GPG_KEY 63AF7AA15067C05616FDDD88A3A2E8F226F0BC06
 
