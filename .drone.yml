@@ -7,7 +7,7 @@ pipeline:
     commands:
       - docker build -t jsarc-wordpress .
     when:
-      branch: plugins_test
+      branch: master
       event: push
 
   push_to_quay:
@@ -21,7 +21,7 @@ pipeline:
       - docker tag jsarc-wordpress quay.io/ukhomeofficedigital/osct-jsarc:$${DRONE_COMMIT_SHA}
       - docker push quay.io/ukhomeofficedigital/osct-jsarc:$${DRONE_COMMIT_SHA}
     when:
-      branch: plugins_test
+      branch: master
       event: push
 
   deploy_to_kube:
@@ -37,5 +37,5 @@ pipeline:
       - chmod +x bin/deploy.sh
       - bin/deploy.sh
     when:
-      branch: plugins_test
-      event: push 
+      branch: master
+      event: push
