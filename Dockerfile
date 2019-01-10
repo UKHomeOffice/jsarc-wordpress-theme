@@ -27,6 +27,7 @@ RUN set -ex; \
 
 
 RUN  mkdir -p /var/www/themes/
+RUN  mkdir -p /var/www/temp/ 
 
 
 COPY apache2-startwp.sh /usr/local/bin
