@@ -5,12 +5,11 @@ www-data -s /bin/sh -c "wp plugin install $1 --activate"
 
 }
 
-cp -r /var/www/html/wp-content/media/* /var/www/temp/
+
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 
-echo "define( 'UPLOADS', 'wp-content/media');" >> /var/www/html/wp-config.php
-mkdir -p /var/www/html/wp-content/media/
-cp -r /var/www/temp/* /var/www/html/wp-content/media/
+echo "define( 'UPLOADS', '/var/www/media');" >> /var/www/html/wp-config.php
+
 
 
 
