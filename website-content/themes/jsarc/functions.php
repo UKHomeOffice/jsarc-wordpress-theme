@@ -401,14 +401,7 @@ add_theme_support( 'post-thumbnails' );
 
 
 
-
-
-
-
-
-
-
-
+ 
 // 1. customize ACF path
 add_filter('acf/settings/path', 'my_acf_settings_path');
  
@@ -438,26 +431,51 @@ function my_acf_settings_dir( $dir ) {
  
 
 // 3. Hide ACF field group menu item
-add_filter('acf/settings/show_admin', '__return_false');
+// add_filter('acf/settings/show_admin', '__return_false');
 
 
 // 4. Include ACF
 include_once( get_stylesheet_directory() . '/acf/acf.php' );
 
  
+
+
+
+
+
+
+// ACF JSON save
+add_filter('acf/settings/save_json', 'my_acf_json_save_point');
  
+function my_acf_json_save_point( $path ) {
+    
+    // update path
+    $path = get_stylesheet_directory() . 'acf-json';
+    
+    
+    // return
+    return $path;
+    
+}
+// ACF JSON load
+add_filter('acf/settings/load_json', 'my_acf_json_load_point');
+
+function my_acf_json_load_point( $paths ) {
+    
+    // remove original path (optional)
+    unset($paths[0]);
+    
+    
+    // append path
+    $paths[] = get_stylesheet_directory() . 'acf-json';
+    
+    
+    // return
+    return $paths;
+    
+}
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
  
  
  
