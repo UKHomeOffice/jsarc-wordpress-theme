@@ -8,7 +8,7 @@ www-data -s /bin/sh -c "wp plugin install $1 --activate"
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 
 echo "define( 'UPLOADS', 'wp-content/media');" >> /var/www/html/wp-config.php
-
+mkdir -p /var/www/html/wp-content/media/
 
 
 
