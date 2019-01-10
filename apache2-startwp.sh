@@ -7,7 +7,7 @@ www-data -s /bin/sh -c "wp plugin install $1 --activate"
 
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 cp -r /var/www/html/wp-content/uploads /var/www/temp
-cp -r /var/www/temp /var/www/html/wp-content/uploads 
+
 
 
 
@@ -22,5 +22,8 @@ if [ -d "/var/www/jsarc" ] ; then
 rm -rf /var/www/html/wp-content/themes/jsarc
 ln -s /var/www/jsarc /var/www/html/wp-content/themes/jsarc
 fi
+
+cp -r /var/www/temp /var/www/html/wp-content/uploads
+
 
 $@
