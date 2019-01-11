@@ -9,7 +9,7 @@ www-data -s /bin/sh -c "wp plugin install $1 --activate"
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 
 echo "define('UPLOADS', '' . 'images');" >> /var/www/html/wp-config.php
-echo "define('WP_PLUGIN_DIR', '' . '../website-content/themes/jsarc/plugins');" >> /var/www/html/wp-includes/default-constants.php
+echo "define('WP_PLUGIN_DIR', '' . '../wp-content/themes/jsarc/plugins');" >> /var/www/html/wp-includes/default-constants.php
 
 
 
