@@ -12,7 +12,7 @@ echo "define('WP_PLUGIN_DIR', '' . '../wp-content/themes/jsarc/plugins');" >> /v
 echo "define('WP_PLUGIN_URL', '' . '/wp-content/themes/jsarc/plugins');" >> /var/www/html/wp-includes/default-constants.php
 
 
-echo "echo wp_make_link_relative('https://web.notprod.jsarc.homeoffice.gov.uk/');" >> /var/www/html/wp-includes/formatting.php
+# echo "echo wp_make_link_relative('https://web.notprod.jsarc.homeoffice.gov.uk/');" >> /var/www/html/wp-includes/formatting.php
 echo "add_filter( 'the_sub_field', 'wp_make_link_relative');" >> /var/www/html/wp-includes/formatting.php
 echo "add_filter( 'the_field', 'wp_make_link_relative');" >> /var/www/html/wp-includes/formatting.php
 
