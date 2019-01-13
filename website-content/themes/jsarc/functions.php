@@ -489,7 +489,8 @@ $s3 = "https://s3-eu-west-2.amazonaws.com/jsarc-test/";
 
 
 
-
+add_filter( 'the_field', 'wp_make_link_relative' );
+add_filter( 'the_sub_field', 'wp_make_link_relative' );
 
 
 
