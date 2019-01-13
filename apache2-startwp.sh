@@ -25,5 +25,4 @@ ln -s /var/www/jsarc /var/www/html/wp-content/themes/jsarc
 fi
 
 
-
 $@
