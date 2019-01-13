@@ -12,8 +12,6 @@ echo "define('UPLOADS', '' . 'images');" >> /var/www/html/wp-config.php
 echo "define('WP_PLUGIN_DIR', '' . '../wp-content/themes/jsarc/plugins');" >> /var/www/html/wp-includes/default-constants.php
 
 
-
-
 wp_plugin_install wordpress-importer
 wp_plugin_install salesforce-wordpress-to-lead
 wp_plugin_install simply-static
