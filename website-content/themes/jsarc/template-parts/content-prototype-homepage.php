@@ -57,7 +57,7 @@
     height: 100%;
     background-size: cover;
     background-position: 50% 0;
-    background-image: url(<?php echo $s3; the_field('hero_image_large'); ?>);
+    background-image: url(<?php the_field('hero_image_large'); ?>);
     position: absolute;
     background-repeat: no-repeat;
     opacity: 0.5;
@@ -65,13 +65,13 @@
 
 @media only screen and (max-width: 1068px) {
 	.section.section-hero .hero-image {
-		background-image: url(<?php echo $s3; the_field('hero_image_medium'); ?>);
+		background-image: url(<?php the_field('hero_image_medium'); ?>);
 	}
 }
 
 @media only screen and (max-width: 735px) {
 	.section.section-hero .hero-image {
-		background-image: url(<?php echo $s3; the_field('hero_image_small'); ?>);
+		background-image: url(<?php the_field('hero_image_small'); ?>);
 	}
 }
 
@@ -289,19 +289,19 @@ SECTION VIDEO
     height: 400px;
     background-size: cover;
     background-position: 50% 0;
-    background-image: url(<?php echo $s3; the_field('section_video_image_large'); ?>);
+    background-image: url(<?php the_field('section_video_image_large'); ?>);
     position: relative;
 }
 
 @media only screen and (max-width: 1068px) {
 	.section.section-video .section-image {
-		background-image: url(<?php echo $s3; the_field('section_video_image_medium'); ?>);
+		background-image: url(<?php the_field('section_video_image_medium'); ?>);
 	}
 }
 
 @media only screen and (max-width: 735px) {
 	.section.section-video .section-image {
-		background-image: url(<?php echo $s3; the_field('section_video_image_small'); ?>);
+		background-image: url(<?php the_field('section_video_image_small'); ?>);
 	}
 }
 
@@ -473,13 +473,13 @@ SECTION BENEFITS
 
 
 .section.section-benefits .tile-image.tile1 {
-    background-image: url(<?php echo $s3; the_field('section_benefits_1'); ?>);
+    background-image: url(<?php the_field('section_benefits_1'); ?>);
 }
 .section.section-benefits .tile-image.tile2 {
-    background-image: url(<?php echo $s3; the_field('section_benefits_2'); ?>);
+    background-image: url(<?php the_field('section_benefits_2'); ?>);
 }
 .section.section-benefits .tile-image.tile3 {
-    background-image: url(<?php echo $s3; the_field('section_benefits_3'); ?>);
+    background-image: url(<?php the_field('section_benefits_3'); ?>);
 }
 
 
