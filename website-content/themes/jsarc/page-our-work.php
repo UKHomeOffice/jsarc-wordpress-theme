@@ -1,3 +1,20 @@
+<?php
+/*
+ * Template Name: Our Work Template
+ * The template for displaying Our Work page
+ *
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package JSaRC
+ */
+?>
+
+
+<?php get_header(); ?>
+
+
+
 <style>
 
 .section-content {
@@ -395,6 +412,8 @@ SECTION case-studies
 </style>
 
 
+
+
 <section class="section section-header">
 	<figure class="hero-image"></figure>
 	<div class="section-content">
@@ -528,3 +547,7 @@ stakeholders. These include events such as the Security & Policing Home Office e
 </section>
 
 <?php get_template_part( 'template-parts/content', 'section-register'); ?>
+
+
+<?php
+get_footer();

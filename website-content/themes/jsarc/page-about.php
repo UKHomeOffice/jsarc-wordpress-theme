@@ -1,3 +1,19 @@
+<?php
+/*
+ * Template Name: About Page Template
+ * The template for displaying About page
+ *
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package JSaRC
+ */
+?>
+
+
+<?php get_header(); ?>
+
+
 <style>
 
 .section-content {
@@ -705,6 +721,8 @@ SECTION PROJECTS
 </style>
 
 
+
+
 <section class="section section-header">
 	<figure class="hero-image"></figure>
 	<div class="section-content">
@@ -859,7 +877,7 @@ We have meetings with bodies such as the Protective Security and Prepare Strateg
 	</div>
 </section>
 
-<section class="section section-leadership">
+<!--section class="section section-leadership">
 	<div class="section-content">
 		<h3 class="section-headline">Meet the JSaRC Team</h3>
 
@@ -911,7 +929,7 @@ We have meetings with bodies such as the Protective Security and Prepare Strateg
 		</ul>
 		<a class="button more" href="">See all of the team</a>
 	</div>
-</section>
+</section-->
 
 <?php get_template_part( 'template-parts/content', 'section-casestudies-no-animation'); ?>
 
@@ -952,3 +970,6 @@ We have meetings with bodies such as the Protective Security and Prepare Strateg
 </section>
 
 <?php get_template_part( 'template-parts/content', 'section-register'); ?>
+
+
+<?php get_footer();

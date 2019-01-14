@@ -1,5 +1,19 @@
-<style>
+<?php
+/*
+ * Template Name: Homeage Template
+ * The template for displaying Home page
+ *
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package JSaRC
+ */
+?>
 
+<?php get_header(); ?>
+
+
+<style>
 
 .section {
     position: relative;
@@ -600,9 +614,12 @@ SECTION CASESTUDY
 }
 </style>
 
+
+
+
+
+				
 <section class="section section-hero">
-
-
 	<figure class="hero-image"></figure>
 	<div class="section-content">
 		<div class="intro-wrapper">
@@ -611,7 +628,7 @@ SECTION CASESTUDY
 				<p class="hero-intro"><?php the_field('hero_intro'); ?></p>
 				<a class="button more" aria-label="<?php the_field('hero_button_label'); ?>" href="<?php the_field('hero_button_link_path'); ?>"><?php the_field('hero_button'); ?></a>
 			</div>
-  		</div>
+		</div>
 	</div>
 </section>
 
@@ -636,7 +653,7 @@ SECTION CASESTUDY
 	</div>
 </section>
 
-<section class="section section-video">
+<!--section class="section section-video">
 	<div class="section-content">
 		<div class="row">
 			<div class="column large-6 small-12">
@@ -652,7 +669,7 @@ SECTION CASESTUDY
 			</div>
 		</div>
 	</div>
-</section>
+</section-->
 
 
 <section class="section section-benefits">
@@ -715,4 +732,5 @@ SECTION CASESTUDY
 
 <?php get_template_part( 'template-parts/content', 'section-projects'); ?>
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
+
+<?php get_footer();

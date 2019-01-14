@@ -1,3 +1,18 @@
+<?php
+/*
+ * Template Name: Case Study Page Template
+ * The template for displaying Case Study page
+ *
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package JSaRC
+ */
+?>
+
+<?php get_header(); ?>
+
+
 <style>
 
 .section {
@@ -195,8 +210,6 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 </style>
 
 
-
-
 <section class="section section-header">
 	<figure class="hero-image"></figure>
 	<div class="section-content">
@@ -367,13 +380,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 	
 	
-	
-	
-	
-	
-	
-	
 
 	
 });
 </script>
+
+
+
+<?php
+get_footer();

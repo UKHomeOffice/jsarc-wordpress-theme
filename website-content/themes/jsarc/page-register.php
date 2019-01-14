@@ -1,3 +1,17 @@
+<?php
+/*
+ * Template Name: Register Page Template
+ * The template for displaying register page
+ *
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package JSaRC
+ */
+?>
+
+
+<?php get_header(); ?>
 
 
 <style>
@@ -142,6 +156,7 @@ PAGE REGISTER / SECTION REGISTER FORM
 }
 </style>
 
+
 <nav class="breadcrumbs">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
@@ -235,13 +250,7 @@ PAGE REGISTER / SECTION REGISTER FORM
 
 <script>
 
-
-
-
 document.addEventListener('DOMContentLoaded',function() {
-
-
-
 
 /*
 var isNotEmpty = function (el) {
@@ -274,3 +283,8 @@ var isNotEmpty = function (el) {
 	
 });
 </script>
+
+
+
+<?php
+get_footer();

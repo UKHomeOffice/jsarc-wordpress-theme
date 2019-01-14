@@ -1,12 +1,20 @@
 <?php
 /*
- * Template Name: JSaRC Page Template
- * The template for News and Events
+ * Template Name: News and Events Landing Page Template
+ * The template for displaying News and Events Landing Page
+ *
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package JSaRC
-*/
-get_header();
+ */
 ?>
+
+
+<?php get_header(); ?>
+
+
+
 <style>
 
 .section.hero {
@@ -185,6 +193,8 @@ get_header();
 
 
 </style>
+
+
 <nav class="breadcrumbs">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
@@ -341,4 +351,7 @@ endif;
 
 <?php get_template_part( 'template-parts/content', 'section-register'); ?>
 
-<?php get_footer(); ?>
+
+
+<?php
+get_footer();
