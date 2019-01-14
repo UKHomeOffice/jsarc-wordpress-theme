@@ -56,8 +56,18 @@ SECTION PROGECTS
 .section.section-projects .tile-item .tile-link {
     display: block;
     overflow: hidden;
+    min-height: 418px;
 }
-
+@media only screen and (max-width: 1024px) {
+	.section.section-projects .tile-item .tile-link {
+		min-height: 435px;
+	}
+}
+@media only screen and (max-width: 735px) {
+	.section.section-projects .tile-item .tile-link {
+		min-height: auto;
+	}
+}
 
 .section.section-projects .tile-item:first-child {
     margin-left: 0;
@@ -166,50 +176,42 @@ SECTION PROGECTS
 
 <section class="section section-projects">
 	<div class="section-content">
-
+		<h3 class="section-headline">Higlights</h3>
 		<ul class="tiles-list">
 			<li class="tile-item">
-				<a class="tile-link" aria-label="Explosive Detection Technology Review (EDTR)" href="">
+				<a class="tile-link" href="/news-events/">
 					<div class="tile-image-box">
 						<figure class="tile-image tile1"></figure>
 					</div>
 					<div class="caption-wrapper">
 						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
-						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad.</div>
-						<span class="more-link">Read the case study</span>
+						<div class="tile-caption">The latest updates from July’s trials on the EDTR project.</div>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
-				<a class="tile-link" aria-label="Explosive Detection Technology Review (EDTR)" href="">
+				<a class="tile-link" href="/news-events/">
 					<div class="tile-image-box">
 						<figure class="tile-image tile2"></figure>
 					</div>
 					<div class="caption-wrapper">
-						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
-						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad.</div>
-						<span class="more-link">Lorem Ipsum</span>
+						<h3 class="tile-headline">JSaRC open day</h3>
+						<div class="tile-caption">JSaRC are hosting an open day for the security industry on 15th November 2018. Register now to secure your place.</div>
 					</div>
 				</a>
 			</li>
 			<li class="tile-item">
-				<a class="tile-link" aria-label="Explosive Detection Technology Review (EDTR)" href="">
+				<a class="tile-link" href="/news-events/">
 					<div class="tile-image-box">
 						<figure class="tile-image tile3"></figure>
 					</div>
 					<div class="caption-wrapper">
-						<h3 class="tile-headline">Explosive Detection Technology Review (EDTR)</h3>
-						<div class="tile-caption">The JOPP programme is reducing the ongoing risk from terrorism at home and abroad.</div>
-						<span class="more-link">Read the case study</span>
+						<h3 class="tile-headline">Passengers and borders</h3>
+						<div class="tile-caption">JSaRC are hosting an open day for the security industry on 15th November 2018. </div>
 					</div>
 				</a>
 			</li>
 		</ul>
-		
-		
-		
-		
-		
-
+		<a class="button more" href="/news-events/">See all JSaRC news and updates</a>
 	</div>
 </section>
