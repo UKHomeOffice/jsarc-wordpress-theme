@@ -350,7 +350,7 @@ html.noscroll body {
 
 .nav .menu .menu-item .sub-menu .sub-menu-item .sub-menu-link {
     display: block;
-    height: 50px;
+    min-height: 50px;
     padding: 0 20px;
 }
 
