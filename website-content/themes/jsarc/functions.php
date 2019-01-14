@@ -478,14 +478,3 @@ function my_acf_json_load_point( $paths ) {
 
 
 
-
-
-
-
-
-// Path to Amazon S3 images
-
-$s3 = "https://s3-eu-west-2.amazonaws.com/jsarc-test/";
-
-
-
