@@ -365,22 +365,51 @@ get_header();
 			<div class="post-text-wrapper">
 			<div class="news-text">
 				<?php the_field( 'news_text' ); ?>
-				<?php 
-					$images = get_field('gallery');
-					if( $images ): ?>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<?php if ( have_rows( 'gallery' ) ) : ?>
 				<div class="gallery">
 					<ul class="gallery-container">
-						<?php foreach( $images as $image ): ?>
-							<li class="gallery-item">
-								<figure class="gallery-image" style="background-image:url(<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>)"></figure>
-							</li>
-						<?php endforeach; ?>
-					</ul>
+	<?php while ( have_rows( 'gallery' ) ) : the_row(); ?>
+		<?php if ( get_sub_field( 'image' ) ) { ?>
+			<li class="gallery-item"><figure class="gallery-image" style="background-image:url(<?php the_sub_field( 'image' ); ?>)"></figure></li>
+		<?php } ?>
+	<?php endwhile; ?>
+						</ul>
 
 					<button class="gallery-button prev" aria-label="Previous image" onclick="plusDivs(-1)"></button>
 					<button class="gallery-button next" aria-label=">Next image" onclick="plusDivs(1)"></button>
-				</div>
-				<?php endif; ?>
+					</div>
+<?php else : ?>
+	<?php // no rows found ?>
+						
+<?php endif; ?>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				<?php the_field( 'news_text_copy' ); ?>
 			</div>
 		</div>
