@@ -476,3 +476,14 @@ function my_acf_json_load_point( $paths ) {
     
 }
 
+
+// ACF dynamically servers for images
+
+function acf_lalala( $value, $post_id, $field ) {
+    $value = str_replace( 'https://web.notprod.jsarc.homeoffice.gov.uk/wp-content/uploads/', 'https://s3.eu-west-2.amazonaws.com/jsarc-test/', $value );
+    return $value;
+}
+
+add_filter('acf/format_value/type=image', 'acf_lalala', 1538, 278);
+//add_filter('acf/format_value/type=text', 'acf_lalala', 10, 3);
+

@@ -409,33 +409,35 @@ margin-bottom: 1em;
 							<div class="details-text"><?php the_sub_field( 'text' ); ?></div>
 						
 						</div>
-						<div class="column large-4 large-last small-12">
+						 
+						
+						
+					
+				
+				
+				
+				<?php if ( have_rows( 'images' ) ) : ?>
+				<div class="column large-4 large-last small-12">
+				<ul class="event-images">
+			<?php while ( have_rows( 'images' ) ) : the_row(); ?>
+				<?php if ( get_sub_field( 'image' ) ) { ?>
+					<li><figure class="image" style="background-image:url(<?php the_sub_field( 'image' ); ?>)"></figure></li>
+				<?php } ?>
+			<?php endwhile; ?>
+		<?php else : ?>
+			<?php // no rows found ?>
+			</ul>
+			</div>
+		<?php endif; ?>
 						
 						
 						
 						
-						<?php 
-					$images = get_sub_field('images');
-					if( $images ): ?>
-			 
-					<ul class="event-images">
-						<?php foreach( $images as $image ): ?>
-							<li>
-								<figure class="image" style="background-image:url(<?php echo $image['url']; ?>"></figure>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-				<?php endif; ?>
 						
 						
 						
 						
-						
-						
-						
-						
-						</div>
+						 
 					</div>
 				<?php endwhile; ?>
 				<?php endif; ?>
