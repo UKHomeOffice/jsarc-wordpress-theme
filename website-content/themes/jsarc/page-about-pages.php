@@ -9,6 +9,10 @@
  * @package JSaRC
  */
  ?>
+ 
+<?php get_header(); ?>
+
+
 <style>
 .post {
 	padding-bottom: 75px;
@@ -100,9 +104,12 @@
 
 
 </style>
-<?php
-get_header();
-?>
+
+
+
+
+
+
 <nav class="breadcrumbs">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">

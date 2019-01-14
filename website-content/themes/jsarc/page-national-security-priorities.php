@@ -1,11 +1,20 @@
 <?php
-/**
- * The template for National Security Priorities
+/*
+ * Template Name: National Security Priorities Page Template
+ * The template for displaying National Security Priorities Page
+ *
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package JSaRC
  */
-get_header();
 ?>
+
+
+
+<?php get_header(); ?>
+
+
 
 <style>
 
@@ -257,30 +266,28 @@ get_header();
 
 
 
-
-
-	<header class="section hero">
-		<figure class="hero-image"></figure>
-		<div class="section-content">
-			<div class="headline-wrapper">
-				<h1 class="hero-headline"><span><?php the_title(); ?></span></h1>
-			</div>
+<header class="section hero">
+	<figure class="hero-image"></figure>
+	<div class="section-content">
+		<div class="headline-wrapper">
+			<h1 class="hero-headline"><span><?php the_title(); ?></span></h1>
 		</div>
-	</header>
-	<nav class="breadcrumbs">
-		<div class="section-content">
-			<ul class="breadcrumbs-list">
-				<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-				<li class="breadcrumbs-item"><?php the_title(); ?></li>
-			</ul>
-		</div>
-	</nav>
-	<section class="section heading">
-		<div class="section-content">
-			<h3 class="hero-heading-text"><?php the_field( 'hero_heading_text' ); ?></h3>
-			<div class="hero-body-text"><?php the_field( 'hero_body_text' ); ?></div>
-		</div>
-	</section>
+	</div>
+</header>
+<nav class="breadcrumbs">
+	<div class="section-content">
+		<ul class="breadcrumbs-list">
+			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
+			<li class="breadcrumbs-item"><?php the_title(); ?></li>
+		</ul>
+	</div>
+</nav>
+<section class="section heading">
+	<div class="section-content">
+		<h3 class="hero-heading-text"><?php the_field( 'hero_heading_text' ); ?></h3>
+		<div class="hero-body-text"><?php the_field( 'hero_body_text' ); ?></div>
+	</div>
+</section>
 	
 <div class="sections-wrapper">	
 	<?php if ( have_rows( 'sections' ) ) : ?>
@@ -402,4 +409,5 @@ document.addEventListener('DOMContentLoaded',function() {
 
 
 
-
+<?php
+get_footer();
