@@ -8,7 +8,7 @@ metadata:
   annotations:
     ingress.kubernetes.io/force-ssl-redirect: "false"
     ingress.kubernetes.io/backend-protocol: "HTTP"
-    kubernetes.io/ingress.class: "nginx-internal"
+    kubernetes.io/ingress.class: "nginx-external"
 spec:
   tls:
     - hosts:
