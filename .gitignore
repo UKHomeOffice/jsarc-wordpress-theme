@@ -10,6 +10,7 @@ wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
 website-content/plugins/
 
+kube/jsarc-theme-ingress.yaml
 
 /.htaccess
 /license.txt
