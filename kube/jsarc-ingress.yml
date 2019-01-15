@@ -21,4 +21,3 @@ spec:
           - backend:
               serviceName: jsarc
               servicePort: 8080
-            path: /
