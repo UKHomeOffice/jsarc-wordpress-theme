@@ -256,46 +256,6 @@ function reset_post_editor()
 }
 add_action("init","reset_post_editor");
 
-/**
- *  The options page feature provides a set of functions to add extra admin pages to edit ACF fields
- */
-
-if( function_exists('acf_add_options_page') ) {
-	
-	acf_add_options_page(array(
-		'page_title' 	=> 'Shared Content',
-		'menu_title'	=> 'Shared Content',
-		'menu_slug'	=> 'shared-content',
-		'capability'	=> 'edit_posts',
-		'parent_slug'	=> '',
-		'position'		=> false,
-		'icon_url'		=> false,
-		'redirect'		=> false
-	));
- 	/*
-	// <footer>...</footer>
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Footer',
-		'menu_title'	=> 'Footer',
-		'menu_slug'	=> 'theme-options-footer',
-		'capability'	=> 'edit_posts',
-		'parent_slug'	=> 'shared-content',
-		'position'		=> false,
-		'icon_url'		=> false
-	));
-	
-	// <section class="projects">...</section>
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Section Projects',
-		'menu_title'	=> 'Section Projects',
-		'menu_slug'	=> 'theme-options-section-projects',
-		'capability'	=> 'edit_posts',
-		'parent_slug'	=> 'shared-content',
-		'position'		=> false,
-		'icon_url'		=> false
-	));
- 	*/
-}
 
 
 
@@ -479,31 +439,47 @@ function my_acf_json_load_point( $paths ) {
 
 
 
-
- 
 /**
  *  The options page feature provides a set of functions to add extra admin pages to edit ACF fields
  */
-	
+
 if( function_exists('acf_add_options_page') ) {
 	
-	acf_add_options_page();
-	acf_add_options_sub_page('Footer');
-	
- 
-	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Shared Content',
+		'menu_title'	=> 'Shared Content',
+		'menu_slug'	=> 'shared-content',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> '',
+		'position'		=> false,
+		'icon_url'		=> false,
+		'redirect'		=> false
+	));
+ 	/*
+	// <footer>...</footer>
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Footer',
 		'menu_title'	=> 'Footer',
-		'parent_slug'	=> 'theme-options-footer',
+		'menu_slug'	=> 'theme-options-footer',
 		'capability'	=> 'edit_posts',
-		'parent_slug'	=> 'theme-options',
+		'parent_slug'	=> 'shared-content',
 		'position'		=> false,
 		'icon_url'		=> false
 	));
 	
-	
+	// <section class="projects">...</section>
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Section Projects',
+		'menu_title'	=> 'Section Projects',
+		'menu_slug'	=> 'theme-options-section-projects',
+		'capability'	=> 'edit_posts',
+		'parent_slug'	=> 'shared-content',
+		'position'		=> false,
+		'icon_url'		=> false
+	));
+ 	*/
 }
+
 
 
 
