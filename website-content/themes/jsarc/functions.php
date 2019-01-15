@@ -485,12 +485,6 @@ if( function_exists('acf_add_options_page') ) {
 
 
 
-
-
-
-
-
-
 // ACF dynamically servers for images
 
 function acf_lalala( $value, $post_id, $field ) {

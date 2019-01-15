@@ -12,7 +12,7 @@ while ( have_posts() ) :
 		get_template_part( 'template-parts/post', 'category-event');
 	}
 	if ( in_category('news') ) {
-		get_template_part( 'template-parts/post', 'category--news');
+		get_template_part( 'template-parts/post', 'category-news');
 	}
 endwhile; // End of the loop.
 ?>

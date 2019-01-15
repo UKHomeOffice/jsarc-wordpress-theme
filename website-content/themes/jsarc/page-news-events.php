@@ -228,7 +228,7 @@
 									<?php if (has_post_thumbnail()): ?>
 									<figure class="post-thumbnail" style="background-image: url(<?php the_post_thumbnail_url(array(1308, 732)); ?>)"></figure>
 									<?php else: ?>
-									<figure class="post-thumbnail" style="background-image: url(<?php the_post_thumbnail_url(array(1308, 732)); ?>)"></figure>
+									<figure class="post-thumbnail" style="background-image: url(/wp-content/themes/jsarc/img/v/generic/logos/a/jsarc-logo.svg);"></figure>
 									<?php endif; ?>
 								</div>
 								<div class="text-wrapper">
