@@ -518,7 +518,7 @@ if( function_exists('acf_add_options_page') ) {
 // ACF dynamically servers for images
 
 function acf_lalala( $value, $post_id, $field ) {
-    $value = str_replace( 'https://web.notprod.jsarc.homeoffice.gov.uk/wp-content/uploads/', 'https://s3.eu-west-2.amazonaws.com/jsarc-dev-s3/', $value );
+    $value = str_replace( 'https://web.notprod.jsarc.homeoffice.gov.uk/wp-content/uploads/', 'https://s3.eu-west-2.amazonaws.com/jsarc-test/', $value );
     return $value;
 }
 
