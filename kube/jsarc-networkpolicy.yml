@@ -11,7 +11,7 @@ spec:
     - from:
         - namespaceSelector:
             matchLabels:
-              name: ingress-internal
+              name: ingress-external
       ports:
         - protocol: TCP
           port: 8081
