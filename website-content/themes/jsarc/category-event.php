@@ -1,7 +1,5 @@
 <?php
 /**
- * Category template: Events
- *
  * The template for displaying all single events
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post

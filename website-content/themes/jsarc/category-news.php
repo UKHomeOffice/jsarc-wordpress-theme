@@ -1,7 +1,5 @@
 <?php
 /**
- * Category template: News
- *
  * The template for displaying all single news
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
