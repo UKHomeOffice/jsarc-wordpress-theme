@@ -458,11 +458,7 @@ while ($my_query->have_posts()) : $my_query->the_post(); ?>
 <li class="column large-4 small-12 related-list-item">
 					<a class="related-list-item-link" href="<?php the_permalink(); ?>">
 						<div class="related-list-item-image">
-							<?php if (has_post_thumbnail()): ?>
-							<img src="<?php the_post_thumbnail_url(array(170, 300)); ?>" width="300" height="170" alt="" />
-							<?php else: ?>
-							<img src="<?php the_post_thumbnail_url(array(170, 300)); ?>" width="300" height="170" alt="" />
-							<?php endif; ?>
+							<img src="<?php the_field('thumb_image', $post->ID); ?>" width="300" height="170" alt="" />
 						</div>
 						<div class="related-list-item-text">
 							<h3 class="related-list-item-headline"><?php the_title(); ?></h3>
