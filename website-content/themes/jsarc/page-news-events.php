@@ -65,15 +65,29 @@
 
 .section.news .image-wrapper {
 	height: 100%;
-	width: 100%;
+	width: 22%;
 	position: absolute;
 }
+
 .section.news .post.featured .image-wrapper {
-	
+	width: 58.5%;
 }
 
+@media only screen and (max-width: 1068px) {
+    .section.news .image-wrapper {
+		width: 35.5%;
+	}
+	.section.news .post.featured .image-wrapper {
+		width: 63.2%;
+	}
+}
 
-
+@media only screen and (max-width: 735px) {
+     .section.news .image-wrapper,
+     .section.news .post.featured .image-wrapper {
+		width: 100%;
+	}
+}
 
 .section.news .image-wrapper .post-thumbnail {
 	width: auto;
@@ -225,11 +239,7 @@
 						<li>
 							<a class="post featured" href="<?php the_permalink(); ?>">
 								<div class="image-wrapper">
-									<?php if (has_post_thumbnail()): ?>
-									<figure class="post-thumbnail" style="background-image: url(<?php the_post_thumbnail_url(array(1308, 732)); ?>)"></figure>
-									<?php else: ?>
-									<figure class="post-thumbnail" style="background-image: url(/wp-content/themes/jsarc/img/v/generic/logos/a/jsarc-logo.svg);"></figure>
-									<?php endif; ?>
+									<figure class="post-thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
 								</div>
 								<div class="text-wrapper">
 									<h3 class="title"><?php the_title(); ?></h3>
@@ -260,11 +270,7 @@
 						<li>
 							<a class="post" href="<?php the_permalink(); ?>">
 		 						<div class="image-wrapper">
-									<?php if (has_post_thumbnail()): ?>
-									<figure class="post-thumbnail" style="background-image: url(<?php the_post_thumbnail_url(array(250, 140)); ?>)"></figure>
-									<?php else: ?>
-									<figure class="post-thumbnail" style="background-image: url(<?php the_post_thumbnail_url(array(250, 140)); ?>)"></figure>
-									<?php endif; ?>
+									<figure class="post-thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
 								</div>
 								<div class="text-wrapper">
 									<h3 class="title"><?php the_title(); ?></h3>
@@ -314,11 +320,7 @@
 					<li>
 						<a class="post" href="<?php the_permalink(); ?>">
 							<div class="image-wrapper">
-								<?php if (has_post_thumbnail()): ?>
-								<figure class="post-thumbnail" style="background-image: url(<?php the_post_thumbnail_url(array(250, 140)); ?>)"></figure>
-								<?php else: ?>
-								<figure class="post-thumbnail" style="background-image: url(<?php the_post_thumbnail_url(array(250, 140)); ?>)"></figure>
-								<?php endif; ?>
+								<figure class="post-thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
 							</div>
 							<div class="text-wrapper">
 								<span class="date">
