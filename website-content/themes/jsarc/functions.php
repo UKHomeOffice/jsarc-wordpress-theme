@@ -352,17 +352,6 @@ add_filter('nav_menu_css_class', 'remove_css_id_filter', 100, 1);
 
 
 
-/**
- * Enabling Support for Post Thumbnails
- */
-add_theme_support( 'post-thumbnails' );
-
- 
- 
- 
- 
- 
-
  
  
  
