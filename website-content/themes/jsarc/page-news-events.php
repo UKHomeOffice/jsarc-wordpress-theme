@@ -92,7 +92,8 @@
 .section.news .image-wrapper .post-thumbnail {
 	width: auto;
 	height: 100%;
-	background-size: auto 100%;
+	background-position: 50% 50%;
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 

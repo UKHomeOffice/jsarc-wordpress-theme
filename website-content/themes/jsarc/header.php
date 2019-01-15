@@ -202,7 +202,6 @@
 					a.classList.add('expanded');
 					bf.setAttribute('aria-expanded', 'true');
 					isFocused = true;
-				
 				};
 			
 				var dropdownCloseFun = function ( event ) {
@@ -237,12 +236,25 @@
 					dropdownCloseFun();
 				}, true);
 			
-				a.addEventListener('click', function( event ) {
-					if (!desktop.matches && !this.classList.contains('expanded')) {
-						event.preventDefault();
-						dropdownOpen();
-					}
+				c.addEventListener('click', function( event ) {
+					event.preventDefault();
+					var elHref = this.href;
+					
+					setTimeout(function() {
+			 
+						if (!desktop.matches && !a.classList.contains('expanded')) {
+							dropdownOpen();
+						}
+						a.addEventListener('click', function( event ) {
+							window.location = elHref;
+						}, true);
+					}, 10);
+					
+					
 				}, true);
+	 
+				 
+				
 			
 				window.addEventListener('resize', function( event ) {
 					dropdownCloseFun();
@@ -298,5 +310,24 @@
 		});
 	
 	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	</script>
