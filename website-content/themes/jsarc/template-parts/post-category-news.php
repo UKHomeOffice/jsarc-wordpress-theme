@@ -55,17 +55,17 @@ get_header();
 	margin-bottom: 50px;
 	border-bottom: 1px solid #979797;
 }
-.post .news-text ul,
+.post .news-text > ul,
 .post .news-text ol,
 .post .news-text p {
 	margin-bottom: 1em;
 }
 
-.post .news-text ul li {
+.post .news-text > ul li {
 	margin-left: 1em;
 	list-style: none;
 }
-.post .news-text ul li:before {
+.post .news-text > ul li:before {
 	content: '';
 	display: inline-block;
 	vertical-align: middle;
@@ -79,7 +79,8 @@ get_header();
 .post .news-text ol {
 	margin-left: 1em;
 }
-.post .news-text li {
+.post .news-text > ul li,
+.post .news-text ol li {
    margin-left: 1em;
  }
 
@@ -98,6 +99,7 @@ get_header();
 .gallery .gallery-container {
 	width: 100%;
 }
+
 
 .gallery .gallery-container .gallery-item {
 	width: 100%;
@@ -248,9 +250,18 @@ get_header();
 	min-height: 400px;
 	position: relative;
 }
-.related .related-list .related-list-item-image img {
+.related .related-list .related-list-item-image-wrapper {
 	width: 100%;
 	height: auto;
+}
+
+.related .related-list .related-list-item-image-wrapper .image {
+	display: block;
+	background-size: cover;
+	background-position: 50% 50%;
+	width: 100%;
+	height: auto;
+	padding-bottom: 66%;
 }
 
 .related .related-list .related-list-item-text {
@@ -369,14 +380,6 @@ get_header();
 				
 				
 				
-				
-				
-				
-				
-				
-				
-				
-				
 				<?php if ( have_rows( 'gallery' ) ) : ?>
 				<div class="gallery">
 					<ul class="gallery-container">
@@ -394,14 +397,6 @@ get_header();
 	<?php // no rows found ?>
 						
 <?php endif; ?>
-				
-				
-				
-				
-				
-				
-				
-				
 				
 				
 				
@@ -457,8 +452,9 @@ while ($my_query->have_posts()) : $my_query->the_post(); ?>
 
 <li class="column large-4 small-12 related-list-item">
 					<a class="related-list-item-link" href="<?php the_permalink(); ?>">
-						<div class="related-list-item-image">
-							<img src="<?php the_field('thumb_image', $post->ID); ?>" width="300" height="170" alt="" />
+						<div class="related-list-item-image-wrapper">
+							<figure class="image" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
+							
 						</div>
 						<div class="related-list-item-text">
 							<h3 class="related-list-item-headline"><?php the_title(); ?></h3>
@@ -498,7 +494,7 @@ wp_reset_query();
 			<?php endif; ?>
 			
 			
-			<div class="tags">
+			<!--div class="tags">
 				<h4 class="tags-title"><?php the_field( 'tags_title' ); ?></h4>
 				<?php
 					$tags = get_tags();
@@ -513,7 +509,7 @@ wp_reset_query();
 					$html .= '</ul>';
 					echo $html;
 				?>
-			</div>
+			</div-->
 </div>
 	</section>			
 			
