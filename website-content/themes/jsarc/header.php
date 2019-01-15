@@ -236,16 +236,17 @@
 					dropdownCloseFun();
 				}, true);
 			
-				c.addEventListener('click', function( event ) {
+				bf.addEventListener('click', function( event ) {
 					event.preventDefault();
-					var elHref = this.href;
+					el = this;
+					elHref = el.href;
 					
 					setTimeout(function() {
 			 
 						if (!desktop.matches && !a.classList.contains('expanded')) {
 							dropdownOpen();
 						}
-						a.addEventListener('click', function( event ) {
+						el.addEventListener('click', function( event ) {
 							window.location = elHref;
 						}, true);
 					}, 10);
