@@ -22,3 +22,10 @@ spec:
               serviceName: jsarc
               servicePort: 8080
             path: /
+    - host: web.notprod.jsarc.homeoffice.gov.uk
+      http:
+        paths:
+          - backend:
+              serviceName: jsarc
+              servicePort: 8080
+            path: /wp-admin 
