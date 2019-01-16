@@ -3,11 +3,11 @@
 
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 
-# echo "define('UPLOADS', '' . 'images');" >> /var/www/html/wp-config.php
+#echo "define('UPLOADS', '' . 'images');" >> /var/www/html/wp-config.php
 echo "define('WP_PLUGIN_DIR', '' . '../wp-content/themes/jsarc/plugins');" >> /var/www/html/wp-includes/default-constants.php
 echo "define('WP_PLUGIN_URL', '' . '/wp-content/themes/jsarc/plugins');" >> /var/www/html/wp-includes/default-constants.php
-echo "define('WP_HOME', 'https://web.notprod.jsarc.homeoffice.gov.uk');" >> /var/www/html/wp-config.php
-echo "define('WP_SITEURL', 'https://web.notprod.jsarc.homeoffice.gov.uk');" >> /var/www/html/wp-config.php 
+echo "define('WP_HOME', 'https://web.notprod.jsarc.homeoffice.gov.uk');" >> /var/www/html/wp-includes/default-constants.php
+echo "define('WP_SITEURL', 'https://web.notprod.jsarc.homeoffice.gov.uk');" >> /var/www/html/wp-includes/default-constants.php
 
 if [ -d "/var/www/jsarc" ] ; then
 rm -rf /var/www/html/wp-content/themes/jsarc
