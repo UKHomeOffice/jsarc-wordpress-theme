@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jsarc
+  labels:
+    stable.k8s.psg.io/kcm.class: default
+  annotations:
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    ingress.kubernetes.io/backend-protocol: "HTTP"
+    kubernetes.io/ingress.class: "nginx-external"
+spec:
+  tls:
+    - hosts:
+        - web.notprod.jsarc.homeoffice.gov.uk
+      secretName: jsarcweb
+  rules:
+    - host: web.notprod.jsarc.homeoffice.gov.uk
+      http:
+        paths:
+          - backend:
+              serviceName: jsarc
+              servicePort: 8080
+            path: /wp-admin
