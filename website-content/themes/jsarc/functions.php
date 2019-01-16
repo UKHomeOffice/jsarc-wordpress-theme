@@ -484,3 +484,83 @@ function acf_lalala( $value, $post_id, $field ) {
 add_filter('acf/format_value/type=image', 'acf_lalala', 1538, 278);
 //add_filter('acf/format_value/type=text', 'acf_lalala', 10, 3);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+add_filter( 'restricted_site_access_is_restricted', 'override_1' );
+ 
+function override_1( $is_restricted ) {
+    global $wp;
+    // check query variables to see if this is the feed
+    if ( ! empty( $wp->query_vars['wp-admin'] ) )
+        $is_restricted = false;
+ 
+    return $is_restricted;
+}
+
+
+add_filter( 'restricted_site_access_is_restricted', 'override_1' );
+ 
+function override_1( $is_restricted ) {
+    global $wp;
+    // check query variables to see if this is the feed
+    if ( ! empty( $wp->query_vars['wp_admin'] ) )
+        $is_restricted = false;
+ 
+    return $is_restricted;
+}
+
+add_filter( 'restricted_site_access_is_restricted', 'override_1' );
+ 
+function override_1( $is_restricted ) {
+    global $wp;
+    // check query variables to see if this is the feed
+    if ( ! empty( $wp->query_vars['admin'] ) )
+        $is_restricted = false;
+ 
+    return $is_restricted;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
