@@ -12,7 +12,7 @@ spec:
   tls:
     - hosts:
         - web.notprod.jsarc.homeoffice.gov.uk
-      secretName: jsarcweb
+      secretName: jsarcdemo
   rules:
     - host: web.notprod.jsarc.homeoffice.gov.uk
       http:
