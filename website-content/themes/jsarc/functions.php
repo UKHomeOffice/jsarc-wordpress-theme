@@ -563,4 +563,3 @@ function override_3( $is_restricted ) {
 
 
 
-
