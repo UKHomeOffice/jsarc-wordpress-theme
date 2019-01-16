@@ -237,20 +237,21 @@
 				}, true);
 			
 				bf.addEventListener('click', function( event ) {
-					event.preventDefault();
-					el = this;
-					elHref = el.href;
+					if (!desktop.matches) {
+						event.preventDefault();
+						el = this;
+						elHref = el.href;
 					
-					setTimeout(function() {
-			 
-						if (!desktop.matches && !a.classList.contains('expanded')) {
-							dropdownOpen();
-						}
-						el.addEventListener('click', function( event ) {
-							window.location = elHref;
-						}, true);
-					}, 10);
-					
+						setTimeout(function() {
+						
+							if (!a.classList.contains('expanded')) {
+								dropdownOpen();
+							}
+							el.addEventListener('click', function( event ) {
+								window.location = elHref;
+							}, true);
+						}, 10);
+					}
 					
 				}, true);
 	 
