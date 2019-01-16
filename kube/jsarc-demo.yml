@@ -12,10 +12,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - web.notprod.jsarc.homeoffice.gov.uk/wp-login.php
+        - web.notprod.jsarc.homeoffice.gov.uk/wp-login
       secretName: jsarcdemo
   rules:
-    - host: web.notprod.jsarc.homeoffice.gov.uk/wp-login.php
+    - host: web.notprod.jsarc.homeoffice.gov.uk/wp-login
       http:
         paths:
           - backend:
