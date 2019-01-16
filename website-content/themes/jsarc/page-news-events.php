@@ -58,7 +58,7 @@
  	
 }
 
-.section.news .post.featured {
+.section.news .featured .post {
 	min-height: 366px;
 }
 
@@ -69,7 +69,7 @@
 	position: absolute;
 }
 
-.section.news .post.featured .image-wrapper {
+.section.news .featured .post .image-wrapper {
 	width: 58.5%;
 }
 
@@ -77,14 +77,14 @@
     .section.news .image-wrapper {
 		width: 35.5%;
 	}
-	.section.news .post.featured .image-wrapper {
+	.section.news .featured .post .image-wrapper {
 		width: 63.2%;
 	}
 }
 
 @media only screen and (max-width: 735px) {
      .section.news .image-wrapper,
-     .section.news .post.featured .image-wrapper {
+     .section.news .featured .post .image-wrapper {
 		width: 100%;
 	}
 }
@@ -97,12 +97,12 @@
 	background-repeat: no-repeat;
 }
 
-.section.news .post.featured .image-wrapper .post-thumbnail {
+.section.news .featured .post .image-wrapper .post-thumbnail {
  
 }
 
 @media only screen and (max-width: 1068px) {
-    .section.news .post.featured {
+    .section.news .featured .post {
 		min-height: 280px;
 	}
 }
@@ -137,7 +137,7 @@
 }
 
 
-.section.news .post.featured .text-wrapper {
+.section.news .featured .post .text-wrapper {
 	margin-left: 58.5%;
 }
 
@@ -146,14 +146,14 @@
     .section.news .text-wrapper {
 		margin-left: 35.5%;
 	}
-	.section.news .post.featured .text-wrapper {
+	.section.news .featured .post .text-wrapper {
 		margin-left: 63.2%;
 	}
 }
 
 @media only screen and (max-width: 735px) {
      .section.news .text-wrapper,
-     .section.news .post.featured .text-wrapper {
+     .section.news .featured .post .text-wrapper {
 		margin-left: 0;
 	}
 }
@@ -229,80 +229,68 @@
 <section class="section news">
 	<div class="section-content">
 		<h2 class="headline">Latest news articles</h2>
-		<ul>
-		<?php
-		$args = array('post_type' => 'post', 'post_status' => 'publish', 'category_name' => 'news', 'posts_per_page' => 5,);
-		$arr_posts = new WP_Query($args);
-		if ($arr_posts->have_posts()):
-			while ($arr_posts->have_posts()):
-				$arr_posts->the_post();
-				if (get_field('featured_post') == 1) { ?>
-						<li>
-							<a class="post featured" href="<?php the_permalink(); ?>">
-								<div class="image-wrapper">
-									<figure class="post-thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
-								</div>
-								<div class="text-wrapper">
-									<h3 class="title"><?php the_title(); ?></h3>
-									<div class="details-bar">
-										<span class="date"><?php echo get_the_date('d/m/y'); ?></span>
-										<p class="tags">
-										<?php
-										$posttags = get_the_tags();
-										$count=0;
-										if ($posttags) {
-										  foreach($posttags as $tag) {
-											$count++;
-											if (1 == $count) {
-											  echo $tag->name;
-											}
-											else {
-												echo ', ' . $tag->name;
-											}
-										  }
-										}
-										?>
-										</p>
-									</div>
-								</div>
-							</a>
-						</li>
-						<?php } else { ?>
-						<li>
-							<a class="post" href="<?php the_permalink(); ?>">
-		 						<div class="image-wrapper">
-									<figure class="post-thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
-								</div>
-								<div class="text-wrapper">
-									<h3 class="title"><?php the_title(); ?></h3>
-									<div class="details-bar">
-										<span class="date"><?php the_field( 'date' ); ?></span>
-										<p class="tags">
-										<?php
-										$posttags = get_the_tags();
-										$count=0;
-										if ($posttags) {
-										  foreach($posttags as $tag) {
-											$count++;
-											if (1 == $count) {
-											  echo $tag->name;
-											}
-											else {
-												echo ', ' . $tag->name;
-											}
-										  }
-										}
-										?>
-										</p>
-									</div>
-								</div>
-							</a>
-						</li>
-					<?php }
-			endwhile;
-		endif;
+		<?php 
+
+		// query
+		$the_query = new WP_Query(array(
+		'post_type' => 'post',
+		'post_status' => 'publish',
+		'category_name' => 'news',
+		'posts_per_page' => 5,
+		'meta_key' => 'featured_post',
+		'orderby' => 'meta_value',
+		'order' => 'DESC'
+		));
+
 		?>
+		<?php if( $the_query->have_posts() ): ?>
+			<ul>
+			<?php while( $the_query->have_posts() ) : $the_query->the_post(); 
+		
+				$class = get_field('featured_post') ? 'class="featured"' : '';
+		
+				?>
+				<li <?php echo $class; ?>>
+					<a class="post" href="<?php the_permalink(); ?>">
+						<div class="image-wrapper">
+							<figure class="post-thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
+						</div>
+						<div class="text-wrapper">
+							<h3 class="title"><?php the_title(); ?></h3>
+							<div class="details-bar">
+								<span class="date"><?php echo get_the_date('d/m/y'); ?></span>
+								<p class="tags">
+								<?php
+								$posttags = get_the_tags();
+								$count=0;
+								if ($posttags) {
+								  foreach($posttags as $tag) {
+									$count++;
+									if (1 == $count) {
+									  echo $tag->name;
+									}
+									else {
+										echo ', ' . $tag->name;
+									}
+								  }
+								}
+								?>
+								</p>
+							</div>
+						</div>
+					</a>
+				</li>
+			<?php endwhile; ?>
 		</ul>
+<?php endif; ?>
+
+<?php wp_reset_query();	 // Restore global post data stomped by the_post(). ?>
+		
+		
+		
+		
+		
+	
 	</div>
 </section>
 
@@ -356,5 +344,4 @@ endif;
 
 
 
-<?php
-get_footer();
+<?php get_footer();
