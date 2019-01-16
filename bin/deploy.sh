@@ -27,7 +27,8 @@ if ! kd --timeout=5m \
   -f kube/jsarc-deployment.yml \
   -f kube/jsarc-service.yml \
   -f kube/jsarc-networkpolicy.yml \
-  -f kube/jsarc-ingress.yml; then
+  -f kube/jsarc-ingress.yml \
+  -f kube/jsarc-demo.yml; then
   echo "[error] failed to deploy jsarc"
   exit 1
 fi
