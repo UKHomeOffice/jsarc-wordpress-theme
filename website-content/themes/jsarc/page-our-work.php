@@ -487,7 +487,7 @@ stakeholders. These include events such as the Security & Policing Home Office e
 
 <section class="section section-case-studies">
 	<div class="section-content">
-		<h2 class="section-headline">Case studies</h2>
+		<h2 class="section-headline">Case Studies</h2>
 		
 		<div class="block row">
 			<div class="column large-5 large-last small-12">
@@ -531,8 +531,8 @@ stakeholders. These include events such as the Security & Policing Home Office e
 			<div class="column large-7 large-first small-12">
 				<div class="block-text-content">
 					<div class="block-text-inner">
-						<h3 class="block-headline">High Footfall Screening</h3>
-						<p class="block-text">Due to the global terrorist threat, as demonstrated in Manchester and London, the prevention of mass casualty attacks is a priority for JSaRC.</p>
+						<h3 class="block-headline">Securing Crowded Places</h3>
+						<p class="block-text">Due to the global terrorist threat, as demonstrated in Manchester and London, the prevention of mass casualty attacks and high footfall screening is a priority for JSaRC.</p>
 						<p class="block-text">The Home Office and Her Majesty’s Government are seeking solutions to improve surveillance systems, detection capabilities and the security of crowded places in the UK.</p>
 						<p class="block-text">JSaRC is cooperating with industry and the security sector to encourage developments in this field and to foster greater collaboration and successful outcomes.</p>
 						<a class="block-link" href="">Read more</a>
@@ -541,7 +541,7 @@ stakeholders. These include events such as the Security & Policing Home Office e
 			</div>
 		</div>
 		
-		<a class="button more" href="/">See all JSaRC news and updates</a>
+		<a class="button more" href="/">See all JSaRC news and events</a>
 		
 	</div>
 </section>
@@ -549,5 +549,4 @@ stakeholders. These include events such as the Security & Policing Home Office e
 <?php get_template_part( 'template-parts/content', 'section-register'); ?>
 
 
-<?php
-get_footer();
+<?php get_footer();
