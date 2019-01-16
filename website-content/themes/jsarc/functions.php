@@ -537,6 +537,17 @@ function override_3( $is_restricted ) {
 
 
 
+add_filter( 'restricted_site_access_user_can_access', 'my_rsa_user_can_access' );
+
+function my_rsa_user_can_access( $access ) {
+	if ( is_user_logged_in() ) {
+		return true;
+	}
+
+	return $access;
+}
+
+
 
 
 
