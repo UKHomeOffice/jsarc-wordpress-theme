@@ -513,9 +513,9 @@ function override_1( $is_restricted ) {
 }
 
 
-add_filter( 'restricted_site_access_is_restricted', 'override_1' );
+add_filter( 'restricted_site_access_is_restricted', 'override_2' );
  
-function override_1( $is_restricted ) {
+function override_2( $is_restricted ) {
     global $wp;
     // check query variables to see if this is the feed
     if ( ! empty( $wp->query_vars['wp_admin'] ) )
@@ -524,9 +524,9 @@ function override_1( $is_restricted ) {
     return $is_restricted;
 }
 
-add_filter( 'restricted_site_access_is_restricted', 'override_1' );
+add_filter( 'restricted_site_access_is_restricted', 'override_3' );
  
-function override_1( $is_restricted ) {
+function override_3( $is_restricted ) {
     global $wp;
     // check query variables to see if this is the feed
     if ( ! empty( $wp->query_vars['admin'] ) )
