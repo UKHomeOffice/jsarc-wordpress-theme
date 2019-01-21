@@ -491,12 +491,3 @@ add_filter('acf/format_value/type=image', 'acf_lalala', 1538, 278);
 
 
 
-
-
-
-
-
-
-
-
-
