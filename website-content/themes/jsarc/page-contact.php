@@ -263,7 +263,7 @@
 						<ul class="inputs">
 							<?php if ( have_rows( 'select_nature' ) ) : ?>
 							<li class="dropdown-wrapper">
-								<select class="form-dropdown">
+								<select id="native" class="form-dropdown">
 								<?php while ( have_rows( 'select_nature' ) ) : the_row(); ?>
 									<option value="<?php the_sub_field( 'option_text' ); ?>"><?php the_sub_field( 'option_text' ); ?></option>
 								<?php endwhile; ?>
@@ -304,7 +304,7 @@
 						
 							<?php if ( have_rows( 'select_sector' ) ) : ?>
 							<li class="dropdown-wrapper">
-								<select class="form-dropdown">
+								<select id="sectior" class="form-dropdown">
 								<?php while ( have_rows( 'select_sector' ) ) : the_row(); ?>
 									<option value="<?php the_sub_field( 'option_text' ); ?>"><?php the_sub_field( 'option_text' ); ?></option>
 								<?php endwhile; ?>
@@ -318,14 +318,6 @@
 						</ul>
 					</form>
 					<script>
-					/*
-					<form id="my_form" onsubmit="submitForm(); return false;">
-					  <p><input id="n" placeholder="Name" required></p>
-					  <p><input id="e" placeholder="Email Address" type="email" required></p>
-					  <textarea id="m" placeholder="write your message here" rows="10" required></textarea>
-					  <p><input id="mybtn" type="submit" value="Submit Form"> <span id="status"></span></p>
-					</form>
-					*/
 						function _(id){ return document.getElementById(id); }
 						function submitForm(){
 							_("submit").disabled = true;
@@ -342,8 +334,9 @@
 							ajax.onreadystatechange = function() {
 								if(ajax.readyState == 4 && ajax.status == 200) {
 									if(ajax.responseText == "success"){
-										_("form").innerHTML = '<h2>Thanks '+_("n").value+', your message has been sent.</h2>';
-									} else {
+										_("form").innerHTML = '<h2>Thanks '+_("name").value+', your message has been sent.</h2>';
+									}
+									else {
 										_("status").innerHTML = ajax.responseText;
 										_("submit").disabled = false;
 									}
