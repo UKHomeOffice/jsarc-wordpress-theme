@@ -8,19 +8,19 @@ if( isset($_POST['message']) && isset($_POST['name']) && isset($_POST['email']) 
 	$to = 'max.dmitriev@6point6.co.uk';	
 	$from = $email;
 	$subject = 'Contact Form Message';
-	$content = '<b>Name:</b> '.$name.' <br> <b>Email:</b> '.
-	$email.' <br> <b>Telephone:</b> '.
-	$phone.' <br> <b>Organisation:</b> '.
-	$organisation.' <br> <b>Message:</b> '.$message;
-	
-	$headers = 'From:' . $from . '\r\n' .
-	'MIME-Version: 1.0' . '\r\n' .
-	'Content-type: text/html; charset=UTF-8;' . '\r\n';
-	
+	$content = '<b>Name:</b> ' . $name.' <br> <b>Email:</b> ' . $email.' <br> <b>Telephone:</b> ' . $phone .' <br> <b>Organisation:</b> '. $organisation .' <br> <b>Message:</b> ' . $message;
+	/*
+	$headers = 'From:' . $from . '\r\n' . 'MIME-Version: 1.0' . '\r\n' . 'Content-type: text/html; charset=UTF-8;';
+	*/
+	$headers  = 'MIME-Version: 1.0' . "\r\n";
+	$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+	$headers .= "From: ".$_POST['name']." <".$_POST['email'].">\r\n"; 
+	$headers .= "Reply-To: ".$_POST["email"]."\r\n";
 	if( mail($to, $subject, $content, $headers) ){
 		echo 'success';
-	} else {
-		echo 'The server failed to send the message. Please try again later.';
+	}
+	else {
+		echo 'The server failed to send the message. Please try again later.' . $to .  $subject . $content . $headers;
 	}
 }
 ?>
