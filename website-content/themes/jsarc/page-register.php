@@ -185,8 +185,8 @@ PAGE REGISTER / SECTION REGISTER FORM
 							<div class="row col2">
 								<div class="column large-5 small-12">
 									<div class="text-field-wrapper">
-										<input  id="first_name" class="text-field" name="first_name"  type="text" />
-										<label class="text-field-label" label for="first_name">First Name</label>
+										<input id="first_name" class="text-field" name="first_name"  type="text" />
+										<label class="text-field-label" for="first_name">First Name</label>
 									</div>
 								</div>
 								<div class="column large-5 large-last small-12">
@@ -195,8 +195,8 @@ PAGE REGISTER / SECTION REGISTER FORM
 										
 										
 										
-										<input  id="last_name" class="text-field" name="last_name"  type="text" />
-										<label class="text-field-label" label for="last_name">Last Name</label>
+										<input id="last_name" class="text-field" name="last_name"  type="text" />
+										<label class="text-field-label" for="last_name">Last Name</label>
 										
 										
 									</div>
@@ -214,13 +214,13 @@ PAGE REGISTER / SECTION REGISTER FORM
 								<div class="column large-12">
 									<div class="text-field-wrapper">
 										<input id="company" class="text-field" name="company"  type="text" />
-										<label class="text-field-label" label for="company">Organisation</label>
+										<label class="text-field-label" for="company">Organisation</label>
 									</div>
 								</div>
 								<div class="column large-12">
 									<div class="text-field-wrapper">
-										<input  id="email"  class="text-field" name="email"  type="text" />
-										<label class="text-field-label" label for="email">Email</label>
+										<input id="email"  class="text-field" name="email"  type="text" />
+										<label class="text-field-label" for="email">Email</label>
 
 
 									</div>

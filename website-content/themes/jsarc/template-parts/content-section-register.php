@@ -8,7 +8,7 @@
 			<ul class="social-list">
 				<li class="social-item"><a class="social-link twitter" href="">Twitter</a></li>
 				<li class="social-item"><a class="social-link youtube" href="">YouTube</a></li>
-				<li class="social-item"><a class="social-link facebook" href="">Facebook</a></li>
+				<li class="social-item"><a class="social-link linkedin" href="">LinkedIn</a></li>
 			</ul>
 		<div>
 	</div>
