@@ -259,7 +259,7 @@
 					<h2 class="heading-text"><?php the_field( 'form_text_heading' ); ?></h2>
 					<p class="body-text"><?php the_field( 'form_text_body' ); ?></p>
 				
-					<form action="action_page.php">
+					<form id="form" onsubmit="submitForm(); return false;">
 						<ul class="inputs">
 							<?php if ( have_rows( 'select_nature' ) ) : ?>
 							<li class="dropdown-wrapper">
@@ -313,10 +313,45 @@
 							<?php endif; ?>
 						
 							<li class="button-wrapper">
-								<input class="button submit" name="submit" type="submit" value="<?php the_field( 'submit_button_text' ); ?>">
+								<input id="submit" class="button submit" name="submit" type="submit" value="<?php the_field( 'submit_button_text' ); ?>"><span id="status"></span>
 							</li>
 						</ul>
 					</form>
+					<script>
+					/*
+					<form id="my_form" onsubmit="submitForm(); return false;">
+					  <p><input id="n" placeholder="Name" required></p>
+					  <p><input id="e" placeholder="Email Address" type="email" required></p>
+					  <textarea id="m" placeholder="write your message here" rows="10" required></textarea>
+					  <p><input id="mybtn" type="submit" value="Submit Form"> <span id="status"></span></p>
+					</form>
+					*/
+						function _(id){ return document.getElementById(id); }
+						function submitForm(){
+							_("submit").disabled = true;
+							_("status").innerHTML = 'please wait ...';
+							var formdata = new FormData();
+							formdata.append( "message", _("message").value );
+							formdata.append( "name", _("name").value );
+							formdata.append( "email", _("email").value );
+							formdata.append( "phone", _("phone").value );
+							formdata.append( "organisation", _("organisation").value );
+							
+							var ajax = new XMLHttpRequest();
+							ajax.open( "POST", "/wp-content/themes/jsarc/contact_form.php" );
+							ajax.onreadystatechange = function() {
+								if(ajax.readyState == 4 && ajax.status == 200) {
+									if(ajax.responseText == "success"){
+										_("form").innerHTML = '<h2>Thanks '+_("n").value+', your message has been sent.</h2>';
+									} else {
+										_("status").innerHTML = ajax.responseText;
+										_("submit").disabled = false;
+									}
+								}
+							}
+							ajax.send( formdata );
+						}
+					</script>
 				</div>
 			</div>
 			<div class="column large-4 large-last small-12">
