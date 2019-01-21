@@ -1820,9 +1820,16 @@ html.noscroll body {
     padding: 13px 20px 13px 0;
     font-size: 16px;
     line-height: 24px;
-    cursor: pointer; 
+    white-space: nowrap; 
+    cursor: pointer;
     -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+@media only screen and (max-width: 736px) and (orientation: portrait) {
+    .nav .menu .menu-item .sub-menu .sub-menu-item .sub-menu-link .link-text {
+        white-space: normal;
+    }
 }
 
 .nav .menu .menu-item .sub-menu .sub-menu-item .sub-menu-link:hover .link-text,
