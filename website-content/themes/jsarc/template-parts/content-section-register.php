@@ -6,9 +6,9 @@
 		<div class="social">
 			<h4 class="social-headline">Follow us on</h4>
 			<ul class="social-list">
-				<li class="social-item"><a class="social-link twitter" href="">Twitter</a></li>
-				<li class="social-item"><a class="social-link youtube" href="">YouTube</a></li>
-				<li class="social-item"><a class="social-link linkedin" href="">LinkedIn</a></li>
+				<li class="social-item"><a class="social-link twitter" href="https://twitter.com/ukhomeoffice">Twitter</a></li>
+				<li class="social-item"><a class="social-link youtube" href="https://www.youtube.com/user/ukhomeoffice">YouTube</a></li>
+				<li class="social-item"><a class="social-link linkedin" href="https://www.linkedin.com/company/the-home-office/">LinkedIn</a></li>
 			</ul>
 		<div>
 	</div>
