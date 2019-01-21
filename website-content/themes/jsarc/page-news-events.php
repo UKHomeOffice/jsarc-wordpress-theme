@@ -428,7 +428,7 @@
 							
 							</div>
 							<div class="details-bar">
-								<span class="date"><?php echo get_the_date('d/m/y'); ?></span>
+								<span class="date"><?php the_field( 'date' ); ?></span>
 								<p class="tags">
 								<?php
 								$posttags = get_the_tags();
