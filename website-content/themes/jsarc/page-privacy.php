@@ -31,7 +31,6 @@
 	font-size: 20px;
 	font-weight: bold;
 	line-height: 24px;
-	margin-bottom: 20px;
 }
 .main .body-text {
 	font-size: 18px;
@@ -39,8 +38,12 @@
 	margin-bottom: 50px;
 }
 .main .body-text ul,
-.main .body-text ol {
+.main .body-text ol,
+.main .body-text p {
 	margin-top: 24px;
+}
+.main .body-text ul,
+.main .body-text ol {
 	list-style-position: outside;
 }
 .main .section-content {
