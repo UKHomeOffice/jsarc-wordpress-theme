@@ -82,7 +82,11 @@
 	text-decoration: underline;
 }
 
-
+@media only screen and (max-width: 735px) {
+    .contact .large-last {
+    	margin-top: 50px;
+    }
+}
 
 </style>
 
