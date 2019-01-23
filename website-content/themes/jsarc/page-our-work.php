@@ -230,7 +230,7 @@ SECTION ENGAGING
 	padding-bottom: 75px;
 }
 
-.section.section-engaging .leader-text {
+.section.section-engaging .headline {
 	font-size: 36px;
 	line-height: 42px;
 	font-weight: bold;
@@ -329,6 +329,7 @@ SECTION MISSION
 SECTION case-studies
 
 ----------------------------------*/
+/*
 .section.section-case-studies {
 	background-color: #E3E3E3;
 }
@@ -408,7 +409,80 @@ SECTION case-studies
 	border: 2px solid #000;
 	width: 360px;
 }
+*/
 
+
+
+.sections-wrapper {
+	background-color: #E3E3E3;
+	padding: 50px 0;
+}
+.section.blocks {
+	margin-bottom: 50px;
+}
+.section.blocks .section-content {
+	
+}
+@media only screen and (min-width: 736px) {
+	.section.blocks.image-left .row > .column.large-last {
+	 float: left;
+	}
+	.section.blocks.image-left .row > .column.large-first {
+	 float: right;
+	}
+}
+
+.section.blocks .section-image {
+	height: 600px;
+	width: 100%;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+
+.section.blocks .block {
+	background-color: #fff;
+	
+}
+.section.blocks .block-text-content {
+	display: table;
+	padding: 50px;
+	min-height: 500px;
+}
+@media only screen and (max-width: 735px) {
+	.section.blocks .section-image {
+		height: 400px;
+	}
+	.section.blocks .block-text-content {
+		padding: 50px;
+		min-height: 300px;
+	}
+}
+
+.section.blocks .block-text-inner {
+	display: table-cell;
+	vertical-align: middle;
+}
+.section.blocks .block-headline {
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 34px;
+	margin-bottom: 22px;
+}
+.section.blocks .block-text {
+	font-size: 18px;
+	line-height: 28px;
+	margin-bottom: 50px;
+}
+.section.blocks .block-text p {
+	margin-bottom: 1em;
+}
+.section.blocks .block-link {
+	color: #01749F;
+	font-size: 19px;
+	font-style: oblique;
+	line-height: 28px;
+}
 </style>
 
 
@@ -417,7 +491,7 @@ SECTION case-studies
 <section class="section section-header">
 	<figure class="hero-image"></figure>
 	<div class="section-content">
-		<h1 class="hero-headline">Our Work</h1>
+		<h1 class="hero-headline"><?php the_title(); ?></h1>
 	</div>
 </section>
 
@@ -425,44 +499,190 @@ SECTION case-studies
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
 			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-			<li class="breadcrumbs-item">About</li>
+			<li class="breadcrumbs-item"><?php the_title(); ?></li>
 		</ul>
 	</div>
 </nav>
 
+<?php if ( have_rows( 'header' ) ) : ?>
 <section class="section section-intro">
 	<div class="section-content">
 		<div class="row">
-			<div class="column large-8 small-12"> 
-				<h2 class="leader-text">JSaRC's main aims are to identify solutions to the UK's security challenges, shape the security market and encourage growth in the sector.</h2>
-
-				<p class="body-text">JSaRC works to inform the government about existing capabilities in the security market that can address identified needs or requirements. We bring together government departments and policy leaders seeking to avoid duplication when pursuing complementary security solutions.</p>
-
-				<p class="body-text">JSaRC delivers operational trials that both prove and improve solutions; we introduce SMEs to complementary products and help industry and government to cooperate.</p>
-				
-				<p class="body-text">We work to shape the market for the security industry; JSaRC delivers industry briefings, engages with industry to better inform them of government requirements and produces market-shaping reports to inform industry of required standards.</p>
-				
-				<p class="body-text">JSaRC provides a discreet forum for government departments and industry to discuss security challenges. We assist industry with their understanding of the possible complications in Government Procurement procedures.</p>
-				<p class="body-text">JSaRC organises the Security & Policing Exhibition, bringing industry providers and services together; we also provide Home Office support to the Department for International Trade (DIT) and the Defence and Security Organisation (DSO) in showcasing the UK's security capability.</p>
-			</div>
+		<div class="column large-8 small-12"> 
+	<?php while ( have_rows( 'header' ) ) : the_row(); ?>
+		<div class="leader-text"><?php the_sub_field( 'bold_text' ); ?></div>
+		<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+		</div>
+		<?php if ( get_sub_field( 'call_for_action_show' ) == 1 ) {  // echo 'true'; ?>
+		<?php if ( have_rows( 'call_for_action' ) ) : ?>
 			<div class="column large-4 small-12">
 				<aside class="aside">
 					<div class="aside content">
-						<a class="box-link" href="">
-							<h2 class="box-link-headline">Funding Opportunity</h2>
-							<h3 class="box-link-subheading">The Overseas Protect and Prepare programme</h3>
-							<p class="box-link-content">This call to industry seeks to explore what industry can do to help deliver OPP’s goals.</p><span class="arrow"></span>
-						</a>
-					</div>
+			<?php while ( have_rows( 'call_for_action' ) ) : the_row(); ?>
+			<a class="box-link" href="<?php the_sub_field( 'url' ); ?>">
+				<h2 class="box-link-headline"><?php the_sub_field( 'headline' ); ?></h2>
+				<h3 class="box-link-subheading"><?php the_sub_field( 'subheading' ); ?></h3>
+				<p class="box-link-content"><?php the_sub_field( 'body_text' ); ?></p><span class="arrow"></span>
 				
+				</a>
+			<?php endwhile; ?>
+			</div>
 				</aside>
 			</div>
+		<?php endif; ?>
+		<?php } ?>
+		
+	<?php endwhile; ?>
 		</div>
 	</div>
 </section>
 
+<?php endif; ?>
 
+<?php if ( have_rows( 'section_engaging' ) ) : ?>
+<?php if ( get_sub_field( 'section_show' ) ) : ?>
 <section class="section section-engaging">
+	<div class="section-content">
+		 
+	<?php while ( have_rows( 'section_engaging' ) ) : the_row(); ?>
+		
+		<?php if ( have_rows( 'content' ) ) : ?>
+			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+				<h2 class="headline"><?php the_sub_field( 'headline' ); ?></h2>
+				<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+			<?php endwhile; ?>
+		
+		<?php endif; ?>
+		
+	<?php endwhile; ?>
+	 
+	</div>
+</section>
+<?php endif; ?>
+<?php endif; ?>
+
+
+
+
+
+
+
+<?php if ( have_rows( 'section_engaging' ) ) : ?>
+<section class="section section-engaging">
+	<div class="section-content">
+	<?php while ( have_rows( 'section_engaging' ) ) : the_row(); ?>
+		<?php if ( get_sub_field( 'section_show' ) == 1 ) { // echo 'true'; ?>
+		
+			<?php if ( have_rows( 'content' ) ) : ?>
+				<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+					<h2 class="headline"><?php the_sub_field( 'headline' ); ?></h2>
+					<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+				<?php endwhile; ?>
+			<?php endif; ?>
+		 
+		<?php } ?>
+		
+	<?php endwhile; ?>
+	</div>
+</section>
+<?php endif; ?>
+
+
+
+
+
+	<?php if ( have_rows( 'sections' ) ) : ?>
+	<div class="sections-wrapper">	
+<?php while ( have_rows( 'sections' ) ) : the_row(); ?>
+
+<section class="section blocks image-<?php the_sub_field( 'image_alignment' ); ?>">
+	<div class="section-content">
+		<div class="block row">
+			<div class="column large-5 large-last small-12">
+<?php if ( get_sub_field( 'section_image' ) ) { ?>
+				<figure class="section-image" style="background-image: url(<?php the_sub_field( 'section_image' ); ?>)">
+				</figure>
+<?php } ?>
+			</div>
+			<div class="column large-7 large-first small-12">
+				<div class="block-text-content">
+					<div class="block-text-inner">
+						
+					<?php if ( have_rows( 'section' ) ) : ?>
+					<?php while ( have_rows( 'section' ) ) : the_row(); ?>
+					<h3 class="block-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
+					<div class="block-text"><?php the_sub_field( 'section_body_text' ); ?></div>
+					
+					
+					
+					<?php if ( have_rows( 'section_links' ) ) : ?>
+					<?php while ( have_rows( 'section_links' ) ) : the_row(); ?>
+					<div><a class="block-link" href="<?php the_sub_field( 'link_url' ); ?>"><?php the_sub_field( 'link_text' ); ?></a></div>
+					<?php endwhile; ?>
+				 
+				<?php endif; ?>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					 
+					
+				</div>
+			</div>
+		</div>
+		
+		
+	
+	
+	
+	
+	<?php if ( have_rows( 'section_button' ) ) : ?>
+	
+			<?php while ( have_rows( 'section_button' ) ) : the_row(); ?>
+				
+				<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?></a>
+			<?php endwhile; ?>
+		<?php endif; ?>
+	
+	</div>		
+	 
+		
+		
+	<?php endwhile; ?>
+<?php endif; ?>
+	
+	
+</section>
+
+
+
+
+
+
+
+
+<?php endwhile; ?>
+</div>
+					<?php endif; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--section class="section section-engaging">
 	<div class="section-content">
 		<div class="row">
 			<div class="column large-12"> 
@@ -481,11 +701,11 @@ stakeholders. These include events such as the Security & Policing Home Office e
 			</div>
 		</div>
 	</div>
-</section>
+</section-->
 
 
 
-<section class="section section-case-studies">
+<!--section class="section section-case-studies">
 	<div class="section-content">
 		<h2 class="section-headline">Case Studies</h2>
 		
@@ -544,7 +764,7 @@ stakeholders. These include events such as the Security & Policing Home Office e
 		<a class="button more" href="/">See all JSaRC news and events</a>
 		
 	</div>
-</section>
+</section-->
 
 <?php get_template_part( 'template-parts/content', 'section-register'); ?>
 

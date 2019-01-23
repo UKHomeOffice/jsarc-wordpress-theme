@@ -1,4 +1,3 @@
-
 <section class="section section-register">
 	<div class="section-content">
 		<h3 class="section-headline"><?php the_field( 'headline', 'option' ); ?></h3>
