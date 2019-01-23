@@ -46,74 +46,41 @@
 SECTION HEADER
 
 ----------------------------------*/
-.section.section-header {
-	background-color: #000;
-}
 
-.section.section-header .section-content {
-	display: table;
-	height: 300px;
-
-}
-
-.section.section-header .hero-image {
+.hero .hero-image {
 	position: absolute;
+	z-index: -1;
 	max-width: 2560px;
 	width: 100%;
 	height: 300px;
 	background-size: cover;
 	background-position: 80% 50%;
-	background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/case-study-header-bg.png");
-	opacity: .5;
+	background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>");	
 }
-
-.section.section-header .hero-image {
-	animation: background-opacity 1s forwards;
+.hero .section-content {
+	display: table;
+	height: 300px;
+	
 }
-
-@keyframes background-opacity {
-    0% {
-		opacity: 1;	
-    }
-    100% {
-		opacity: 0.5;
-    }
-}
-
-.section.section-header .hero-headline {
+.hero .headline-wrapper {
 	display: table-cell;
 	vertical-align: middle;
-	color: #fff;
-	font-size: 48px;
+}
+
+.hero .hero-headline {
+	display: inline-block;
+	width: 80%;
+	font-size: 36px;
+	line-height: 75px;
 	font-weight: bold;
-	line-height: 1.2;
+	color: #fff;
 }
-
-
-.section.section-header .hero-headline {
-	transform: translateY(50px);
-	opacity: 0;
-	animation: headline-reveal 1s forwards;
+.hero .hero-headline span {
+	display: inline;
+	padding: 2px 0;
+	box-shadow: 5px 0 0 #000, -5px 0 0 #000; 
+	background-color: #000;
 }
-
-@keyframes headline-reveal {
-    0% {
-    	transform: translateY(50px);
-		opacity: 0;	
-    }
-    100% {
-    	transform: translateY(0);
-		opacity: 1;
-    }
-}
-
-
-@media only screen and (max-width: 1068px) {
-	.section.section-header .hero-headline {
-		font-size: 38px;
-	}
-}
-
 /*---------------------------------
 
 SECTION INTRO
@@ -245,11 +212,7 @@ SECTION ENGAGING
 	margin-bottom: 34px;
 }
 
-/*---------------------------------
 
-SECTION MISSION
-
-----------------------------------*/
 .section.section-mission {
 	background-color: #1E4289;
 	min-height: 400px;
@@ -322,94 +285,6 @@ SECTION MISSION
 		margin-right: auto;
 	}
 }
-
-
-/*---------------------------------
-
-SECTION case-studies
-
-----------------------------------*/
-/*
-.section.section-case-studies {
-	background-color: #E3E3E3;
-}
-.section.section-case-studies .section-content {
-	padding-top: 75px;
-	padding-bottom: 75px;
-}
-
-
-.section.section-case-studies .case-studies-image {
-	height: 600px;
-	width: 100%;
-	background-size: cover;
-	background-position: 50% 50%;
-}
-
-.section.section-case-studies .case-studies-image.case-studies-image-1 {
-	background-image: url("/wp-content/themes/jsarc/img/v/our-work/a/image-1.jpg");
-}
-.section.section-case-studies .case-studies-image.case-studies-image-2 {
-	background-image: url("/wp-content/themes/jsarc/img/v/our-work/a/image-2.jpg");
-}
-.section.section-case-studies .case-studies-image.case-studies-image-3 {
-	background-image: url("/wp-content/themes/jsarc/img/v/our-work/a/image-3.jpg");
-}
-
-.section.section-case-studies .section-headline {
-	font-size: 36px;
-	font-weight: bold;
-	line-height: 42px;
-	margin-bottom: 50px;
-}
-
-.section.section-case-studies .block {
-	background-color: #fff;
-	margin-bottom: 50px;
-	
-}
-.section.section-case-studies .block-text-content {
-	display: table;
-	padding: 50px;
-	min-height: 500px;
-}
-@media only screen and (max-width: 735px) {
-	.section.section-case-studies .case-studies-image {
-		height: 400px;
-	}
-	.section.section-case-studies .block-text-content {
-		padding: 50px;
-		min-height: 300px;
-	}
-}
-
-.section.section-case-studies .block-text-inner {
-	display: table-cell;
-	vertical-align: middle;
-}
-.section.section-case-studies .block-headline {
-	font-size: 24px;
-	font-weight: bold;
-	line-height: 34px;
-	margin-bottom: 22px;
-}
-.section.section-case-studies .block-text {
-	font-size: 18px;
-	line-height: 28px;
-	margin-bottom: 10px;
-}
-.section.section-case-studies .block-link {
-	color: #01749F;
-	font-size: 19px;
-	font-style: oblique;
-	line-height: 28px;
-}
-
-.section.section-case-studies .button.more {
-	border: 2px solid #000;
-	width: 360px;
-}
-*/
 
 
 
@@ -487,13 +362,15 @@ SECTION case-studies
 
 
 
-
-<section class="section section-header">
+<header class="section hero">
 	<figure class="hero-image"></figure>
 	<div class="section-content">
-		<h1 class="hero-headline"><?php the_title(); ?></h1>
+		<div class="headline-wrapper">
+			<h1 class="hero-headline"><span><?php the_title(); ?></span></h1>
+		</div>
 	</div>
-</section>
+</header>
+
 
 <nav class="breadcrumbs">
 	<div class="section-content">
