@@ -17,28 +17,34 @@
 
 <style>
 
-.section-content {
-    width: 980px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+.body-text ul,
+.body-text ol {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	list-style-position: outside;
 }
 
-
-
-@media only screen and (max-width: 1068px) {
-    .section-content {
-        width: 692px;
-    }
+.body-text ul {
+	list-style: none;
+	padding-left: 2em;
 }
-
-@media only screen and (max-width: 735px) {
-    .section-content {
-        width: 90%;
-    }
+.body-text ul li:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 5px;
+	height: 5px;
+	background-color: #333;
+	border-radius: 50%;
+	margin-left: -1.3em;
+	margin-right: 1em;
 }
-
+.body-text ol {
+	padding-left: 2em;
+}
+.body-text ol li {
+	list-style-type: decimal;
+}
 
 
 /*---------------------------------
@@ -298,6 +304,15 @@ SECTION ENGAGING
 .section.blocks .section-content {
 	
 }
+
+.section.blocks .section-headline {
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	margin-bottom: 50px;
+}
+
+
 @media only screen and (min-width: 736px) {
 	.section.blocks.image-left .row > .column.large-last {
 	 float: left;
@@ -468,180 +483,63 @@ SECTION ENGAGING
 
 
 
-	<?php if ( have_rows( 'sections' ) ) : ?>
-	<div class="sections-wrapper">	
+<?php if ( have_rows( 'sections' ) ) : ?>
 <?php while ( have_rows( 'sections' ) ) : the_row(); ?>
-
-<section class="section blocks image-<?php the_sub_field( 'image_alignment' ); ?>">
-	<div class="section-content">
-		<div class="block row">
-			<div class="column large-5 large-last small-12">
-<?php if ( get_sub_field( 'section_image' ) ) { ?>
-				<figure class="section-image" style="background-image: url(<?php the_sub_field( 'section_image' ); ?>)">
-				</figure>
-<?php } ?>
-			</div>
-			<div class="column large-7 large-first small-12">
-				<div class="block-text-content">
-					<div class="block-text-inner">
+<div class="sections-wrapper">
+	<section class="section blocks image-<?php the_sub_field( 'image_alignment' ); ?>">
+		<div class="section-content">
+			<div class="block row">
+				<div class="column large-5 large-last small-12">
+	<?php if ( get_sub_field( 'section_image' ) ) { ?>
+					<figure class="section-image" style="background-image: url(<?php the_sub_field( 'section_image' ); ?>)">
+					</figure>
+	<?php } ?>
+				</div>
+				<div class="column large-7 large-first small-12">
+					<div class="block-text-content">
+						<div class="block-text-inner">
 						
-					<?php if ( have_rows( 'section' ) ) : ?>
-					<?php while ( have_rows( 'section' ) ) : the_row(); ?>
-					<h3 class="block-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
-					<div class="block-text"><?php the_sub_field( 'section_body_text' ); ?></div>
+						<?php if ( have_rows( 'section' ) ) : ?>
+						<?php while ( have_rows( 'section' ) ) : the_row(); ?>
+						<h3 class="block-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
+						<div class="block-text"><?php the_sub_field( 'section_body_text' ); ?></div>
 					
 					
 					
-					<?php if ( have_rows( 'section_links' ) ) : ?>
-					<?php while ( have_rows( 'section_links' ) ) : the_row(); ?>
-					<div><a class="block-link" href="<?php the_sub_field( 'link_url' ); ?>"><?php the_sub_field( 'link_text' ); ?></a></div>
-					<?php endwhile; ?>
+						<?php if ( have_rows( 'section_links' ) ) : ?>
+						<?php while ( have_rows( 'section_links' ) ) : the_row(); ?>
+						<div><a class="block-link" href="<?php the_sub_field( 'link_url' ); ?>"><?php the_sub_field( 'link_text' ); ?></a></div>
+						<?php endwhile; ?>
 				 
-				<?php endif; ?>
+					<?php endif; ?>
 					
-					
-					
-					
-					
-					
-					
-					
-					
-					 
-					
+					</div>
 				</div>
 			</div>
-		</div>
-		
-		
+		<?php if ( have_rows( 'section_button' ) ) : ?>
 	
-	
-	
-	
-	<?php if ( have_rows( 'section_button' ) ) : ?>
-	
-			<?php while ( have_rows( 'section_button' ) ) : the_row(); ?>
+				<?php while ( have_rows( 'section_button' ) ) : the_row(); ?>
 				
-				<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?></a>
-			<?php endwhile; ?>
-		<?php endif; ?>
+					<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?></a>
+				<?php endwhile; ?>
+			<?php endif; ?>
 	
-	</div>		
+		</div>		
 	 
 		
 		
-	<?php endwhile; ?>
-<?php endif; ?>
+		<?php endwhile; ?>
+	<?php endif; ?>
 	
 	
-</section>
+	</section>
 
 
-
-
-
-
-
-
-<?php endwhile; ?>
 </div>
-					<?php endif; ?>
+<?php endwhile; ?>
+<?php endif; ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!--section class="section section-engaging">
-	<div class="section-content">
-		<div class="row">
-			<div class="column large-12"> 
-				<h2 class="leader-text">Engaging with JSaRC</h2>
-
-				<p class="body-text">JSaRC uses a number of mechanisms through which we engage with our
-stakeholders. These include events such as the Security & Policing Home Office event, DSEI, and the International Security Expo.</p>
-
-				<p class="body-text">Formal engagements and projects are the primary means by which we deliver upon our business objectives.</p>
-				
-				<p class="body-text">JSaRC holds regular open days at our Cambridge Headquarters, giving industry and the private sector, especially SMEs, the opportunity to gain advice and coaching on how best to work with government.</p>
-				
-				<p class="body-text">Our partners within industry and academia supply experienced staff to JSaRC as Industry Secondees, who use their expertise to work as part of the JSaRC team to deliver projects.</p>
-				
-				<p class="body-text">JSaRC attends a number of government boards and working groups to build awareness of our work and to better understand the requirements of our government partners.</p>
-			</div>
-		</div>
-	</div>
-</section-->
-
-
-
-<!--section class="section section-case-studies">
-	<div class="section-content">
-		<h2 class="section-headline">Case Studies</h2>
-		
-		<div class="block row">
-			<div class="column large-5 large-last small-12">
-				<figure class="case-studies-image case-studies-image-1"></figure>
-			</div>
-			<div class="column large-7 large-first small-12">
-				<div class="block-text-content">
-					<div class="block-text-inner">
-						<h3 class="block-headline">Coaches, Cars and Bottlenecks</h3>
-						<p class="block-text">One of the most pressing challenges in national security is the processing and clearing of passengers in cars and coaches at the UK’s sea ports and the Channel Tunnel.</p>
-						<p class="block-text">Currently, all passengers have to disembark their vehicles to have their credentials checked individually. This can lead to long queues and the slow movement of passengers. Between April 2017 and March 2018, the passengers of nearly 69,000 coaches were checked.</p>
-						<p class="block-text">JSaRC wants to find a solution that would create more efficient passenger processing and clearing of coach and car traffic at border crossings.</p>
-						<a class="block-link" href="">Read more</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="block row">
-			
-			<div class="column large-5 small-12">
-				<figure class="case-studies-image case-studies-image-2"></figure>
-			</div>
-			<div class="column large-7 small-12">
-				<div class="block-text-content">
-					<div class="block-text-inner">
-						<h3 class="block-headline">Video Analytics Showcase</h3>
-						<p class="block-text">JSaRC supports industry trials and tests of security solutions. We capitalise on these to create better engagement and greater cooperation between government and industry on vital technology such as Video Analytics.</p>
-						<p class="block-text">Improved future partnerships between the public and private sectors will create robust new technologies. Collaborative tests on technologies are carried out that may lead to government-funded trials of new security products.</p>
-						<a class="block-link" href="">Read more</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="block row">
-			
-			<div class="column large-5 large-last small-12">
-				<figure class="case-studies-image case-studies-image-3"></figure>
-			</div>
-			<div class="column large-7 large-first small-12">
-				<div class="block-text-content">
-					<div class="block-text-inner">
-						<h3 class="block-headline">Securing Crowded Places</h3>
-						<p class="block-text">Due to the global terrorist threat, as demonstrated in Manchester and London, the prevention of mass casualty attacks and high footfall screening is a priority for JSaRC.</p>
-						<p class="block-text">The Home Office and Her Majesty’s Government are seeking solutions to improve surveillance systems, detection capabilities and the security of crowded places in the UK.</p>
-						<p class="block-text">JSaRC is cooperating with industry and the security sector to encourage developments in this field and to foster greater collaboration and successful outcomes.</p>
-						<a class="block-link" href="">Read more</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<a class="button more" href="/">See all JSaRC news and events</a>
-		
-	</div>
-</section-->
 
 <?php get_template_part( 'template-parts/content', 'section-register'); ?>
 
