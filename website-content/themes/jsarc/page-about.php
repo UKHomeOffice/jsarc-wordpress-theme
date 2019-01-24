@@ -45,6 +45,38 @@
 	list-style-type: decimal;
 }
 
+ ul.body-text,
+ ol.body-text {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	list-style-position: outside;
+}
+
+ul.body-text {
+	list-style: none;
+	padding-left: 2em;
+}
+ul.body-text li:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 5px;
+	height: 5px;
+	background-color: #333;
+	border-radius: 50%;
+	margin-left: -1.3em;
+	margin-right: 1em;
+}
+ol.body-text {
+	padding-left: 2em;
+}
+ol.body-text li {
+	list-style-type: decimal;
+}
+
+
+
+
 
 
 
@@ -311,11 +343,8 @@ margin-bottom: 22px;
 .section.blocks {
 	margin-bottom: 50px;
 }
-.section.blocks .section-content {
-	
-}
 
-.section.blocks .section-headline {
+.sections-wrapper .section-headline {
 	font-size: 36px;
 	font-weight: bold;
 	line-height: 42px;
@@ -383,11 +412,8 @@ margin-bottom: 22px;
 	line-height: 28px;
 }
 
-/*---------------------------------
 
-SECTION PROJECTS
 
-----------------------------------*/
 
 .section.projects {
     background-color: #e3e3e3;
@@ -658,10 +684,10 @@ SECTION PROJECTS
 
 
 
-
 <?php if ( have_rows( 'sections' ) ) : ?>
 <?php while ( have_rows( 'sections' ) ) : the_row(); ?>
 <div class="sections-wrapper">
+	<div class="section-content"><h2 class="section-headline"><?php the_sub_field( 'section_heading_text' ); ?></h2></div>
 	<?php if ( have_rows( 'section' ) ) : ?>
 	<?php while ( have_rows( 'section' ) ) : the_row(); ?>
 	<section class="section blocks image-<?php the_sub_field( 'image_alignment' ); ?>">
