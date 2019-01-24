@@ -46,6 +46,35 @@
 	list-style-type: decimal;
 }
 
+ ul.body-text,
+ ol.body-text {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	list-style-position: outside;
+}
+
+ul.body-text {
+	list-style: none;
+	padding-left: 2em;
+}
+ul.body-text li:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 5px;
+	height: 5px;
+	background-color: #333;
+	border-radius: 50%;
+	margin-left: -1.3em;
+	margin-right: 1em;
+}
+ol.body-text {
+	padding-left: 2em;
+}
+ol.body-text li {
+	list-style-type: decimal;
+}
+
 
 /*---------------------------------
 
@@ -229,7 +258,6 @@ SECTION ENGAGING
 	height: 400px;
 	background-size: cover;
 	background-position: 50% 50%;
-	background-image: url("/wp-content/themes/jsarc/img/v/about/b/jsarc-mission-illustration.png");
 }
 
 
@@ -297,6 +325,12 @@ SECTION ENGAGING
 .sections-wrapper {
 	background-color: #E3E3E3;
 	padding: 50px 0;
+}
+.sections-wrapper .section-headline {
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	margin-bottom: 50px;
 }
 .section.blocks {
 	margin-bottom: 50px;
@@ -481,63 +515,53 @@ SECTION ENGAGING
 
 
 
-
-
-<?php if ( have_rows( 'sections' ) ) : ?>
-<?php while ( have_rows( 'sections' ) ) : the_row(); ?>
 <div class="sections-wrapper">
+<?php if ( have_rows( 'sections' ) ) : ?>
+	<?php while ( have_rows( 'sections' ) ) : the_row(); ?>
+	<div class="section-content">
+		<h2 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h2>
+	</div>
+	<?php if ( have_rows( 'section' ) ) : ?>
+			<?php while ( have_rows( 'section' ) ) : the_row(); ?>
 	<section class="section blocks image-<?php the_sub_field( 'image_alignment' ); ?>">
 		<div class="section-content">
 			<div class="block row">
 				<div class="column large-5 large-last small-12">
-	<?php if ( get_sub_field( 'section_image' ) ) { ?>
-					<figure class="section-image" style="background-image: url(<?php the_sub_field( 'section_image' ); ?>)">
+					<figure class="section-image" style="background-image: url(<?php if ( get_sub_field( 'section_image' ) ) { the_sub_field( 'section_image' ); } ?>)">
 					</figure>
-	<?php } ?>
 				</div>
 				<div class="column large-7 large-first small-12">
 					<div class="block-text-content">
 						<div class="block-text-inner">
-						
-						<?php if ( have_rows( 'section' ) ) : ?>
-						<?php while ( have_rows( 'section' ) ) : the_row(); ?>
 						<h3 class="block-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
 						<div class="block-text"><?php the_sub_field( 'section_body_text' ); ?></div>
-					
-					
-					
+						
+						
 						<?php if ( have_rows( 'section_links' ) ) : ?>
-						<?php while ( have_rows( 'section_links' ) ) : the_row(); ?>
+					<?php while ( have_rows( 'section_links' ) ) : the_row(); ?>
 						<div><a class="block-link" href="<?php the_sub_field( 'link_url' ); ?>"><?php the_sub_field( 'link_text' ); ?></a></div>
-						<?php endwhile; ?>
-				 
-					<?php endif; ?>
-					
+					<?php endwhile; ?>
+				<?php endif; ?>
+						
 					</div>
 				</div>
 			</div>
-		<?php if ( have_rows( 'section_button' ) ) : ?>
-	
-				<?php while ( have_rows( 'section_button' ) ) : the_row(); ?>
-				
-					<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?></a>
-				<?php endwhile; ?>
-			<?php endif; ?>
-	
-		</div>		
-	 
-		
-		
-		<?php endwhile; ?>
-	<?php endif; ?>
-	
-	
+			<?php if ( have_rows( 'section_button' ) ) : ?>
+			<?php while ( have_rows( 'section_button' ) ) : the_row(); ?>
+		 	<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?></a>
+		 	<?php endwhile; ?>
+		<?php endif; ?>
+		</div>
 	</section>
+	<?php endwhile; ?>
+		<?php endif; ?>
 
-
-</div>
-<?php endwhile; ?>
+		<?php endwhile; ?>
 <?php endif; ?>
+</div>	
+		 
+		
+			
 
 
 
