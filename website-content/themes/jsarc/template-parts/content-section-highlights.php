@@ -108,17 +108,6 @@ SECTION PROGECTS
 }
 
 
-.section.section-projects .tile-image.tile1 {
-    background-image: url('/wp-content/themes/jsarc/img/v/homepage/a/project-thumb1.png');
-}
-.section.section-projects .tile-image.tile2 {
-    background-image: url('/wp-content/themes/jsarc/img/v/homepage/a/project-thumb2.png');
-}
-.section.section-projects .tile-image.tile3 {
-    background-image: url('/wp-content/themes/jsarc/img/v/homepage/a/project-thumb3.png');
-}
-
-
 .section.section-projects .caption-wrapper {
     padding: 25px;
 }
@@ -174,44 +163,73 @@ SECTION PROGECTS
 
 </style>
 
-<section class="section section-projects">
-	<div class="section-content">
-		<h3 class="section-headline">Highlights</h3>
-		<ul class="tiles-list">
-			<li class="tile-item">
-				<a class="tile-link" href="/news-events/">
-					<div class="tile-image-box">
-						<figure class="tile-image tile1"></figure>
-					</div>
-					<div class="caption-wrapper">
-						<h3 class="tile-headline">Securing crowded spaces Case Study</h3>
-						<div class="tile-caption">Updates from JSaRC’s trials on securing high-footfall places.</div>
-					</div>
-				</a>
-			</li>
-			<li class="tile-item">
-				<a class="tile-link" href="/news-events/">
-					<div class="tile-image-box">
-						<figure class="tile-image tile2"></figure>
-					</div>
-					<div class="caption-wrapper">
-						<h3 class="tile-headline">JSaRC open day</h3>
-						<div class="tile-caption">JSaRC will be hosting an open day for the security industry on 15 November 2019. Register now to apply for tickets.</div>
-					</div>
-				</a>
-			</li>
-			<li class="tile-item">
-				<a class="tile-link" href="/news-events/">
-					<div class="tile-image-box">
-						<figure class="tile-image tile3"></figure>
-					</div>
-					<div class="caption-wrapper">
-						<h3 class="tile-headline">Border Force, coaches and cars</h3>
-						<div class="tile-caption">JSaRC is working with Border Force and industry to improve border security. </div>
-					</div>
-				</a>
-			</li>
-		</ul>
-		<a class="button more" href="/news-events/">See all JSaRC news and events</a>
-	</div>
-</section>
+
+
+
+
+<?php if ( have_rows( 'section', 'option' ) ) : ?>
+	<?php while ( have_rows( 'section', 'option' ) ) : the_row(); ?>
+	<section class="section section-projects">
+		<div class="section-content">
+		<h3 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
+		<?php if ( have_rows( 'tiles' ) ) : ?>
+			<?php while ( have_rows( 'tiles' ) ) : the_row(); ?>
+			<ul class="tiles-list">
+				<?php if ( have_rows( 'tile' ) ) : ?>
+					<?php while ( have_rows( 'tile' ) ) : the_row(); ?>
+					<li class="tile-item">
+						<a class="tile-link" href="<?php the_sub_field( 'url' ); ?>">
+							<div class="tile-image-box">
+								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+							</div>
+							<div class="caption-wrapper">
+								<h3 class="tile-headline"><?php the_sub_field( 'title' ); ?></h3>
+								<div class="tile-caption"><?php the_sub_field( 'body_text' ); ?></div>
+							</div>
+						</a>
+					</li>
+					<?php endwhile; ?>
+				<?php endif; ?>
+				<?php if ( have_rows( 'tile_two' ) ) : ?>
+					<?php while ( have_rows( 'tile_two' ) ) : the_row(); ?>
+					<li class="tile-item">
+						<a class="tile-link" href="<?php the_sub_field( 'url' ); ?>">
+							<div class="tile-image-box">
+								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+							</div>
+							<div class="caption-wrapper">
+								<h3 class="tile-headline"><?php the_sub_field( 'title' ); ?></h3>
+								<div class="tile-caption"><?php the_sub_field( 'body_text' ); ?></div>
+							</div>
+						</a>
+					</li>
+					<?php endwhile; ?>
+				<?php endif; ?>
+				<?php if ( have_rows( 'tile_three' ) ) : ?>
+					<?php while ( have_rows( 'tile_three' ) ) : the_row(); ?>
+					<li class="tile-item">
+						<a class="tile-link" href="<?php the_sub_field( 'url' ); ?>">
+							<div class="tile-image-box">
+								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+							</div>
+							<div class="caption-wrapper">
+								<h3 class="tile-headline"><?php the_sub_field( 'title' ); ?></h3>
+								<div class="tile-caption"><?php the_sub_field( 'body_text' ); ?></div>
+							</div>
+						</a>
+					</li>
+					<?php endwhile; ?>
+				<?php endif; ?>
+			</ul>
+			<?php endwhile; ?>
+		<?php endif; ?>
+		
+		<?php if ( have_rows( 'button' ) ) : ?>
+			<?php while ( have_rows( 'button' ) ) : the_row(); ?>
+				<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?></a>
+			<?php endwhile; ?>
+		<?php endif; ?>
+		</div>
+	</section>
+	<?php endwhile; ?>
+<?php endif; ?>

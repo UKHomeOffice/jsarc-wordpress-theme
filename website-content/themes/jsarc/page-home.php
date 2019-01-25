@@ -730,7 +730,7 @@ SECTION CASESTUDY
 </section>
 
 
-<?php get_template_part( 'template-parts/content', 'section-projects'); ?>
+<?php get_template_part( 'template-parts/content', 'section-highlights'); ?>
 
 <?php get_template_part( 'template-parts/content', 'section-register'); ?>
 

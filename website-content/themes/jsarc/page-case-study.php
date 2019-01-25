@@ -328,7 +328,7 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 
 <?php get_template_part( 'template-parts/content', 'section-casestudies'); ?>
 
-<?php get_template_part( 'template-parts/content', 'section-projects'); ?>
+<?php get_template_part( 'template-parts/content', 'section-highlights'); ?>
 
 <?php get_template_part( 'template-parts/content', 'section-register'); ?>
 
