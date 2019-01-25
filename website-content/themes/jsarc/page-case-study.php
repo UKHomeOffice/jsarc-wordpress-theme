@@ -264,69 +264,25 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 </section>
 
 
-
-
-
-
-<!--
-
-<section class="section section-case-study-content">
-	<div class="section-content">
-		<h3 class="section-headline">The challenge</h3>
-		<p class="body-text">Due to the developing global terrorist threat, as demonstrated in Manchester and London, preventing mass casualty attacks is a priority. Although the UK is considered a leader in the security field, there is an appetite in the Home Office and other government departments to work more closely with industry to improve the detection capabilities and security of crowded places in the UK.</p>
-		<p class="body-text">The aim is to allow companies to promote an understanding and awareness of how innovative technologies and operational concepts can be combined to reduce the risk of attacks. This can be achieved without inconveniencing the public or impeding business.</p>
-		<p class="body-text">JSaRC wants venues to provide an enhanced visitor experience through easy access combined with assuring visitors about their own security. This involves screening large numbers of people quickly, cost-effectively and proportionately whilst retaining the confidence that no-one entering a crowded space represents a security threat.</p>  
-		<p class="body-text">JSaRC is looking to show an alternative to airport-style security. This will provide an insight into the developments in security technology to a previously unused audience.</p>
-	</div>
-</section>
-
-<section class="section section-case-study-content dark">
-	<div class="sticky-container">
-		<figure class="section-image-full-with case-study-1 sticky-item"></figure>
-	</div>
-	<div class="section-content">
-		<h3 class="section-headline">Solutions implemented</h3>
-		<p class="body-text">JSaRC, partnered with CPNI, Iconal and Fenley Martel, held a series of trials showcasing high footfall screening technologies at various crowded places across the UK. This event took place following a successful initial Innovation Call.</p>
-		<p class="body-text">The focus of the trials was to provide an insight into how imaginative and proportional approaches can manage risks related to detecting threat items in crowds. The trials explored how this could be achieved without the usual delays caused by intrusive security processes, such as divesting clothing, which inconvenience visitors and businesses.</p>
-		<p class="body-text">While innovative technologies are becoming more available, their adoption has been limited. This is partly due to a lack of understanding of what benefits these technologies offer and how they can be used in real world applications.</p>
-		<p class="body-text">Consequently, the limited take-up of new approaches and technologies is often inhibiting, delaying or completely preventing the exploitation of new capabilities that may succeed in mitigating security threats.</p>
-	</div>
-</section>
-
-<section class="section section-case-study-content">
-	<div class="section-content">
-		<figure class="section-image case-study-results"></figure>
-		<h3 class="section-headline">Results</h3>
-		<p class="body-text">In total, 5 sites and 6 technology providers volunteered to participate in trials.</p>
-		<p class="body-text">The trials involved real users, which demonstrated a real world impact. This helped to engage all stakeholder groups.</p>
-		<p class="body-text">The chosen sites represented typical crowded places. The sites all sought to combine a high level of security assurance with minimum interference for their visitors and existing security procedures. Each site was individually informed as to how to develop the optimal concepts of their operation; this was a process that combined people, processes and technology.</p>
-		<p class="body-text">The technology providers sought to understand how their equipment worked best in the field. These demonstrations provided business stakeholders with an important opportunity as ‘the point of the trial is not just the kit, but everything around the kit.’</p>
-		<p class="body-text">The trials directed product design and development in a totally unique way, leading one technology provider to comment that the product development lessons learned in a 6 week trial is equivalent to a year of market research.</p>
-		<p class="body-text">Another stakeholder commented that the trials give them ‘knowledge of real life applications in front of customers’ and were the most productive use of government support they had had over the 12 year period their product has been in development.</p>
-		<p class="body-text">It was the first time that they had seen their system used in test for true high footfall screening, despite having many tens of systems in the field. They estimated that the knowledge gained had accelerated the time to market of their latest version by 18 months (with a £1-2M potential payback).</p>
-	</div>
-</section>
-
-<section class="section section-case-study-content light">
-	<div class="sticky-container">
-		<figure class="section-image-full-with case-study-2 sticky-item"></figure>
-	</div>
-	<div class="section-content">
-		<h3 class="section-headline">Outcomes</h3>
-		<p class="body-text">The trials proved to be a success and proved that a small lightweight programme can deliver useful and worthwhile trials. They have given manufacturers valuable exposure and have provided site operators with useful insight. Additionally, CPNI is using the learning from the trials to inform guidance development.</p>
-		<p class="body-text">Exposure was of great importance to the manufacturers. The trials provided a great opportunity to raise their profile and build relationships with potential customers. The trials enabled the identification of new areas where existing equipment can be adapted. There is now a greater understanding of end user requirements through realistic operational data, which feeds into product development.</p>
-		<p class="body-text">For venues, the trials provided valuable insight into a technology’s capabilities and its limitations. This lead to improved confidence in the robustness of the technology and its fitness for service. The trials showed that it is possible for venues to improve customer safety seamlessly, unobtrusively and affordably.  This in turn provided reassurance that high footfall screening is feasible. The opportunity to be able to communicate requirements to developers was also critical.</p>
-		<p class="body-text">The interest being shown by major attractions, shopping centres and arenas is now far greater, which will no doubt support the growth of the security sector.</p>
-		<p class="body-text">Stakeholders are starting to buy-in to the ‘screen everyone for something’ approach. If this is coupled with the priceless feedback given to manufacturers who are addressing the need for high footfall, low interference and cost-effective technologies, the trials can be said to have successfully driven the delivery of the right solution as well as supporting the growth of the security sector.</p>
-	</div>
-</section>
-
--->
-
-
-
-
-<?php get_template_part( 'template-parts/content', 'section-casestudies'); ?>
+<?php if ( have_rows( 'case_study_section' ) ) : ?>
+	<?php while ( have_rows( 'case_study_section' ) ) : the_row(); ?>
+	<section class="section section-casestudies" data-anim-classname='{"cssClass":"reveal"}'>
+		
+		<figure class="section-image-full-with" style="background-image: url(<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>)"></figure>
+		<div class="section-content">
+			<h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>
+			<h4 class="section-sub-heading"><?php the_sub_field( 'subheading' ); ?></h4>
+			
+			<?php if ( have_rows( 'button' ) ) : ?>
+			<?php while ( have_rows( 'button' ) ) : the_row(); ?>
+				<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?></a>
+			<?php endwhile; ?>
+		<?php endif; ?>
+		</div>
+		
+	<?php endwhile; ?>
+	</section>
+<?php endif; ?>
 
 <?php get_template_part( 'template-parts/content', 'section-highlights'); ?>
 
