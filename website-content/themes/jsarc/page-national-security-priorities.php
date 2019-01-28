@@ -17,7 +17,34 @@
 
 
 <style>
+.hero-body-text ul,
+.hero-body-text ol {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	list-style-position: outside;
+}
 
+.hero-body-text ul {
+	list-style: none;
+	padding-left: 2em;
+}
+.hero-body-text ul li:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 5px;
+	height: 5px;
+	background-color: #333;
+	border-radius: 50%;
+	margin-left: -1.3em;
+	margin-right: 1em;
+}
+.hero-body-text ol {
+	padding-left: 2em;
+}
+.hero-body-text ol li {
+	list-style-type: decimal;
+}
 
 .hero .hero-image {
 	position: absolute;
