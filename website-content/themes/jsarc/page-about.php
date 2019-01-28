@@ -16,6 +16,35 @@
 
 <style>
 
+.block-text ul,
+.block-text ol {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	list-style-position: outside;
+}
+
+.block-text ul {
+	list-style: none;
+	padding-left: 2em;
+}
+.block-text ul li:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 5px;
+	height: 5px;
+	background-color: #333;
+	border-radius: 50%;
+	margin-left: -1.3em;
+	margin-right: 1em;
+}
+.block-text ol {
+	padding-left: 2em;
+}
+.block-text ol li {
+	list-style-type: decimal;
+}
+
 .body-text ul,
 .body-text ol {
 	margin-top: 1em;
