@@ -489,3 +489,24 @@ add_filter('acf/format_value/type=image', 'acf_lalala', 1538, 278);
 add_filter('show_admin_bar', '__return_false');
 
 
+
+
+//Customize the WYSIWYG toolbars
+function my_toolbars( $toolbars ) {
+    $toolbars['Full'] = array();
+    $toolbars['Full'][1] = array( 'pastetext', 'bold', 'italic', 'underline', 'bullist', 'numlist', 'link', 'unlink', 'spellchecker', 'removeformat','undo', 'redo');
+    $toolbars['Full'][2] = array(  );
+
+    // remove the 'Basic' toolbar completely (if you want)
+    unset( $toolbars['Basic' ] );
+
+    // return $toolbars - IMPORTANT!
+    return $toolbars;
+}
+add_filter('acf/fields/wysiwyg/toolbars' , 'my_toolbars');
+
+
+
+
+
+
