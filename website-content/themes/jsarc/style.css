@@ -1229,6 +1229,51 @@ button:active {
     }
 }
 
+.visuallyhidden {
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0; 
+
+    -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+    clip-path: inset(0px 0px 99.9% 99.9%);
+}
+
+.body-text ul,
+.body-text ol {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style-position: outside;
+}
+
+.body-text ul {
+    padding-left: 2em; 
+    list-style: none;
+}
+
+.body-text ul li:before {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-right: 1em; 
+    margin-left: -1.3em;
+    border-radius: 50%;
+    background-color: #333;
+    vertical-align: middle;
+    content: "";
+}
+
+.body-text ol {
+    padding-left: 2em;
+}
+
+.body-text ol li {
+    list-style-type: decimal;
+}
+
 .clearfix {
     zoom: 1;
     /* For IE 6/7 (trigger hasLayout) */
