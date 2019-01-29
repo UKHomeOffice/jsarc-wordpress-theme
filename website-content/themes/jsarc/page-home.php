@@ -480,7 +480,7 @@ function my_doc_head() {
     transform-origin: 50% 50%;
 }
 
-.section.section-benefits .list-item .link:hover .image {
+.section.section-benefits .list-item a.link:hover .image {
     transform: scale(1.1);
 }
 
@@ -709,16 +709,25 @@ function my_doc_head() {
 				<ul class="tiles-list">
 					<?php while ( have_rows( 'tile' ) ) : the_row(); ?>
 					<li class="list-item">
+						<?php if ( get_sub_field( 'link_text' ) ) { ?>
 						<a class="link" href="<?php the_sub_field( 'url' ); ?>">
+						<?php } else { ?>
+						<div class="link">
+						<?php } ?>
 							<div class="image-box">
 								<figure class="image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
 							</div>
 							<div class="text-wrapper">
 								<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
 								<div class="text"><?php the_sub_field( 'body_text' ); ?></div>
-								<span class="link-text"><?php the_sub_field( 'link_text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></span>
+								<?php if ( get_sub_field( 'link_text' ) ) { ?><span class="link-text"><?php the_sub_field( 'link_text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></span><?php } ?>
 							</div>
+						
+						<?php if ( get_sub_field( 'link_text' ) ) { ?>
 						</a>
+						<?php } else { ?>
+						</div>
+						<?php } ?>
 					</li>
 					<?php endwhile; ?>
 				</ul>
