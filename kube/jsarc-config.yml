@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jsarc-config
+  namespace: jsarc
+data:
+  DEV_DEPLOYMENT: no
+  SITE_URL: 'https://web.notprod.jsarc.homeoffice.gov.uk'
+  SITE_TITLE: JSaRC
