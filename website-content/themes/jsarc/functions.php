@@ -477,12 +477,28 @@ if( function_exists('acf_add_options_page') ) {
 // ACF dynamically servers for images
 
 function acf_lalala( $value, $post_id, $field ) {
-    $value = str_replace( 'https://web.notprod.jsarc.homeoffice.gov.uk/wp-content/uploads/', 'https://s3.eu-west-2.amazonaws.com/jsarc-test/', $value );
+	// $value = str_replace( 'https://web.notprod.jsarc.homeoffice.gov.uk/wp-content/uploads/', 'https://s3.eu-west-2.amazonaws.com/jsarc-test/', $value );
+    $value = str_replace( 'https://web.notprod.jsarc.homeoffice.gov.uk/wp-content/uploads/', 'https://test6p6.imgix.net/', $value );
     return $value;
 }
 
 add_filter('acf/format_value/type=image', 'acf_lalala', 1538, 278);
 //add_filter('acf/format_value/type=text', 'acf_lalala', 10, 3);
+
+
+// Fixing Image Upload Size in WordPress
+
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );
+
+
+
+
+
+
+
+
 
 
 // Remove the Admin Toolbar From Site
@@ -504,9 +520,3 @@ function my_toolbars( $toolbars ) {
     return $toolbars;
 }
 add_filter('acf/fields/wysiwyg/toolbars' , 'my_toolbars');
-
-
-
-
-
-
