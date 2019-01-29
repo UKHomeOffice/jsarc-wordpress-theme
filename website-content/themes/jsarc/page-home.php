@@ -11,7 +11,25 @@
 ?>
 
 <?php get_header(); ?>
+<?php
+function my_doc_head() {
+  
+  // Location of our stylesheet
+	//   For me, this shared a plugin
+	//   with this code
+	$file_url = plugins_url(
+		'/src/lalala.css', // File name
+		__FILE__ // Magic PHP constant that means
+					// the "current file"
+	);
+	// Actually load up the stylesheet
+	wp_enqueue_style( 
+		'sp_sytlesheet', // A "name" for our file
+		$file_url // Location variable
+	);
+}
 
+?>
 
 <style>
 
@@ -71,7 +89,7 @@
     height: 100%;
     background-size: cover;
     background-position: 50% 0;
-    background-image: url(<?php the_field('hero_image_large'); ?>);
+    background-image: url();
     position: absolute;
     background-repeat: no-repeat;
     opacity: 0.5;
@@ -79,13 +97,13 @@
 
 @media only screen and (max-width: 1068px) {
 	.section.section-hero .hero-image {
-		background-image: url(<?php the_field('hero_image_medium'); ?>);
+		background-image: url();
 	}
 }
 
 @media only screen and (max-width: 735px) {
 	.section.section-hero .hero-image {
-		background-image: url(<?php the_field('hero_image_small'); ?>);
+		background-image: url();
 	}
 }
 
@@ -161,11 +179,6 @@
 }
 
 
-/*--------------------------------------
-
-SECTION INNOVATION CALL
-
----------------------------------------*/
 
 
 .section.section-innovation-call {
@@ -194,7 +207,7 @@ SECTION INNOVATION CALL
 }
 
 
-.section.section-innovation-call .section-headline {
+.section.section-innovation-call .headline {
     color: #fff;
     max-width: 500px;
     font-size: 36px;
@@ -202,7 +215,7 @@ SECTION INNOVATION CALL
     line-height: 38px;
     margin-bottom: 20px;
 }
-.section.section-innovation-call .section-body-text {
+.section.section-innovation-call .body-text {
     color: #fff;
 	max-width: 654px;
 	color: #fff;
@@ -213,7 +226,7 @@ SECTION INNOVATION CALL
 
 }
 @media only screen and (max-width: 735px) {
-	.section.section-innovation-call .section-body-text {
+	.section.section-innovation-call .body-text {
 		float: none;
 	}
 }
@@ -225,22 +238,17 @@ SECTION INNOVATION CALL
     margin-bottom: 76px;
 }
 
-/*--------------------------------------
 
-SECTION WORKING
-
----------------------------------------*/
-
-.section.section-working {
+.section.section-what-we-do {
     background-color: #047989;
 }
 
-.section.section-working .section-content {
+.section.section-what-we-do .section-content {
     padding-top: 75px;
     padding-bottom: 75px;
 }
 
-.section.section-working .section-headline {
+.section.section-what-we-do .headline {
 	max-width: 655px;
 	color: #fff;
 	font-size: 36px;
@@ -249,33 +257,29 @@ SECTION WORKING
 	margin-bottom: 40px;
 }
 
-.section.section-working .section-body-text {
+.section.section-what-we-do .body-text {
     max-width: 800px;
 	color: #fff;
 	font-size: 19px;
 	line-height: 28px;
 	margin-bottom: 30px;
 }
-.section.section-working .section-body-text + .section-body-text {
-    margin-bottom: 50px;
+.section.section-what-we-do .body-text > * {
+    margin-bottom: 30px;
 }
 
 @media only screen and (max-width: 1068px) {
-    .section.section-working .section-body-text {
+    .section.section-what-we-do .body-text {
         max-width: 800px;
     }
 }
 
-.section.section-working .button.more {
+.section.section-what-we-do .button.more {
     border: 2px solid #fff;
     color: #fff;
 }
 
-/*--------------------------------------
 
-SECTION VIDEO
-
----------------------------------------*/
 .section.section-video {
     background-color: #000;
 }
@@ -303,19 +307,19 @@ SECTION VIDEO
     height: 400px;
     background-size: cover;
     background-position: 50% 0;
-    background-image: url(<?php the_field('section_video_image_large'); ?>);
+    background-image: url();
     position: relative;
 }
 
 @media only screen and (max-width: 1068px) {
 	.section.section-video .section-image {
-		background-image: url(<?php the_field('section_video_image_medium'); ?>);
+		background-image: url();
 	}
 }
 
 @media only screen and (max-width: 735px) {
 	.section.section-video .section-image {
-		background-image: url(<?php the_field('section_video_image_small'); ?>);
+		background-image: url();
 	}
 }
 
@@ -349,7 +353,7 @@ SECTION VIDEO
     padding-right: 20px;
 }
 
-.section.section-video .section-headline {
+.section.section-video .headline {
     color: #fff;
     font-size: 36px;
 	line-height: 42px;
@@ -374,16 +378,11 @@ SECTION VIDEO
 }
 
 
-/*--------------------------------------
-
-SECTION BENEFITS
-
----------------------------------------*/
 
 .section.section-benefits {
     background-color: #e3e3e3;
 }
-.section.section-benefits .section-headline {
+.section.section-benefits .headline {
     font-size: 36px;
 	font-weight: bold;
 	line-height: 42px;
@@ -391,7 +390,7 @@ SECTION BENEFITS
 }
 
 @media only screen and (max-width: 735px) {
-    .section.section-benefits .section-headline {
+    .section.section-benefits .headline {
         text-align: center;
     }
 }
@@ -433,7 +432,7 @@ SECTION BENEFITS
     width: 100%;
     margin-bottom: 62px;
 }
-.section.section-benefits .tile-item {
+.section.section-benefits .list-item {
     float: left;
     display: block;
     width: 30%;
@@ -441,19 +440,19 @@ SECTION BENEFITS
     background-color: #fff;
 }
 
-.section.section-benefits .tile-item .tile-link {
+.section.section-benefits .list-item .link {
     display: block;
     overflow: hidden;
 }
 
 
-.section.section-benefits .tile-item:first-child {
+.section.section-benefits .list-item:first-child {
     margin-left: 0;
 }
 
 @media only screen and (max-width: 735px) {
-    .section.section-benefits .tile-item,
-    .section.section-benefits .tile-item:first-child {
+    .section.section-benefits .list-item,
+    .section.section-benefits .list-item:first-child {
         float: none;
         width: 300px;
         margin-left: auto;
@@ -463,13 +462,13 @@ SECTION BENEFITS
 }
 
 
-.section.section-benefits .tile-image-box {
+.section.section-benefits .image-box {
 	position: relative;
 	padding-bottom: 63%;
 	overflow: hidden;
 }
 
-.section.section-benefits .tile-image {
+.section.section-benefits .image {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -481,26 +480,15 @@ SECTION BENEFITS
     transform-origin: 50% 50%;
 }
 
-.section.section-benefits .tile-item .tile-link:hover .tile-image {
+.section.section-benefits .list-item .link:hover .image {
     transform: scale(1.1);
 }
 
 
-.section.section-benefits .tile-image.tile1 {
-    background-image: url(<?php the_field('section_benefits_1'); ?>);
-}
-.section.section-benefits .tile-image.tile2 {
-    background-image: url(<?php the_field('section_benefits_2'); ?>);
-}
-.section.section-benefits .tile-image.tile3 {
-    background-image: url(<?php the_field('section_benefits_3'); ?>);
-}
-
-
-.section.section-benefits .caption-wrapper {
+.section.section-benefits .text-wrapper {
     padding: 25px;
 }
-.section.section-benefits .tile-headline {
+.section.section-benefits .headline {
     color: #1e4289;
 	font-size: 20px;
 	font-weight: bold;
@@ -508,20 +496,19 @@ SECTION BENEFITS
 	margin-bottom: 20px;
 }
 
-.section.section-benefits .tile-caption {
+.section.section-benefits .text {
     font-size: 18px;
 	line-height: 24px;
 	margin-bottom: 1em;
 }
 
-.section.section-benefits .more-link {
+.section.section-benefits .link-text {
 	color: #01749F;
 	font-size: 19px;
-	font-style: oblique;
 	line-height: 1;
 }
 
-.section.section-benefits .more-link:after {
+.section.section-benefits .link-text:after {
 	content: '';
 	display: inline-block;
 	vertical-align: middle;
@@ -533,21 +520,10 @@ SECTION BENEFITS
 	border-width: 0.1em 0.1em 0 0;
 }
 
-.section.section-benefits .tile-item .tile-link:hover .more-link {
+.section.section-benefits .list-item .link:hover .link-text {
     text-decoration: underline;
 }
 
-
-.section.section-benefits .button.more {
-	width: 360px;
-	border: 2px solid #000;
-}
-
-/*--------------------------------------
-
-SECTION CASESTUDY
-
----------------------------------------*/
 
 .section.section-casestudy {
     height: 400px;
@@ -573,7 +549,6 @@ SECTION CASESTUDY
     height: 100%;
     background-size: cover;
     background-position: 50% 50%;
-    background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/projects-image.png");
 }
 
 
@@ -591,14 +566,14 @@ SECTION CASESTUDY
     margin-bottom: 10px;
 }
 
-.section.section-casestudy .section-headline {
+.section.section-casestudy .headline {
     color: #fff;
     font-size: 36px;
     font-weight: bold;
     line-height: 38px;
     margin-bottom: 20px;
 }
-.section.section-casestudy .section-body-text {
+.section.section-casestudy .body-text {
     color: #fff;
 	max-width: 654px;
 	color: #fff;
@@ -614,44 +589,93 @@ SECTION CASESTUDY
 }
 </style>
 
-
-
-
-
-				
-<section class="section section-hero">
-	<figure class="hero-image"></figure>
-	<div class="section-content">
-		<div class="intro-wrapper">
-			<div class="intro">
-				<h1 class="hero-headline"><?php the_field('hero_headline'); ?></h1>
-				<p class="hero-intro"><?php the_field('hero_intro'); ?></p>
-				<a class="button more" aria-label="<?php the_field('hero_button_label'); ?>" href="<?php the_field('hero_button_link_path'); ?>"><?php the_field('hero_button'); ?></a>
+<!--
+<?php if ( get_sub_field( 'hidden_text' ) ) { ?><span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?>
+-->
+<?php if ( have_rows( 'section_hero' ) ) : ?>
+	<?php while ( have_rows( 'section_hero' ) ) : the_row(); ?>
+	<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
+		<?php if ( have_rows( 'content' ) ) : ?>
+			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+	<section class="section section-hero">
+		<?php if ( get_sub_field( 'hero_image' ) ) { ?>
+			<figure class="hero-image" style="background-image: url(<?php the_sub_field( 'hero_image' ); ?>)"></figure>
+		<?php } ?>
+		<div class="section-content">
+			<div class="intro-wrapper">
+				<div class="intro">
+		<h1 class="hero-headline"><?php the_sub_field( 'headline' ); ?></h1>
+		<p class="hero-intro"><?php the_sub_field( 'intro' ); ?></p>
+		<?php if ( have_rows( 'button' ) ) : ?>
+			<?php while ( have_rows( 'button' ) ) : the_row(); ?>
+				<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+			<?php endwhile; ?>
+		<?php endif; ?>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+			<?php endwhile; ?>
+		<?php endif; ?>
+		<?php } ?>
+	<?php endwhile; ?>
+<?php endif; ?>
 
 
 
-<section class="section section-innovation-call">
-	<div class="section-content">
-		<h2 class="eyebrow"><?php the_field('section_innovation_call_headline_small'); ?></h2>
-		<h3 class="section-headline"><?php the_field('section_innovation_call_headline'); ?></h3>
-		<p class="section-body-text"><?php the_field('section_innovation_call_body_text'); ?></p>
-		<a class="button more" aria-label="<?php the_field('section_innovation_call_button_label'); ?>" href="<?php the_field('section_innovation_call_button_link_path'); ?>"><?php the_field('section_innovation_call_button'); ?></a>
-	</div>
-</section>
+<?php if ( have_rows( 'section_innovation_call' ) ) : ?>
+	<?php while ( have_rows( 'section_innovation_call' ) ) : the_row(); ?>
+		<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
+		<?php if ( have_rows( 'content' ) ) : ?>
+			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+				<section class="section section-innovation-call">
+					<div class="section-content">
+						<h2 class="eyebrow"><?php the_sub_field( 'eyebrow' ); ?></h2>
+						<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
+						<p class="body-text"><?php the_sub_field( 'body_text' ); ?></p>
+				<?php if ( have_rows( 'button' ) ) : ?>
+					<?php while ( have_rows( 'button' ) ) : the_row(); ?>
+						<a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+					<?php endwhile; ?>
+				<?php endif; ?>
+					</div>
+				</section>
+			<?php endwhile; ?>
+		<?php endif; ?>
+	<?php } ?>
+	<?php endwhile; ?>
+<?php endif; ?>	
+ 
+ 
+	 
 
+		
+		
+		
+		
+<?php if ( have_rows( 'section_what_we_do' ) ) : ?>
+	<?php while ( have_rows( 'section_what_we_do' ) ) : the_row(); ?>
+	<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
+		<?php if ( have_rows( 'content' ) ) : ?>
+			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+	<section class="section section-what-we-do">
+		<div class="section-content">
+				<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
+				<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+				<?php if ( have_rows( 'botton' ) ) : ?>
+					<?php while ( have_rows( 'botton' ) ) : the_row(); ?>
+				<a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+					<?php endwhile; ?>
+				<?php endif; ?>
+		</div>
+	</section>
+			<?php endwhile; ?>
+		<?php endif; ?>
+	<?php } ?>
+	<?php endwhile; ?>
+<?php endif; ?>
+		
 
-<section class="section section-working">
-	<div class="section-content">
-		<h3 class="section-headline"><?php the_field('section_working_headline'); ?></h3>
-		<p class="section-body-text"><?php the_field('section_working_body_text_1'); ?></p>
-		<p class="section-body-text"><?php the_field('section_working_body_text_2'); ?></p>
-		<a class="button more" aria-label="<?php the_field('section_working_button_label'); ?>" href="<?php the_field('section_working_button_link_path'); ?>"><?php the_field('section_working_button'); ?></a>
-	</div>
-</section>
 
 <!--section class="section section-video">
 	<div class="section-content">
@@ -662,9 +686,9 @@ SECTION CASESTUDY
 			<div class="column large-6 small-11 small-centered">
 				<div class="content-wrapper">
 
-					<h3 class="section-headline"><?php the_field('section_video_headline'); ?></h3>
-					<p class="speaker"><?php the_field('section_video_speaker'); ?></p>
-					<a class="button more" aria-label="<?php the_field('section_video_button_label'); ?>" href="<?php the_field('section_video_buttonn_link_path'); ?>"><?php the_field('section_video_button'); ?></a>
+					<h3 class="headline"></h3>
+					<p class="speaker"></p>
+					<a class="button more" href=""></a>
 				</div>
 			</div>
 		</div>
@@ -672,62 +696,67 @@ SECTION CASESTUDY
 </section-->
 
 
-<section class="section section-benefits">
-	<div class="section-content">
-	
-		<h3 class="section-headline"><?php the_field('section_benefits_headline'); ?></h3>
 
-		<ul class="tiles-list">
-			<li class="tile-item">
-				<a class="tile-link" href="<?php the_field('section_benefits_tile_1_link_link_path'); ?>">
-					<div class="tile-image-box">
-						<figure class="tile-image tile1"></figure>
-					</div>
-					<div class="caption-wrapper">
-						<h3 class="tile-headline"><?php the_field('section_benefits_tile_1_headline'); ?></h3>
-						<div class="tile-caption"><?php the_field('section_benefits_tile_1_caption'); ?></div>
-						<span class="more-link"><?php the_field('section_benefits_tile_1_link'); ?></span>
-					</div>
-				</a>
-			</li>
-			<li class="tile-item">
-				<a class="tile-link" href="<?php the_field('section_benefits_tile_2_link_link_path'); ?>">
-					<div class="tile-image-box">
-						<figure class="tile-image tile2"></figure>
-					</div>
-					<div class="caption-wrapper">
-						<h3 class="tile-headline"><?php the_field('section_benefits_tile_2_headline'); ?></h3>
-						<div class="tile-caption"><?php the_field('section_benefits_tile_2_caption'); ?></div>
-						<span class="more-link"><?php the_field('section_benefits_tile_2_link'); ?></span>
-					</div>
-				</a>
-			</li>
-			<li class="tile-item">
-				<a class="tile-link" href="<?php the_field('section_benefits_tile_3_link_link_path'); ?>">
-					<div class="tile-image-box">
-						<figure class="tile-image tile3"></figure>
-					</div>
-					<div class="caption-wrapper">
-						<h3 class="tile-headline"><?php the_field('section_benefits_tile_3_headline'); ?></h3>
-						<div class="tile-caption"><?php the_field('section_benefits_tile_3_caption'); ?></div>
-						<span class="more-link"><?php the_field('section_benefits_tile_3_link'); ?></span>
-					</div>
-				</a>
-			</li>
-		</ul>
+<?php if ( have_rows( 'section_benefits' ) ) : ?>
+	<?php while ( have_rows( 'section_benefits' ) ) : the_row(); ?>
+		<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
+		<?php if ( have_rows( 'content' ) ) : ?>
+			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+	<section class="section section-benefits">
+		<div class="section-content">
+			<h3 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
+				<?php if ( have_rows( 'tile' ) ) : ?>
+				<ul class="tiles-list">
+					<?php while ( have_rows( 'tile' ) ) : the_row(); ?>
+					<li class="list-item">
+						<a class="link" href="<?php the_sub_field( 'url' ); ?>">
+							<div class="image-box">
+								<figure class="image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+							</div>
+							<div class="text-wrapper">
+								<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
+								<div class="text"><?php the_sub_field( 'body_text' ); ?></div>
+								<span class="link-text"><?php the_sub_field( 'link_text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></span>
+							</div>
+						</a>
+					</li>
+					<?php endwhile; ?>
+				</ul>
+				<?php endif; ?>
+		</div>
+	</section>
+			<?php endwhile; ?>
+		<?php endif; ?>
+		<?php } ?>
+	<?php endwhile; ?>
+<?php endif; ?>
 
-	</div>
-</section>
 
-<section class="section section-casestudy">
-	<figure class="section-image"></figure>
-	<div class="section-content">
-		<h2 class="eyebrow"><?php the_field('section_casestudy_headline_small'); ?></h2>
-		<h3 class="section-headline"><?php the_field('section_casestudy_headline'); ?></h3>
-		<p class="section-body-text"><?php the_field('section_casestudy_body_text'); ?></p>
-		<a class="button more" aria-label="<?php the_field('section_casestudy_button_label'); ?>" href="<?php the_field('section_casestudy_button_link_path'); ?>"><?php the_field('section_casestudy_button'); ?></a>
-	</div>
-</section>
+<?php if ( have_rows( 'section_case_study' ) ) : ?>
+	<?php while ( have_rows( 'section_case_study' ) ) : the_row(); ?>
+		<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
+		<?php if ( have_rows( 'content' ) ) : ?>
+			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+	<section class="section section-casestudy">
+				<?php if ( get_sub_field( 'image' ) ) { ?>
+		<figure class="section-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+				<?php } ?>
+		<div class="section-content">
+			<h2 class="eyebrow"><?php the_sub_field( 'eyebrow' ); ?></h2>
+			<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
+			<p class="body-text"><?php the_sub_field( 'body_text' ); ?></p>
+				<?php if ( have_rows( 'button' ) ) : ?>
+					<?php while ( have_rows( 'button' ) ) : the_row(); ?>
+						<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+					<?php endwhile; ?>
+				<?php endif; ?>
+		</div>
+	</section>
+			<?php endwhile; ?>
+		<?php endif; ?>
+		<?php } ?>
+	<?php endwhile; ?>
+<?php endif; ?>
 
 
 <?php get_template_part( 'template-parts/content', 'section-highlights'); ?>
