@@ -9,11 +9,20 @@ services:
       WORDPRESS_DB_PASSWORD: jsarc #for demo purposes only otherwise this is called from an environment file
       WORDPRESS_DB_USER: jsarc
       WORDPRESS_DB_NAME: jsarc
-      #WORDPRESS_DEBUG: "yes"
+      WORDPRESS_DEBUG: "yes"
+      SITE_URL: 'http://localhost:8081'
+      SITE_TITLE: JSaRC
+      ADMIN_USER: test
+      ADMIN_EMAIL: test@example.com
+      ADMIN_PASSWORD: test1234
+      DEV_DEPLOYMENT: 'yes'
     ports:
+    - 8081:8081
     - 80:80
     volumes:
     - ./website-content/themes/jsarc:/var/www/jsarc
+
+
   database:
     image: mysql:5.7
     environment:
@@ -23,12 +32,4 @@ services:
       MYSQL_PASSWORD: jsarc
     ports:
     - 3306:3306
-#  phpmyadmin:
-#    depends_on:
-#    - database
-#    image: phpmyadmin/phpmyadmin
-#    ports:
-#    - 8080:80
-#    environment:
-#      PMA_HOST: database
-#      MYSQL_ROOT_PASSWORD: demopassword #for demo purposes only otherwise this called from an environment file
+
