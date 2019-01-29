@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: jsarc
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -18,6 +18,9 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8081
+          envFrom:
+            - configMapRef:
+                name: jsarc-config
           env:
             - name: WORDPRESS_DB_USER
               valueFrom:
@@ -38,4 +41,19 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: jsarc-rds
-                  key: endpoint 
+                  key: endpoint
+            - name: ILAB_AWS_S3_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jsarc-s3
+                  key: access_key_id
+            - name: ILAB_AWS_S3_ACCESS_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: jsarc-s3
+                  key: secret_access_key
+            - name: ILAB_AWS_S3_BUCKET
+              valueFrom:
+                secretKeyRef:
+                  name: jsarc-s3
+                  key: name
