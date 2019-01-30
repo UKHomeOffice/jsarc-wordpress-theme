@@ -494,13 +494,6 @@ add_filter('acf/format_value/type=image', 'acf_lalala', 1538, 278);
 
 
 
-
-
-
-
-
-
-
 // Remove the Admin Toolbar From Site
 add_filter('show_admin_bar', '__return_false');
 
