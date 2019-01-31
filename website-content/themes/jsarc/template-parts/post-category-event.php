@@ -11,6 +11,8 @@ get_header();
 
 <style>
 
+
+
 .article-header .hero-image {
 	position: absolute;
 	z-index: -1;
@@ -21,9 +23,6 @@ get_header();
 	background-position: 80% 50%;
 	background-image: url("<?php if ( have_rows( 'section_overview' ) ) : while ( have_rows( 'section_overview' ) ) : the_row(); the_sub_field( 'hero_image' ); endwhile; endif; ?>");
 }
-
-
-
 
 .article-header .section-content {
 	display: table;
@@ -199,15 +198,6 @@ get_header();
 
 
 
-
-
-
-
-
-
-
-
-
 .article-details .title {
 	font-size: 24px;
 	font-weight: bold;
@@ -226,6 +216,12 @@ get_header();
 	margin-bottom: 1em;
 }
 
+.article-details .details-text a {
+	color: #07c;
+}
+.article-details .details-text a:hover {
+	text-decoration: underline;
+}
 
 .article-details .details-text ul,
 .article-details .details-text ol,
@@ -253,10 +249,6 @@ margin-bottom: 1em;
 .article-details .details-text ol li {
    margin-left: 1em;
  }
-
-
-.article-more {
-}
 
 .article-more .section-content {
 	padding-top: 50px;

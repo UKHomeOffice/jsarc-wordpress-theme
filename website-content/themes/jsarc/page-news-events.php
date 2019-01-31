@@ -312,7 +312,7 @@
 
 .section.news .post .date,
 .section.news .post .tags {
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.2;
 
 }
@@ -428,8 +428,8 @@
 							
 							</div>
 							<div class="details-bar">
-								<span class="date"><?php the_field( 'date' ); ?></span>
-								<p class="tags">
+								<span class="date"><!--?php the_field( 'date' ); ?--><?php the_date('d F Y'); ?></span>
+								<!--p class="tags">
 								<?php
 								$posttags = get_the_tags();
 								$count=0;
@@ -445,7 +445,7 @@
 								  }
 								}
 								?>
-								</p>
+								</p-->
 							</div>
 						</div>
 					</a>
