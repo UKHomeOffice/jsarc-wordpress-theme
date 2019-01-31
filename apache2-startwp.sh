@@ -12,6 +12,10 @@ echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-includes/default-c
 echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-config.php
 echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-config.php
 
+echo "@ini_set( 'upload_max_size' , '20M' );" >> /var/www/html/wp-config.php
+echo "@ini_set( 'post_max_size', '13M');" >> /var/www/html/wp-config.php
+echo "@ini_set( 'memory_limit', '15M' );" >> /var/www/html/wp-config.php
+
 if [ -d "/var/www/jsarc" ] ; then
 rm -rf /var/www/html/wp-content/themes/jsarc
 ln -s /var/www/jsarc /var/www/html/wp-content/themes/jsarc
