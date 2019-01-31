@@ -1219,6 +1219,20 @@ button:active {
     line-height: 50px;
     text-align: center;
     white-space: nowrap;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.button.more.black:hover {
+    border-color: #000 !important;
+    color: #fff !important; 
+    background-color: #000 !important;
+}
+
+.button.more.white:hover {
+    border-color: #fff !important;
+    color: #000 !important; 
+    background-color: #fff !important;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -1390,6 +1404,20 @@ FOOTER
     .footer .footer-legal {
         text-align: left;
     }
+}
+
+/*---------------------------------
+
+ACCESSIBILITY
+
+----------------------------------*/
+:focus {
+    outline: 5px solid #fb4 !important;
+}
+
+.footer a:focus,
+.breadcrumbs a:focus {
+    background-color: #fb4;
 }
 
 /*--------------------------------------------------------------
