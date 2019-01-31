@@ -10,6 +10,7 @@ get_header();
 ?>
 
 <style>
+
 .post {
 	padding-bottom: 75px;
 }
@@ -55,6 +56,14 @@ get_header();
 	margin-bottom: 50px;
 	border-bottom: 1px solid #979797;
 }
+
+.post .news-text a {
+	color: #07c;
+}
+.post .news-text a:hover {
+	text-decoration: underline;
+}
+
 .post .news-text > ul,
 .post .news-text ol,
 .post .news-text p {
