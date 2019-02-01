@@ -568,7 +568,7 @@ SECTION ENGAGING
 						
 						<?php if ( have_rows( 'section_links' ) ) : ?>
 					<?php while ( have_rows( 'section_links' ) ) : the_row(); ?>
-						<div><a class="block-link" href="<?php the_sub_field( 'link_url' ); ?>"><?php the_sub_field( 'link_text' ); ?></a></div>
+						<div><a class="block-link" href="<?php the_sub_field( 'link_url' ); ?>"><?php the_sub_field( 'link_text' ); ?> <?php if ( get_sub_field( 'link_hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'link_hidden_text'); ?></span><?php } ?></a></div>
 					<?php endwhile; ?>
 				<?php endif; ?>
 						
@@ -577,7 +577,8 @@ SECTION ENGAGING
 			</div>
 			<?php if ( have_rows( 'section_button' ) ) : ?>
 			<?php while ( have_rows( 'section_button' ) ) : the_row(); ?>
-		 	<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?></a>
+		 	<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?> <?php if ( get_sub_field( 'button_hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'button_hidden_text'); ?></span><?php } ?></a>
+		 	
 		 	<?php endwhile; ?>
 		<?php endif; ?>
 		</div>
