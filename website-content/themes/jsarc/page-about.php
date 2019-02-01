@@ -680,7 +680,7 @@ margin-bottom: 22px;
 					<h2 class="section-headline"><?php the_sub_field( 'headline' ); ?></h2>
 			<?php if ( have_rows( 'button' ) ) : ?>
 				<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-					<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?></a>
+					<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?> <?php if ( get_sub_field( 'hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'hidden_text'); ?></span><?php } ?></a>
 				<?php endwhile; ?>
 			<?php endif; ?>
 				</div>
@@ -735,7 +735,7 @@ margin-bottom: 22px;
 							<div class="block-text"><?php the_sub_field( 'body_text' ); ?></div>
 							<?php if ( have_rows( 'links' ) ) : ?>
 							<?php while ( have_rows( 'links' ) ) : the_row(); ?>
-							<div><a class="block-link" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?></a></div>
+							<div><a class="block-link" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?> <?php if ( get_sub_field( 'hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'hidden_text'); ?></span><?php } ?></a></div>
 							<?php endwhile; ?>
 							<?php endif; ?>
 						</div>
@@ -762,7 +762,7 @@ margin-bottom: 22px;
 			<h4 class="section-sub-heading"><?php the_sub_field( 'subheading' ); ?></h4>
 			<?php if ( have_rows( 'button' ) ) : ?>
 			<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-				<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?></a>
+				<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?> <?php if ( get_sub_field( 'button_hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'button_hidden_text'); ?></span><?php } ?></a>
 			<?php endwhile; ?>
 			<?php endif; ?>
 		</div>
@@ -825,7 +825,7 @@ margin-bottom: 22px;
 		<?php endif; ?>
 		<?php if ( have_rows( 'button' ) ) : ?>
 			<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-				<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?></a>
+				<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?> <?php if ( get_sub_field( 'button_hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'button_hidden_text'); ?></span><?php } ?></a>
 			<?php endwhile; ?>
 		<?php endif; ?>
 		

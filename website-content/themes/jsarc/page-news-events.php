@@ -328,6 +328,7 @@
 
 
 .section.news.events .post .date {
+	display: block;
 	color: #1E4289;
 	font-size: 18px;
 	font-weight: bold;
@@ -478,6 +479,7 @@
 								<figure class="post-thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
 							</div>
 							<div class="text-wrapper">
+								<h3 class="title">
 								<span class="date">
 								<?php
 								if (have_rows('section_overview')):
@@ -486,14 +488,14 @@
 										if (have_rows('location_and_date')):
 											while (have_rows('location_and_date')):
 												the_row();
-												the_sub_field('date');
-												the_sub_field('time');
+												the_sub_field('date'); ?> 
+												<?php the_sub_field('time');
 											endwhile;
 										endif;
 									endwhile;
 								endif; ?>
 								</span>
-								<h3 class="title"><?php the_title(); ?></h3>
+								<?php the_title(); ?></h3>
 								<span>Register your interest</span>
 							</div>
 						</a>
