@@ -12,8 +12,8 @@
 
 <?php get_header(); ?>
 <?php
-function my_doc_head() {
-  
+function my_doc_head() { ?>
+<!--
   // Location of our stylesheet
 	//   For me, this shared a plugin
 	//   with this code
@@ -27,11 +27,8 @@ function my_doc_head() {
 		'sp_sytlesheet', // A "name" for our file
 		$file_url // Location variable
 	);
-}
-
-?>
-
-<style>
+	-->
+	<style>
 
 .section {
     position: relative;
@@ -92,6 +89,7 @@ function my_doc_head() {
     background-image: url();
     position: absolute;
     background-repeat: no-repeat;
+    background-image: url();
     opacity: 0.5;
 }
 
@@ -588,6 +586,10 @@ function my_doc_head() {
     color: #000;
 }
 </style>
+ 
+<?php } ?>
+
+
 
 <!--
 <?php if ( get_sub_field( 'hidden_text' ) ) { ?><span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?>
@@ -599,7 +601,7 @@ function my_doc_head() {
 			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
 	<section class="section section-hero">
 		<?php if ( get_sub_field( 'hero_image' ) ) { ?>
-			<figure class="hero-image" style="background-image: url(<?php the_sub_field( 'hero_image' ); ?>)"></figure>
+			<figure class="hero-image"></figure>
 		<?php } ?>
 		<div class="section-content">
 			<div class="intro-wrapper">

@@ -17,10 +17,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
+	<?php 
+	if (function_exists('my_doc_head')) { my_doc_head(); }
+	?>
 </head>
 
 <body <?php body_class(); ?>>
-
+	<a href="#main">skip to content"</a>
 
 	<nav class="nav">
 		<div class="nav-content">
@@ -44,7 +47,7 @@
 			</ul>
 			<div class="menu-wrapper">
 				<div class="search-small-placeholder-wrapper">
-					<a class="search-small-placeholder" href="#nav-searchform">Search jsarc.org</a>
+					<a class="search-small-placeholder" href="#nav-searchform" style="display: none;">Search jsarc.org</a>
 				</div>
 				<?php wp_nav_menu( array(
                 // 'theme_location' => 'header-menu',
@@ -59,11 +62,11 @@
                 'link_before' => '',
                 'link_after' => '',
                 'depth' => 0,
-                'items_wrap' => '<ul class="menu">%3$s<li class="menu-item nav-search"><a class="menu-link-search" href="/search" aria-label="Search JSaRC" role="button" aria-haspopup="true"><span class="search-icon">Search JSaRC</span></a></li></ul>',
+                'items_wrap' => '<ul class="menu">%3$s<li class="menu-item nav-search" style="display: none;"><a class="menu-link-search" href="/search" aria-label="Search JSaRC" role="button" aria-haspopup="true"><span class="search-icon">Search JSaRC</span></a></li></ul>',
                 // 'walker' => new description_walker()
                 'walker' => new Walker_Quickstart_Menu()
                 )); ?>
-				<aside class="search" role="search">
+				<aside class="search" role="search" style="display: none;">
 					<form id="nav-searchform" class="nav-searchform" action="/search" method="get">
 						<div class="nav-searchform-wrapper">
 							<input data-index="1" class="nav-searchform-input" type="text" aria-label="Search jsarc.org" placeholder="Search jsarc.org" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" />

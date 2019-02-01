@@ -38,7 +38,7 @@ get_header();
 	margin-bottom: 9px;
 }
 .post .post-details-bar {
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 28px;
 	margin-bottom: 50px;
 }
@@ -363,8 +363,8 @@ get_header();
 		<div class="section-content">
 			<h1 class="post-headline"><?php the_title(); ?></h1>
 			<div class="post-details-bar">
-				<span class="date"><?php the_field( 'date' ); ?></span>
-				<p class="tags">
+				Published on <span class="date"><!--?php the_field( 'date' ); ?--><?php the_date('d F Y'); ?></span>
+				<!--p class="tags">
 					<?php
 					$posttags = get_the_tags();
 					$count=0;
@@ -380,7 +380,7 @@ get_header();
 					  }
 					}
 					?>
-				</p>
+				</p-->
 			</div>
 			<div class="post-text-wrapper">
 			<div class="news-text">
@@ -406,13 +406,6 @@ get_header();
 	<?php // no rows found ?>
 						
 <?php endif; ?>
-				
-				
-				
-				
-				
-				
-				
 				
 				<?php the_field( 'news_text_copy' ); ?>
 			</div>
@@ -459,37 +452,37 @@ if( $my_query->have_posts() ) {
 <?php
 while ($my_query->have_posts()) : $my_query->the_post(); ?>
 
-<li class="column large-4 small-12 related-list-item">
-					<a class="related-list-item-link" href="<?php the_permalink(); ?>">
-						<div class="related-list-item-image-wrapper">
-							<figure class="image" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
-							
-						</div>
-						<div class="related-list-item-text">
-							<h3 class="related-list-item-headline"><?php the_title(); ?></h3>
-							<div class="related-list-item-details-bar">
-								<span class="related-list-item-date"><?php the_field( 'date' ); ?></span>
-								<p class="related-list-item-tags"> 
-								<?php
-								$posttags = get_the_tags();
-								$count=0;
-								if ($posttags) {
-								  foreach($posttags as $tag) {
-									$count++;
-									if (1 == $count) {
-									  echo $tag->name;
-									}
-									else {
-										echo ', ' . $tag->name;
-									}
-								  }
-								}
-								?>
-								</p>
-							</div>
-						</div>
-					</a>
-				</li>
+	<li class="column large-4 small-12 related-list-item">
+		<a class="related-list-item-link" href="<?php the_permalink(); ?>">
+			<div class="related-list-item-image-wrapper">
+				<figure class="image" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
+				
+			</div>
+			<div class="related-list-item-text">
+				<h3 class="related-list-item-headline"><?php the_title(); ?></h3>
+				<div class="related-list-item-details-bar">
+					<span class="related-list-item-date"><?php the_date('d F Y'); ?><!--?php the_field( 'date' ); ?--></span>
+					<!--p class="related-list-item-tags"> 
+					<?php
+					$posttags = get_the_tags();
+					$count=0;
+					if ($posttags) {
+					  foreach($posttags as $tag) {
+						$count++;
+						if (1 == $count) {
+						  echo $tag->name;
+						}
+						else {
+							echo ', ' . $tag->name;
+						}
+					  }
+					}
+					?>
+					</p-->
+				</div>
+			</div>
+		</a>
+	</li>
  </ul>	
 <?php
 endwhile;  

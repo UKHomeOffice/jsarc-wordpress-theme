@@ -469,22 +469,15 @@ if( function_exists('acf_add_options_page') ) {
  	*/
 }
 
-// Fixing Image Upload Size in WordPress
-
-@ini_set( 'upload_max_size' , '64M' );
-@ini_set( 'post_max_size', '64M');
-@ini_set( 'max_execution_time', '300' );
-
-
 // ACF dynamically servers for images
 
-function acf_lalala( $value, $post_id, $field ) {
+function acf_image_path( $value, $post_id, $field ) {
 	// $value = str_replace( 'https://web.notprod.jsarc.homeoffice.gov.uk/wp-content/uploads/', 'https://s3.eu-west-2.amazonaws.com/jsarc-test/', $value );
     $value = str_replace( 'https://jsarc-dev-s3.s3.eu-west-2.amazonaws.com/', 'https://jsarc.imgix.net/', $value );
     return $value;
 }
 
-add_filter('acf/format_value/type=image', 'acf_lalala', 1538, 278);
+add_filter('acf/format_value/type=image', 'acf_image_path', 1538, 278);
 
 
 
