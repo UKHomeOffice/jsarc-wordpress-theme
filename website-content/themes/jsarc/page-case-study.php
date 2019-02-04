@@ -158,13 +158,11 @@ ol.body-text li {
 }
 
 .section.section-case-study-content .section-content {
-	min-height: 90vh;
-	display: table;
- 
+
 }
 
 .section.section-case-study-content .section-content .inner {
-	display: table-cell;
+	 
 	max-width: 800px;
 	padding-top: 87px;
 	padding-bottom: 87px;
