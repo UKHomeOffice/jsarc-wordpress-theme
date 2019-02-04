@@ -307,9 +307,6 @@
 	line-height: 24px;
 }
 
-
- 
-
 .section.news .post .date,
 .section.news .post .tags {
 	font-size: 16px;
