@@ -437,7 +437,6 @@ margin-bottom: 22px;
 .section.blocks .block-link {
 	color: #01749F;
 	font-size: 19px;
-	font-style: oblique;
 	line-height: 28px;
 }
 
@@ -571,7 +570,6 @@ margin-bottom: 22px;
 .section.projects .tile-link {
 	color: #01749F;
 	font-size: 19px;
-	font-style: oblique;
 	line-height: 1;
 }
 
