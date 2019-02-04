@@ -81,16 +81,6 @@ ol.body-text li {
 
 
 
-
-
-
-
-/*---------------------------------
-
-SECTION HEADER
-
-----------------------------------*/
-
 .hero .hero-image {
 	position: absolute;
 	z-index: -1;
@@ -127,11 +117,6 @@ SECTION HEADER
 }
 
 
-/*---------------------------------
-
-PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
-
-----------------------------------*/
 .section.section-case-study-content {
 
 }
@@ -148,14 +133,7 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 	height: 100vh;
 	min-height: 568px;
 	background-size: cover;
-}
-
-.section.section-case-study-content .section-image-full-with.case-study-1 {
-	background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/case-study-1.png");
-}
-
-.section.section-case-study-content .section-image-full-with.case-study-2 {
-	background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/case-study-2.png");
+	background-attachment: fixed;
 }
 
 
@@ -165,7 +143,6 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 	padding-bottom: 50%;
 	background-size: cover;
 	background-position: 50% 50%;
-	background-image: url("/wp-content/themes/jsarc/img/v/case-study/b/case-study-results.png");
 	margin-bottom: 75px;
 }
 
@@ -181,13 +158,22 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 }
 
 .section.section-case-study-content .section-content {
+	min-height: 90vh;
+	display: table;
+ 
+}
+
+.section.section-case-study-content .section-content .inner {
+	display: table-cell;
 	max-width: 800px;
 	padding-top: 87px;
 	padding-bottom: 87px;
+	vertical-align: middle;
 }
 
+
 @media only screen and (max-width: 1068px) {
-	.section.section-case-study-content .section-content {
+	.section.section-case-study-content .section-content .inner {
 		max-width: 600px;
 		padding-top: 60px;
 		padding-bottom: 60px;
@@ -213,6 +199,85 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 .section.section-case-study-content.dark .body-text {
 	color: #fff;
 }
+
+.section.section-casestudies {
+	min-height: 400px;
+	background-color: #000;
+}
+
+.section.section-casestudies .section-content {
+	padding-top: 75px;
+	padding-bottom: 75px;
+	position: relative;
+	z-index: 1;
+}
+
+.section.section-casestudies .section-image-full-with {
+	position: absolute;
+	max-width: 2560px;
+	width: 100%;
+	height: 400px;
+	background-size: cover;
+	background-position: 50% 50%;
+	opacity: .5;
+}
+.section.section-casestudies[data-anim-classname] .section-image-full-with {
+    /* opacity: 1; */
+    opacity: .5;
+	transition: opacity 1s;
+}
+.section.section-casestudies[data-anim-classname].reveal .section-image-full-with {
+	opacity: .5;
+}
+
+.section.section-casestudies .section-headline {
+	color: #fff;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	margin-bottom: 90px;
+}
+
+.section.section-casestudies .section-sub-heading {
+	color: #fff;
+	font-size: 30px;
+	line-height: 42px;
+	text-align: right;
+	margin-bottom: 22px;
+	font-weight: normal;
+}
+
+.section.section-casestudies .button.more {
+	color: #000;
+	background-color: #fff;
+	float: right;
+}
+@media only screen and (max-width: 735px) {
+	.section.section-casestudies .button.more {
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.section.section-casestudies[data-anim-classname] .section-headline,
+.section.section-casestudies[data-anim-classname] .section-sub-heading,
+.section.section-casestudies[data-anim-classname] .button.more {
+	transform: translateY(50px);
+	transition: transform 1s, opacity 1s;
+	/* opacity: 0; */
+	opacity: 1;
+}
+
+.section.section-casestudies[data-anim-classname].reveal .section-headline,
+.section.section-casestudies[data-anim-classname].reveal .section-sub-heading,
+.section.section-casestudies[data-anim-classname].reveal .button.more {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+
+
 
 </style>
 
@@ -253,9 +318,11 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 		<?php } ?>
 		
 		<div class="section-content">
-			<h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>
-			<div class="body-text">
-				<?php the_sub_field( 'body_text' ); ?>
+			<div class="inner">
+				<h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>
+				<div class="body-text">
+					<?php the_sub_field( 'body_text' ); ?>
+				</div>
 			</div>
 		</div>
 		
@@ -267,12 +334,12 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 <?php if ( have_rows( 'case_study_section' ) ) : ?>
 	<?php while ( have_rows( 'case_study_section' ) ) : the_row(); ?>
 	<section class="section section-casestudies" data-anim-classname='{"cssClass":"reveal"}'>
-		
 		<figure class="section-image-full-with" style="background-image: url(<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>)"></figure>
 		<div class="section-content">
-			<h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>
-			<h4 class="section-sub-heading"><?php the_sub_field( 'subheading' ); ?></h4>
-			
+			<div class="inner">
+				<h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>
+				<h4 class="section-sub-heading"><?php the_sub_field( 'subheading' ); ?></h4>
+			</div>
 			<?php if ( have_rows( 'button' ) ) : ?>
 			<?php while ( have_rows( 'button' ) ) : the_row(); ?>
 				<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?></a>
@@ -290,7 +357,7 @@ PAGE CASE STUDY / SECTION CASE-STUDY-CONTENT
 
 
 
-<script>
+<!--script>
 document.addEventListener('DOMContentLoaded', function() {
 
 
@@ -386,7 +453,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	
 });
-</script>
+</script-->
 
 
 
