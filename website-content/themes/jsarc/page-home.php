@@ -68,10 +68,17 @@ function my_doc_head() { ?>
     padding-top: 100px;
     padding-bottom: 100px;
 }
+
+@media only screen and (max-width: 735px) {
+	.section.section-hero .section-content {
+		padding-top: 90px;
+		padding-bottom: 90px;
+	}
+}
+
 .section.section-hero .intro-wrapper {
     display: table;
     width: 100%;
-    height: 80vh;
     min-height: 568px;
 }
 
@@ -80,30 +87,98 @@ function my_doc_head() { ?>
      vertical-align: middle;
 }
 
+<?php
 
-.section.section-hero .hero-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: 50% 0;
-    background-image: url();
-    position: absolute;
-    background-repeat: no-repeat;
-    background-image: url();
-    opacity: 0.5;
+
+
+if( have_rows('section_hero') ):
+
+    while( have_rows('section_hero') ) : the_row();
+    
+    if( have_rows('content') ):
+
+    while( have_rows('content') ) : the_row();
+        
+        $hero_image = get_sub_field('hero_image');
+        
+        
+        $large = '?fit=clamp&w=1800&h=1030';
+		$large_2x = '?fit=clamp&w=3600&h=2060';
+		$medium = '?fit=clamp&w1068=&h=826';
+		$medium_2x = '?fit=clamp&w2136=&h=1652';
+		$small = '?fit=clamp&w736=&h=749';
+		$small_2x = '?fit=clamp&w=1472&h=1498';
+        
+
+    endwhile;
+
+endif;
+ endwhile;
+
+endif;
+?> 
+
+
+
+
+
+.section-hero .hero-image {
+	position: absolute;
+    width: 1800px;
+    height: 1030px;
+    background-size: 1800px 1030px;
+    background-image: url(<?php echo $hero_image . $large ?>);
+    left: 50%;
+    margin-left: -900px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .section-hero .hero-image {
+        background-image: url(<?php echo $hero_image . $large_2x ?>);
+    }
 }
 
 @media only screen and (max-width: 1068px) {
-	.section.section-hero .hero-image {
-		background-image: url();
-	}
+    .section-hero .hero-image {
+        width: 1068px;
+        height: 826px;
+        background-size: 1068px 826px;
+        background-image: url(<?php echo $hero_image . $medium ?>);
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 1068px) and (min-resolution: 1.5dppx), only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .section-hero .hero-image {
+        background-image: url(<?php echo $hero_image . $medium_2x ?>);
+    }
 }
 
 @media only screen and (max-width: 735px) {
-	.section.section-hero .hero-image {
-		background-image: url();
-	}
+    .section-hero .hero-image {
+        width: 736px;
+        height: 749px;
+        background-size: 736px 749px;
+        background-image: url(<?php echo $hero_image . $small ?>);
+    }
 }
+
+@media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
+    .section-hero .hero-image {
+        background-image: url(<?php echo $hero_image . $small_2x ?>);
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-hero .hero-image {
+        margin-left: -534px
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-hero .hero-image {
+        margin-left: -368px
+    }
+}
+
 
 
 .section.section-hero .hero-headline {
@@ -606,7 +681,7 @@ function my_doc_head() { ?>
 			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
 	<section class="section section-hero">
 		<?php if ( get_sub_field( 'hero_image' ) ) { ?>
-			<figure class="hero-image" style="background-image: url(<?php the_sub_field( 'hero_image' ); ?>)"></figure>
+			<figure class="hero-image"></figure>
 		<?php } ?>
 		<div class="section-content">
 			<div class="intro-wrapper">
