@@ -213,7 +213,6 @@
 .section.priority .block-link {
 	color: #01749F;
 	font-size: 19px;
-	font-style: oblique;
 	line-height: 28px;
 }
 
