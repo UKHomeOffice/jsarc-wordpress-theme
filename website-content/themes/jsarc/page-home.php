@@ -601,7 +601,7 @@ function my_doc_head() { ?>
 			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
 	<section class="section section-hero">
 		<?php if ( get_sub_field( 'hero_image' ) ) { ?>
-			<figure class="hero-image"></figure>
+			<figure class="hero-image" style="background-image: url(<?php the_sub_field( 'hero_image' ); ?>)"></figure>
 		<?php } ?>
 		<div class="section-content">
 			<div class="intro-wrapper">
