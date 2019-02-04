@@ -390,7 +390,7 @@ get_header();
 				
 				
 				<?php if ( have_rows( 'gallery' ) ) : ?>
-				<div class="gallery">
+				<div class="gallery" aria-hidden="true">
 					<ul class="gallery-container">
 	<?php while ( have_rows( 'gallery' ) ) : the_row(); ?>
 		<?php if ( get_sub_field( 'image' ) ) { ?>
