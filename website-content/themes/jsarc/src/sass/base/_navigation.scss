@@ -329,6 +329,12 @@ html.noscroll body {
     opacity: 0;
 }
 
+@media only screen and (min-width: 1025px) {
+   .nav .menu .menu-item .sub-menu {
+        max-width: 300px;;
+    }
+}
+
 .nav .menu .menu-item:hover .sub-menu,
 .nav .menu .menu-item .menu-link:focus~.sub-menu,
 .nav .menu .menu-item.expanded .menu-link~.sub-menu {
@@ -361,7 +367,6 @@ html.noscroll body {
     line-height: 24px;
     transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     cursor: pointer;
-    white-space: nowrap;
 }
 @media only screen and (max-width: 736px) and (orientation: portrait) {
     .nav .menu .menu-item .sub-menu .sub-menu-item .sub-menu-link .link-text {
