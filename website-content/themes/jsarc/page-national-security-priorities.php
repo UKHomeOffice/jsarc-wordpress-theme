@@ -206,7 +206,6 @@
 .section.priority .block-text {
 	font-size: 18px;
 	line-height: 28px;
-	margin-bottom: 50px;
 }
 .section.priority .block-text p {
 	margin-bottom: 1em;
