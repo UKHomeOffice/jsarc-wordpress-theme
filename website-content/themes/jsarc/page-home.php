@@ -102,12 +102,12 @@ if( have_rows('section_hero') ):
         $hero_image = get_sub_field('hero_image');
         
         
-        $large = '?fit=clamp&w=1800&h=1030';
-		$large_2x = '?fit=clamp&w=3600&h=2060';
-		$medium = '?fit=clamp&w1068=&h=826';
-		$medium_2x = '?fit=clamp&w2136=&h=1652';
-		$small = '?fit=clamp&w736=&h=749';
-		$small_2x = '?fit=clamp&w=1472&h=1498';
+        $large = '?fit=crop&w=1800&h=1030';
+		$large_2x = '?fit=crop&w=3600&h=2060';
+		$medium = '?fit=crop&w1068=&h=826';
+		$medium_2x = '?fit=crop&w2136=&h=1652';
+		$small = '?fit=crop&w736=&h=749';
+		$small_2x = '?fit=crop&w=1472&h=1498';
         
 
     endwhile;
@@ -130,6 +130,7 @@ endif;
     background-image: url(<?php echo $hero_image . $large ?>);
     left: 50%;
     margin-left: -900px;
+    opacity: 0.5;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     .section-hero .hero-image {
