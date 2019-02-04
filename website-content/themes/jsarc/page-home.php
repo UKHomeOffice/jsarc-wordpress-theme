@@ -387,12 +387,6 @@ function my_doc_head() { ?>
 	margin-bottom: 50px;
 }
 
-@media only screen and (max-width: 735px) {
-    .section.section-benefits .headline {
-        text-align: center;
-    }
-}
-
 .section.section-benefits .section-content {
     padding-top: 81px;
     padding-bottom: 75px;
@@ -441,8 +435,19 @@ function my_doc_head() { ?>
 .section.section-benefits .list-item .link {
     display: block;
     overflow: hidden;
+    min-height: 400px;
+}
+@media only screen and (max-width: 1024px) {
+	.section.section-benefits .list-item .link {
+    	min-height: 440px;
+	}
 }
 
+@media only screen and (max-width: 735px) {
+	.section.section-benefits .list-item .link {
+    	min-height: auto;
+	}
+}
 
 .section.section-benefits .list-item:first-child {
     margin-left: 0;
