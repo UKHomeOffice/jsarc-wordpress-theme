@@ -307,8 +307,8 @@ PAGE ABOUT / SECTION MISSION
 
 .section.section-mission .button.more {
 	float: right;
-	color: #5EC6EB;
-	border: 2px solid #5EC6EB;
+	color: #fff;
+	border: 2px solid #fff;
 }
 
 @media only screen and (max-width: 735px) {
