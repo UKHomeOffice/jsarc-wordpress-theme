@@ -120,7 +120,7 @@
 	</div>
 </nav>
 
-<article>
+
 	
 	<header class="section hero">
 		<figure class="hero-image"></figure>
@@ -129,22 +129,19 @@
 		</div>
 	</header>
 	
-	<section class="section article">
+	<?php if ( have_rows( 'article_text' ) ) : ?>
+	<?php while ( have_rows( 'article_text' ) ) : the_row(); ?>
+	<article class="section article">
 		<div class="article-details-bar"></div>
 		<div class="section-content">
-		
-			<?php if ( have_rows( 'article_text' ) ) : ?>
-				<?php while ( have_rows( 'article_text' ) ) : the_row(); ?>
-					<h3 class="article-headline"><?php the_sub_field( 'headline' ); ?></h3>
-					<div class="article-text"><?php the_sub_field( 'body_text' ); ?></div>
-				<?php endwhile; ?>
-			<?php else : ?>
-				<?php // no rows found ?>
-			<?php endif; ?>
+			<h3 class="article-headline"><?php the_sub_field( 'headline' ); ?></h3>
+			<div class="article-text"><?php the_sub_field( 'body_text' ); ?></div>
 		</div>
-	</section>
+	</article>
+	<?php endwhile; ?>
+	<?php endif; ?>
 	
-</article>
+
 
 <?php get_template_part( 'template-parts/content', 'section-register'); ?>
 
