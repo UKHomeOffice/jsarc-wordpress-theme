@@ -130,7 +130,7 @@ ol.body-text li {
 
 .section.section-case-study-content .section-image-full-with {
 	width: 100%;
-	height: 100vh;
+	height: 70vh;
 	min-height: 568px;
 	background-size: cover;
 	background-attachment: fixed;
@@ -147,7 +147,7 @@ ol.body-text li {
 }
 
 .sticky-container {
-    min-height: 100vh;
+    min-height: 70vh;
     position: relative;
 }
 
@@ -162,7 +162,6 @@ ol.body-text li {
 }
 
 .section.section-case-study-content .section-content .inner {
-	 
 	max-width: 800px;
 	padding-top: 87px;
 	padding-bottom: 87px;
