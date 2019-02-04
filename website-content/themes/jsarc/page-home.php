@@ -81,12 +81,26 @@ function my_doc_head() { ?>
 }
 
 
+
+
+
+
 .section.section-hero .hero-image {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: 50% 0;
-    background-image: url();
+    background-image: url(<?php if ( have_rows( 'section_hero' ) ) : ?>
+	<?php while ( have_rows( 'section_hero' ) ) : the_row(); ?>
+		<?php if ( have_rows( 'content' ) ) : ?>
+			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+				<?php if ( get_sub_field( 'hero_image' ) ) { ?>
+					<img src="<?php the_sub_field( 'hero_image' ); ?>" />
+				<?php } ?>
+			<?php endwhile; ?>
+		<?php endif; ?>
+	<?php endwhile; ?>
+<?php endif; ?>);
     position: absolute;
     background-repeat: no-repeat;
     background-image: url();
@@ -606,7 +620,7 @@ function my_doc_head() { ?>
 			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
 	<section class="section section-hero">
 		<?php if ( get_sub_field( 'hero_image' ) ) { ?>
-			<figure class="hero-image" style="background-image: url(<?php the_sub_field( 'hero_image' ); ?>)"></figure>
+			<figure class="hero-image"></figure>
 		<?php } ?>
 		<div class="section-content">
 			<div class="intro-wrapper">
