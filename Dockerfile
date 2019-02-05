@@ -34,7 +34,6 @@ COPY apache2-startwp.sh /usr/local/bin
 COPY website-content/themes/jsarc/ /var/www/themes/jsarc
 RUN chown www-data:www-data -R /var/www
 RUN chown www-data:www-data -R /var/log/apache2
-RUN chmod -R 755 /var/www
 
 USER www-data
 CMD ["apache2-startwp.sh", "apache2-foreground"]
