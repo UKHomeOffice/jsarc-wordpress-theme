@@ -8,9 +8,9 @@ function getSiteUrl() {
 }
 
 if (!defined('WP_HOME')) {
-    define('WP_HOME', $_ENV['SITE_URL']);
+    define('WP_HOME', getSiteUrl());
 }
 
 if (!defined('WP_SITEURL')) {
-    define('WP_SITEURL', $_ENV['SITE_URL']);
+    define('WP_SITEURL', getSiteUrl());
 }
