@@ -6,6 +6,9 @@ function getSiteUrl() {
 
     return trim(file_get_contents('/var/www/html/wp-content/siteurl.txt'));
 }
+if (!defined('WP_DEBUG')) {
+    define('WP_DEBUG', true);
+}
 
 if (!defined('WP_HOME')) {
     define('WP_HOME', getSiteUrl());
