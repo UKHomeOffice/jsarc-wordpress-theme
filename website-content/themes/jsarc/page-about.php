@@ -665,7 +665,7 @@ margin-bottom: 22px;
 <?php endif; ?>
 
 
-
+<!--
 <?php if ( have_rows( 'section_mission' ) ) : ?>
 <section class="section section-mission">
 	<?php while ( have_rows( 'section_mission' ) ) : the_row(); ?>
@@ -709,7 +709,7 @@ margin-bottom: 22px;
 	<?php endwhile; ?>
 <?php endif; ?>
 
-
+-->
 
 <?php if ( have_rows( 'sections' ) ) : ?>
 <?php while ( have_rows( 'sections' ) ) : the_row(); ?>
