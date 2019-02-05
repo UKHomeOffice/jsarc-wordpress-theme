@@ -1,3 +1,5 @@
+
+
 <?php if ( have_rows( 'sposors', 'option' ) ) : ?>
 	<?php while ( have_rows( 'sposors', 'option' ) ) : the_row(); ?>
 <section class="section sponsors">
@@ -12,10 +14,10 @@
 			<?php while ( have_rows( 'logo' ) ) : the_row(); ?>
 				<li class="logos-item">
 				<?php if ( get_sub_field( 'logo_image' ) ) { ?>
-					<figure style="logo-image" style="background-image: url(<?php the_sub_field( 'logo_image' ); ?>?w=400)"></figure>
+					<figure class="logo-image" style="background-image: url(<?php the_sub_field( 'logo_image' ); ?>?w=400)"></figure>
 					<span class="visuallyhidden"><?php the_sub_field( 'name' ); ?></span>
 				<?php } ?>
-				<li>
+			    </li>
 			<?php endwhile; ?>
 		<?php endif; ?>
 		
