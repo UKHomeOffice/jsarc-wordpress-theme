@@ -2611,6 +2611,12 @@ SECTION CASESTUDIES
     line-height: 42px;
 }
 
+.section.sponsors .logos {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 70px;
+}
+
 .section.sponsors .logos .logos-item {
     display: block;
     float: left;
@@ -2626,8 +2632,20 @@ SECTION CASESTUDIES
 }
 
 .section.sponsors .button.more {
-    border-color: #fff; 
+    border: 2px solid #fff; 
     color: #fff;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section.sponsors .logos .logos-item {
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section.sponsors .logos .logos-item {
+        width: 30%;
+    }
 }
 
 /*# sourceMappingURL=src/sourcemaps/style.css.map */

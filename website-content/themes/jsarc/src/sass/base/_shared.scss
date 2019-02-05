@@ -191,8 +191,6 @@ SECTION CASESTUDIES
 
 
 
-
-
 .section.sponsors {
 	background-color: #047989;
 }
@@ -210,7 +208,9 @@ SECTION CASESTUDIES
 }
 
 .section.sponsors .logos {
-
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 70px;
 }
 
 .section.sponsors .logos .logos-item {
@@ -229,5 +229,15 @@ SECTION CASESTUDIES
 
 .section.sponsors .button.more {
 	color: #fff;
-	border-color: #fff;
+	border: 2px solid #fff;
+}
+@media only screen and (max-width: 1068px) {
+	.section.sponsors .logos .logos-item {
+ 		width: 25%;
+	}
+}
+@media only screen and (max-width: 735px) {
+	.section.sponsors .logos .logos-item {
+ 		width: 30%;
+	}
 }
