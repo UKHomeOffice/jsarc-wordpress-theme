@@ -28,7 +28,7 @@ if [ "$DEV_DEPLOYMENT" = "yes" ]; then
     --admin_password="$ADMIN_PASSWORD"
 fi
 
-echo "require_once('/var/www/jsarc/jsarc-consts.php');" >> /var/www/html/wp-config.php
+echo "require_once('/var/www/html/wp-content/themes/jsarc/jsarc-consts.php');" >> /var/www/html/wp-config.php
 
 wp_plugin_install wordpress-importer
 wp_plugin_install /var/www/html/wp-content/themes/jsarc/plugins/acf-theme-code-pro.zip
