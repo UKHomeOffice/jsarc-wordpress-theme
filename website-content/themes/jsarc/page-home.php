@@ -823,6 +823,7 @@ endif;
 	<?php endwhile; ?>
 <?php endif; ?>
 
+<?php get_template_part( 'template-parts/content', 'section-sponsors'); ?>
 
 <?php if ( have_rows( 'section_case_study' ) ) : ?>
 	<?php while ( have_rows( 'section_case_study' ) ) : the_row(); ?>
