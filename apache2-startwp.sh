@@ -6,7 +6,9 @@ function wp_plugin_install() {
 
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 
-echo "$SITE_URL"
+echo "$SITE_URL" > /var/www/html/wp-content/siteurl.txt
+echo "----------"
+cat /var/www/html/wp-content/siteurl.txt
 
 if [ -d "/var/www/jsarc" ] ; then
 rm -rf /var/www/html/wp-content/themes/jsarc
