@@ -7,6 +7,10 @@ function wp_plugin_install() {
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 
 echo "$SITE_URL" > /var/www/html/wp-content/siteurl.txt
+echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
+echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
+echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-config.php
+echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-config.php
 
 if [ -d "/var/www/jsarc" ] ; then
 rm -rf /var/www/html/wp-content/themes/jsarc
