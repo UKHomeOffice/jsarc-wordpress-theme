@@ -6,13 +6,10 @@ function wp_plugin_install() {
 
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 
-#cat /var/www/html/wp-config.php
-
-#echo "$SITE_URL" > /var/www/html/wp-content/siteurl.txt
-#echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
-#echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
-#echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-config.php
-#echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-config.php
+echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
+echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
+echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-config.php
+echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-config.php
 
 if [ -d "/var/www/jsarc" ] ; then
 rm -rf /var/www/html/wp-content/themes/jsarc
@@ -27,8 +24,6 @@ if [ "$DEV_DEPLOYMENT" = "yes" ]; then
     --admin_email="$ADMIN_EMAIL" \
     --admin_password="$ADMIN_PASSWORD"
 fi
-
-echo "require_once('/var/www/html/wp-content/themes/jsarc/jsarc-consts.php');" >> /var/www/html/wp-config.php
 
 wp_plugin_install wordpress-importer
 wp_plugin_install /var/www/html/wp-content/themes/jsarc/plugins/acf-theme-code-pro.zip
