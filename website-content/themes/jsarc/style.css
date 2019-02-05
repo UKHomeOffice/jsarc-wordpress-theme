@@ -2594,4 +2594,40 @@ SECTION CASESTUDIES
     transform: translateY(0);
 }
 
+.section.sponsors {
+    background-color: #047989;
+}
+
+.section.sponsors .section-content {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.section.sponsors .section-headline {
+    margin-bottom: 70px; 
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 42px;
+}
+
+.section.sponsors .logos .logos-item {
+    display: block;
+    float: left;
+    width: 20%;
+}
+
+.section.sponsors .logos .logos-item .logo-image {
+    display: block;
+    width: 100%;
+    padding-bottom: 50%;
+    background-position: 50%; 
+    background-size: cover;
+}
+
+.section.sponsors .button.more {
+    border-color: #fff; 
+    color: #fff;
+}
+
 /*# sourceMappingURL=src/sourcemaps/style.css.map */
