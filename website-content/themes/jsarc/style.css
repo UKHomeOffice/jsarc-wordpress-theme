@@ -2628,7 +2628,9 @@ SECTION CASESTUDIES
     display: block;
     width: 150px;
     height: 150px;
-    background-position: 50%; 
+    margin-right: auto; 
+    margin-left: auto;
+    background-position: 50%;
     background-size: 150px 150px;
 }
 
@@ -2645,13 +2647,7 @@ SECTION CASESTUDIES
 
 @media only screen and (max-width: 735px) {
     .section.sponsors .logos .logos-item {
-        width: 30%;
-    }
-}
-
-@media only screen and (max-width: 735px) {
-    .section.sponsors .logos .logos-item {
-        width: 30%;
+        width: 33.333%;
     }
 }
 
