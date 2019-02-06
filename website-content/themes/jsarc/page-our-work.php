@@ -554,12 +554,13 @@ ol.body-text li {
 <?php endwhile; ?>
 <?php endif; ?>
 </div>
-		 
+</section>
 		
 			
 
 
 
 <?php get_template_part( 'template-parts/section', 'register'); ?>
+
 </main>
 <?php get_footer();

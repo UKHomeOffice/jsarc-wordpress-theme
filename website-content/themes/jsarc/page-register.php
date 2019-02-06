@@ -1,8 +1,8 @@
 <?php
 /*
- * Template Name: Register Template
- * The template for displaying register page
+ * Template Name: Register Page
  *
+ * The template for displaying register page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
