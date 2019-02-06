@@ -1,7 +1,7 @@
 <?php
 /*
  * Template Name: Nat. Sec. Priorities Page
- 
+ *
  * The template for displaying National Security Priorities Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
