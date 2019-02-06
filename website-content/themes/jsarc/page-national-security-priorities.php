@@ -1,8 +1,8 @@
 <?php
 /*
- * Template Name: National Security Priorities Page Template
+ * Template Name: Nat. Sec. Priorities Page
+ 
  * The template for displaying National Security Priorities Page
- *
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,13 +10,10 @@
  */
 ?>
 
-
-
 <?php get_header(); ?>
 
-
-<?php
-function my_doc_head() { ?>
+<?php function add_to_head() { ?>
+<style>
 <style>
 .hero-body-text ul,
 .hero-body-text ol {
@@ -319,7 +316,7 @@ function my_doc_head() { ?>
 
 </style>
 <?php } ?>
-
+<main id="main">
 <nav class="breadcrumbs">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
@@ -328,6 +325,7 @@ function my_doc_head() { ?>
 		</ul>
 	</div>
 </nav>
+
 <header class="section hero">
 	<figure class="hero-image"></figure>
 	<div class="section-content">
@@ -421,11 +419,12 @@ function my_doc_head() { ?>
 			
 	
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
+<?php get_template_part( 'template-parts/section', 'register'); ?>
 
 
+</main>
 
-
+<?php function add_to_footer() { ?>
 <script>
 document.addEventListener('DOMContentLoaded',function() {
 	var a = document.querySelectorAll('.text-field-wrapper');
@@ -442,8 +441,6 @@ document.addEventListener('DOMContentLoaded',function() {
 	});
 });
 </script>
+<?php } ?>
 
-
-
-<?php
-get_footer();
+<?php get_footer();

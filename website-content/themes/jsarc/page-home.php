@@ -1,8 +1,8 @@
 <?php
 /*
- * Template Name: Homeage Template
- * The template for displaying Home page
+ * Template Name: Home Page
  *
+ * The template for displaying Home page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -11,8 +11,8 @@
 ?>
 
 <?php get_header(); ?>
-<?php
-function my_doc_head() { ?>
+
+<?php function add_to_head() { ?>
 <!--
   // Location of our stylesheet
 	//   For me, this shared a plugin
@@ -28,7 +28,7 @@ function my_doc_head() { ?>
 		$file_url // Location variable
 	);
 	-->
-	<style>
+<style>
 
 .section {
     position: relative;
@@ -667,9 +667,8 @@ endif;
     color: #000;
 }
 </style>
- 
 <?php } ?>
-
+<main id="main">
 <?php if ( have_rows( 'section_hero' ) ) : ?>
 <?php while ( have_rows( 'section_hero' ) ) : the_row(); ?>
 <?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
@@ -791,7 +790,7 @@ endif;
 <?php endwhile; ?>
 <?php endif; ?>
 
-<?php get_template_part( 'template-parts/content', 'section-sponsors'); ?>
+<?php get_template_part( 'template-parts/section', 'sponsors'); ?>
 
 <?php if ( have_rows( 'section_case_study' ) ) : ?>
 <?php while ( have_rows( 'section_case_study' ) ) : the_row(); ?>
@@ -820,9 +819,8 @@ endif;
 <?php endif; ?>
 
 
-<?php get_template_part( 'template-parts/content', 'section-highlights'); ?>
+<?php get_template_part( 'template-parts/section', 'highlights'); ?>
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
-
-
+<?php get_template_part( 'template-parts/section', 'register'); ?>
+</main>
 <?php get_footer();

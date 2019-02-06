@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: News and Events Landing Page Template
+ * Template Name: News and Events Page
  * The template for displaying News and Events Landing Page
  *
  *
@@ -10,11 +10,9 @@
  */
 ?>
 
-
 <?php get_header(); ?>
 
-
-
+<?php function add_to_head() { ?>
 <style>
 
 
@@ -352,8 +350,8 @@
 
 
 </style>
-
-
+<?php } ?>
+<main id="main">
 <nav class="breadcrumbs">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
@@ -364,149 +362,145 @@
 </nav>
 
 <header class="section hero">
-	<div class="section-content">
-		<div class="row">
-			<div class="first column large-8 small-12">
-				<h1><?php the_field('header_headline'); ?></h1>
-				<?php the_field('header'); ?>
-			</div>
-			
-			<?php if ( have_rows( 'next_event' ) ) : ?>
-			<div class="column large-4 large-last small-12">
-				<aside class="aside">
-					<div class="aside content">
-					<?php while ( have_rows( 'next_event' ) ) : the_row(); ?>
-						<a class="box-link" href="<?php the_sub_field( 'link_url' ); ?>">
-							<h2 class="box-link-headline"><?php the_sub_field( 'headline' ); ?></h2>
-							<h3 class="box-link-subheading"><?php the_sub_field( 'subheading' ); ?></h3>
-							<div class="box-link-content"><?php the_sub_field( 'body_text' ); ?></div><span class="arrow"></span>
-						</a>
-					<?php endwhile; ?>
-					</div>
-				</aside>
-			</div>
-			<?php endif; ?>
-		</div>
-	</div>
+    <div class="section-content">
+        <div class="row">
+            <div class="first column large-8 small-12">
+                <h1><?php the_field('header_headline'); ?></h1>
+                <?php the_field('header'); ?>
+            </div>
+            <?php if ( have_rows( 'next_event' ) ) : ?>
+            <div class="column large-4 large-last small-12">
+                <aside class="aside">
+                    <div class="aside content">
+                        <?php while ( have_rows( 'next_event' ) ) : the_row(); ?>
+                        <a class="box-link" href="<?php the_sub_field( 'link_url' ); ?>">
+                            <h2 class="box-link-headline"><?php the_sub_field( 'headline' ); ?></h2>
+                            <h3 class="box-link-subheading"><?php the_sub_field( 'subheading' ); ?></h3>
+                            <div class="box-link-content"><?php the_sub_field( 'body_text' ); ?></div>
+                            <span class="arrow"></span>
+                        </a>
+                        <?php endwhile; ?>
+                    </div>
+                </aside>
+            </div>
+            <?php endif; ?>
+        </div>
+    </div>
 </header>
 
 <section class="section news">
-	<div class="section-content">
-		<h2 class="headline">Latest news articles</h2>
-		<?php 
-
-		// query
-		$the_query = new WP_Query(array(
-		'post_type' => 'post',
-		'post_status' => 'publish',
-		'category_name' => 'news',
-		'posts_per_page' => 5,
-		'meta_key' => 'featured_post',
-		'orderby' => 'meta_value',
-		'order' => 'DESC'
-		));
-
-		?>
-		<?php if( $the_query->have_posts() ): ?>
-			<ul>
-			<?php while( $the_query->have_posts() ) : $the_query->the_post(); 
-		
-				$class = get_field('featured_post') ? 'class="featured"' : '';
-			
-				?>
-				<li <?php echo $class; ?>>
-					<a class="post" href="<?php the_permalink(); ?>">
-						<div class="image-wrapper">
-							<figure class="post-thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
-						</div>
-						<div class="text-wrapper">
-							<div class="text">
-								<h3 class="title"><?php the_title(); ?></h3>
-								<p class="snippet"><?php if ( get_field( 'featured_post' ) == 1 ) { the_field( 'snippet_text' ); } ?></p>
-							
-							</div>
-							<div class="details-bar">
-								<span class="date"><!--?php the_field( 'date' ); ?--><?php the_date('d F Y'); ?></span>
-								<!--p class="tags">
-								<?php
-								$posttags = get_the_tags();
-								$count=0;
-								if ($posttags) {
-								  foreach($posttags as $tag) {
-									$count++;
-									if (1 == $count) {
-									  echo $tag->name;
-									}
-									else {
-										echo ', ' . $tag->name;
-									}
-								  }
-								}
-								?>
-								</p-->
-							</div>
-						</div>
-					</a>
-				</li>
-			<?php endwhile; ?>
-		</ul>
-<?php endif; ?>
-
-<?php wp_reset_query();	 // Restore global post data stomped by the_post(). ?>
-		</div>
-	
-	</div>
+    <div class="section-content">
+        <h2 class="headline">Latest news articles</h2>
+        <?php 
+            // query
+            $the_query = new WP_Query(array(
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'category_name' => 'news',
+            'posts_per_page' => 5,
+            'meta_key' => 'featured_post',
+            'orderby' => 'meta_value',
+            'order' => 'DESC'
+            ));
+            
+            ?>
+        <?php if( $the_query->have_posts() ): ?>
+        <ul>
+            <?php while( $the_query->have_posts() ) : $the_query->the_post(); 
+                $class = get_field('featured_post') ? 'class="featured"' : '';
+                
+                ?>
+            <li <?php echo $class; ?>>
+                <a class="post" href="<?php the_permalink(); ?>">
+                    <div class="image-wrapper">
+                        <figure class="post-thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
+                    </div>
+                    <div class="text-wrapper">
+                        <div class="text">
+                            <h3 class="title"><?php the_title(); ?></h3>
+                            <p class="snippet"><?php if ( get_field( 'featured_post' ) == 1 ) { the_field( 'snippet_text' ); } ?></p>
+                        </div>
+                        <div class="details-bar">
+                            <span class="date">
+                                <!--?php the_field( 'date' ); ?--><?php the_date('d F Y'); ?>
+                            </span>
+                            <!--p class="tags">
+                                <?php
+                                    $posttags = get_the_tags();
+                                    $count=0;
+                                    if ($posttags) {
+                                      foreach($posttags as $tag) {
+                                    	$count++;
+                                    	if (1 == $count) {
+                                    	  echo $tag->name;
+                                    	}
+                                    	else {
+                                    		echo ', ' . $tag->name;
+                                    	}
+                                      }
+                                    }
+                                    ?>
+                                </p-->
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <?php endwhile; ?>
+        </ul>
+        <?php endif; ?>
+        <?php wp_reset_query();	 // Restore global post data stomped by the_post(). ?>
+    </div>
+    </div>
 </section>
 
 <section class="section news events">
-	<div class="section-content">
-		<h2 class="headline">Upcoming events</h2>
-		<ul>
-		<?php
-			$args = array('post_type' => 'post', 'post_status' => 'publish', 'category_name' => 'events', 'posts_per_page' => 5,);
-			$arr_posts = new WP_Query($args);
-			if ($arr_posts->have_posts()):
-				while ($arr_posts->have_posts()):
-					$arr_posts->the_post();
-			?>
-				
-					<li>
-						<a class="post" href="<?php the_permalink(); ?>">
-							<div class="image-wrapper">
-								<figure class="post-thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
-							</div>
-							<div class="text-wrapper">
-								<h3 class="title">
-								<span class="date">
-								<?php
-								if (have_rows('section_overview')):
-									while (have_rows('section_overview')):
-										the_row();
-										if (have_rows('location_and_date')):
-											while (have_rows('location_and_date')):
-												the_row();
-												the_sub_field('date'); ?> 
-												<?php the_sub_field('time');
-											endwhile;
-										endif;
-									endwhile;
-								endif; ?>
-								</span>
-								<?php the_title(); ?></h3>
-								<span>Register your interest</span>
-							</div>
-						</a>
-					</li>
-				<?php
-    endwhile;
-endif;
-?>
-		</ul>
-	</div>
+    <div class="section-content">
+        <h2 class="headline">Upcoming events</h2>
+        <ul>
+            <?php
+                $args = array('post_type' => 'post', 'post_status' => 'publish', 'category_name' => 'events', 'posts_per_page' => 5,);
+                $arr_posts = new WP_Query($args);
+                if ($arr_posts->have_posts()):
+                	while ($arr_posts->have_posts()):
+                		$arr_posts->the_post();
+                ?>
+            <li>
+                <a class="post" href="<?php the_permalink(); ?>">
+                    <div class="image-wrapper">
+                        <figure class="post-thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
+                    </div>
+                    <div class="text-wrapper">
+                        <h3 class="title">
+                            <span class="date">
+                            <?php
+                                if (have_rows('section_overview')):
+                                	while (have_rows('section_overview')):
+                                		the_row();
+                                		if (have_rows('location_and_date')):
+                                			while (have_rows('location_and_date')):
+                                				the_row();
+                                				the_sub_field('date'); ?> 
+                            <?php the_sub_field('time');
+                                endwhile;
+                                endif;
+                                endwhile;
+                                endif; ?>
+                            </span>
+                            <?php the_title(); ?>
+                        </h3>
+                        <span>Register your interest</span>
+                    </div>
+                </a>
+            </li>
+            <?php
+                endwhile;
+                endif;
+                ?>
+        </ul>
+    </div>
 </section>
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
+<?php get_template_part( 'template-parts/section', 'register'); ?>
 
-
-
+</main>
 <?php get_footer();
