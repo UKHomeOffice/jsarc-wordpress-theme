@@ -1,8 +1,8 @@
 <?php
 /*
  * Template Name: Legal Template
- * The template for displaying About page
  *
+ * The template for displaying About page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
