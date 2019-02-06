@@ -1,8 +1,8 @@
 <?php
 /*
  * Template Name: News and Events Page
- * The template for displaying News and Events Landing Page
  *
+ * The template for displaying News and Events Landing Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
