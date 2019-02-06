@@ -12,103 +12,97 @@
  
 <?php get_header(); ?>
 
-
-<style>
-.post {
-	padding-bottom: 75px;
+<?php
+function my_doc_head() { ?>
+<style>.post {
+    padding-bottom: 75px;
 }
 
 .hero .section-content {
-	max-width: 800px;
+    max-width: 800px;
 }
 
 .hero .hero-image {
-	max-width: 2560px;
-	width: 100%;
-	height: 300px;
-	background-size: cover;
-	background-position: 50% 50%;
-	background-image: url("<?php the_field( 'hero_image' ); ?>");
+    width: 100%;
+    max-width: 2560px;
+    height: 300px;
+    background-image: url("<?php the_field( 'hero_image' ); ?>");
+    background-position: 50% 50%;
+    background-size: cover;
 }
 
 .hero .hero-headline {
-	margin-top: 75px;
-	font-size: 30px;
-	line-height: 38px;
-	font-weight: bold;
-	padding-bottom: 27px;
-	border-bottom: 1px solid #979797;
-	margin-bottom: 9px;
+    margin-top: 75px;
+    margin-bottom: 9px;
+    padding-bottom: 27px;
+    border-bottom: 1px solid #979797;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 38px;
 }
 
 .article .section-content {
-	max-width: 800px;
-	border-bottom: 1px solid #979797;
-	padding-bottom: 20px;
-	margin-bottom: 40px;
+    max-width: 800px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #979797;
 }
 
 .article .article-details-bar {
-	font-size: 14px;
-	line-height: 28px;
-	margin-bottom: 50px;
+    margin-bottom: 50px;
+    font-size: 14px;
+    line-height: 28px;
 }
 
 .article .article-headline {
-	font-size: 20px;
-	font-weight: bold;
-	line-height: 24px;
-	padding-bottom: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 24px;
 }
 
-.article .article-details-bar > * {
-	display: inline-block;
+.article .article-details-bar>* {
+    display: inline-block;
 }
 
 
 .article .article-text {
-	font-size: 18px;
-	line-height: 28px;
-	margin-bottom: 50px;
+    margin-bottom: 50px;
+    font-size: 18px;
+    line-height: 28px;
 }
+
 .article .article-text ul,
 .article .article-text ol,
 .article .article-text p {
-	margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .article .article-text ul li {
-	margin-left: 1em;
-	list-style: none;
+    margin-left: 1em;
+    list-style: none;
 }
+
 .article .article-text ul li:before {
-	content: '';
-	display: inline-block;
-	vertical-align: middle;
-	width: 5px;
-	height: 5px;
-	background-color: #000;
-	border-radius: 50%;
-	margin-right: 1em;
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-right: 1em;
+    border-radius: 50%;
+    background-color: #000;
+    vertical-align: middle;
+    content: "";
 }
 
 .article .article-text ol {
-	margin-left: 1em;
+    margin-left: 1em;
 }
+
 .article .article-text li {
-   margin-left: 1em;
- }
-
-
-
-
-
+    margin-left: 1em;
+}
 </style>
-
-
-
-
-
+<?php } ?>
 
 <nav class="breadcrumbs">
 	<div class="section-content">
@@ -121,26 +115,18 @@
 </nav>
 
 
-	
-	<header class="section hero">
-		<figure class="hero-image"></figure>
-		<div class="section-content">
-			<h1 class="hero-headline"><?php the_title(); ?></h1>
-		</div>
-	</header>
-	
-	<?php if ( have_rows( 'article_text' ) ) : ?>
-	<?php while ( have_rows( 'article_text' ) ) : the_row(); ?>
-	<article class="section article">
-		<div class="article-details-bar"></div>
-		<div class="section-content">
-			<h3 class="article-headline"><?php the_sub_field( 'headline' ); ?></h3>
-			<div class="article-text"><?php the_sub_field( 'body_text' ); ?></div>
-		</div>
-	</article>
-	<?php endwhile; ?>
-	<?php endif; ?>
-	
+<?php if ( have_rows( 'article_text' ) ) : ?>
+<?php while ( have_rows( 'article_text' ) ) : the_row(); ?>
+<article class="section article">
+	<div class="article-details-bar"></div>
+	<div class="section-content">
+		<h3 class="article-headline"><?php the_sub_field( 'headline' ); ?></h3>
+		<div class="article-text"><?php the_sub_field( 'body_text' ); ?></div>
+	</div>
+</article>
+<?php endwhile; ?>
+<?php endif; ?>
+
 
 
 <?php get_template_part( 'template-parts/content', 'section-register'); ?>

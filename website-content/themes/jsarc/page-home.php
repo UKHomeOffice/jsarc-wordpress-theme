@@ -670,185 +670,153 @@ endif;
  
 <?php } ?>
 
-
-
-<!--
-<?php if ( get_sub_field( 'hidden_text' ) ) { ?><span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?>
--->
 <?php if ( have_rows( 'section_hero' ) ) : ?>
-	<?php while ( have_rows( 'section_hero' ) ) : the_row(); ?>
-	<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
-		<?php if ( have_rows( 'content' ) ) : ?>
-			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
-	<section class="section section-hero">
-		<?php if ( get_sub_field( 'hero_image' ) ) { ?>
-			<figure class="hero-image"></figure>
-		<?php } ?>
-		<div class="section-content">
-			<div class="intro-wrapper">
-				<div class="intro">
-		<h1 class="hero-headline"><?php the_sub_field( 'headline' ); ?></h1>
-		<p class="hero-intro"><?php the_sub_field( 'intro' ); ?></p>
-		<?php if ( have_rows( 'button' ) ) : ?>
-			<?php while ( have_rows( 'button' ) ) : the_row(); ?>
+<?php while ( have_rows( 'section_hero' ) ) : the_row(); ?>
+<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
+<?php if ( have_rows( 'content' ) ) : ?>
+<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+<section class="section section-hero">
+	<?php if ( get_sub_field( 'hero_image' ) ) { ?>
+	<figure class="hero-image"></figure>
+	<?php } ?>
+	<div class="section-content">
+		<div class="intro-wrapper">
+			<div class="intro">
+				<h1 class="hero-headline"><?php the_sub_field( 'headline' ); ?></h1>
+				<p class="hero-intro"><?php the_sub_field( 'intro' ); ?></p>
+				<?php if ( have_rows( 'button' ) ) : ?>
+				<?php while ( have_rows( 'button' ) ) : the_row(); ?>
 				<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
-			<?php endwhile; ?>
-		<?php endif; ?>
-				</div>
+				<?php endwhile; ?>
+				<?php endif; ?>
 			</div>
 		</div>
-	</section>
-			<?php endwhile; ?>
-		<?php endif; ?>
-		<?php } ?>
-	<?php endwhile; ?>
+	</div>
+</section>
+<?php endwhile; ?>
+<?php endif; ?>
+<?php } ?>
+<?php endwhile; ?>
 <?php endif; ?>
 
 
 
 <?php if ( have_rows( 'section_innovation_call' ) ) : ?>
-	<?php while ( have_rows( 'section_innovation_call' ) ) : the_row(); ?>
-		<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
-		<?php if ( have_rows( 'content' ) ) : ?>
-			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
-				<section class="section section-innovation-call">
-					<div class="section-content">
-						<h2 class="eyebrow"><?php the_sub_field( 'eyebrow' ); ?></h2>
-						<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
-						<p class="body-text"><?php the_sub_field( 'body_text' ); ?></p>
-				<?php if ( have_rows( 'button' ) ) : ?>
-					<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-						<a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
-					<?php endwhile; ?>
-				<?php endif; ?>
-					</div>
-				</section>
-			<?php endwhile; ?>
+<?php while ( have_rows( 'section_innovation_call' ) ) : the_row(); ?>
+<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
+<?php if ( have_rows( 'content' ) ) : ?>
+<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+<section class="section section-innovation-call">
+	<div class="section-content">
+		<h2 class="eyebrow"><?php the_sub_field( 'eyebrow' ); ?></h2>
+		<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
+		<p class="body-text"><?php the_sub_field( 'body_text' ); ?></p>
+		<?php if ( have_rows( 'button' ) ) : ?>
+		<?php while ( have_rows( 'button' ) ) : the_row(); ?>
+		<a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+		<?php endwhile; ?>
 		<?php endif; ?>
-	<?php } ?>
-	<?php endwhile; ?>
-<?php endif; ?>	
- 
- 
-	 
-
-		
-		
+	</div>
+</section>
+<?php endwhile; ?>
+<?php endif; ?>
+<?php } ?>
+<?php endwhile; ?>
+<?php endif; ?>
 		
 		
 <?php if ( have_rows( 'section_what_we_do' ) ) : ?>
-	<?php while ( have_rows( 'section_what_we_do' ) ) : the_row(); ?>
-	<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
-		<?php if ( have_rows( 'content' ) ) : ?>
-			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
-	<section class="section section-what-we-do">
-		<div class="section-content">
-				<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
-				<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
-				<?php if ( have_rows( 'botton' ) ) : ?>
-					<?php while ( have_rows( 'botton' ) ) : the_row(); ?>
-				<a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
-					<?php endwhile; ?>
-				<?php endif; ?>
-		</div>
-	</section>
-			<?php endwhile; ?>
-		<?php endif; ?>
-	<?php } ?>
-	<?php endwhile; ?>
-<?php endif; ?>
-		
-
-
-<!--section class="section section-video">
+<?php while ( have_rows( 'section_what_we_do' ) ) : the_row(); ?>
+<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
+<?php if ( have_rows( 'content' ) ) : ?>
+<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+<section class="section section-what-we-do">
 	<div class="section-content">
-		<div class="row">
-			<div class="column large-6 small-12">
-				<figure class="section-image"></figure>
-			</div>
-			<div class="column large-6 small-11 small-centered">
-				<div class="content-wrapper">
-
-					<h3 class="headline"></h3>
-					<p class="speaker"></p>
-					<a class="button more" href=""></a>
-				</div>
-			</div>
-		</div>
+		<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
+		<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+		<?php if ( have_rows( 'botton' ) ) : ?>
+		<?php while ( have_rows( 'botton' ) ) : the_row(); ?>
+		<a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+		<?php endwhile; ?>
+		<?php endif; ?>
 	</div>
-</section-->
+</section>
+<?php endwhile; ?>
+<?php endif; ?>
+<?php } ?>
+<?php endwhile; ?>
+<?php endif; ?>
 
 
 
 <?php if ( have_rows( 'section_benefits' ) ) : ?>
-	<?php while ( have_rows( 'section_benefits' ) ) : the_row(); ?>
-		<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
-		<?php if ( have_rows( 'content' ) ) : ?>
-			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
-	<section class="section section-benefits">
-		<div class="section-content">
-			<h3 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
-				<?php if ( have_rows( 'tile' ) ) : ?>
-				<ul class="tiles-list">
-					<?php while ( have_rows( 'tile' ) ) : the_row(); ?>
-					<li class="list-item">
-						<?php if ( get_sub_field( 'link_text' ) ) { ?>
-						<a class="link" href="<?php the_sub_field( 'url' ); ?>">
-						<?php } else { ?>
-						<div class="link">
+<?php while ( have_rows( 'section_benefits' ) ) : the_row(); ?>
+<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
+<?php if ( have_rows( 'content' ) ) : ?>
+<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+<section class="section section-benefits">
+	<div class="section-content">
+		<h3 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
+		<?php if ( have_rows( 'tile' ) ) : ?>
+		<ul class="tiles-list">
+			<?php while ( have_rows( 'tile' ) ) : the_row(); ?>
+			<li class="list-item">
+				<?php if ( get_sub_field( 'link_text' ) ) { ?>
+				<a class="link" href="<?php the_sub_field( 'url' ); ?>">
+					<?php } else { ?>
+					<div class="link">
 						<?php } ?>
-							<div class="image-box">
-								<figure class="image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
-							</div>
-							<div class="text-wrapper">
-								<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
-								<div class="text"><?php the_sub_field( 'body_text' ); ?></div>
-								<?php if ( get_sub_field( 'link_text' ) ) { ?><span class="link-text"><?php the_sub_field( 'link_text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></span><?php } ?>
-							</div>
-						
-						<?php if ( get_sub_field( 'link_text' ) ) { ?>
-						</a>
-						<?php } else { ?>
+						<div class="image-box">
+							<figure class="image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
 						</div>
-						<?php } ?>
-					</li>
-					<?php endwhile; ?>
-				</ul>
-				<?php endif; ?>
-		</div>
-	</section>
+						<div class="text-wrapper">
+							<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
+							<div class="text"><?php the_sub_field( 'body_text' ); ?></div>
+							<?php if ( get_sub_field( 'link_text' ) ) { ?><span class="link-text"><?php the_sub_field( 'link_text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></span><?php } ?>
+						</div>
+						<?php if ( get_sub_field( 'link_text' ) ) { ?>
+				</a>
+				<?php } else { ?>
+				</div>
+				<?php } ?>
+			</li>
 			<?php endwhile; ?>
+		</ul>
 		<?php endif; ?>
-		<?php } ?>
-	<?php endwhile; ?>
+	</div>
+</section>
+<?php endwhile; ?>
+<?php endif; ?>
+<?php } ?>
+<?php endwhile; ?>
 <?php endif; ?>
 
 <?php get_template_part( 'template-parts/content', 'section-sponsors'); ?>
 
 <?php if ( have_rows( 'section_case_study' ) ) : ?>
-	<?php while ( have_rows( 'section_case_study' ) ) : the_row(); ?>
-		<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
-		<?php if ( have_rows( 'content' ) ) : ?>
-			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
-	<section class="section section-casestudy">
-				<?php if ( get_sub_field( 'image' ) ) { ?>
-		<figure class="section-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
-				<?php } ?>
-		<div class="section-content">
-			<h2 class="eyebrow"><?php the_sub_field( 'eyebrow' ); ?></h2>
-			<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
-			<p class="body-text"><?php the_sub_field( 'body_text' ); ?></p>
-				<?php if ( have_rows( 'button' ) ) : ?>
-					<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-						<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
-					<?php endwhile; ?>
-				<?php endif; ?>
-		</div>
-	</section>
-			<?php endwhile; ?>
+<?php while ( have_rows( 'section_case_study' ) ) : the_row(); ?>
+<?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
+<?php if ( have_rows( 'content' ) ) : ?>
+<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+<section class="section section-casestudy">
+	<?php if ( get_sub_field( 'image' ) ) { ?>
+	<figure class="section-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+	<?php } ?>
+	<div class="section-content">
+		<h2 class="eyebrow"><?php the_sub_field( 'eyebrow' ); ?></h2>
+		<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
+		<p class="body-text"><?php the_sub_field( 'body_text' ); ?></p>
+		<?php if ( have_rows( 'button' ) ) : ?>
+		<?php while ( have_rows( 'button' ) ) : the_row(); ?>
+		<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+		<?php endwhile; ?>
 		<?php endif; ?>
-		<?php } ?>
-	<?php endwhile; ?>
+	</div>
+</section>
+<?php endwhile; ?>
+<?php endif; ?>
+<?php } ?>
+<?php endwhile; ?>
 <?php endif; ?>
 
 
