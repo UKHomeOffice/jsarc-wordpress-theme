@@ -89,7 +89,9 @@
 
 
 
+
 <?php wp_footer(); ?>
+<?php if (function_exists('add_to_footer')) { add_to_footer(); } ?>
 
 </body>
 </html>

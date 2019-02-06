@@ -1,8 +1,8 @@
 <?php
 /*
- * Template Name: Case Study Page Template
- * The template for displaying Case Study page
+ * Template Name: Case Study Pages
  *
+ * The template for displaying Case Study page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -12,7 +12,7 @@
 
 <?php get_header(); ?>
 
-
+<?php function add_to_head() { ?>
 <style>
 
 .body-text > p,
@@ -277,7 +277,23 @@ ol.body-text li {
 
 
 </style>
-
+<?php } ?>
+<main id="main">
+<nav class="breadcrumbs">
+    <div class="section-content">
+        <ul class="breadcrumbs-list">
+            <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
+            <?php if ( have_rows( 'breadcrumbs' ) ) : ?>
+            <?php while ( have_rows( 'breadcrumbs' ) ) : the_row(); ?>
+            <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="<?php the_sub_field( 'url' ); ?>">
+                <?php the_sub_field( 'text' ); ?></a>
+            </li>
+            <?php endwhile; ?>
+            <?php endif; ?>
+            <li class="breadcrumbs-item"><?php the_title(); ?></li>
+        </ul>
+    </div>
+</nav>
 
 <header class="section hero">
 	<figure class="hero-image"></figure>
@@ -289,71 +305,59 @@ ol.body-text li {
 </header>
 
 
-<nav class="breadcrumbs">
-	<div class="section-content">
-		<ul class="breadcrumbs-list">
-			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-			<?php if ( have_rows( 'breadcrumbs' ) ) : ?>
-			<?php while ( have_rows( 'breadcrumbs' ) ) : the_row(); ?>
-			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="<?php the_sub_field( 'url' ); ?>">
-			<?php the_sub_field( 'text' ); ?></a></li>
-			<?php endwhile; ?>
-			<?php endif; ?>
-			<li class="breadcrumbs-item"><?php the_title(); ?></li>
-		</ul>
-	</div>
-</nav>
+
 
 
 <section class="section section-case-study-content">
-<?php if ( have_rows( 'section' ) ) : ?>
-	<?php while ( have_rows( 'section' ) ) : the_row(); ?>
-	 	<?php if ( get_sub_field( 'full_width_image' ) ) { ?>
-			<div class="sticky-container">
-				<figure class="section-image-full-with sticky-item" style="background-image: url(<?php the_sub_field( 'full_width_image' ); ?>)"></figure>
-			</div> 
-		<?php } ?>
-		
-		<div class="section-content">
-			<div class="inner">
-				<h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>
-				<div class="body-text">
-					<?php the_sub_field( 'body_text' ); ?>
-				</div>
-			</div>
-		</div>
-		
-	<?php endwhile; ?>
-<?php endif; ?>
+    <?php if ( have_rows( 'section' ) ) : ?>
+    <?php while ( have_rows( 'section' ) ) : the_row(); ?>
+    <?php if ( get_sub_field( 'full_width_image' ) ) { ?>
+    <div class="sticky-container">
+        <figure class="section-image-full-with sticky-item" style="background-image: url(<?php the_sub_field( 'full_width_image' ); ?>)"></figure>
+    </div>
+    <?php } ?>
+    <div class="section-content">
+        <div class="inner">
+            <h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>
+            <div class="body-text">
+                <?php the_sub_field( 'body_text' ); ?>
+            </div>
+        </div>
+    </div>
+    <?php endwhile; ?>
+    <?php endif; ?>
 </section>
 
 
 <?php if ( have_rows( 'case_study_section' ) ) : ?>
-	<?php while ( have_rows( 'case_study_section' ) ) : the_row(); ?>
-	<section class="section section-casestudies" data-anim-classname='{"cssClass":"reveal"}'>
-		<figure class="section-image-full-with" style="background-image: url(<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>)"></figure>
-		<div class="section-content">
-			<div class="inner">
-				<h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>
-				<h4 class="section-sub-heading"><?php the_sub_field( 'subheading' ); ?></h4>
-			</div>
-			<?php if ( have_rows( 'button' ) ) : ?>
-			<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-				<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?></a>
-			<?php endwhile; ?>
-		<?php endif; ?>
-		</div>
-		
-	<?php endwhile; ?>
-	</section>
+<?php while ( have_rows( 'case_study_section' ) ) : the_row(); ?>
+<section class="section section-casestudies" data-anim-classname='{"cssClass":"reveal"}'>
+    <figure class="section-image-full-with" style="background-image: url(<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>)"></figure>
+    <div class="section-content">
+        <div class="inner">
+            <h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>
+            <h4 class="section-sub-heading"><?php the_sub_field( 'subheading' ); ?></h4>
+        </div>
+        <?php if ( have_rows( 'button' ) ) : ?>
+        <?php while ( have_rows( 'button' ) ) : the_row(); ?>
+        <a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?></a>
+        <?php endwhile; ?>
+        <?php endif; ?>
+    </div>
+    <?php endwhile; ?>
+</section>
 <?php endif; ?>
 
-<?php get_template_part( 'template-parts/content', 'section-highlights'); ?>
+<?php get_template_part( 'template-parts/section', 'highlights'); ?>
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
+<?php get_template_part( 'template-parts/section', 'register'); ?>
 
 
 
+
+</main>
+
+<?php function add_to_footer() { ?>
 <!--script>
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -451,8 +455,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 });
 </script-->
+<?php } ?>
 
-
-
-<?php
-get_footer();
+<?php get_footer();
