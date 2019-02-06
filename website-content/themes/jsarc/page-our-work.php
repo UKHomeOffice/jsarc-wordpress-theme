@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Our Work Template
+ * Template Name: Our Work Page
  * The template for displaying Our Work page
  *
  *
@@ -10,12 +10,9 @@
  */
 ?>
 
-
 <?php get_header(); ?>
 
-
-<?php
-function my_doc_head() { ?>
+<?php function add_to_head() { ?>
 <style>
 
 .block-text ul,
@@ -421,7 +418,7 @@ ol.body-text li {
 }
 </style>
 <?php } ?>
-
+<main id="main">
 <nav class="breadcrumbs">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
@@ -444,34 +441,34 @@ ol.body-text li {
 
 <?php if ( have_rows( 'header' ) ) : ?>
 <section class="section section-intro">
-	<div class="section-content">
-		<div class="row">
-			<div class="column large-8 small-12">
-				<?php while ( have_rows( 'header' ) ) : the_row(); ?>
-				<div class="leader-text"><?php the_sub_field( 'bold_text' ); ?></div>
-				<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
-			</div>
-			<?php if ( get_sub_field( 'call_for_action_show' ) == 1 ) {  // echo 'true'; ?>
-			<?php if ( have_rows( 'call_for_action' ) ) : ?>
-			<div class="column large-4 small-12">
-				<aside class="aside">
-					<div class="aside content">
-						<?php while ( have_rows( 'call_for_action' ) ) : the_row(); ?>
-						<a class="box-link" href="<?php the_sub_field( 'url' ); ?>">
-							<h2 class="box-link-headline"><?php the_sub_field( 'headline' ); ?></h2>
-							<h3 class="box-link-subheading"><?php the_sub_field( 'subheading' ); ?></h3>
-							<p class="box-link-content"><?php the_sub_field( 'body_text' ); ?></p>
-							<span class="arrow"></span>
-						</a>
-						<?php endwhile; ?>
-					</div>
-				</aside>
-			</div>
-			<?php endif; ?>
-			<?php } ?>
-			<?php endwhile; ?>
-		</div>
-	</div>
+    <div class="section-content">
+        <div class="row">
+            <div class="column large-8 small-12">
+                <?php while ( have_rows( 'header' ) ) : the_row(); ?>
+                <div class="leader-text"><?php the_sub_field( 'bold_text' ); ?></div>
+                <div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+            </div>
+            <?php if ( get_sub_field( 'call_for_action_show' ) == 1 ) {  // echo 'true'; ?>
+            <?php if ( have_rows( 'call_for_action' ) ) : ?>
+            <div class="column large-4 small-12">
+                <aside class="aside">
+                    <div class="aside content">
+                        <?php while ( have_rows( 'call_for_action' ) ) : the_row(); ?>
+                        <a class="box-link" href="<?php the_sub_field( 'url' ); ?>">
+                            <h2 class="box-link-headline"><?php the_sub_field( 'headline' ); ?></h2>
+                            <h3 class="box-link-subheading"><?php the_sub_field( 'subheading' ); ?></h3>
+                            <p class="box-link-content"><?php the_sub_field( 'body_text' ); ?></p>
+                            <span class="arrow"></span>
+                        </a>
+                        <?php endwhile; ?>
+                    </div>
+                </aside>
+            </div>
+            <?php endif; ?>
+            <?php } ?>
+            <?php endwhile; ?>
+        </div>
+    </div>
 </section>
 <?php endif; ?>
 
@@ -563,7 +560,6 @@ ol.body-text li {
 
 
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
-
-
+<?php get_template_part( 'template-parts/section', 'register'); ?>
+</main>
 <?php get_footer();

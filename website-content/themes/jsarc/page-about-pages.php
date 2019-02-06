@@ -1,20 +1,21 @@
 <?php
 /*
- * Template Name: Pages under About tab
- * The template for displaying all pages under About tab
+ * Template Name: About Us / Pages
  *
+ * The template for displaying all pages under About tab
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package JSaRC
  */
- ?>
- 
+?>
+
 <?php get_header(); ?>
 
-<?php
-function my_doc_head() { ?>
-<style>.post {
+<?php function add_to_head() { ?>
+<style>
+
+.post {
     padding-bottom: 75px;
 }
 
@@ -103,7 +104,7 @@ function my_doc_head() { ?>
 }
 </style>
 <?php } ?>
-
+<main id="main">
 <nav class="breadcrumbs">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
@@ -129,9 +130,7 @@ function my_doc_head() { ?>
 
 
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
+<?php get_template_part( 'template-parts/section', 'register'); ?>
 
-
-
-<?php
-get_footer();
+</main>
+<?php get_footer();

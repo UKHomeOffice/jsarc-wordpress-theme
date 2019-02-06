@@ -1,8 +1,8 @@
 <?php
 /*
- * Template Name: About Page Template
- * The template for displaying About page
+ * Template Name: About Us Page
  *
+ * The template for displaying About page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,11 +10,9 @@
  */
 ?>
 
-
 <?php get_header(); ?>
 
-<?php
-function my_doc_head() { ?>
+<?php function add_to_head() { ?>
 <style>
 .block-text ul,
 .block-text ol {
@@ -614,8 +612,7 @@ ol.body-text li {
 
 </style>
 <?php } ?>
-
-
+<main id="main">
 <nav class="breadcrumbs">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
@@ -844,7 +841,8 @@ ol.body-text li {
 
 
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
+<?php get_template_part( 'template-parts/section', 'register'); ?>
 
 
+</main>
 <?php get_footer();
