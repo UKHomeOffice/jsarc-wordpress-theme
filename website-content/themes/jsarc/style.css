@@ -2594,10 +2594,6 @@ SECTION CASESTUDIES
     transform: translateY(0);
 }
 
-.section.sponsors {
-    background-color: #047989;
-}
-
 .section.sponsors .section-content {
     padding-top: 70px;
     padding-bottom: 70px;
