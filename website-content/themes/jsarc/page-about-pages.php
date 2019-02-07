@@ -105,6 +105,7 @@
 </style>
 <?php } ?>
 <main id="main">
+
 <nav class="breadcrumbs">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
@@ -114,6 +115,13 @@
 		</ul>
 	</div>
 </nav>
+<article>
+<header class="section hero">
+	<figure class="hero-image"></figure>
+	<div class="section-content">
+		<h1 class="hero-headline"><?php the_title(); ?></h1>
+	</div>
+</header>
 
 
 <?php if ( have_rows( 'article_text' ) ) : ?>
@@ -131,6 +139,6 @@
 
 
 <?php get_template_part( 'template-parts/section', 'register'); ?>
-
+</article>
 </main>
 <?php get_footer();
