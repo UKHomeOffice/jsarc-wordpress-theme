@@ -2638,18 +2638,18 @@ SECTION CASESTUDIES
 @media only screen and (max-width: 1068px) {
     .section.sponsors .logos .logos-item {
         width: 25%;
-    }
-}
-
-@media only screen and (max-width: 735px) {
-    .section.sponsors .logos .logos-item {
-        width: 33.333%;
         min-width: 100px;
     }
     .section.sponsors .logos .logos-item .logo-image {
         width: 100px;
         height: 100px;
         background-size: 100px 100px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section.sponsors .logos .logos-item {
+        width: 33.333%;
     }
 }
 
