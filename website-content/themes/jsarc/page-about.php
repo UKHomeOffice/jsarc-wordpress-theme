@@ -1,8 +1,8 @@
 <?php
 /*
- * Template Name: About Page Template
- * The template for displaying About page
+ * Template Name: About Us Page
  *
+ * The template for displaying About page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,434 +10,429 @@
  */
 ?>
 
-
 <?php get_header(); ?>
 
-
+<?php function add_to_head() { ?>
 <style>
-
 .block-text ul,
 .block-text ol {
-	margin-top: 1em;
-	margin-bottom: 1em;
-	list-style-position: outside;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style-position: outside;
 }
 
 .block-text ul {
-	list-style: none;
-	padding-left: 2em;
+    padding-left: 2em;
+    list-style: none;
 }
+
 .block-text ul li:before {
-	content: "";
-	display: inline-block;
-	vertical-align: middle;
-	width: 5px;
-	height: 5px;
-	background-color: #333;
-	border-radius: 50%;
-	margin-left: -1.3em;
-	margin-right: 1em;
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-right: 1em;
+    margin-left: -1.3em;
+    border-radius: 50%;
+    background-color: #333;
+    vertical-align: middle;
+    content: "";
 }
+
 .block-text ol {
-	padding-left: 2em;
+    padding-left: 2em;
 }
+
 .block-text ol li {
-	list-style-type: decimal;
+    list-style-type: decimal;
 }
 
 .body-text ul,
 .body-text ol {
-	margin-top: 1em;
-	margin-bottom: 1em;
-	list-style-position: outside;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style-position: outside;
 }
 
 .body-text ul {
-	list-style: none;
-	padding-left: 2em;
-}
-.body-text ul li:before {
-	content: "";
-	display: inline-block;
-	vertical-align: middle;
-	width: 5px;
-	height: 5px;
-	background-color: #333;
-	border-radius: 50%;
-	margin-left: -1.3em;
-	margin-right: 1em;
-}
-.body-text ol {
-	padding-left: 2em;
-}
-.body-text ol li {
-	list-style-type: decimal;
+    padding-left: 2em;
+    list-style: none;
 }
 
- ul.body-text,
- ol.body-text {
-	margin-top: 1em;
-	margin-bottom: 1em;
-	list-style-position: outside;
+.body-text ul li:before {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-right: 1em;
+    margin-left: -1.3em;
+    border-radius: 50%;
+    background-color: #333;
+    vertical-align: middle;
+    content: "";
+}
+
+.body-text ol {
+    padding-left: 2em;
+}
+
+.body-text ol li {
+    list-style-type: decimal;
+}
+
+ul.body-text,
+ol.body-text {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style-position: outside;
 }
 
 ul.body-text {
-	list-style: none;
-	padding-left: 2em;
+    padding-left: 2em;
+    list-style: none;
 }
+
 ul.body-text li:before {
-	content: "";
-	display: inline-block;
-	vertical-align: middle;
-	width: 5px;
-	height: 5px;
-	background-color: #333;
-	border-radius: 50%;
-	margin-left: -1.3em;
-	margin-right: 1em;
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-right: 1em;
+    margin-left: -1.3em;
+    border-radius: 50%;
+    background-color: #333;
+    vertical-align: middle;
+    content: "";
 }
+
 ol.body-text {
-	padding-left: 2em;
+    padding-left: 2em;
 }
+
 ol.body-text li {
-	list-style-type: decimal;
+    list-style-type: decimal;
 }
 
 
 
 
-
-
-
-
-/*---------------------------------
-
-SECTION HEADER
-
-----------------------------------*/
 
 .hero .hero-image {
-	position: absolute;
-	z-index: -1;
-	max-width: 2560px;
-	width: 100%;
-	height: 300px;
-	background-size: cover;
-	background-position: 80% 50%;
-	background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>");	
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    max-width: 2560px;
+    height: 300px;
+    background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>");
+    background-position: 80% 50%;
+    background-size: cover;
 }
+
 .hero .section-content {
-	display: table;
-	height: 300px;
-	
+    display: table;
+    height: 300px;
 }
+
 .hero .headline-wrapper {
-	display: table-cell;
-	vertical-align: middle;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .hero .hero-headline {
-	display: inline-block;
-	width: 80%;
-	font-size: 36px;
-	line-height: 75px;
-	font-weight: bold;
-	color: #fff;
+    display: inline-block;
+    width: 80%;
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 75px;
 }
+
 .hero .hero-headline span {
-	display: inline;
-	padding: 2px 0;
-	box-shadow: 5px 0 0 #000, -5px 0 0 #000; 
-	background-color: #000;
+    display: inline;
+    padding: 2px 0;
+    background-color: #000;
+    box-shadow: 5px 0 0 #000, -5px 0 0 #000;
 }
-
-/*---------------------------------
-
-SECTION INTRO
-
-----------------------------------*/
 
 
 .section-intro .section-content {
-	padding-top: 75px;
-	padding-bottom: 75px;
+    padding-top: 75px;
+    padding-bottom: 75px;
 }
 
 .section-intro .leader-text {
-	font-size: 24px;
-	line-height: 32px;
-	font-weight: bold;
-	color: #4A4A4A;
-	margin-bottom: 45px;
+    margin-bottom: 45px;
+    color: #4a4a4a;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 32px;
 }
 
 .section-intro .body-text {
-	font-size: 18px;
-	line-height: 28px;
-	color: #4A4A4A;
-	margin-bottom: 34px;
+    margin-bottom: 34px;
+    color: #4a4a4a;
+    font-size: 18px;
+    line-height: 28px;
 }
 
 .section-intro .box-link {
-	display: block;
-	min-height: 120px;
-	width: 300px;
-	background-color: #982D46;
-	margin-bottom: 50px;
-	float: right;
-	position: relative;
-	padding-bottom: 50px;
+    display: block;
+    float: right;
+    position: relative;
+    width: 300px;
+    min-height: 120px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    background-color: #982d46;
 }
 
 .section-intro .box-link .box-link-headline {
-	padding: 33px 25px 20px;
-	color: #fff;
-	font-size: 18px;
-	font-weight: bold;
-	line-height: 28px;
+    padding: 33px 25px 20px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 28px;
 }
+
 .section-intro .box-link .box-link-headline:after {
-    content: '';
     display: inline-block;
-    vertical-align: baseline;
     width: 42px;
     height: 42px;
-    background-size: 42px 42px;
-    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/call-icon.png");
     margin-left: 15px;
+    background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/call-icon.png");
+    background-size: 42px 42px;
+    vertical-align: baseline;
+    content: "";
 }
+
 .section-intro .box-link .box-link-subheading {
-	padding: 0 25px 20px;
-	color: #fff;
-	font-size: 20px;
-	font-weight: bold;
-	line-height: 24px;
+    padding: 0 25px 20px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 24px;
 }
 
 .section-intro .box-link .box-link-content {
-	padding: 33px 25px;
-	color: #fff;
-	font-size: 18px;
-	line-height: 24px;
+    padding: 33px 25px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 24px;
 }
+
 .section-intro .box-link .arrow {
-	content: '';
-	display: block;
-	width: 14px;
-	height: 14px;
-	border: 0 solid #fff;
-	border-width: 4px 4px 0 0;
-	transform: rotate(45deg);
-	position: absolute;
-	bottom: 33px;
-	right: 25px;
-	
+    display: block;
+    position: absolute;
+    right: 25px;
+    bottom: 33px;
+    width: 14px;
+    height: 14px;
+    border: 0 solid #fff;
+    border-width: 4px 4px 0 0;
+    content: "";
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 @media only screen and (max-width: 1068px) {
-	.section-intro .box-link {
-		display: block;
-		width: 200px;
-		min-height: 205px;
-	}
+    .section-intro .box-link {
+        display: block;
+        width: 200px;
+        min-height: 205px;
+    }
 }
 
 @media only screen and (max-width: 735px) {
-	.section-intro .box-link {
-		width: 300px;
-		min-height: 120px;
-		float: none;
-		margin-left: auto;
-		margin-right: auto;
-	}
+    .section-intro .box-link {
+        float: none;
+        width: 300px;
+        min-height: 120px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 
 
-/*---------------------------------
-
-PAGE ABOUT / SECTION MISSION
-
-----------------------------------*/
 .section.section-mission {
-	background-color: #1E4289;
-	min-height: 400px;
+    min-height: 400px;
+    background-color: #1e4289;
 }
+
 .section.section-mission .section-image {
-	position: absolute;
-	width: 50%;
-	height: 400px;
-	background-size: cover;
-	background-position: 50% 50%;
-	background-image: url("/wp-content/themes/jsarc/img/v/about/b/jsarc-mission-illustration.png");
+    position: absolute;
+    width: 50%;
+    height: 400px;
+    background-image: url("/wp-content/themes/jsarc/img/v/about/b/jsarc-mission-illustration.png");
+    background-position: 50% 50%;
+    background-size: cover;
 }
 
 
 
 .section.section-mission .section-content {
-	padding-top: 100px;
+    padding-top: 100px;
 }
 
 @media only screen and (max-width: 735px) {
-	.section.section-mission .section-image {
-		width: 100%;
-		height: 300px;
-	}
-	.section.section-mission .section-content {
-		padding-top: 400px;
-		min-height: 300px;
-	}
+    .section.section-mission .section-image {
+        width: 100%;
+        height: 300px;
+    }
+    .section.section-mission .section-content {
+        min-height: 300px;
+        padding-top: 400px;
+    }
 }
 
 .section.section-mission .section-headline {
-	color: #fff;
-	font-size: 36px;
-	line-height: 43px;
-	text-align: right;
-	margin-bottom: 50px;
-	max-width: 400px;
-	float: right;
+    float: right;
+    max-width: 400px;
+    margin-bottom: 50px;
+    color: #fff;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: right;
 }
 
 @media only screen and (max-width: 1068px) {
-	.section.section-mission .section-headline {
-		max-width: 300px;
-	}
+    .section.section-mission .section-headline {
+        max-width: 300px;
+    }
 }
 
 .section.section-mission .button.more {
-	float: right;
-	color: #fff;
-	border: 2px solid #fff;
+    float: right;
+    border: 2px solid #fff;
+    color: #fff;
 }
 
 @media only screen and (max-width: 735px) {
-	.section.section-mission .button.more {
-		float: none;
-		margin-left: auto;
-		margin-right: auto;
-	}
+    .section.section-mission .button.more {
+        float: none;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 @media only screen and (max-width: 735px) {
-	.section.section-mission .section-headline {
-		text-align: center;
-		max-width: 100%;
-		float: none;
-	}
-	.section.section-mission .button.more {
-		float: none;
-		margin-left: auto;
-		margin-right: auto;
-	}
+    .section.section-mission .section-headline {
+        float: none;
+        max-width: 100%;
+        text-align: center;
+    }
+    .section.section-mission .button.more {
+        float: none;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
-
-/*---------------------------------
-
-PAGE ABOUT / SECTION ENGAGE
-
-----------------------------------*/
 
 
 .section-engage .section-content {
-	padding-top: 75px;
-	padding-bottom: 75px;
+    padding-top: 75px;
+    padding-bottom: 75px;
 }
 
 .section-engage .section-headline {
-	font-size: 36px;
-	line-height: 42px;
-	font-weight: bold;
-	margin-bottom: 45px;
+    margin-bottom: 45px;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 42px;
 }
+
 .section-engage .subheading {
-font-size: 24px;
-font-weight: bold;
-line-height: 34px;
-margin-bottom: 22px;
+    margin-bottom: 22px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
 }
+
 .section-engage .body-text {
-	font-size: 18px;
-	line-height: 28px;
-	margin-bottom: 34px;
+    margin-bottom: 34px;
+    font-size: 18px;
+    line-height: 28px;
 }
 
 
 
 
 .sections-wrapper {
-	background-color: #E3E3E3;
-	padding: 50px 0;
+    padding: 50px 0;
+    background-color: #e3e3e3;
 }
+
 .section.blocks {
-	margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .sections-wrapper .section-headline {
-	font-size: 36px;
-	font-weight: bold;
-	line-height: 42px;
-	margin-bottom: 50px;
+    margin-bottom: 50px;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 42px;
 }
 
 @media only screen and (min-width: 736px) {
-	.section.blocks.image-left .row > .column.large-last {
-	 float: left;
-	}
-	.section.blocks.image-left .row > .column.large-first {
-	 float: right;
-	}
+    .section.blocks.image-left .row>.column.large-last {
+        float: left;
+    }
+    .section.blocks.image-left .row>.column.large-first {
+        float: right;
+    }
 }
 
 .section.blocks .section-image {
-	height: 600px;
-	width: 100%;
-	background-size: cover;
-	background-position: 50% 50%;
+    width: 100%;
+    height: 600px;
+    background-position: 50% 50%;
+    background-size: cover;
 }
 
 
 .section.blocks .block {
-	background-color: #fff;
-	
+    background-color: #fff;
 }
+
 .section.blocks .block-text-content {
-	display: table;
-	padding: 50px;
-	min-height: 500px;
+    display: table;
+    min-height: 500px;
+    padding: 50px;
 }
+
 @media only screen and (max-width: 735px) {
-	.section.blocks .section-image {
-		height: 400px;
-	}
-	.section.blocks .block-text-content {
-		padding: 50px;
-		min-height: 300px;
-	}
+    .section.blocks .section-image {
+        height: 400px;
+    }
+    .section.blocks .block-text-content {
+        min-height: 300px;
+        padding: 50px;
+    }
 }
 
 .section.blocks .block-text-inner {
-	display: table-cell;
-	vertical-align: middle;
+    display: table-cell;
+    vertical-align: middle;
 }
+
 .section.blocks .block-headline {
-	font-size: 24px;
-	font-weight: bold;
-	line-height: 34px;
-	margin-bottom: 22px;
+    margin-bottom: 22px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
 }
+
 .section.blocks .block-text {
-	font-size: 18px;
-	line-height: 28px;
-	margin-bottom: 50px;
+    margin-bottom: 50px;
+    font-size: 18px;
+    line-height: 28px;
 }
+
 .section.blocks .block-text p {
-	margin-bottom: 1em;
+    margin-bottom: 1em;
 }
+
 .section.blocks .block-link {
-	color: #01749F;
-	font-size: 19px;
-	line-height: 28px;
+    color: #01749f;
+    font-size: 19px;
+    line-height: 28px;
 }
 
 
@@ -454,10 +449,10 @@ margin-bottom: 22px;
 
 .section.projects .section-content-inner {
     max-width: 840px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -471,11 +466,12 @@ margin-bottom: 22px;
         max-width: 90%;
     }
 }
+
 .section.projects .section-headline {
+    margin-bottom: 50px;
     font-size: 36px;
-	font-weight: bold;
-	line-height: 42px;
-	margin-bottom: 50px;
+    font-weight: bold;
+    line-height: 42px;
 }
 
 @media only screen and (max-width: 735px) {
@@ -491,13 +487,15 @@ margin-bottom: 22px;
     width: 100%;
     margin-bottom: 62px;
 }
+
 .section.projects .tile-item {
-    float: left;
     display: block;
-	width: 46%;
-	margin-left: 5%;
+    float: left;
+    width: 46%;
+    margin-left: 5%;
     background-color: #fff;
 }
+
 .section.projects .tile-item:first-child {
     margin-left: 0;
 }
@@ -513,31 +511,36 @@ margin-bottom: 22px;
     .section.projects .tile-item:first-child {
         float: none;
         width: 300px;
-        margin-left: auto;
         margin-right: auto;
         margin-bottom: 40px;
+        margin-left: auto;
     }
 }
 
 .section.projects .tile-image-box {
-	position: relative;
-	padding-bottom: 63%;
-	overflow: hidden;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 63%;
 }
 
 .section.projects .tile-image {
-	position: absolute;
-	top: 0;
-	left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-size: cover;
+    transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
+    -webkit-transform: scale(1);
     transform: scale(1);
+    -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
 }
 
 .section.projects .tile:hover .tile-image {
+    -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
 
@@ -545,44 +548,48 @@ margin-bottom: 22px;
 .section.projects .caption-wrapper {
     padding: 25px;
 }
+
 .section.projects .tile-headline {
+    margin-bottom: 20px;
     color: #1e4289;
-	font-size: 20px;
-	font-weight: bold;
-	line-height: 24px;
-	margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 24px;
 }
+
 .section.projects .tile-headline {
     min-height: 130px;
 }
 
 @media only screen and (max-width: 1024px) {
-	.section.projects .tile-headline {
-		min-height: 100px;
-	}
+    .section.projects .tile-headline {
+        min-height: 100px;
+    }
 }
+
 @media only screen and (max-width: 735px) {
-	.section.projects .tile-headline {
-		min-height: 100px;
-	}
+    .section.projects .tile-headline {
+        min-height: 100px;
+    }
 }
 
 .section.projects .tile-link {
-	color: #01749F;
-	font-size: 19px;
-	line-height: 1;
+    color: #01749f;
+    font-size: 19px;
+    line-height: 1;
 }
 
 .section.projects .tile-link:after {
-	content: '';
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: 5px;
-	width: 6px;
-	height: 6px;
-	transform: rotate(45deg);
-	border: 1px solid #01749F;
-	border-width: 0.1em 0.1em 0 0;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-left: 5px;
+    border: 1px solid #01749f;
+    border-width: 0.1em 0.1em 0 0;
+    vertical-align: middle;
+    content: "";
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .section.projects .tile:hover .tile-link {
@@ -591,24 +598,29 @@ margin-bottom: 22px;
 
 
 .section.projects .button.more {
-	width: 360px;
-	min-width: 360px;
-	border: 2px solid #000;
+    width: 360px;
+    min-width: 360px;
+    border: 2px solid #000;
 }
 
 @media only screen and (max-width: 735px) {
-	.section.projects .button.more {
-		margin-left: auto;
-		margin-right: auto;
-	}
+    .section.projects .button.more {
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
-
-
 </style>
-
-
-
+<?php } ?>
+<main id="main">
+<nav class="breadcrumbs">
+	<div class="section-content">
+		<ul class="breadcrumbs-list">
+			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
+			<li class="breadcrumbs-item"><?php the_title(); ?></li>
+		</ul>
+	</div>
+</nav>
 
 <header class="section hero">
 	<figure class="hero-image"></figure>
@@ -620,14 +632,6 @@ margin-bottom: 22px;
 </header>
 
 
-<nav class="breadcrumbs">
-	<div class="section-content">
-		<ul class="breadcrumbs-list">
-			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-			<li class="breadcrumbs-item"><?php the_title(); ?></li>
-		</ul>
-	</div>
-</nav>
 
 
 <?php if ( have_rows( 'header' ) ) : ?>
@@ -665,7 +669,7 @@ margin-bottom: 22px;
 <?php endif; ?>
 
 
-
+<!--
 <?php if ( have_rows( 'section_mission' ) ) : ?>
 <section class="section section-mission">
 	<?php while ( have_rows( 'section_mission' ) ) : the_row(); ?>
@@ -709,7 +713,7 @@ margin-bottom: 22px;
 	<?php endwhile; ?>
 <?php endif; ?>
 
-
+-->
 
 <?php if ( have_rows( 'sections' ) ) : ?>
 <?php while ( have_rows( 'sections' ) ) : the_row(); ?>
@@ -837,28 +841,8 @@ margin-bottom: 22px;
 
 
 
+<?php get_template_part( 'template-parts/section', 'register'); ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
-
-
+</main>
 <?php get_footer();

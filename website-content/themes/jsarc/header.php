@@ -15,11 +15,8 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
-	<?php 
-	if (function_exists('my_doc_head')) { my_doc_head(); }
-	?>
+	<?php if (function_exists('add_to_head')) { add_to_head(); } ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -315,24 +312,4 @@
 		});
 	
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 	</script>

@@ -2594,4 +2594,69 @@ SECTION CASESTUDIES
     transform: translateY(0);
 }
 
+.section.sponsors .section-content {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.section.sponsors .section-headline {
+    margin-bottom: 70px; 
+    color: #000;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 42px;
+}
+
+.section.sponsors .logos {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+.section.sponsors .logos .logos-item {
+    display: block;
+    float: left;
+    width: 20%;
+    min-width: 150px;
+}
+
+.section.sponsors .logos .logos-item .logo-image {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin-right: auto; 
+    margin-left: auto;
+    background-position: 50%;
+    background-size: 150px 150px;
+}
+
+.section.sponsors .button.more {
+    border: 2px solid #fff; 
+    color: #fff;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section.sponsors .logos .logos-item {
+        width: 25%;
+        min-width: 100px;
+    }
+    .section.sponsors .logos .logos-item .logo-image {
+        width: 100px;
+        height: 100px;
+        background-size: 100px 100px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section.sponsors .logos .logos-item {
+        width: 33.333%;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .section.sponsors .logos .logos-item {
+        width: 50%;
+    }
+}
+
 /*# sourceMappingURL=src/sourcemaps/style.css.map */

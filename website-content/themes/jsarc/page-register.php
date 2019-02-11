@@ -1,8 +1,8 @@
 <?php
 /*
- * Template Name: Register Page Template
- * The template for displaying register page
+ * Template Name: Register Page
  *
+ * The template for displaying register page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,10 +10,9 @@
  */
 ?>
 
-
 <?php get_header(); ?>
 
-
+<?php function add_to_head() { ?>
 <style>
 
 .section-content {
@@ -155,8 +154,8 @@ PAGE REGISTER / SECTION REGISTER FORM
 	}
 }
 </style>
-
-
+<?php } ?>
+<main id="main">
 <nav class="breadcrumbs">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
@@ -167,87 +166,73 @@ PAGE REGISTER / SECTION REGISTER FORM
 </nav>
 
 <section class="section section-register-form">
-	<div class="section-content">
-		<div class="row">
-			<div class="column large-7 medium-10 small-12">
-				<div class="content-inner">
-					<h1 class="section-headline">Register with JSaRC</h1>
-					<p class="intro">Register here to receive information about JSaRC news, funding opportunities and upcoming events.</p>
-					<p class="intro">Your information will not be shared with any organisations or government departments outside of JSaRC.</p>
-					<div class="form-wrapper">
-					
-						<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-
-						<input type=hidden name="oid" value="00D1t000000G0d6">
-						<input type=hidden name="retURL" value="https://jsarc.demo.sixpointsix.net">
-
-
-							<div class="row col2">
-								<div class="column large-5 small-12">
-									<div class="text-field-wrapper">
-										<input id="first_name" class="text-field" name="first_name"  type="text" />
-										<label class="text-field-label" for="first_name">First Name</label>
-									</div>
-								</div>
-								<div class="column large-5 large-last small-12">
-									<div class="text-field-wrapper">
-										
-										
-										
-										
-										<input id="last_name" class="text-field" name="last_name"  type="text" />
-										<label class="text-field-label" for="last_name">Last Name</label>
-										
-										
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="column large-12">
-									<div class="text-field-wrapper">
-										<input class="text-field"  type="text">
-										<label class="text-field-label">Job title</label>
-										
-										
-									</div>
-								</div>
-								<div class="column large-12">
-									<div class="text-field-wrapper">
-										<input id="company" class="text-field" name="company"  type="text" />
-										<label class="text-field-label" for="company">Organisation</label>
-									</div>
-								</div>
-								<div class="column large-12">
-									<div class="text-field-wrapper">
-										<input id="email"  class="text-field" name="email"  type="text" />
-										<label class="text-field-label" for="email">Email</label>
-
-
-									</div>
-								</div>
-								<div class="column large-12">
-									<!-- <button class="button"><span class="~load-spinner"></span>Submit</button> -->
-									<input class="button" type="submit" name="submit">
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="section-content">
+        <div class="row">
+            <div class="column large-7 medium-10 small-12">
+                <div class="content-inner">
+                    <h1 class="section-headline">Register with JSaRC</h1>
+                    <p class="intro">Register here to receive information about JSaRC news, funding opportunities and upcoming events.</p>
+                    <p class="intro">Your information will not be shared with any organisations or government departments outside of JSaRC.</p>
+                    <div class="form-wrapper">
+                        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+                            <input type=hidden name="oid" value="00D1t000000G0d6">
+                            <input type=hidden name="retURL" value="https://jsarc.demo.sixpointsix.net">
+                            <div class="row col2">
+                                <div class="column large-5 small-12">
+                                    <div class="text-field-wrapper">
+                                        <input id="first_name" class="text-field" name="first_name"  type="text" />
+                                        <label class="text-field-label" for="first_name">First Name</label>
+                                    </div>
+                                </div>
+                                <div class="column large-5 large-last small-12">
+                                    <div class="text-field-wrapper">
+                                        <input id="last_name" class="text-field" name="last_name"  type="text" />
+                                        <label class="text-field-label" for="last_name">Last Name</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column large-12">
+                                    <div class="text-field-wrapper">
+                                        <input class="text-field"  type="text">
+                                        <label class="text-field-label">Job title</label>
+                                    </div>
+                                </div>
+                                <div class="column large-12">
+                                    <div class="text-field-wrapper">
+                                        <input id="company" class="text-field" name="company"  type="text" />
+                                        <label class="text-field-label" for="company">Organisation</label>
+                                    </div>
+                                </div>
+                                <div class="column large-12">
+                                    <div class="text-field-wrapper">
+                                        <input id="email"  class="text-field" name="email"  type="text" />
+                                        <label class="text-field-label" for="email">Email</label>
+                                    </div>
+                                </div>
+                                <div class="column large-12">
+                                    <!-- <button class="button"><span class="~load-spinner"></span>Submit</button> -->
+                                    <input class="button" type="submit" name="submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<?php get_template_part( 'template-parts/content', 'section-projects'); ?>
+<?php get_template_part( 'template-parts/section', 'projects'); ?>
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
-
-
+<?php get_template_part( 'template-parts/section', 'register'); ?>
 
 
 
+</main>
 
 
+<?php function add_to_footer() { ?>
 <script>
 
 document.addEventListener('DOMContentLoaded',function() {
@@ -283,8 +268,6 @@ var isNotEmpty = function (el) {
 	
 });
 </script>
+<?php } ?>
 
-
-
-<?php
-get_footer();
+<?php get_footer();

@@ -187,3 +187,78 @@ SECTION CASESTUDIES
 
 
 
+
+
+
+
+
+
+
+
+.section.sponsors {
+}
+.section.sponsors .section-content {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.section.sponsors .section-headline {
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	color: #000;
+	margin-bottom: 70px;
+}
+
+.section.sponsors .logos {
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 70px;
+}
+
+.section.sponsors .logos .logos-item {
+ 	display: block;
+ 	float: left;
+ 	width: 20%;
+	min-width: 150px;
+}
+
+.section.sponsors .logos .logos-item .logo-image {
+	display: block;
+	width: 150px;
+	height: 150px;
+	background-size: 150px 150px;
+	background-position: 50%;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.section.sponsors .button.more {
+	color: #fff;
+	border: 2px solid #fff;
+}
+
+@media only screen and (max-width: 1068px) {
+	.section.sponsors .logos .logos-item {
+ 		width: 25%;
+ 		min-width: 100px;
+	}
+
+    .section.sponsors .logos .logos-item .logo-image {
+        width: 100px;
+        height: 100px;
+        background-size: 100px 100px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+	.section.sponsors .logos .logos-item {
+ 		width: 33.333%;
+	}
+}
+
+@media only screen and (max-width: 414px) {
+	.section.sponsors .logos .logos-item {
+ 		width: 50%;
+	}
+}
