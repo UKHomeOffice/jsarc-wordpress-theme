@@ -10,6 +10,8 @@ export KUBE_CERTIFICATE_AUTHORITY=https://raw.githubusercontent.com/UKHomeOffice
 
 export NAME="jsarc"
 
+echo "Deploying to $DRONE_DEPLOY_TO"
+
 case ${DRONE_DEPLOY_TO} in
   'acp-notprod')
     export SITE_URL="web.notprod.jsarc.homeoffice.gov.uk"
@@ -17,7 +19,7 @@ case ${DRONE_DEPLOY_TO} in
     export KUBE_TOKEN=${KUBE_TOKEN_ACP_NOTPROD}
     ;;
   'acp-prod')
-    export KUBE_SERVER="kube-api-prod.prod.acp.homeoffice.gov.uk"
+    export KUBE_SERVER="https://kube-api-prod.prod.acp.homeoffice.gov.uk"
     export SITE_URL="web.jsarc.homeoffice.gov.uk"
     export KUBE_TOKEN=${KUBE_TOKEN_ACP_PROD}
     ;;
