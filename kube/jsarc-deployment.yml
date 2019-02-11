@@ -25,35 +25,35 @@ spec:
             - name: WORDPRESS_DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: jsarc-rds
+                  name: {{ .RDS_SECRET_NAME }}
                   key: username
             - name: WORDPRESS_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: jsarc-rds
+                  name: {{ .RDS_SECRET_NAME }}
                   key: password
             - name: WORDPRESS_DB_NAME
               valueFrom:
                 secretKeyRef:
-                  name: jsarc-rds
+                  name: {{ .RDS_SECRET_NAME }}
                   key: default_db
             - name: WORDPRESS_DB_HOST
               valueFrom:
                 secretKeyRef:
-                  name: jsarc-rds
+                  name: {{ .RDS_SECRET_NAME }}
                   key: endpoint
             - name: ILAB_AWS_S3_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: jsarc-s3
+                  name: {{ .S3_SECRET_NAME }}
                   key: access_key_id
             - name: ILAB_AWS_S3_ACCESS_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: jsarc-s3
+                  name: {{ .S3_SECRET_NAME }}
                   key: secret_access_key
             - name: ILAB_AWS_S3_BUCKET
               valueFrom:
                 secretKeyRef:
-                  name: jsarc-s3
+                  name: {{ .S3_SECRET_NAME }}
                   key: name
