@@ -30,7 +30,7 @@ pipeline:
       - kube_token_acp_notprod
     environment:
       - IMAGE_URL=quay.io/ukhomeofficedigital/osct-jsarc:${DRONE_COMMIT_SHA}
-      - DRONE_DEPLOY_TO=acp-notprod
+      - DRONE_DEPLOY_TO_ACP=acp-notprod
     commands:
       - apk update
       - apk add curl
@@ -46,7 +46,7 @@ pipeline:
       - kube_token_acp_prod
     environment:
       - IMAGE_URL=quay.io/ukhomeofficedigital/osct-jsarc:${DRONE_COMMIT_SHA}
-      - DRONE_DEPLOY_TO=acp-prod
+      - DRONE_DEPLOY_TO_ACP=acp-prod
     commands:
       - apk update
       - apk add curl

@@ -4,15 +4,15 @@ set -o errexit
 set -o nounset
 
 # default values
-export DRONE_DEPLOY_TO=${DRONE_DEPLOY_TO:?'[error] Please specify which cluster to deploy to.'}
+export DRONE_DEPLOY_TO_ACP=${DRONE_DEPLOY_TO_ACP:?'[error] Please specify which cluster to deploy to.'}
 export KUBE_NAMESPACE=${KUBE_NAMESPACE=jsarc}
 export KUBE_CERTIFICATE_AUTHORITY=https://raw.githubusercontent.com/UKHomeOffice/acp-ca/master/${DRONE_DEPLOY_TO}.crt
 
 export NAME="jsarc"
 
-echo "Deploying to $DRONE_DEPLOY_TO"
+echo "Deploying to $DRONE_DEPLOY_TO_ACP"
 
-case ${DRONE_DEPLOY_TO} in
+case ${DRONE_DEPLOY_TO_ACP} in
   'acp-notprod')
     export SITE_URL="web.notprod.jsarc.homeoffice.gov.uk"
     export KUBE_SERVER="https://kube-api-notprod.notprod.acp.homeoffice.gov.uk"
