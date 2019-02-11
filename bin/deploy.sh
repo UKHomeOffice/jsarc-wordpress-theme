@@ -12,8 +12,14 @@ export NAME="jsarc"
 
 case ${DRONE_DEPLOY_TO} in
   'acp-notprod')
+    export SITE_URL="web.notprod.jsarc.homeoffice.gov.uk"
     export KUBE_SERVER="https://kube-api-notprod.notprod.acp.homeoffice.gov.uk"
     export KUBE_TOKEN=${KUBE_TOKEN_ACP_NOTPROD}
+    ;;
+  'acp-prod')
+    export KUBE_SERVER="kube-api-prod.prod.acp.homeoffice.gov.uk"
+    export SITE_URL="web.jsarc.homeoffice.gov.uk"
+    export KUBE_TOKEN=${KUBE_TOKEN_ACP_PROD}
     ;;
 esac
 
