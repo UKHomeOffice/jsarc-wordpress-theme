@@ -12,10 +12,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - web.notprod.jsarc.homeoffice.gov.uk
+        - {{ .SITE_URL }}
       secretName: jsarcweb
   rules:
-    - host: web.notprod.jsarc.homeoffice.gov.uk
+    - host: {{ .SITE_URL }}
       http:
         paths:
           - backend:
