@@ -6,7 +6,7 @@ set -o nounset
 # default values
 export DRONE_DEPLOY_TO_ACP=${DRONE_DEPLOY_TO_ACP:?'[error] Please specify which cluster to deploy to.'}
 export KUBE_NAMESPACE=${KUBE_NAMESPACE=jsarc}
-export KUBE_CERTIFICATE_AUTHORITY=https://raw.githubusercontent.com/UKHomeOffice/acp-ca/master/${DRONE_DEPLOY_TO}.crt
+export KUBE_CERTIFICATE_AUTHORITY=https://raw.githubusercontent.com/UKHomeOffice/acp-ca/master/${DRONE_DEPLOY_TO_ACP}.crt
 
 export NAME="jsarc"
 
