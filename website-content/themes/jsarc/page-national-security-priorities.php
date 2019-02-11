@@ -1,8 +1,8 @@
 <?php
 /*
- * Template Name: National Security Priorities Page Template
- * The template for displaying National Security Priorities Page
+ * Template Name: Nat. Sec. Priorities Page
  *
+ * The template for displaying National Security Priorities Page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,12 +10,10 @@
  */
 ?>
 
-
-
 <?php get_header(); ?>
 
-
-
+<?php function add_to_head() { ?>
+<style>
 <style>
 .hero-body-text ul,
 .hero-body-text ol {
@@ -317,8 +315,16 @@
 
 
 </style>
-
-
+<?php } ?>
+<main id="main">
+<nav class="breadcrumbs">
+	<div class="section-content">
+		<ul class="breadcrumbs-list">
+			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
+			<li class="breadcrumbs-item"><?php the_title(); ?></li>
+		</ul>
+	</div>
+</nav>
 
 <header class="section hero">
 	<figure class="hero-image"></figure>
@@ -328,14 +334,7 @@
 		</div>
 	</div>
 </header>
-<nav class="breadcrumbs">
-	<div class="section-content">
-		<ul class="breadcrumbs-list">
-			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-			<li class="breadcrumbs-item"><?php the_title(); ?></li>
-		</ul>
-	</div>
-</nav>
+
 <section class="section heading">
 	<div class="section-content">
 		<h3 class="hero-heading-text"><?php the_field( 'hero_heading_text' ); ?></h3>
@@ -343,81 +342,65 @@
 	</div>
 </section>
 	
-<div class="sections-wrapper">	
-	<?php if ( have_rows( 'sections' ) ) : ?>
+<div class="sections-wrapper">
+<?php if ( have_rows( 'sections' ) ) : ?>
 <?php while ( have_rows( 'sections' ) ) : the_row(); ?>
-
 <section class="section priority image-<?php the_sub_field( 'image_alignment_' ); ?>">
 	<div class="section-content">
 		<div class="block row">
 			<div class="column large-5 large-last small-12">
-<?php if ( get_sub_field( 'section_image' ) ) { ?>
+				<?php if ( get_sub_field( 'section_image' ) ) { ?>
 				<figure class="section-image" style="background-image: url(<?php the_sub_field( 'section_image' ); ?>)">
 				</figure>
-<?php } ?>
+				<?php } ?>
 			</div>
 			<div class="column large-7 large-first small-12">
 				<div class="block-text-content">
 					<div class="block-text-inner">
 						<h3 class="block-headline">
-<?php if ( have_rows( 'section' ) ) : ?>
-<?php while ( have_rows( 'section' ) ) : the_row(); ?>
-<?php the_sub_field( 'section_headline' ); ?>
-<?php endwhile; ?>
-<?php endif; ?>
+							<?php if ( have_rows( 'section' ) ) : ?>
+							<?php while ( have_rows( 'section' ) ) : the_row(); ?>
+							<?php the_sub_field( 'section_headline' ); ?>
+							<?php endwhile; ?>
+							<?php endif; ?>
 						</h3>
 						<div class="block-text">
-<?php the_sub_field( 'section_body_text' ); ?>
+							<?php the_sub_field( 'section_body_text' ); ?>
 						</div>
-						 
-<?php if ( have_rows( 'section_links' ) ) : ?>
-			<?php while ( have_rows( 'section_links' ) ) : the_row(); ?>
-				<?php if ( have_rows( 'section_link' ) ) : ?>
-					<?php while ( have_rows( 'section_link' ) ) : the_row(); ?>
+						<?php if ( have_rows( 'section_links' ) ) : ?>
+						<?php while ( have_rows( 'section_links' ) ) : the_row(); ?>
+						<?php if ( have_rows( 'section_link' ) ) : ?>
+						<?php while ( have_rows( 'section_link' ) ) : the_row(); ?>
 						<div><a class="block-link" href="<?php the_sub_field( 'section_link_url' ); ?>"><?php the_sub_field( 'section_link_text' ); ?> <?php if ( get_sub_field( 'section_link_hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'section_link_hidden_text'); ?></span><?php } ?></a></div>
-						
-<?php endwhile; ?>
-				<?php endif; ?>
-			<?php endwhile; ?>
-		<?php else : ?>
-			<?php // no rows found ?>
-		<?php endif; ?>
-	 
+						<?php endwhile; ?>
+						<?php endif; ?>
+						<?php endwhile; ?>
+						<?php endif; ?>
+					</div>
 				</div>
 			</div>
-		</div>	
 		</div>
-	</section>
-			
-		
-		
-	<?php endwhile; ?>
-<?php else : ?>
-	<?php // no rows found ?>
+</section>
+<?php endwhile; ?>
 <?php endif; ?>
-	</div>				
-		
-					
-			
+</div>	
 		
 		
 <?php if ( have_rows( 'section_engaging' ) ) : ?>
-	<?php while ( have_rows( 'section_engaging' ) ) : the_row(); ?>
-	
-	<section class="section engaging">
-		<div class="section-content">
+<?php while ( have_rows( 'section_engaging' ) ) : the_row(); ?>
+<section class="section engaging">
+	<div class="section-content">
 	<div class="row">
-	<div class="column large-6 small-12 blue">
-	<div class="column-content">
-		<h3 class="section-headline"><?php the_sub_field( 'section_headline_' ); ?></h3>
-		<div class="section-body-text"><?php the_sub_field( 'section_body_text' ); ?></div>
-		<?php if ( have_rows( 'section_button' ) ) : ?>
-			<?php while ( have_rows( 'section_button' ) ) : the_row(); ?>
+		<div class="column large-6 small-12 blue">
+			<div class="column-content">
+				<h3 class="section-headline"><?php the_sub_field( 'section_headline_' ); ?></h3>
+				<div class="section-body-text"><?php the_sub_field( 'section_body_text' ); ?></div>
+				<?php if ( have_rows( 'section_button' ) ) : ?>
+				<?php while ( have_rows( 'section_button' ) ) : the_row(); ?>
 				<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?> <?php if ( get_sub_field( 'button_hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'button_hidden_text'); ?></span><?php } ?></a>
-				
-			<?php endwhile; ?>
-		<?php endif; ?>
-		</div>
+				<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
 		</div>
 		<div class="column large-6 small-12 white">
 			<div class="column-content">
@@ -426,9 +409,9 @@
 				</div>
 			</div>
 		</div>
-			</div>
-	</section>
-	<?php endwhile; ?>
+	</div>
+</section>
+<?php endwhile; ?>
 <?php endif; ?>
 		
 		
@@ -436,10 +419,12 @@
 			
 	
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
-<?php
-get_footer();
-?>
+<?php get_template_part( 'template-parts/section', 'register'); ?>
+
+
+</main>
+
+<?php function add_to_footer() { ?>
 <script>
 document.addEventListener('DOMContentLoaded',function() {
 	var a = document.querySelectorAll('.text-field-wrapper');
@@ -456,9 +441,6 @@ document.addEventListener('DOMContentLoaded',function() {
 	});
 });
 </script>
+<?php } ?>
 
-
-
-
-<?php
-get_footer();
+<?php get_footer();

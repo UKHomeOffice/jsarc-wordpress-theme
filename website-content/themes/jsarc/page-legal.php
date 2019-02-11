@@ -1,8 +1,8 @@
 <?php
 /*
- * Template Name: Privacy Page Template
- * The template for displaying About page
+ * Template Name: Legal Template
  *
+ * The template for displaying About page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,10 +10,9 @@
  */
 ?>
 
-
 <?php get_header(); ?>
-
-
+<main id="main">
+<?php function add_to_head() { ?>
 <style>
 .hero .section-content {
 	border-bottom: 1px solid #979797;
@@ -73,7 +72,7 @@
 }
 	
 </style>
-
+<?php } ?>
 
 <nav class="breadcrumbs">
 	<div class="section-content">
@@ -91,16 +90,20 @@
 </header>
 	
 <main class="section main">
-	<div class="section-content">
-		<?php if ( have_rows( 'text_block' ) ) : ?>
-			<?php while ( have_rows( 'text_block' ) ) : the_row(); ?>
-				<?php if (get_sub_field('headline')) {?><h4 class="heading"><?php the_sub_field( 'headline' ); ?></h4><?php } ?>
-				<?php if (get_sub_field('body_text')) {?><div class="body-text"><?php the_sub_field( 'body_text' ); ?></div><?php } ?>
-			<?php endwhile; ?>
-		<?php endif; ?>
-	</div>
+    <div class="section-content">
+        <?php if ( have_rows( 'text_block' ) ) : ?>
+        <?php while ( have_rows( 'text_block' ) ) : the_row(); ?>
+        <?php if (get_sub_field('headline')) {?>
+        <h4 class="heading"><?php the_sub_field( 'headline' ); ?></h4>
+        <?php } ?>
+        <?php if (get_sub_field('body_text')) {?>
+        <div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+        <?php } ?>
+        <?php endwhile; ?>
+        <?php endif; ?>
+    </div>
 </main>
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
-
+<?php get_template_part( 'template-parts/section', 'register'); ?>
+</main>
 <?php get_footer();

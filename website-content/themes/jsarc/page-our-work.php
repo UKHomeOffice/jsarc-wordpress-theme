@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Our Work Template
+ * Template Name: Our Work Page
  * The template for displaying Our Work page
  *
  *
@@ -10,11 +10,9 @@
  */
 ?>
 
-
 <?php get_header(); ?>
 
-
-
+<?php function add_to_head() { ?>
 <style>
 
 .block-text ul,
@@ -104,13 +102,6 @@ ol.body-text li {
 	list-style-type: decimal;
 }
 
-
-/*---------------------------------
-
-SECTION HEADER
-
-----------------------------------*/
-
 .hero .hero-image {
 	position: absolute;
 	z-index: -1;
@@ -145,11 +136,7 @@ SECTION HEADER
 	box-shadow: 5px 0 0 #000, -5px 0 0 #000; 
 	background-color: #000;
 }
-/*---------------------------------
 
-SECTION INTRO
-
-----------------------------------*/
 
 
 .section-intro .section-content {
@@ -246,12 +233,6 @@ SECTION INTRO
 	}
 }
 
-
-/*---------------------------------
-
-SECTION ENGAGING
-
-----------------------------------*/
 
 .section.section-engaging {
 	background-color: #1E428A;
@@ -436,8 +417,16 @@ SECTION ENGAGING
 	line-height: 28px;
 }
 </style>
-
-
+<?php } ?>
+<main id="main">
+<nav class="breadcrumbs">
+	<div class="section-content">
+		<ul class="breadcrumbs-list">
+			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
+			<li class="breadcrumbs-item"><?php the_title(); ?></li>
+		</ul>
+	</div>
+</nav>
 
 <header class="section hero">
 	<figure class="hero-image"></figure>
@@ -449,72 +438,56 @@ SECTION ENGAGING
 </header>
 
 
-<nav class="breadcrumbs">
-	<div class="section-content">
-		<ul class="breadcrumbs-list">
-			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-			<li class="breadcrumbs-item"><?php the_title(); ?></li>
-		</ul>
-	</div>
-</nav>
 
 <?php if ( have_rows( 'header' ) ) : ?>
 <section class="section section-intro">
-	<div class="section-content">
-		<div class="row">
-		<div class="column large-8 small-12"> 
-	<?php while ( have_rows( 'header' ) ) : the_row(); ?>
-		<div class="leader-text"><?php the_sub_field( 'bold_text' ); ?></div>
-		<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
-		</div>
-		<?php if ( get_sub_field( 'call_for_action_show' ) == 1 ) {  // echo 'true'; ?>
-		<?php if ( have_rows( 'call_for_action' ) ) : ?>
-			<div class="column large-4 small-12">
-				<aside class="aside">
-					<div class="aside content">
-			<?php while ( have_rows( 'call_for_action' ) ) : the_row(); ?>
-			<a class="box-link" href="<?php the_sub_field( 'url' ); ?>">
-				<h2 class="box-link-headline"><?php the_sub_field( 'headline' ); ?></h2>
-				<h3 class="box-link-subheading"><?php the_sub_field( 'subheading' ); ?></h3>
-				<p class="box-link-content"><?php the_sub_field( 'body_text' ); ?></p><span class="arrow"></span>
-				
-				</a>
-			<?php endwhile; ?>
-			</div>
-				</aside>
-			</div>
-		<?php endif; ?>
-		<?php } ?>
-		
-	<?php endwhile; ?>
-		</div>
-	</div>
+    <div class="section-content">
+        <div class="row">
+            <div class="column large-8 small-12">
+                <?php while ( have_rows( 'header' ) ) : the_row(); ?>
+                <div class="leader-text"><?php the_sub_field( 'bold_text' ); ?></div>
+                <div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+            </div>
+            <?php if ( get_sub_field( 'call_for_action_show' ) == 1 ) {  // echo 'true'; ?>
+            <?php if ( have_rows( 'call_for_action' ) ) : ?>
+            <div class="column large-4 small-12">
+                <aside class="aside">
+                    <div class="aside content">
+                        <?php while ( have_rows( 'call_for_action' ) ) : the_row(); ?>
+                        <a class="box-link" href="<?php the_sub_field( 'url' ); ?>">
+                            <h2 class="box-link-headline"><?php the_sub_field( 'headline' ); ?></h2>
+                            <h3 class="box-link-subheading"><?php the_sub_field( 'subheading' ); ?></h3>
+                            <p class="box-link-content"><?php the_sub_field( 'body_text' ); ?></p>
+                            <span class="arrow"></span>
+                        </a>
+                        <?php endwhile; ?>
+                    </div>
+                </aside>
+            </div>
+            <?php endif; ?>
+            <?php } ?>
+            <?php endwhile; ?>
+        </div>
+    </div>
 </section>
-
 <?php endif; ?>
 
 <?php if ( have_rows( 'section_engaging' ) ) : ?>
 <?php if ( get_sub_field( 'section_show' ) ) : ?>
 <section class="section section-engaging">
 	<div class="section-content">
-		 
-	<?php while ( have_rows( 'section_engaging' ) ) : the_row(); ?>
-		
+		<?php while ( have_rows( 'section_engaging' ) ) : the_row(); ?>
 		<?php if ( have_rows( 'content' ) ) : ?>
-			<?php while ( have_rows( 'content' ) ) : the_row(); ?>
-				<h2 class="headline"><?php the_sub_field( 'headline' ); ?></h2>
-				<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
-			<?php endwhile; ?>
-		
+		<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+		<h2 class="headline"><?php the_sub_field( 'headline' ); ?></h2>
+		<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+		<?php endwhile; ?>
 		<?php endif; ?>
-		
-	<?php endwhile; ?>
-	 
+		<?php endwhile; ?>
 	</div>
 </section>
 <?php endif; ?>
 <?php endif; ?>
-
 
 
 
@@ -524,77 +497,70 @@ SECTION ENGAGING
 <?php if ( have_rows( 'section_engaging' ) ) : ?>
 <section class="section section-engaging">
 	<div class="section-content">
-	<?php while ( have_rows( 'section_engaging' ) ) : the_row(); ?>
+		<?php while ( have_rows( 'section_engaging' ) ) : the_row(); ?>
 		<?php if ( get_sub_field( 'section_show' ) == 1 ) { // echo 'true'; ?>
-		
-			<?php if ( have_rows( 'content' ) ) : ?>
-				<?php while ( have_rows( 'content' ) ) : the_row(); ?>
-					<h2 class="headline"><?php the_sub_field( 'headline' ); ?></h2>
-					<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
-				<?php endwhile; ?>
-			<?php endif; ?>
-		 
+		<?php if ( have_rows( 'content' ) ) : ?>
+		<?php while ( have_rows( 'content' ) ) : the_row(); ?>
+		<h2 class="headline"><?php the_sub_field( 'headline' ); ?></h2>
+		<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+		<?php endwhile; ?>
+		<?php endif; ?>
 		<?php } ?>
-		
-	<?php endwhile; ?>
+		<?php endwhile; ?>
 	</div>
 </section>
 <?php endif; ?>
 
 
 
+
 <div class="sections-wrapper">
 <?php if ( have_rows( 'sections' ) ) : ?>
-	<?php while ( have_rows( 'sections' ) ) : the_row(); ?>
+<?php while ( have_rows( 'sections' ) ) : the_row(); ?>
+<div class="section-content">
+	<h2 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h2>
+</div>
+<?php if ( have_rows( 'section' ) ) : ?>
+<?php while ( have_rows( 'section' ) ) : the_row(); ?>
+<section class="section blocks image-<?php the_sub_field( 'image_alignment' ); ?>">
 	<div class="section-content">
-		<h2 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h2>
-	</div>
-	<?php if ( have_rows( 'section' ) ) : ?>
-			<?php while ( have_rows( 'section' ) ) : the_row(); ?>
-	<section class="section blocks image-<?php the_sub_field( 'image_alignment' ); ?>">
-		<div class="section-content">
-			<div class="block row">
-				<div class="column large-5 large-last small-12">
-					<figure class="section-image" style="background-image: url(<?php if ( get_sub_field( 'section_image' ) ) { the_sub_field( 'section_image' ); } ?>)">
-					</figure>
-				</div>
-				<div class="column large-7 large-first small-12">
-					<div class="block-text-content">
-						<div class="block-text-inner">
+		<div class="block row">
+			<div class="column large-5 large-last small-12">
+				<figure class="section-image" style="background-image: url(<?php if ( get_sub_field( 'section_image' ) ) { the_sub_field( 'section_image' ); } ?>)">
+				</figure>
+			</div>
+			<div class="column large-7 large-first small-12">
+				<div class="block-text-content">
+					<div class="block-text-inner">
 						<h3 class="block-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
 						<div class="block-text"><?php the_sub_field( 'section_body_text' ); ?></div>
-						
-						
 						<?php if ( have_rows( 'section_links' ) ) : ?>
-					<?php while ( have_rows( 'section_links' ) ) : the_row(); ?>
+						<?php while ( have_rows( 'section_links' ) ) : the_row(); ?>
 						<div><a class="block-link" href="<?php the_sub_field( 'link_url' ); ?>"><?php the_sub_field( 'link_text' ); ?> <?php if ( get_sub_field( 'link_hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'link_hidden_text'); ?></span><?php } ?></a></div>
-					<?php endwhile; ?>
-				<?php endif; ?>
-						
+						<?php endwhile; ?>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
 			<?php if ( have_rows( 'section_button' ) ) : ?>
 			<?php while ( have_rows( 'section_button' ) ) : the_row(); ?>
-		 	<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?> <?php if ( get_sub_field( 'button_hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'button_hidden_text'); ?></span><?php } ?></a>
-		 	
-		 	<?php endwhile; ?>
-		<?php endif; ?>
+			<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?> <?php if ( get_sub_field( 'button_hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'button_hidden_text'); ?></span><?php } ?></a>
+			<?php endwhile; ?>
+			<?php endif; ?>
 		</div>
-	</section>
-	<?php endwhile; ?>
-		<?php endif; ?>
-
-		<?php endwhile; ?>
+</section>
+<?php endwhile; ?>
 <?php endif; ?>
-</div>	
-		 
+<?php endwhile; ?>
+<?php endif; ?>
+</div>
+</section>
 		
 			
 
 
 
-<?php get_template_part( 'template-parts/content', 'section-register'); ?>
+<?php get_template_part( 'template-parts/section', 'register'); ?>
 
-
+</main>
 <?php get_footer();
