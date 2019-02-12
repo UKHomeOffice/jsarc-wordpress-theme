@@ -114,42 +114,46 @@ ol.body-text li {
 
 
 
+
+
+
+
 .hero .hero-image {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    max-width: 2560px;
-    height: 300px;
-    background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>");
-    background-position: 80% 50%;
-    background-size: cover;
+	position: absolute;
+	z-index: -1;
+	max-width: 2560px;
+	width: 100%;
+	height: 300px;
+	background-size: cover;
+	background-position: 80% 50%;
+	background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>");
 }
-
 .hero .section-content {
-    display: table;
-    height: 300px;
+	display: table;
+	height: 300px;
+	
 }
-
 .hero .headline-wrapper {
-    display: table-cell;
-    vertical-align: middle;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .hero .hero-headline {
-    display: inline-block;
-    width: 80%;
-    color: #fff;
-    font-size: 36px;
-    font-weight: bold;
-    line-height: 75px;
+	display: inline-block;
+	width: 80%;
+	font-size: 36px;
+	line-height: 1.27;
+	font-weight: bold;
+	color: #fff;
+}
+.hero .hero-headline span {
+	display: inline;
+	padding: 2px 0;
+	box-shadow: 5px 0 0 #000, -5px 0 0 #000; 
+	background-color: #000;
 }
 
-.hero .hero-headline span {
-    display: inline;
-    padding: 2px 0;
-    background-color: #000;
-    box-shadow: 5px 0 0 #000, -5px 0 0 #000;
-}
+
 
 
 .section-intro .section-content {

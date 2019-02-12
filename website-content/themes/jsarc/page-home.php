@@ -605,7 +605,6 @@ endif;
 
 
 .section.section-casestudy {
-    height: 400px;
     background-color: #000;
 }
 

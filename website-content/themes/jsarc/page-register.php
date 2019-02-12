@@ -35,11 +35,6 @@
     }
 }
 
-/*---------------------------------
-
-PAGE REGISTER / SECTION REGISTER FORM
-
-----------------------------------*/
 .section.section-register-form {
 	max-width: 2560px;
 	width: 100%;
