@@ -105,7 +105,7 @@ ol.body-text li {
 	display: inline-block;
 	width: 80%;
 	font-size: 36px;
-	line-height: 75px;
+	line-height: 1.27;
 	font-weight: bold;
 	color: #fff;
 }
@@ -136,6 +136,11 @@ ol.body-text li {
 	background-attachment: fixed;
 }
 
+@media only screen and (max-device-width : 1024px) {
+	.section.section-case-study-content .section-image-full-with {
+		background-attachment: initial;
+	}
+}
 
 .section.section-case-study-content .section-content .section-image.case-study-results {
 	width: 100%;

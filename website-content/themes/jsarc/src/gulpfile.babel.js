@@ -92,7 +92,7 @@ function jsCompile() {
 function liveReloadServer(done) {
   browserSyncServer.init({
     proxy: {
-      target: 'http://localhost'
+      target: 'http://localhost:8081'
     },
     open: 'local',  // open localhost in browser on start
     reloadDebounce: 500

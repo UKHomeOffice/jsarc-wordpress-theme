@@ -126,7 +126,7 @@ ol.body-text li {
 	display: inline-block;
 	width: 80%;
 	font-size: 36px;
-	line-height: 75px;
+	line-height: 1.27;
 	font-weight: bold;
 	color: #fff;
 }

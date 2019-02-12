@@ -83,6 +83,20 @@ SECTION REGISTER
     }
 }
 
+@media only screen and (max-width: 735px) and (orientation: portrait)  {
+    .section.section-register .social-headline,
+    .section.section-register .social-list {
+        display: block;
+    }
+    .section.section-register .button.more {
+        margin-bottom: 25px;
+    }
+    .section.section-register .social-list {
+        margin-left: 0;
+        margin-top: 25px;
+    }
+}
+
 
 .section.section-register .social-list .social-item .social-link.Twitter {
     background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/icon-twitter.png");
