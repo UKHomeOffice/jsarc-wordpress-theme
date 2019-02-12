@@ -511,11 +511,11 @@ endif;
 .section.section-benefits .list-item .link {
     display: block;
     overflow: hidden;
-    min-height: 400px;
+    min-height: 418px;
 }
 @media only screen and (max-width: 1024px) {
 	.section.section-benefits .list-item .link {
-    	min-height: 440px;
+    	min-height: 460px;
 	}
 }
 
