@@ -469,12 +469,27 @@ if( function_exists('acf_add_options_page') ) {
  	*/
 }
 
-// ACF dynamically servers for images
+// dynamically change servers for images
 
 function acf_image_path( $value, $post_id, $field ) {
-	// $value = str_replace( 'https://web.notprod.jsarc.homeoffice.gov.uk/wp-content/uploads/', 'https://s3.eu-west-2.amazonaws.com/jsarc-test/', $value );
-    $value = str_replace( 'https://jsarc-dev-s3.s3.eu-west-2.amazonaws.com/', 'https://jsarc.imgix.net/', $value );
-    return $value;
+	
+	
+	global $wp;
+	$my_server = home_url( $wp->request );
+	
+	if ($my_server == 'https://web.notprod.jsarc.homeoffice.gov.uk') {
+	$s3_server = 'https://jsarc-dev-s3.s3.eu-west-2.amazonaws.com/';
+		$imgix_server = 'https://jsarc.imgix.net/';
+	}
+
+	else if ($my_server == 'https://web.jsarc.homeoffice.gov.uk' || $my_server == 'https://jsarc.org') {
+		$s3_server = 'https://jsarc-prod-s3.s3.eu-west-2.amazonaws.com/';
+		$imgix_server = 'https://jsarc-prod.imgix.net/';
+	}
+			 
+	$value = str_replace( $s3_server, $imgix_server, $value );
+	return $value;
+    
 }
 
 add_filter('acf/format_value/type=image', 'acf_image_path', 1538, 278);
