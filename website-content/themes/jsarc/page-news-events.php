@@ -27,6 +27,16 @@
 	color: #444;
 	margin-bottom: .5em;
 }
+
+@media only screen and (max-width: 735px) {
+	.section.hero .first h1 {
+		font-size: 48px;
+		font-weight: bold;
+		line-height: 1.35;
+		color: #444;
+		margin-bottom: .5em;
+	}
+}
 .section.hero .first p {
 	font-size: 18px;
 	font-weight: bold;

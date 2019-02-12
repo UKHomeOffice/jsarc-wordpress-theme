@@ -4,19 +4,17 @@
 SECTION PROGECTS
 
 ----------------------------------*/
-.section.section-projects {
+.section.section-highlights {
     background-color: #e3e3e3;
 }
 
-.section.section-projects .section-content {
+.section.section-highlights .section-content {
     padding-top: 81px;
     padding-bottom: 75px;
     max-width: 1000px;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
-.section.section-projects .section-headline {
+.section.section-highlights .section-headline {
     font-size: 36px;
 	font-weight: bold;
 	line-height: 42px;
@@ -33,19 +31,21 @@ SECTION PROGECTS
     .section-content {
         max-width: 90%;
     }
-    .section.section-projects .section-headline {
+    .section.section-highlights .section-headline {
         text-align: center;
     }
 }
 
 
-.section.section-projects .tiles-list {
+.section.section-highlights .tiles-list {
     display: block;
     overflow: hidden;
     width: 100%;
     margin-bottom: 62px;
+    padding: 5px;
+    box-sizing: border-box;
 }
-.section.section-projects .tile-item {
+.section.section-highlights .tile-item {
     float: left;
     display: block;
     width: 30%;
@@ -53,29 +53,29 @@ SECTION PROGECTS
     background-color: #fff;
 }
 
-.section.section-projects .tile-item .tile-link {
+.section.section-highlights .tile-item .tile-link {
     display: block;
     overflow: hidden;
     min-height: 418px;
 }
 @media only screen and (max-width: 1024px) {
-	.section.section-projects .tile-item .tile-link {
+	.section.section-highlights .tile-item .tile-link {
 		min-height: 435px;
 	}
 }
 @media only screen and (max-width: 735px) {
-	.section.section-projects .tile-item .tile-link {
+	.section.section-highlights .tile-item .tile-link {
 		min-height: auto;
 	}
 }
 
-.section.section-projects .tile-item:first-child {
+.section.section-highlights .tile-item:first-child {
     margin-left: 0;
 }
 
 @media only screen and (max-width: 735px) {
-    .section.section-projects .tile-item,
-    .section.section-projects .tile-item:first-child {
+    .section.section-highlights .tile-item,
+    .section.section-highlights .tile-item:first-child {
         float: none;
         width: 300px;
         margin-left: auto;
@@ -85,13 +85,13 @@ SECTION PROGECTS
 }
 
 
-.section.section-projects .tile-image-box {
+.section.section-highlights .tile-image-box {
 	position: relative;
 	padding-bottom: 63%;
 	overflow: hidden;
 }
 
-.section.section-projects .tile-image {
+.section.section-highlights .tile-image {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -103,15 +103,15 @@ SECTION PROGECTS
     transform-origin: 50% 50%;
 }
 
-.section.section-projects .tile-item .tile-link:hover .tile-image {
+.section.section-highlights .tile-item .tile-link:hover .tile-image {
     transform: scale(1.1);
 }
 
 
-.section.section-projects .caption-wrapper {
+.section.section-highlights .caption-wrapper {
     padding: 25px;
 }
-.section.section-projects .tile-headline {
+.section.section-highlights .tile-headline {
     color: #1e4289;
 	font-size: 20px;
 	font-weight: bold;
@@ -119,20 +119,20 @@ SECTION PROGECTS
 	margin-bottom: 20px;
 }
 
-.section.section-projects .tile-caption {
+.section.section-highlights .tile-caption {
     font-size: 18px;
 	line-height: 24px;
 	margin-bottom: 1em;
 }
 
-.section.section-projects .more-link {
+.section.section-highlights .more-link {
 	color: #01749F;
 	font-size: 19px;
 	font-style: oblique;
 	line-height: 1;
 }
 
-.section.section-projects .more-link:after {
+.section.section-highlights .more-link:after {
 	content: '';
 	display: inline-block;
 	vertical-align: middle;
@@ -144,18 +144,17 @@ SECTION PROGECTS
 	border-width: 0.1em 0.1em 0 0;
 }
 
-.section.section-projects .tile-item .tile-link:hover .more-link {
+.section.section-highlights .tile-item .tile-link:hover .more-link {
     text-decoration: underline;
 }
 
 
-.section.section-projects .button.more {
-	width: 360px;
+.section.section-highlights .button.more {
 	border: 2px solid #000;
 }
 
 @media only screen and (max-width: 735px) {
-	.section.section-projects .button.more {
+	.section.section-highlights .button.more {
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -169,27 +168,13 @@ SECTION PROGECTS
 
 <?php if ( have_rows( 'section', 'option' ) ) : ?>
 	<?php while ( have_rows( 'section', 'option' ) ) : the_row(); ?>
-	<section class="section section-projects">
+	<section class="section section-highlights">
 		<div class="section-content">
 		<h3 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
 		<?php if ( have_rows( 'tiles' ) ) : ?>
 			<?php while ( have_rows( 'tiles' ) ) : the_row(); ?>
 			<ul class="tiles-list">
-				<?php if ( have_rows( 'tile' ) ) : ?>
-					<?php while ( have_rows( 'tile' ) ) : the_row(); ?>
-					<li class="tile-item">
-						<a class="tile-link" href="<?php the_sub_field( 'url' ); ?>">
-							<div class="tile-image-box">
-								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
-							</div>
-							<div class="caption-wrapper">
-								<h3 class="tile-headline"><?php the_sub_field( 'title' ); ?></h3>
-								<div class="tile-caption"><?php the_sub_field( 'body_text' ); ?></div>
-							</div>
-						</a>
-					</li>
-					<?php endwhile; ?>
-				<?php endif; ?>
+				
 				<?php if ( have_rows( 'tile_two' ) ) : ?>
 					<?php while ( have_rows( 'tile_two' ) ) : the_row(); ?>
 					<li class="tile-item">
@@ -205,6 +190,24 @@ SECTION PROGECTS
 					</li>
 					<?php endwhile; ?>
 				<?php endif; ?>
+				
+				<?php if ( have_rows( 'tile' ) ) : ?>
+					<?php while ( have_rows( 'tile' ) ) : the_row(); ?>
+					<li class="tile-item">
+						<a class="tile-link" href="<?php the_sub_field( 'url' ); ?>">
+							<div class="tile-image-box">
+								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+							</div>
+							<div class="caption-wrapper">
+								<h3 class="tile-headline"><?php the_sub_field( 'title' ); ?></h3>
+								<div class="tile-caption"><?php the_sub_field( 'body_text' ); ?></div>
+							</div>
+						</a>
+					</li>
+					<?php endwhile; ?>
+				<?php endif; ?>
+				
+				
 				<?php if ( have_rows( 'tile_three' ) ) : ?>
 					<?php while ( have_rows( 'tile_three' ) ) : the_row(); ?>
 					<li class="tile-item">

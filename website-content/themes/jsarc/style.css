@@ -1212,9 +1212,10 @@ button:active {
 }
 
 .button.more {
-    display: block;
-    width: 250px;
+    display: inline-block;
     height: 50px;
+    padding-right: 20px; 
+    padding-left: 20px;
     font-size: 19px;
     line-height: 50px;
     text-align: center;
@@ -1237,7 +1238,6 @@ button:active {
 
 @media only screen and (max-width: 1068px) {
     .button.more {
-        width: 230px; 
         font-size: 17px;
         line-height: 45px;
     }
@@ -1327,15 +1327,14 @@ BREADCRUMBS
 .breadcrumbs .breadcrumbs-list {
     display: block;
     width: 100%;
+    padding: 12px 0;
 }
 
 .breadcrumbs .breadcrumbs-list .breadcrumbs-item {
     display: inline-block;
-    height: 24px;
     margin-right: 10px;
-    padding: 13px 0;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 26px;
 }
 
 .breadcrumbs .breadcrumbs-list .breadcrumbs-item:after {
@@ -2487,6 +2486,20 @@ SECTION REGISTER
     .section-register .social-icons .icon {
         width: 30px;
         height: 30px;
+    }
+}
+
+@media only screen and (max-width: 735px) and (orientation: portrait) {
+    .section.section-register .social-headline,
+    .section.section-register .social-list {
+        display: block;
+    }
+    .section.section-register .button.more {
+        margin-bottom: 25px;
+    }
+    .section.section-register .social-list {
+        margin-top: 25px; 
+        margin-left: 0;
     }
 }
 
