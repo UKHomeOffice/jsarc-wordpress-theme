@@ -19,6 +19,7 @@ case ${DRONE_DEPLOY_TO_ACP} in
     export KUBE_TOKEN=${KUBE_TOKEN_ACP_NOTPROD}
     export RDS_SECRET_NAME="jsarc-rds"
     export S3_SECRET_NAME="jsarc-s3"
+    export REPLICA_COUNT=2
     ;;
   'acp-prod')
     export KUBE_SERVER="https://kube-api-prod.prod.acp.homeoffice.gov.uk"
@@ -26,6 +27,7 @@ case ${DRONE_DEPLOY_TO_ACP} in
     export KUBE_TOKEN=${KUBE_TOKEN_ACP_PROD}
     export RDS_SECRET_NAME="jsarc-prod-rds"
     export S3_SECRET_NAME="jsarc-prod-s3"
+    export REPLICA_COUNT=3
     ;;
 esac
 

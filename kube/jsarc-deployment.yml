@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: jsarc
 spec:
-  replicas: 1
+  replicas: {{ .REPLICA_COUNT }}
   template:
     metadata:
       labels:
