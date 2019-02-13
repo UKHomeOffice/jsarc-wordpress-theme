@@ -490,7 +490,7 @@ function acf_image_path( $value, $post_id, $field ) {
     ];
 	
 	if (in_array($my_server, $dev)) {
-	$s3_server = 'https://jsarc-dev-s3.s3.eu-west-2.amazonaws.com/';
+	    $s3_server = 'https://jsarc-dev-s3.s3.eu-west-2.amazonaws.com/';
 		$imgix_server = 'https://jsarc.imgix.net/';
 	}
 
