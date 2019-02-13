@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: jsarc
+  name: jsarc-prod
   labels:
     stable.k8s.psg.io/kcm.class: default
   annotations:
