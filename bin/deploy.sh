@@ -62,6 +62,7 @@ echo "--- deploying jsarc admin"
 
 export REPLICA_COUNT=1
 export JSARC_NAME=jsarc-admin
+export SITE_URL="$ADMIN_SITE_URL"
 
 if ! kd --timeout=5m \
   -f kube/jsarc-deployment.yml \
