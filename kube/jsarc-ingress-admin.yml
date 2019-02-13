@@ -23,7 +23,7 @@ spec:
   tls:
     - hosts:
         - {{ .ADMIN_SITE_URL }}
-      secretName: jsarcweb
+      secretName: jsarcadmin
   rules:
     - host: {{ .ADMIN_SITE_URL }}
       http:
