@@ -101,14 +101,13 @@ if( have_rows('section_hero') ):
         
         $hero_image = get_sub_field('hero_image');
         
-        $xlarge = '?fit=crop&w=2560&h=1200';
-        $xlarge_2x = '?fit=crop&w=5120&h=2400';
-        $large = '?fit=crop&w=1400&h=1200';
-		$large_2x = '?fit=crop&w=2800&h=2400';
-		$medium = '?fit=crop&w1068=&h=826';
-		$medium_2x = '?fit=crop&w2136=&h=1652';
-		$small = '?fit=crop&w736=&h=870';
-		$small_2x = '?fit=crop&w=1472&h=1740';
+        
+        $large = '?w=1800&h=1030';
+		$large_2x = '?w=3600&h=2060';
+		$medium = '?w1068=&h=826';
+		$medium_2x = '?w2136=&h=1652';
+		$small = '?w736=&h=749';
+		$small_2x = '?w=1472&h=1498';
         
 
     endwhile;
@@ -122,59 +121,64 @@ endif;
 
 
 
-.section-hero {
-    width: 100%;
-    height: 100vh;
-    background-color: #010100;
-    background-size: 1400px 1200px;
-    background-position: 50% 100%;
-    background-repeat: no-repeat;
+
+.section-hero .hero-image {
+	position: absolute;
+    width: 1800px;
+    height: 1030px;
+    background-size: 1800px 1030px;
     background-image: url(<?php echo $hero_image . $large ?>);
+    left: 50%;
+    margin-left: -900px;
+    opacity: 0.5;
 }
 
+
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-    .section-hero {
+    .section-hero .hero-image {
         background-image: url(<?php echo $hero_image . $large_2x ?>);
     }
 }
 
-@media only screen and (min-width: 1442px) {
-    .section-hero {
-        background-size: 2560px 1200px;
-        background-image: url(<?php echo $hero_image . $xlarge ?>);
-    }
-}
-@media only screen and (min-width: 1442px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 1442px) and (min-resolution: 1.5dppx), only screen and (min-width: 1442px) and (min-resolution: 144dpi) {
-   .section-hero {
-        background-image: url(<?php echo $hero_image . $xlarge_2x ?>);
-    }
-}
-
-
-
 @media only screen and (max-width: 1068px) {
-    .section-hero {
-        background-size: 1068px 950px;
+    .section-hero .hero-image {
+        width: 1068px;
+        height: 826px;
+        background-size: 1068px 826px;
         background-image: url(<?php echo $hero_image . $medium ?>);
     }
 }
 
 @media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 1068px) and (min-resolution: 1.5dppx), only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
-    .section-hero {
+    .section-hero .hero-image {
         background-image: url(<?php echo $hero_image . $medium_2x ?>);
     }
 }
 
 @media only screen and (max-width: 735px) {
-    .section-hero {
-        background-size: 736px 870px;
+    .section-hero .hero-image {
+        width: 736px;
+        height: 749px;
+        background-size: 736px 749px;
         background-image: url(<?php echo $hero_image . $small ?>);
     }
 }
 
 @media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
-    .section-hero {
+    .section-hero .hero-image {
         background-image: url(<?php echo $hero_image . $small_2x ?>);
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-hero .hero-image {
+        margin-left: -534px
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section-hero .hero-image {
+        margin-left: -368px
     }
 }
 
