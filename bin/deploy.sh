@@ -9,6 +9,7 @@ export KUBE_NAMESPACE=${KUBE_NAMESPACE=jsarc}
 export KUBE_CERTIFICATE_AUTHORITY=https://raw.githubusercontent.com/UKHomeOffice/acp-ca/master/${DRONE_DEPLOY_TO_ACP}.crt
 
 export NAME="jsarc"
+export CONFIG_MAP_NAME="jsarc-config"
 
 echo "Deploying to $DRONE_DEPLOY_TO_ACP"
 
@@ -63,6 +64,8 @@ echo "--- deploying jsarc admin"
 export REPLICA_COUNT=1
 export JSARC_NAME=jsarc-admin
 export SITE_URL="$ADMIN_SITE_URL"
+export CONFIG_MAP_NAME="jsarc-config-admin"
+
 
 if ! kd --timeout=5m \
   -f kube/jsarc-deployment.yml \

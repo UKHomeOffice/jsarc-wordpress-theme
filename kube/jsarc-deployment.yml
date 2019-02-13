@@ -21,7 +21,7 @@ spec:
             - containerPort: 8081
           envFrom:
             - configMapRef:
-                name: jsarc-config
+                name: {{ .CONFIG_MAP_NAME }}
           env:
             - name: WORDPRESS_DB_USER
               valueFrom:

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: jsarc-config
+  name: {{ .CONFIG_MAP_NAME }}
   namespace: jsarc
 data:
   DEV_DEPLOYMENT: 'no'
