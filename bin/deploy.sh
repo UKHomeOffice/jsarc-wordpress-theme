@@ -71,3 +71,19 @@ if ! kd --timeout=5m \
   echo "[error] failed to deploy jsarc"
   exit 1
 fi
+
+if [[ "$DRONE_DEPLOY_TO_ACP" == "acp-prod" ]]; then
+
+export REPLICA_COUNT=1
+export JSARC_NAME=jsarc-admin
+export SITE_URL="jsarc.org"
+export CONFIG_MAP_NAME="jsarc-config"
+export ADMIN_DEPLOYMENT="yes"
+
+if ! kd --timeout=5m \
+  -f kube/jsarc-ingress-prod.yml; then
+  echo "[error] failed to deploy jsarc"
+  exit 1
+fi
+
+fi
