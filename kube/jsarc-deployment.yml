@@ -2,13 +2,14 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: jsarc
+  name: {{ .JSARC_NAME }}
 spec:
   replicas: {{ .REPLICA_COUNT }}
   template:
     metadata:
       labels:
-        name: jsarc
+        name: {{ .JSARC_NAME }}
+        role: wordpress
     spec:
       securityContext:
         runAsUser: 33
