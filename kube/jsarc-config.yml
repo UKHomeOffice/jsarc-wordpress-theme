@@ -6,5 +6,6 @@ metadata:
 data:
   DEV_DEPLOYMENT: 'no'
   SITE_URL: https://{{ .SITE_URL }}
+  ADMIN_SITE_URL: https://{{ .ADMIN_SITE_URL }}
   SITE_TITLE: JSaRC
   ADMIN_DEPLOYMENT: '{{ .ADMIN_DEPLOYMENT }}'

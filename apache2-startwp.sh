@@ -35,8 +35,8 @@ wp_plugin_install disable-xml-rpc
 wp theme activate jsarc
 
 if [[ "$ADMIN_DEPLOYMENT" == "no" ]]; then
-echo "Redirect 301 /wp-login.php https://$SITE_URL/" >> /var/www/html/.htaccess
-echo "Redirect 301 /wp-admin/ https://$SITE_URL/" >> /var/www/html/.htaccess
+echo "Redirect 301 /wp-login.php $ADMIN_SITE_URL/" >> /var/www/html/.htaccess
+echo "Redirect 301 /wp-admin/ $ADMIN_SITE_URL/" >> /var/www/html/.htaccess
 fi
 
 $@
