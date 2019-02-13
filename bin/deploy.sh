@@ -21,7 +21,7 @@ case ${DRONE_DEPLOY_TO_ACP} in
     export KUBE_TOKEN=${KUBE_TOKEN_ACP_NOTPROD}
     export RDS_SECRET_NAME="jsarc-rds"
     export S3_SECRET_NAME="jsarc-s3"
-    export REPLICA_COUNT=1
+    export REPLICA_COUNT=2
     export JSARC_NAME="jsarc"
     ;;
   'acp-prod')
