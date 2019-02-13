@@ -13,6 +13,7 @@ spec:
   tls:
     - hosts:
         - {{ .SITE_URL }}
+        - {{ .ADMIN_SITE_URL }}
       secretName: jsarcweb
   rules:
     - host: {{ .SITE_URL }}
@@ -20,5 +21,12 @@ spec:
         paths:
           - backend:
               serviceName: jsarc
+              servicePort: 8080
+            path: /
+    - host: {{ .ADMIN_SITE_URL }}
+      http:
+        paths:
+          - backend:
+              serviceName: jsarc-admin
               servicePort: 8080
             path: /
