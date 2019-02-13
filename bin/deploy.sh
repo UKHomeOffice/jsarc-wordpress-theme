@@ -68,6 +68,7 @@ export CONFIG_MAP_NAME="jsarc-config-admin"
 
 
 if ! kd --timeout=5m \
+  -f kube/jsarc-config.yml \
   -f kube/jsarc-deployment.yml \
   -f kube/jsarc-service.yml \
   -f kube/jsarc-networkpolicy.yml; then
