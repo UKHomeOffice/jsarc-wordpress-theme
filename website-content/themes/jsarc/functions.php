@@ -477,12 +477,12 @@ function acf_image_path( $value, $post_id, $field ) {
 	global $wp;
 	$my_server = home_url( $wp->request );
 	
-	if ($my_server == 'https://web.notprod.jsarc.homeoffice.gov.uk') {
+	if ($my_server == 'https://web.notprod.jsarc.homeoffice.gov.uk' || $my_server == 'https://admin.notprod.jsarc.homeoffice.gov.uk') {
 	$s3_server = 'https://jsarc-dev-s3.s3.eu-west-2.amazonaws.com/';
 		$imgix_server = 'https://jsarc.imgix.net/';
 	}
 
-	else if ($my_server == 'https://web.jsarc.homeoffice.gov.uk' || $my_server == 'https://jsarc.org') {
+	else if ($my_server == 'https://web.jsarc.homeoffice.gov.uk' || $my_server == 'https://jsarc.org' || $my_server == 'https://admin.jsarc.homeoffice.gov.uk' || $my_server == 'https://admin.jsarc.org') {
 		$s3_server = 'https://jsarc-prod-s3.s3.eu-west-2.amazonaws.com/';
 		$imgix_server = 'https://jsarc-prod.imgix.net/';
 	}
