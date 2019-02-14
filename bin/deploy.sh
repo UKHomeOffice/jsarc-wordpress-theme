@@ -11,7 +11,7 @@ export KUBE_CERTIFICATE_AUTHORITY=https://raw.githubusercontent.com/UKHomeOffice
 export NAME="jsarc"
 export CONFIG_MAP_NAME="jsarc-config"
 export ADMIN_DEPLOYMENT="no"
-export PROD_URL="jsarc.org"
+export PROD_URL="www.jsarc.org"
 
 echo "Deploying to $DRONE_DEPLOY_TO_ACP"
 
