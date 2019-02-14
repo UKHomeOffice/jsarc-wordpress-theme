@@ -101,13 +101,14 @@ if( have_rows('section_hero') ):
         
         $hero_image = get_sub_field('hero_image');
         
-        
-        $large = '?w=1800&h=1030';
-		$large_2x = '?w=3600&h=2060';
-		$medium = '?w1068=&h=826';
-		$medium_2x = '?w2136=&h=1652';
-		$small = '?w736=&h=749';
-		$small_2x = '?w=1472&h=1498';
+		$xlarge = '?w=2560&h=1325&fit=crop';
+		$xlarge_2x = '?w=5120=2650&fit=crop';      
+        $large = '?w=1800&h=932&fit=crop';
+		$large_2x = '?w=3600&h=1864&fit=crop';
+		$medium = '?w=1068&h=1345&fit=crop';
+		$medium_2x = '?w=2136&h=2690&fit=crop';
+		$small = '?w=736&h=1345&fit=crop';
+		$small_2x = '?w=1472&h=2690&fit=crop';
         
 
     endwhile;
@@ -125,8 +126,9 @@ endif;
 .section-hero .hero-image {
 	position: absolute;
     width: 1800px;
-    height: 1030px;
-    background-size: 1800px 1030px;
+    height: 932px;
+    background-size: 1800px 932px;
+    background-position: 50% 50%;
     background-image: url(<?php echo $hero_image . $large ?>);
     left: 50%;
     margin-left: -900px;
@@ -140,11 +142,28 @@ endif;
     }
 }
 
+
+@media only screen and (min-width: 1442px) {
+    .section-hero .hero-image {
+        width: 2560px;
+        height: 1325px;
+        background-size: 2560px 1325px;
+        background-image: url(<?php echo $hero_image . $xlarge ?>);
+    }
+}
+
+@media only screen and (min-width: 1442px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-width: 1442px) and (min-resolution: 1.5dppx), only screen and (min-width: 1442px) and (min-resolution: 144dpi) {
+    .section-hero .hero-image {
+        background-image: url(<?php echo $hero_image . $xlarge_2x ?>);
+    }
+}
+
+
 @media only screen and (max-width: 1068px) {
     .section-hero .hero-image {
         width: 1068px;
-        height: 826px;
-        background-size: 1068px 826px;
+        height: 1345px;
+        background-size: 1068px 1345px;
         background-image: url(<?php echo $hero_image . $medium ?>);
     }
 }
@@ -158,8 +177,8 @@ endif;
 @media only screen and (max-width: 735px) {
     .section-hero .hero-image {
         width: 736px;
-        height: 749px;
-        background-size: 736px 749px;
+        height: 1345px;
+        background-size: 736px 1345px;
         background-image: url(<?php echo $hero_image . $small ?>);
     }
 }
@@ -167,6 +186,12 @@ endif;
 @media only screen and (max-width: 735px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 735px) and (min-resolution: 1.5dppx), only screen and (max-width: 735px) and (min-resolution: 144dpi) {
     .section-hero .hero-image {
         background-image: url(<?php echo $hero_image . $small_2x ?>);
+    }
+}
+
+@media only screen and (min-width: 1442px) {
+    .section-hero .hero-image {
+        margin-left: -1280px
     }
 }
 
@@ -734,8 +759,8 @@ endif;
 	<div class="section-content">
 		<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
 		<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
-		<?php if ( have_rows( 'botton' ) ) : ?>
-		<?php while ( have_rows( 'botton' ) ) : the_row(); ?>
+		<?php if ( have_rows( 'button' ) ) : ?>
+		<?php while ( have_rows( 'button' ) ) : the_row(); ?>
 		<a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
 		<?php endwhile; ?>
 		<?php endif; ?>
