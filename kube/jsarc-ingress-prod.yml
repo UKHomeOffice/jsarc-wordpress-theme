@@ -2,20 +2,21 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: jsarc
+  name: jsarc-prod
   labels:
     stable.k8s.psg.io/kcm.class: default
   annotations:
+    stable.k8s.psg.io/kcm.provider: "http"
     ingress.kubernetes.io/force-ssl-redirect: "true"
     ingress.kubernetes.io/backend-protocol: "HTTP"
     kubernetes.io/ingress.class: "nginx-external"
 spec:
   tls:
     - hosts:
-        - {{ .SITE_URL }}
-      secretName: jsarcweb
+        - {{ .PROD_URL }}
+      secretName: jsarcprod
   rules:
-    - host: {{ .SITE_URL }}
+    - host: {{ .PROD_URL }}
       http:
         paths:
           - backend:

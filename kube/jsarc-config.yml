@@ -1,9 +1,11 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: jsarc-config
+  name: {{ .CONFIG_MAP_NAME }}
   namespace: jsarc
 data:
   DEV_DEPLOYMENT: 'no'
-  SITE_URL: 'https://web.notprod.jsarc.homeoffice.gov.uk'
+  SITE_URL: https://{{ .SITE_URL }}
+  ADMIN_SITE_URL: https://{{ .ADMIN_SITE_URL }}
   SITE_TITLE: JSaRC
+  ADMIN_DEPLOYMENT: '{{ .ADMIN_DEPLOYMENT }}'
