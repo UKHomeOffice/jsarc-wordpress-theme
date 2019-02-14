@@ -31,6 +31,7 @@ wp_plugin_install ilab-media-tools
 wp_plugin_install wp-export-menus
 wp_plugin_install wp-mail-smtp
 wp_plugin_install disable-xml-rpc
+wp_plugin_install google-analytics-for-wordpress
 
 wp theme activate jsarc
 
