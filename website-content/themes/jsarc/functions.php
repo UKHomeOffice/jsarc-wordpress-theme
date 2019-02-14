@@ -485,6 +485,7 @@ function acf_image_path( $value, $post_id, $field ) {
 	$prod = [
         'https://web.jsarc.homeoffice.gov.uk',
         'https://jsarc.org',
+		'https://www.jsarc.org',
         'https://admin.jsarc.homeoffice.gov.uk',
         'https://admin.jsarc.org'
     ];

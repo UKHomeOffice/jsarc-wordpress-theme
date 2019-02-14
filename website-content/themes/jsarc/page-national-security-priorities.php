@@ -307,7 +307,6 @@
 
 .section.engaging .button.more {
 	border: 2px solid #fff;
-	width: 100%;
 	font-size: 19px;
 }
 
