@@ -602,8 +602,6 @@ ol.body-text li {
 
 
 .section.projects .button.more {
-    width: 360px;
-    min-width: 360px;
     border: 2px solid #000;
 }
 

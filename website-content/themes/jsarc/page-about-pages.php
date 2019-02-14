@@ -87,7 +87,10 @@
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
 			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/about/">About</a></li>
+			<?php global $post;
+			if ( $post->post_parent ) { ?>
+			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="<?php echo get_permalink( $post->post_parent ); ?>" ><?php echo get_the_title( $post->post_parent ); ?></a></li>
+			<?php } ?>
 			<li class="breadcrumbs-item"><?php the_title(); ?></li>
 		</ul>
 	</div>
