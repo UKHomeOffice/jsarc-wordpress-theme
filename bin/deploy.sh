@@ -28,8 +28,9 @@ case ${DRONE_DEPLOY_TO_ACP} in
     ;;
   'acp-prod')
     export KUBE_SERVER="https://kube-api-prod.prod.acp.homeoffice.gov.uk"
-    export SITE_URL="web.jsarc.homeoffice.gov.uk"
-    export ADMIN_SITE_URL="admin.jsarc.homeoffice.gov.uk"
+    #export SITE_URL="web.jsarc.homeoffice.gov.uk"
+    export SITE_URL="$PROD_URL"
+    export ADMIN_SITE_URL="admin.jsarc.org"
     export KUBE_TOKEN=${KUBE_TOKEN_ACP_PROD}
     export RDS_SECRET_NAME="jsarc-prod-rds"
     export S3_SECRET_NAME="jsarc-prod-s3"
@@ -48,8 +49,7 @@ if ! kd --timeout=5m \
   -f kube/jsarc-config.yml \
   -f kube/jsarc-deployment.yml \
   -f kube/jsarc-service.yml \
-  -f kube/jsarc-networkpolicy.yml \
-  -f kube/jsarc-ingress.yml; then
+  -f kube/jsarc-networkpolicy.yml; then
   echo "[error] failed to deploy jsarc"
   exit 1
 fi
