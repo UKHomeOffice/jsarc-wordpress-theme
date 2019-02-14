@@ -3,6 +3,27 @@
 set -o errexit
 set -o nounset
 
+function deployIngress() {
+    local deployTo=$1
+
+    if [[ "$deployTo" == "acp-prod" ]]; then
+
+        if ! kd --timeout=5m \
+          -f kube/jsarc-ingress-prod.yml; then
+          echo "[error] failed to deploy jsarc"
+          exit 1
+        fi
+
+        else
+        if ! kd --timeout=5m \
+          -f kube/jsarc-ingress.yml; then
+          echo "[error] failed to deploy jsarc"
+          exit 1
+        fi
+
+    fi
+}
+
 # default values
 export DRONE_DEPLOY_TO_ACP=${DRONE_DEPLOY_TO_ACP:?'[error] Please specify which cluster to deploy to.'}
 export KUBE_NAMESPACE=${KUBE_NAMESPACE=jsarc}
@@ -49,11 +70,12 @@ if ! kd --timeout=5m \
   -f kube/jsarc-config.yml \
   -f kube/jsarc-deployment.yml \
   -f kube/jsarc-service.yml \
-  -f kube/jsarc-networkpolicy.yml \
-  -f kube/jsarc-ingress.yml; then
+  -f kube/jsarc-networkpolicy.yml; then
   echo "[error] failed to deploy jsarc"
   exit 1
 fi
+
+deployIngress "$DRONE_DEPLOY_TO_ACP"
 
 echo "--- deploying jsarc admin"
 
