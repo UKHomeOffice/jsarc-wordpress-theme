@@ -31,7 +31,13 @@ wp_plugin_install ilab-media-tools
 wp_plugin_install wp-export-menus
 wp_plugin_install wp-mail-smtp
 wp_plugin_install disable-xml-rpc
+wp_plugin_install ga-google-analytics
 
 wp theme activate jsarc
+
+if [[ "$ADMIN_DEPLOYMENT" == "no" ]]; then
+echo "Redirect 301 /wp-login.php $ADMIN_SITE_URL/wp-login.php" >> /var/www/html/.htaccess
+echo "Redirect 301 /wp-admin/ $ADMIN_SITE_URL/wp-admin" >> /var/www/html/.htaccess
+fi
 
 $@
