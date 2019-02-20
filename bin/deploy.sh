@@ -46,6 +46,7 @@ case ${DRONE_DEPLOY_TO_ACP} in
     export S3_SECRET_NAME="jsarc-s3"
     export REPLICA_COUNT=2
     export JSARC_NAME="jsarc"
+    export INGRESS_NAME="jsarc-ingress.yml"
     ;;
   'acp-prod')
     export KUBE_SERVER="https://kube-api-prod.prod.acp.homeoffice.gov.uk"
@@ -57,6 +58,7 @@ case ${DRONE_DEPLOY_TO_ACP} in
     export S3_SECRET_NAME="jsarc-prod-s3"
     export REPLICA_COUNT=3
     export JSARC_NAME="jsarc"
+    export INGRESS_NAME="jsarc-ingress-prod.yml"
     ;;
 esac
 
@@ -70,6 +72,7 @@ if ! kd --timeout=5m \
   -f kube/jsarc-config.yml \
   -f kube/jsarc-deployment.yml \
   -f kube/jsarc-service.yml \
+  -f kube/${INGRESS_NAME} \
   -f kube/jsarc-networkpolicy.yml; then
   echo "[error] failed to deploy jsarc"
   exit 1
