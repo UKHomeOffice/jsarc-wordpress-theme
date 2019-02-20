@@ -67,41 +67,18 @@
 }
 
 
-.article .article-text {
+.article .body-text {
     margin-bottom: 50px;
     font-size: 18px;
     line-height: 28px;
 }
 
-.article .article-text ul,
-.article .article-text ol,
-.article .article-text p {
+.article .body-text ul,
+.article .body-text ol,
+.article .body-text p {
     margin-bottom: 1em;
 }
 
-.article .article-text ul li {
-    margin-left: 1em;
-    list-style: none;
-}
-
-.article .article-text ul li:before {
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    margin-right: 1em;
-    border-radius: 50%;
-    background-color: #000;
-    vertical-align: middle;
-    content: "";
-}
-
-.article .article-text ol {
-    margin-left: 1em;
-}
-
-.article .article-text li {
-    margin-left: 1em;
-}
 </style>
 <?php } ?>
 <main id="main">
@@ -110,7 +87,10 @@
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
 			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/about/">About</a></li>
+			<?php global $post;
+			if ( $post->post_parent ) { ?>
+			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="<?php echo get_permalink( $post->post_parent ); ?>" ><?php echo get_the_title( $post->post_parent ); ?></a></li>
+			<?php } ?>
 			<li class="breadcrumbs-item"><?php the_title(); ?></li>
 		</ul>
 	</div>
@@ -130,7 +110,7 @@
 	<div class="article-details-bar"></div>
 	<div class="section-content">
 		<h3 class="article-headline"><?php the_sub_field( 'headline' ); ?></h3>
-		<div class="article-text"><?php the_sub_field( 'body_text' ); ?></div>
+		<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
 	</div>
 </article>
 <?php endwhile; ?>
