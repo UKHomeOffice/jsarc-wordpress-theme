@@ -6,11 +6,10 @@ metadata:
   labels:
     stable.k8s.psg.io/kcm.class: default
   annotations:
-    stable.k8s.psg.io/kcm.provider: "http"
-    ingress.kubernetes.io/force-ssl-redirect: "true"
+    ingress.kubernetes.io/force-ssl-redirect: "false"
+    ingress.kubernetes.io/ssl-redirect: "false"
     ingress.kubernetes.io/backend-protocol: "HTTP"
     kubernetes.io/ingress.class: "nginx-external"
-    nginx.ingress.kubernetes.io/permanent-redirect-code: '301'
 spec:
   tls:
     - hosts:
