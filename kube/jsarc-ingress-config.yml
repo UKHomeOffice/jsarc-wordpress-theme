@@ -1,9 +1,0 @@
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: nginx-config
-data:
-  ssl-redirect: "false"
-  backend-protocol: "HTTP"
-  permanent-redirect-code: '301'
-  http-redirect-code: '301'
