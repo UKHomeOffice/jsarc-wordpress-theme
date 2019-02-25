@@ -475,14 +475,19 @@ function acf_image_path( $value, $post_id, $field ) {
 	
 	
 	global $wp;
-	$my_server = home_url( $wp->request );
-	$s3_server = ''; 
-	$imgix_server = '';
+	$my_server = $_SERVER['SERVER_NAME'];
+	
+	$local = [
+	    '//localhost:3000',
+        '//localhost:3000',
+        'localhost:3000',
+        'localhost'
+    ];
 	$dev = [
 	    'https://web.notprod.jsarc.homeoffice.gov.uk',
         'https://admin.notprod.jsarc.homeoffice.gov.uk',
         'https://web.jsarc-notprod.homeoffice.gov.uk',
-        'https://admin.jsarc-notprod.homeoffice.gov.uk'
+        'https://web.jsarc-notprod.homeoffice.gov.uk'
     ];
 	$prod = [
         'https://web.jsarc.homeoffice.gov.uk',
@@ -491,7 +496,13 @@ function acf_image_path( $value, $post_id, $field ) {
         'https://admin.jsarc.homeoffice.gov.uk',
         'https://admin.jsarc.org'
     ];
-	if (in_array($my_server, $dev)) {
+    
+    if (in_array($my_server, $local)) {
+	    $s3_server = '//localhost:3000/wp-content/uploads/';
+		$imgix_server = 'https://jsarc.imgix.net/';
+	}
+    
+	else if (in_array($my_server, $dev)) {
 	    $s3_server = 'https://jsarc-dev-s3.s3.eu-west-2.amazonaws.com/';
 		$imgix_server = 'https://jsarc.imgix.net/';
 	}
