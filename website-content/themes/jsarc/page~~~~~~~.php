@@ -22,7 +22,7 @@
             // get_template_part( 'template-parts/content', 'page' );
 
             // Select page content based on current page slug
-            if ( is_page( 'archive' ) ) {
+            if (is_page('homepage')) {
                 get_template_part( 'template-parts/content', 'prototype-homepage');
             }
 
