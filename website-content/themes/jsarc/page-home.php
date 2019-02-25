@@ -101,14 +101,14 @@ if( have_rows('section_hero') ):
         
         $hero_image = get_sub_field('hero_image');
         
-		$xlarge = '?w=2560&h=1325&fit=crop';
-		$xlarge_2x = '?w=5120=2650&fit=crop';      
-        $large = '?w=1800&h=932&fit=crop';
-		$large_2x = '?w=3600&h=1864&fit=crop';
-		$medium = '?w=1068&h=1345&fit=crop';
-		$medium_2x = '?w=2136&h=2690&fit=crop';
-		$small = '?w=736&h=1345&fit=crop';
-		$small_2x = '?w=1472&h=2690&fit=crop';
+		$xlarge = '?fit=crop&w=2560&h=1325&';
+		$xlarge_2x = '?fit=crop&w=5120=2650';      
+        $large = '?fit=crop&w=1800&h=932';
+		$large_2x = '?fit=crop&w=3600&h=1864';
+		$medium = '?fit=crop&w=1068&h=1345';
+		$medium_2x = '?fit=crop&w=2136&h=2690';
+		$small = '?fit=crop&w=736&h=1345';
+		$small_2x = '?fit=crop&w=1472&h=2690';
         
 
     endwhile;
@@ -634,7 +634,18 @@ endif;
     background-color: #000;
 }
 
-.section.section-casestudy .section-image:before {
+
+
+.section.section-casestudy .section-image {
+    width: 2560px;
+    height: 500px;
+    background-size: 2560px 500px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%;
+    margin-left: -1280px;
+}
+.section.section-casestudy .section-image:after {
     content: '';
     display: block;
     position: absolute;
@@ -642,19 +653,9 @@ endif;
     left: 0;
 	height: 100%;
 	width: 100%;
-	background: linear-gradient(to right, rgba(0,0,0,.9) 0%, rgba(0,0,0,0) 100%);
+	background: #000;
+	opacity: .5;
 }
-
-.section.section-casestudy .section-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: 50% 50%;
-}
-
 
 .section.section-casestudy .section-content {
     padding-top: 83px;
@@ -791,7 +792,7 @@ endif;
 					<div class="link">
 						<?php } ?>
 						<div class="image-box">
-							<figure class="image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+							<figure class="image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=588&h=370)"></figure>
 						</div>
 						<div class="text-wrapper">
 							<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
@@ -824,7 +825,7 @@ endif;
 <?php while ( have_rows( 'content' ) ) : the_row(); ?>
 <section class="section section-casestudy">
 	<?php if ( get_sub_field( 'image' ) ) { ?>
-	<figure class="section-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+	<figure class="section-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=2560&h=500&)"></figure>
 	<?php } ?>
 	<div class="section-content">
 		<h2 class="eyebrow"><?php the_sub_field( 'eyebrow' ); ?></h2>

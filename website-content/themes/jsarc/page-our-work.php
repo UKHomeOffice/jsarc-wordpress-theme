@@ -110,7 +110,13 @@ ol.body-text li {
 	height: 300px;
 	background-size: cover;
 	background-position: 80% 50%;
-	background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>");	
+	background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>?fit=crop&w=2560&h=300");
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .hero .hero-image {
+		background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>?fit=crop&w=5120&h=600");	
+	}
 }
 .hero .section-content {
 	display: table;
@@ -526,7 +532,7 @@ ol.body-text li {
 	<div class="section-content">
 		<div class="block row">
 			<div class="column large-5 large-last small-12">
-				<figure class="section-image" style="background-image: url(<?php if ( get_sub_field( 'section_image' ) ) { the_sub_field( 'section_image' ); } ?>)">
+				<figure class="section-image" style="background-image: url(<?php if ( get_sub_field( 'section_image' ) ) { the_sub_field( 'section_image' ); } ?>?fit=crop&w=1280&h=&h=1200)">
 				</figure>
 			</div>
 			<div class="column large-7 large-first small-12">

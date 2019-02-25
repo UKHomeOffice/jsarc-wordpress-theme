@@ -126,7 +126,13 @@ ol.body-text li {
 	height: 300px;
 	background-size: cover;
 	background-position: 80% 50%;
-	background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>");
+	background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>?fit=crop&w=2560&h=300");
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .hero .hero-image {
+		background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>?fit=crop&w=5120&h=600");	
+	}
 }
 .hero .section-content {
 	display: table;
@@ -720,7 +726,9 @@ ol.body-text li {
 <?php if ( have_rows( 'sections' ) ) : ?>
 <?php while ( have_rows( 'sections' ) ) : the_row(); ?>
 <div class="sections-wrapper">
-	<div class="section-content"><h2 class="section-headline"><?php the_sub_field( 'section_heading_text' ); ?></h2></div>
+	<div class="section-content">
+		<h2 class="section-headline"><?php the_sub_field( 'section_heading_text' ); ?></h2>
+	</div>
 	<?php if ( have_rows( 'section' ) ) : ?>
 	<?php while ( have_rows( 'section' ) ) : the_row(); ?>
 	<section class="section blocks image-<?php the_sub_field( 'image_alignment' ); ?>">
@@ -729,7 +737,7 @@ ol.body-text li {
 			<div class="block row">
 				<div class="column large-5 large-last small-12">
 				<?php if ( get_sub_field( 'section_image' ) ) { ?>
-					<figure class="section-image" style="background-image: url(<?php the_sub_field( 'section_image' ); ?>)"></figure>
+					<figure class="section-image" style="background-image: url(<?php the_sub_field( 'section_image' ); ?>?fit=crop&w=1280&h=&h=1200)"></figure>
 				<?php } ?>
 				</div>
 				<div class="column large-7 large-first small-12">
@@ -758,7 +766,7 @@ ol.body-text li {
 <?php while ( have_rows( 'section_case_study' ) ) : the_row(); ?>
 <section class="section section-casestudies">
 		<?php if ( get_sub_field( 'image' ) ) { ?>
-			<figure class="section-image-full-with" style="background-image:url(<?php the_sub_field( 'image' ); ?>)"></figure>
+			<figure class="section-image-full-with" style="background-image:url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=5120&h=&h=1000)"></figure>
 		<?php } ?>
 		
 		<div class="section-content">
@@ -794,7 +802,7 @@ ol.body-text li {
 				<li class="tile-item">
 					<a class="tile" href="<?php the_sub_field( 'link_url' ); ?>">
 						<div class="tile-image-box">
-							<figure class="tile-image tile2" style="background-image:url(<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>)"></figure>
+							<figure class="tile-image" style="background-image:url(<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>?fit=crop&w=773&h=&h=486)"></figure>
 						</div>
 						<div class="caption-wrapper">
 							<h3 class="tile-headline"><?php the_sub_field( 'headline' ); ?></h3>
@@ -811,7 +819,7 @@ ol.body-text li {
 				<li class="tile-item">
 					<a class="tile" href="<?php the_sub_field( 'link_url' ); ?>">
 						<div class="tile-image-box">
-							<figure class="tile-image tile2" style="background-image:url(<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>)"></figure>
+							<figure class="tile-image" style="background-image:url(<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>?fit=crop&w=773&h=&h=486)"></figure>
 						</div>
 						<div class="caption-wrapper">
 							<h3 class="tile-headline"><?php the_sub_field( 'headline' ); ?></h3>
