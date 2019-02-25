@@ -418,7 +418,12 @@
 				<li class="list-item <?php echo $class; ?>">
 					<a class="post" href="<?php the_permalink(); ?>">
 						<div class="image-wrapper">
-							<figure class="thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
+							<?php if ( get_field( 'featured_post' ) == 1 ) { ?>
+							<figure class="thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>?fit=crop&w=1294?&h=732)"></figure>
+							<?php } else { ?>
+							<figure class="thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>?fit=crop&w=500?&h=280)"></figure>
+							<?php } ?>
+							
 						</div>
 						<div class="text-wrapper">
 							<h3 class="title"><?php the_title(); ?></h3>
@@ -470,7 +475,7 @@
 				<li class="list-item">
 					<a class="post" href="<?php the_permalink(); ?>">
 						<div class="image-wrapper">
-							<figure class="thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
+							<figure class="thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>?fit=crop&w=500?&h=280)"></figure>
 						</div>
 						<div class="text-wrapper">
 							<h3 class="title">

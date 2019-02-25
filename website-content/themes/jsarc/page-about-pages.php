@@ -27,10 +27,16 @@
     width: 100%;
     max-width: 2560px;
     height: 300px;
-    background-image: url("<?php the_field( 'hero_image' ); ?>");
+    background-image: url("<?php the_field( 'hero_image' ); ?>?fit=crop&w=2560&h=300");
     background-position: 50% 50%;
     background-size: cover;
 }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .hero .hero-image {
+		background-image: url("<?php the_field( 'hero_image' ); ?>?fit=crop&w=5120&h=600");
+	}
+}
+?fit=crop&w=5120&h=600
 
 .hero .hero-headline {
     margin-top: 75px;
