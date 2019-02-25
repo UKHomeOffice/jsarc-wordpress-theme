@@ -307,7 +307,6 @@ endif;
     margin-left: 15px;
 }
 
-
 .section.section-innovation-call .headline {
     color: #fff;
     max-width: 500px;

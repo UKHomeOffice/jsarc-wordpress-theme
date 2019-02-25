@@ -57,6 +57,7 @@ SECTION PROGECTS
     display: block;
     overflow: hidden;
     min-height: 418px;
+    border-bottom: 1px solid #ddd;
 }
 @media only screen and (max-width: 1024px) {
 	.section.section-highlights .tile-item .tile-link {
@@ -89,6 +90,25 @@ SECTION PROGECTS
 	position: relative;
 	padding-bottom: 63%;
 	overflow: hidden;
+	background-color: #000;
+	overflow: hidden;
+}
+
+
+.section.section-highlights .tile-link .tile-image-box:after {
+	content: '';
+	display: block;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+	transition: background-color 250ms ease;
+}
+
+.section.section-highlights .tile-link:hover .tile-image-box:after {
+	background-color: rgba(0,0,0,0.15);
 }
 
 .section.section-highlights .tile-image {
@@ -98,18 +118,33 @@ SECTION PROGECTS
     width: 100%;
     height: 100%;
     background-size: cover;
-    transition: transform 0.5s;
+    transition: transform 0.25s, opacity 0.25s;
     transform: scale(1);
     transform-origin: 50% 50%;
+    
 }
 
 .section.section-highlights .tile-item .tile-link:hover .tile-image {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-
 .section.section-highlights .caption-wrapper {
-    padding: 25px;
+    padding: 24px;
+	box-sizing: border-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	background-color: #fff;
+	transition: transform 250ms ease;
+	position: relative;
+}
+.section.section-highlights .tile-link:hover .caption-wrapper {
+	transform: translate(0, -36px);
 }
 .section.section-highlights .tile-headline {
     color: #1e4289;

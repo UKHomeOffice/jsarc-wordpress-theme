@@ -476,6 +476,8 @@ function acf_image_path( $value, $post_id, $field ) {
 	
 	global $wp;
 	$my_server = home_url( $wp->request );
+	$s3_server = ''; 
+	$imgix_server = '';
 	$dev = [
 	    'https://web.notprod.jsarc.homeoffice.gov.uk',
         'https://admin.notprod.jsarc.homeoffice.gov.uk',
@@ -489,17 +491,15 @@ function acf_image_path( $value, $post_id, $field ) {
         'https://admin.jsarc.homeoffice.gov.uk',
         'https://admin.jsarc.org'
     ];
-	
 	if (in_array($my_server, $dev)) {
 	    $s3_server = 'https://jsarc-dev-s3.s3.eu-west-2.amazonaws.com/';
 		$imgix_server = 'https://jsarc.imgix.net/';
 	}
-
 	else if (in_array($my_server, $prod)) {
 		$s3_server = 'https://jsarc-prod-s3.s3.eu-west-2.amazonaws.com/';
 		$imgix_server = 'https://jsarc-prod.imgix.net/';
 	}
-			 
+	 
 	$value = str_replace( $s3_server, $imgix_server, $value );
 	return $value;
     
@@ -528,3 +528,32 @@ function my_toolbars( $toolbars ) {
     return $toolbars;
 }
 add_filter('acf/fields/wysiwyg/toolbars' , 'my_toolbars');
+
+
+
+
+
+
+
+/* Create custom value in wp_get_archives dropdown */
+
+add_filter ('get_archives_link',
+function ($link_html, $url, $text, $format, $before, $after) {
+    if ('_custom' == $format) {
+        $link_html = "<option value='{$text}'>{$text}</option>";
+    }
+    return $link_html;
+}, 10, 6);
+
+
+
+
+
+
+
+
+
+
+
+
+
