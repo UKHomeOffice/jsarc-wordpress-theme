@@ -270,7 +270,8 @@
 		// variables
 		$url_full_path = $_SERVER["REQUEST_URI"];
 		$url_path_part = '/news/';
-		$url_year = explode('/', str_replace($url_path_part, '', $url_full_path))[0];
+		// $url_year = explode('/', str_replace($url_path_part, '', $url_full_path))[0];
+		$url_year = get_valueFromStringUrl($url_path_part , 'year');
 		$url_tag = get_valueFromStringUrl($url_path_part , 'tag');
 
 		// echo '<div style="background:lightblue;padding:10px;margin:40px; font-size: 12px;">full path = ' . $url_full_path . '<br> news path = '. $url_path_part . '<br> year = ' . $url_year . '<br> url tag = ' .$url_tag . '</div>';
@@ -331,15 +332,17 @@
 
 			// change
 			selectYear.onchange = function() {
-				document.location.href = url + this.options[this.selectedIndex].value;
+				document.location.href = url + '?year=' + this.options[this.selectedIndex].value;
 			}
 			selectTag.onchange = function() {
 				let yearSelectedValue = selectYear.options[selectYear.selectedIndex].value;
 				if(yearSelectedValue === '') {
 					// yearSelectedValue = <~~?php echo date('Y') ?~~>;
+					document.location.href = url + '?tag=' +  this.options[this.selectedIndex].value;
 				}
-				document.location.href = url + yearSelectedValue + '?tag=' +  this.options[this.selectedIndex].value;
-
+				else {
+					document.location.href = url + '?year=' + yearSelectedValue + '&tag=' +  this.options[this.selectedIndex].value;
+				}
 			}
 			resetSelects.onclick = function() {
 				document.location.href = url;
@@ -384,7 +387,7 @@
 			<li class="list-item">
 				<a class="post" href="<?php the_permalink(); ?>">
 					<div class="image-wrapper">
-						<figure class="thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>)"></figure>
+						<figure class="thumbnail" style="background-image:url(<?php the_field('thumb_image', $post->ID); ?>?fit=crop&w=500?&h=280)"></figure>
 					</div>
 					<div class="text-wrapper">
 						<h3 class="title"><?php the_title(); ?></h3>

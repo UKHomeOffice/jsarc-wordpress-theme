@@ -89,8 +89,14 @@ ol.body-text li {
 	height: 300px;
 	background-size: cover;
 	background-position: 80% 50%;
-	background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>");	
+	background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>?fit=crop&w=2560&h=300");
 }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .hero .hero-image {
+		background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>?fit=crop&w=5120&h=600");	
+	}
+}
+
 .hero .section-content {
 	display: table;
 	height: 300px;
@@ -318,7 +324,7 @@ ol.body-text li {
     <?php while ( have_rows( 'section' ) ) : the_row(); ?>
     <?php if ( get_sub_field( 'full_width_image' ) ) { ?>
     <div class="sticky-container">
-        <figure class="section-image-full-with sticky-item" style="background-image: url(<?php the_sub_field( 'full_width_image' ); ?>)"></figure>
+        <figure class="section-image-full-with sticky-item" style="background-image: url(<?php the_sub_field( 'full_width_image' ); ?>?fit=crop&w=5120)"></figure>
     </div>
     <?php } ?>
     <div class="section-content">
@@ -337,7 +343,7 @@ ol.body-text li {
 <?php if ( have_rows( 'case_study_section' ) ) : ?>
 <?php while ( have_rows( 'case_study_section' ) ) : the_row(); ?>
 <section class="section section-casestudies" data-anim-classname='{"cssClass":"reveal"}'>
-    <figure class="section-image-full-with" style="background-image: url(<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>)"></figure>
+    <figure class="section-image-full-with" style="background-image: url(<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>?fit=crop&w=5120&h=&h=1000)"></figure>
     <div class="section-content">
         <div class="inner">
             <h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>

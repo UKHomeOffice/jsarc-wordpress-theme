@@ -215,7 +215,7 @@ SECTION PROGECTS
 					<li class="tile-item">
 						<a class="tile-link" href="<?php the_sub_field( 'url' ); ?>">
 							<div class="tile-image-box">
-								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=588&h=370)"></figure>
 							</div>
 							<div class="caption-wrapper">
 								<h3 class="tile-headline"><?php the_sub_field( 'title' ); ?></h3>
@@ -231,7 +231,7 @@ SECTION PROGECTS
 					<li class="tile-item">
 						<a class="tile-link" href="<?php the_sub_field( 'url' ); ?>">
 							<div class="tile-image-box">
-								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=588&h=370)"></figure>
 							</div>
 							<div class="caption-wrapper">
 								<h3 class="tile-headline"><?php the_sub_field( 'title' ); ?></h3>
@@ -248,7 +248,7 @@ SECTION PROGECTS
 					<li class="tile-item">
 						<a class="tile-link" href="<?php the_sub_field( 'url' ); ?>">
 							<div class="tile-image-box">
-								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>)"></figure>
+								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=588&h=375)"></figure>
 							</div>
 							<div class="caption-wrapper">
 								<h3 class="tile-headline"><?php the_sub_field( 'title' ); ?></h3>
