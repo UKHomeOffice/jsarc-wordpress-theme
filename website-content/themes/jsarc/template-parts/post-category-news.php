@@ -316,7 +316,6 @@ only screen and (min-resolution: 1.5dppx),
 
 .related .button.more {
 	border: 2px solid #000;
-	min-width: 300px;
 }
 
 .related .tags {
