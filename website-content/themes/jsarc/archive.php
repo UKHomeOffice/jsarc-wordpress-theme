@@ -269,7 +269,7 @@
 		<?php
 		// variables
 		$url_full_path = $_SERVER["REQUEST_URI"];
-		$url_path_part = '/news-events/news/';
+		$url_path_part = '/news/';
 		$url_year = explode('/', str_replace($url_path_part, '', $url_full_path))[0];
 		$url_tag = get_valueFromStringUrl($url_path_part , 'tag');
 
@@ -327,7 +327,7 @@
 			let resetSelects = document.getElementById('reset_selects');
 
 
-			let url = '/news-events/news/';
+			let url = '/news/';
 
 			// change
 			selectYear.onchange = function() {
