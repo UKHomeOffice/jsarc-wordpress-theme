@@ -850,3 +850,16 @@ endif;
 <?php get_template_part( 'template-parts/section', 'register'); ?>
 </main>
 <?php get_footer();
+
+
+
+
+
+
+
+
+echo $_SERVER['SERVER_NAME'];
+
+
+
+
