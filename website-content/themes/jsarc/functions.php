@@ -156,15 +156,12 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
-
-
+ 
 /**********************************************************************************
 *
-*					CUSTOM MODIFICATION BELOW
+*				CUSTOM MODIFICATION
 *
 ***********************************************************************************/
-
 
 
 /**
@@ -226,6 +223,7 @@ function wpse200296_before_admin_bar_render() {
 /**
  *  Remove page editor from wordpress dashboard
  */
+ 
 // add_filter( 'user_can_richedit' , '__return_false', 50 );
 function reset_editor()
 {
@@ -257,26 +255,18 @@ function reset_post_editor()
 add_action("init","reset_post_editor");
 
 
-
-
 /**********************************************************************************
 *
-*					JSARC PRIMARY NAV
+*				JSARC PRIMARY NAV
 *
 ***********************************************************************************/
 
-
-
-/**
- * Register JSaRC Primary Nav
+// Register JSaRC Primary Nav
  */
 function register_jsarc_primary_nav() {
   register_nav_menu('jsarc-primary-nav',__( 'JSaRC Primary Nav' ));
 }
 add_action( 'init', 'register_jsarc_primary_nav' );
-
-
-
 
 
 // class description_walker extends Walker_Nav_Menu {
@@ -332,69 +322,53 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
   }
 }
 
-
-
-//Remove all classes and ID from Nav Menu
+// Remove all classes and ID from Nav Menu
 function remove_css_id_filter($var) {
 	return is_array($var) ? array_intersect($var, array('current-menu-item', 'dropdown')) : '';
 }
-
-
 add_filter('page_css_class', 'remove_css_id_filter', 100, 1);
 add_filter('nav_menu_item_id', 'remove_css_id_filter', 100, 1);
 add_filter('nav_menu_css_class', 'remove_css_id_filter', 100, 1);
-
+ 
 /**********************************************************************************
 *
-*				\ END JSARC PRIMARY NAV
+*				END JSARC PRIMARY NAV
 *
 ***********************************************************************************/
+ 
+/**
+ * Integration ACF plugin into CMS
+ */
 
-
-
- 
- 
- 
- 
-// 1. customize ACF path
-add_filter('acf/settings/path', 'my_acf_settings_path');
+// Customise ACF path
+add_filter('acf/settings/path', 'my_acf_settings_path'); 
  
 function my_acf_settings_path( $path ) {
- 
     // update path
     $path = get_stylesheet_directory() . '/acf/';
-    
     // return
     return $path;
-    
 }
- 
 
-// 2. customize ACF dir
-add_filter('acf/settings/dir', 'my_acf_settings_dir');
+// Customise ACF dir
+add_filter('acf/settings/dir', 'my_acf_settings_dir'); 
  
 function my_acf_settings_dir( $dir ) {
- 
     // update path
     $dir = get_stylesheet_directory_uri() . '/acf/';
-    
     // return
     return $dir;
-    
 }
- 
 
-// 3. Hide ACF field group menu item
+// Hide ACF field group menu item
 // add_filter('acf/settings/show_admin', '__return_false');
 
-
-// 4. Include ACF
+// Include ACF
 include_once( get_stylesheet_directory() . '/acf/acf.php' );
 
 
 // ACF JSON save
 add_filter('acf/settings/save_json', 'my_acf_json_save_point');
- 
 function my_acf_json_save_point( $path ) {
     
     // update path
@@ -407,25 +381,14 @@ function my_acf_json_save_point( $path ) {
 }
 // ACF JSON load
 add_filter('acf/settings/load_json', 'my_acf_json_load_point');
-
 function my_acf_json_load_point( $paths ) {
-    
     // remove original path (optional)
     unset($paths[0]);
-    
-    
     // append path
     $paths[] = get_stylesheet_directory() . 'acf-json';
-    
-    
     // return
     return $paths;
-    
 }
-
-
-
-
 
 
 /**
@@ -433,7 +396,6 @@ function my_acf_json_load_point( $paths ) {
  */
 
 if( function_exists('acf_add_options_page') ) {
-	
 	acf_add_options_page(array(
 		'page_title' 	=> 'Shared Content',
 		'menu_title'	=> 'Shared Content',
@@ -469,28 +431,35 @@ if( function_exists('acf_add_options_page') ) {
  	*/
 }
 
-// dynamically change servers for images
-
-function acf_image_path( $value, $post_id, $field ) {
-	
-	global $wp;
-	$my_server = home_url( $wp->request );
- 
+/**
+ *  Dynamically change servers for images
+ */
+function acf_image_path($url, $post_id) {
+	$my_server = $_SERVER['SERVER_NAME'];
+	$loc = [
+        'localhost:8081',
+        'localhost:3000',
+        'localhost',
+ 	];
 	$dev = [
-	    'https://web.notprod.jsarc.homeoffice.gov.uk',
-        'https://admin.notprod.jsarc.homeoffice.gov.uk',
-        'https://web.jsarc-notprod.homeoffice.gov.uk',
-        'https://web.jsarc-notprod.homeoffice.gov.uk'
+	    'web.notprod.jsarc.homeoffice.gov.uk',
+        'admin.notprod.jsarc.homeoffice.gov.uk',
+        'web.jsarc-notprod.homeoffice.gov.uk',
+        'web.jsarc-notprod.homeoffice.gov.uk',
+        'jsarc-notprod.homeoffice.gov.uk'
     ];
 	$prod = [
-        'https://web.jsarc.homeoffice.gov.uk',
-        'https://jsarc.org',
-		'https://www.jsarc.org',
-        'https://admin.jsarc.homeoffice.gov.uk',
-        'https://admin.jsarc.org'
+        'web.jsarc.homeoffice.gov.uk',
+        'jsarc.org',
+		'www.jsarc.org',
+        'admin.jsarc.homeoffice.gov.uk',
+        'admin.jsarc.org'
     ];
-    
-    if (in_array($my_server, $dev)) {
+    if (in_array($my_server, $loc)) {
+	    $s3_server = 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content/uploads/';
+    	$imgix_server = 'https://jsarc.imgix.net/';
+	}
+    else if (in_array($my_server, $dev)) {
 	    $s3_server = 'https://jsarc-dev-s3.s3.eu-west-2.amazonaws.com/';
 		$imgix_server = 'https://jsarc.imgix.net/';
 	}
@@ -498,43 +467,28 @@ function acf_image_path( $value, $post_id, $field ) {
 		$s3_server = 'https://jsarc-prod-s3.s3.eu-west-2.amazonaws.com/';
 		$imgix_server = 'https://jsarc-prod.imgix.net/';
 	}
-	 
-	$value = str_replace( $s3_server, $imgix_server, $value );
-	return $value;
-    
+	return str_replace($s3_server, $imgix_server, $url);
 }
-
-add_filter('acf/format_value/type=image', 'acf_image_path', 1538, 278);
-
+add_filter('wp_get_attachment_url', 'acf_image_path', 10, 2);
 
 
-// Remove the Admin Toolbar From Site
-add_filter('show_admin_bar', '__return_false');
-
-
-
-
-//Customize the WYSIWYG toolbars
+/**
+ *  Customize the WYSIWYG toolbars
+ */
 function my_toolbars( $toolbars ) {
     $toolbars['Full'] = array();
     $toolbars['Full'][1] = array( 'pastetext', 'bold', 'italic', 'underline', 'bullist', 'numlist', 'link', 'unlink', 'spellchecker', 'removeformat','undo', 'redo');
     $toolbars['Full'][2] = array(  );
-
     // remove the 'Basic' toolbar completely (if you want)
     unset( $toolbars['Basic' ] );
-
     // return $toolbars - IMPORTANT!
     return $toolbars;
 }
 add_filter('acf/fields/wysiwyg/toolbars' , 'my_toolbars');
 
-
-
-
-
-
-
-/* Create custom value in wp_get_archives dropdown */
+/**
+ *  Create custom value in wp_get_archives dropdown
+ */
 
 add_filter ('get_archives_link',
 function ($link_html, $url, $text, $format, $before, $after) {
@@ -543,16 +497,4 @@ function ($link_html, $url, $text, $format, $before, $after) {
     }
     return $link_html;
 }, 10, 6);
-
-
-
-
-
-
-
-
-
-
-
-
 
