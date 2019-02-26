@@ -341,6 +341,7 @@ function my_toolbars($toolbars) {
     // return $toolbars - IMPORTANT!
     return $toolbars;
 }
+add_filter('acf/fields/wysiwyg/toolbars', 'my_toolbars');
 
 /**
  * Integration ACF plugin into CMS
@@ -419,51 +420,49 @@ if (function_exists('acf_add_options_page')) {
     /*
    // <footer>...</footer>
    acf_add_options_sub_page(array(
-       'page_title' 	=> 'Footer',
-       'menu_title'	=> 'Footer',
-       'menu_slug'	=> 'theme-options-footer',
-       'capability'	=> 'edit_posts',
-       'parent_slug'	=> 'shared-content',
-       'position'		=> false,
-       'icon_url'		=> false
+       'page_title'     => 'Footer',
+       'menu_title' => 'Footer',
+       'menu_slug'  => 'theme-options-footer',
+       'capability' => 'edit_posts',
+       'parent_slug'    => 'shared-content',
+       'position'       => false,
+       'icon_url'       => false
    ));
 
    // <section class="projects">...</section>
    acf_add_options_sub_page(array(
-       'page_title' 	=> 'Section Projects',
-       'menu_title'	=> 'Section Projects',
-       'menu_slug'	=> 'theme-options-section-projects',
-       'capability'	=> 'edit_posts',
-       'parent_slug'	=> 'shared-content',
-       'position'		=> false,
-       'icon_url'		=> false
+       'page_title'     => 'Section Projects',
+       'menu_title' => 'Section Projects',
+       'menu_slug'  => 'theme-options-section-projects',
+       'capability' => 'edit_posts',
+       'parent_slug'    => 'shared-content',
+       'position'       => false,
+       'icon_url'       => false
    ));
     */
 }
 
 
 /**
- *  Dynamically change servers for images
+ * Dynamically change servers for images
+ *
  */
 function acf_image_path($url, $post_id) {
 	$my_server = $_SERVER['SERVER_NAME'];
 	$loc = [
-        'localhost:8081',
-        'localhost:3000',
-        'localhost',
+        'localhost'
  	];
 	$dev = [
-	    'web.notprod.jsarc.homeoffice.gov.uk',
+		'web.notprod.jsarc.homeoffice.gov.uk',
         'admin.notprod.jsarc.homeoffice.gov.uk',
         'web.jsarc-notprod.homeoffice.gov.uk',
-        'web.jsarc-notprod.homeoffice.gov.uk',
-        'jsarc-notprod.homeoffice.gov.uk'
+        'admin.jsarc-notprod.homeoffice.gov.uk'
     ];
 	$prod = [
         'web.jsarc.homeoffice.gov.uk',
+		'admin.jsarc.homeoffice.gov.uk',
         'jsarc.org',
 		'www.jsarc.org',
-        'admin.jsarc.homeoffice.gov.uk',
         'admin.jsarc.org'
     ];
     if (in_array($my_server, $loc)) {
@@ -480,9 +479,8 @@ function acf_image_path($url, $post_id) {
 	}
 	return str_replace($s3_server, $imgix_server, $url);
 }
-add_filter('wp_get_attachment_url', 'acf_image_path', 10, 2);
+add_filter('wp_get_attachment_url', 'acf_image_path', 9999, 2);
 
-add_filter('acf/fields/wysiwyg/toolbars', 'my_toolbars');
 
 /**
  *  Create custom value in wp_get_archives dropdown
@@ -495,4 +493,3 @@ add_filter('get_archives_link',
         }
         return $link_html;
     }, 10, 6);
-
