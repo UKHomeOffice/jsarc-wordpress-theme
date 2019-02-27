@@ -36,7 +36,6 @@
 		background-image: url("<?php the_field( 'hero_image' ); ?>?fit=crop&w=5120&h=600");
 	}
 }
-?fit=crop&w=5120&h=600
 
 .hero .hero-headline {
     margin-top: 75px;
