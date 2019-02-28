@@ -286,10 +286,21 @@
 				event.preventDefault();
 			
 				Array.prototype.forEach.call(dropdown, function(a, i){
+					
+					
 					if (a.classList.contains('expanded')) {
 						a.classList.remove('expanded');
 						a.querySelectorAll('a')[0].setAttribute('aria-expanded', 'false');
 					}
+					
+					var subMenuItems = a.querySelectorAll('.sub-menu-item');
+					Array.prototype.forEach.call(subMenuItems, function(item, i){
+						if (item.classList.contains('current-menu-item')) {
+							a.classList.add('expanded');
+							a.querySelectorAll('a')[0].setAttribute('aria-expanded', 'true');
+						}
+					});
+					
 				});
 			
 				if (!nav.classList.contains('opened')) {
@@ -308,6 +319,11 @@
 				}
 		
 			}, false);
+			
+			
+			
+			
+			
 		
 		});
 	

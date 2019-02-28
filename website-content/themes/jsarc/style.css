@@ -1220,8 +1220,6 @@ button:active {
     line-height: 50px;
     text-align: center;
     white-space: nowrap;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
 }
 
 .button.more.black:hover {
@@ -1315,10 +1313,7 @@ button:active {
     clip-path: inset(0px 0px 99.9% 99.9%);
 }
 
-/*---------------------------------
-
-BREADCRUMBS
-
+/* BREADCRUMBS
 ----------------------------------*/
 .breadcrumbs {
     background-color: #e8ebf2;
@@ -1358,10 +1353,7 @@ BREADCRUMBS
     text-decoration: underline;
 }
 
-/*---------------------------------
-
-FOOTER
-
+/* FOOTER
 ----------------------------------*/
 .footer {
     background-color: #e3e3e3;
@@ -1405,18 +1397,25 @@ FOOTER
     }
 }
 
-/*---------------------------------
-
-ACCESSIBILITY
-
+/* ACCESSIBILITY
 ----------------------------------*/
-:focus {
-    outline: 5px solid #fb4 !important;
+:focus,
+:active {
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.footer a:focus,
-.breadcrumbs a:focus {
-    background-color: #fb4;
+.highlight {
+    background-color: #ffea3b;
+    -webkit-box-shadow: 0 0 0 4px #ffea3b; 
+    box-shadow: 0 0 0 4px #ffea3b;
+}
+
+.button.more.highlight {
+    background-color: rgba(0, 0, 0, 0) !important;
 }
 
 /*--------------------------------------------------------------
@@ -1674,7 +1673,7 @@ html.noscroll body {
     width: 100%;
     height: 2px;
     margin: auto;
-    background-color: #111;
+    background-color: #1e4289;
 }
 
 .nav .nav-menu-anchor .nav-menu-icon .nav-menu-icon-dash-top {
@@ -1803,34 +1802,22 @@ html.noscroll body {
     margin: auto;
     border-width: 0 2px 2px 0;
     border-style: solid;
-    border-color: #1d4189;
+    border-color: #1e4289;
     content: "";
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 
-.nav .menu .menu-item.dropdown .menu-link:hover:after,
-.nav .menu .menu-item.dropdown .menu-link:focus:after,
-.nav .menu > .menu-item.dropdown.expanded .menu-link:after {
+.nav .menu > .menu-item.dropdown.current-menu-item .menu-link:after {
     border-color: #d8262e;
 }
 
 @media only screen and (max-width: 1024px) {
     .nav .menu > .menu-item.dropdown .menu-link:after {
-        -webkit-transition: -webkit-transform 0.1s 0.1s;
-        transition: -webkit-transform 0.1s 0.1s;
-        transition: transform 0.1s 0.1s;
-        transition: transform 0.1s 0.1s, -webkit-transform 0.1s 0.1s;
-    }
-    .nav .menu > .menu-item.dropdown.expanded .menu-link:after {
-        -webkit-transition: -webkit-transform 0.25s;
-        transition: -webkit-transform 0.25s;
-        transition: transform 0.25s;
-        transition: transform 0.25s, -webkit-transform 0.25s;
-        -webkit-transform: rotate(135deg) scale(-1);
-        transform: rotate(135deg) scale(-1);
-        -webkit-transform-origin: 50%;
-        transform-origin: 50%;
+        -webkit-transition: -webkit-transform 0.05s 0.1s;
+        transition: -webkit-transform 0.05s 0.1s;
+        transition: transform 0.05s 0.1s;
+        transition: transform 0.05s 0.1s, -webkit-transform 0.05s 0.1s;
     }
 }
 
@@ -1844,10 +1831,9 @@ html.noscroll body {
     transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.nav .menu > .menu-item .menu-link:hover > .link-text,
-.nav .menu > .menu-item .menu-link:focus > .link-text,
-.nav .menu > .menu-item.dropdown.expanded .menu-link > .link-text {
-    color: #d9272e;
+.nav .menu > .menu-item.current-menu-item .menu-link > .link-text,
+.nav .menu .menu-item .sub-menu .sub-menu-item.current-menu-item .sub-menu-link .link-text {
+    color: #d8262e;
 }
 
 .nav .menu .menu-item .sub-menu {
@@ -1909,11 +1895,6 @@ html.noscroll body {
     }
 }
 
-.nav .menu .menu-item .sub-menu .sub-menu-item .sub-menu-link:hover .link-text,
-.nav .menu .menu-item .sub-menu .sub-menu-item .sub-menu-link:focus .link-text {
-    color: #d9272e;
-}
-
 .nav .menu .menu-item .sub-menu .sub-menu-item .sub-menu-link {
     position: relative;
 }
@@ -1928,13 +1909,13 @@ html.noscroll body {
     width: calc(100% - 40px);
     height: 1px;
     margin: auto;
-    background-color: #cdcdcd;
+    background-color: #d8d8d8;
     content: "";
 }
 
 .nav .menu .menu-item .sub-menu .sub-menu-item:first-child .sub-menu-link:before {
     height: 2px;
-    background-color: #d9272e;
+    background-color: #dc343b;
 }
 
 .nav .menu > .menu-item.nav-search .menu-link-search {
@@ -2159,7 +2140,6 @@ html.noscroll body {
         top: 60px;
         width: 100%;
         margin-right: 0;
-        border-top: 1px solid #cdcdcd;
     }
     .nav .menu > .menu-item {
         float: none;
@@ -2169,7 +2149,7 @@ html.noscroll body {
         margin-left: 20px;
     }
     .nav .menu .menu-item .menu-link {
-        border-bottom: 1px solid #cdcdcd;
+        border-bottom: 1px solid #d8d8d8;
     }
     .nav .menu .menu-item .menu-link,
     .nav .menu .menu-item.dropdown .menu-link,
@@ -2186,23 +2166,7 @@ html.noscroll body {
     .nav .menu .menu-item.dropdown .sub-menu .sub-menu-item .sub-menu-link {
         margin-right: 20px;
         margin-left: 20px;
-        border-bottom: 1px solid #cdcdcd;
-    }
-    .nav .menu .menu-item .sub-menu .sub-menu-item .sub-menu-link:after {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 5px;
-        width: 7px;
-        height: 7px;
-        margin: auto;
-        border-width: 0 2px 2px 0;
-        border-style: solid;
-        border-color: #1d4189;
-        content: "";
-        -webkit-transform: rotate(-45deg);
-        transform: rotate(-45deg);
+        border-bottom: 1px solid #d8d8d8;
     }
     .nav .menu .menu-item .sub-menu .sub-menu-item:hover .sub-menu-link:after,
     .nav .menu .menu-item .sub-menu .sub-menu-item .sub-menu-link:focus:after {
@@ -2366,24 +2330,6 @@ html.noscroll body {
     .nav.search-small-is-open .search .nav-search-close {
         visibility: visible;
     }
-}
-
-.nav * :focus,
-.nav * :active {
-    outline: none;
-}
-
-.nav .nav-header .jsarc-logo:focus,
-.nav .menu > .menu-item .menu-link:focus,
-.nav .menu .menu-item .sub-menu .sub-menu-item .sub-menu-link:focus,
-.nav .menu > .menu-item.nav-search .menu-link-search:focus,
-.nav .nav-menu-anchor .nav-menu-state:focus,
-.nav .search-small-placeholder:focus,
-.nav.search-small-is-open .search .nav-searchform .nav-searchform-wrapper .nav-searchform-input:focus,
-.nav.search-small-is-open .search .nav-search-close:focus {
-    z-index: 1; 
-    -webkit-box-shadow: 0 0 0 3px rgba(131, 192, 253, 0.5);
-    box-shadow: 0 0 0 3px rgba(131, 192, 253, 0.5);
 }
 
 .nav .search-small-placeholder:focus,

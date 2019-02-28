@@ -161,7 +161,7 @@ SECTION PROGECTS
 }
 
 .section.section-highlights .more-link {
-	color: #01749F;
+	color: #1155a4;
 	font-size: 19px;
 	font-style: oblique;
 	line-height: 1;
@@ -175,7 +175,7 @@ SECTION PROGECTS
 	width: 6px;
 	height: 6px;
 	transform: rotate(45deg);
-	border: 1px solid #01749F;
+	border: 1px solid #1155a4;
 	border-width: 0.1em 0.1em 0 0;
 }
 
