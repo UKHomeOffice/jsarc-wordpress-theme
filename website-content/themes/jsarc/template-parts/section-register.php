@@ -51,7 +51,7 @@
 	text-align: right;
 }
 .section-register-alt .column .inner {
-	border-right: 2px solid rgba(255,255,255,.8);
+	border-right: 2px solid rgba(255,255,255,.7);
 	padding-right: 18%;
 }
 
