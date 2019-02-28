@@ -95,12 +95,6 @@
     text-indent: -999px;
 }
 
-@media only screen and (max-width: 1068px) {
-    .section.section-register-alt .social-list .social-item {
-        width: 30px;
-        height: 30px;
-    }
-}
 @media only screen and (max-width: 735px) {
 
 	.section-register-alt .column,
