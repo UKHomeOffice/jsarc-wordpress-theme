@@ -77,6 +77,9 @@
 
 .section.section-register-alt .social-list .social-item {
     display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     margin-right: 25px;
 }
 .section.section-register-alt .social-list .social-item:last-child {
@@ -85,16 +88,15 @@
 
 .section.section-register-alt .social-list .social-item .social-link {
     display: block;
-    width: 36px;
-    height: 36px;
-    background-size: 36px 36px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
     overflow: hidden;
     text-indent: -999px;
 }
 
 @media only screen and (max-width: 1068px) {
-    .section-register .social-icons .icon {
+    .section.section-register-alt .social-list .social-item {
         width: 30px;
         height: 30px;
     }
