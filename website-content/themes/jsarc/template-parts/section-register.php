@@ -37,22 +37,32 @@
 .section-register-alt .section-content {
 	padding-top: 75px;
 	padding-bottom: 75px;
+	max-width: 900px;
 }
 .section-register-alt .section-headline {
 	color: #fff;
 	font-size: 36px;
 	font-weight: bold;
-	line-height: 42px;
+	line-height: 38px;
 	margin-bottom: 1em;
+	text-align: center;
 }
+.section-register-alt .column.large-first {
+	text-align: right;
+}
+.section-register-alt .column .inner {
+	border-right: 2px solid rgba(255,255,255,.8);
+	padding-right: 18%;
+}
+
 
 
 .section-register-alt .block-headline {
 	color: #fff;
-	font-size: 24px;
+	font-size: 19px;
 	line-height: 30px;
-	font-weight: bold;
-	margin-bottom: 1.6em;
+	font-weight: normal;
+	margin-bottom: 1em;
 }
 .section-register-alt .button.more {
 	color: #fff;
@@ -62,12 +72,15 @@
 .section.section-register-alt .social-list {
     display: inline-block;
     vertical-align: middle;
-    margin-top: 10px;
+    margin-top: .45em;
 }
 
 .section.section-register-alt .social-list .social-item {
     display: inline-block;
     margin-right: 25px;
+}
+.section.section-register-alt .social-list .social-item:last-child {
+    margin-right: 0;
 }
 
 .section.section-register-alt .social-list .social-item .social-link {
@@ -86,20 +99,21 @@
         height: 30px;
     }
 }
-.section-register-alt .separator {
-	display: block;
-	height: 120px;
-	width: 1px;
-	margin: auto;
-	background: #fff;
-}
 @media only screen and (max-width: 735px) {
-	.section-register-alt .separator {
-		height: 1px;
-		width: 100px;
-		margin: 50px 0;
+
+	.section-register-alt .column,
+	.section-register-alt .column.large-first {
+		text-align: center;
+	}
+	.section-register-alt .column.large-first {
+		margin-bottom: 75px;
+	}
+	.section-register-alt .column .inner {
+		border-right: none;
+		padding-right: 0;
 	}
 }
+
 
 
 
@@ -130,14 +144,14 @@
 		
 		
 		<div class="row">
-			<div class="column large-6 first small-12">
-				<h4 class="block-headline">Receive our latest news and updates</h4>
+			<div class="column large-6 large-first small-12">
+				<div class="inner">
+				<h4 class="block-headline">By registering with JSaRC you can receive our latest news and updates</h4>
 				<a class="button more" href="">Register with JSaRC</a>
+				</div>
 			</div>
-			<div class="column large-1 first small-12">
-				<div class="separator"></div>
-			</div>
-			<div class="column large-5 last small-12">
+			 
+			<div class="column large-5 large-last small-12">
 				<h4 class="block-headline">Follow us on</h4>
 				<?php if ( have_rows( 'social', 'option' ) ) : ?>
 				<div class="social">
