@@ -68,7 +68,7 @@ only screen and (min-resolution: 1.5dppx),
 }
 
 .post .news-text a {
-	color: #07c;
+	color: #1155a4;
 }
 
 .post .news-text a:hover {

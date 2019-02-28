@@ -121,7 +121,7 @@
 	height: 50px;
 	width: 224px;
 	text-align: center;
-	background-color: #01749F;
+	background-color: #1155a4;
 	color: #fff;
 }
 
