@@ -418,9 +418,25 @@ ol.body-text li {
 	margin-bottom: 1em;
 }
 .section.blocks .block-link {
-	color: #01749F;
+	color: #1155a4;
 	font-size: 19px;
 	line-height: 28px;
+}
+.section.blocks .block-link:after {
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	margin-left: 2px;
+	border: 1px solid #1155a4;
+	border-width: 0.1em 0.1em 0 0;
+	vertical-align: middle;
+	content: "";
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.section.blocks .block-link:hover {
+	text-decoration: underline;
 }
 </style>
 <?php } ?>

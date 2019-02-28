@@ -161,7 +161,7 @@ only screen and (min-resolution: 1.5dppx),
 	height: 50px;
 	width: 224px;
 	text-align: center;
-	background-color: #01749F;
+	background-color: #1155a4;
 	color: #fff;
 }
 
@@ -209,7 +209,7 @@ only screen and (min-resolution: 1.5dppx),
 }
 
 .article-details .details-text a {
-	color: #07c;
+	color: #1155a4;
 }
 
 .article-details .details-text a:hover {
