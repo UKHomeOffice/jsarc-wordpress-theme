@@ -688,7 +688,7 @@ ol.body-text li {
 <?php endwhile; ?>
 <?php endif; ?>
 
-<?php if ( have_rows( 'sections' ) ) : ?>
+<!--?php if ( have_rows( 'sections' ) ) : ?>
 <?php while ( have_rows( 'sections' ) ) : the_row(); ?>
 <div class="sections-wrapper">
 	<div class="section-content">
@@ -725,7 +725,7 @@ ol.body-text li {
 	<?php endif; ?>
 </div>
 <?php endwhile; ?>
-<?php endif; ?>
+<?php endif; ?-->
 
 <?php get_template_part( 'template-parts/section', 'register'); ?>
 
