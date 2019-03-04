@@ -190,7 +190,7 @@ $case_study_children = get_page_children( $case_study->ID, $all_wp_pages );
 
 <div class="search-results">
 	<div class="section-content">
-	<h1 class="headline">Case study articles</h1>
+	<h1 class="headline">Case study archive</h1>
 	<?php 
 	  $args = array(
 		  'parent' => $case_study->ID,
