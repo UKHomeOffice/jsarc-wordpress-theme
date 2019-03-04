@@ -254,13 +254,13 @@
 		<ul class="breadcrumbs-list">
             <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
             <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/events-events/" >Events and Events</a></li>
-            <li class="breadcrumbs-item">Events</li>
+            <li class="breadcrumbs-item">Events Archive</li>
 		</ul>
 	</div>
 </nav>
 <header class="section hero">
 	<div class="section-content">
-		<h1 class="headline">Events articles</h1>
+		<h1 class="headline">Events Archive</h1>
 	</div>
 </header>
 

@@ -73,11 +73,11 @@
                     <form role="search" method="get" class="nav-searchform" action="<?php echo home_url( '/' ) ?>">
                         <div class="nav-searchform-wrapper">
                         
-                            <input data-index="1" class="nav-searchform-input" type="text" aria-label="Search jsarc.org" placeholder="<?php echo esc_attr_x( 'Search jsarc.org', 'placeholder' ) ?>" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" value="<?php echo get_search_query() ?>" name="search" />
+                            <input data-index="1" class="nav-searchform-input" type="text" aria-label="Search jsarc.org" placeholder="<?php echo esc_attr_x( 'Search jsarc.org', 'placeholder' ) ?>" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" value="<?php echo get_search_query() ?>" name="s"/>
                             <div class="submit-nav-searchform-wrapper">
-                            	<input id="submit-nav-searchform" type="submit" value="Search" aria-label="Submit Search" />
+                            	<input id="submit-nav-searchform" type="submit" value="Search" aria-label="Submit Search"  />
                             </div>
-                           	<button class="nav-searchform-submit" disabled ></button>
+                           	<button class="nav-searchform-submit" disabled></button>
                             <button class="nav-searchform-reset" type="reset" disabled aria-label="Clear Search"></button>
                         </div>
                     </form>
