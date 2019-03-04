@@ -78,9 +78,6 @@ ol.body-text li {
 	list-style-type: decimal;
 }
 
-
-
-
 .hero .hero-image {
 	position: absolute;
 	z-index: -1;
@@ -208,89 +205,10 @@ ol.body-text li {
 	color: #fff;
 }
 
-.section.section-casestudies {
-	min-height: 400px;
-	background-color: #000;
-}
-
-.section.section-casestudies .section-content {
-	padding-top: 75px;
-	padding-bottom: 75px;
-	position: relative;
-	z-index: 1;
-}
-
-.section.section-casestudies .section-image-full-with {
-	position: absolute;
-	max-width: 2560px;
-	width: 100%;
-	height: 400px;
-	background-size: cover;
-	background-position: 50% 50%;
-	opacity: .5;
-}
-.section.section-casestudies[data-anim-classname] .section-image-full-with {
-    /* opacity: 1; */
-    opacity: .5;
-	transition: opacity 1s;
-}
-.section.section-casestudies[data-anim-classname].reveal .section-image-full-with {
-	opacity: .5;
-}
-
-.section.section-casestudies .section-headline {
-	color: #fff;
-	font-size: 36px;
-	font-weight: bold;
-	line-height: 42px;
-	margin-bottom: 90px;
-}
-
-.section.section-casestudies .section-sub-heading {
-	color: #fff;
-	font-size: 30px;
-	line-height: 42px;
-	text-align: right;
-	margin-bottom: 22px;
-	font-weight: normal;
-}
-
-.section.section-casestudies .button.more {
-	color: #000;
-	background-color: #fff;
-	float: right;
-}
-@media only screen and (max-width: 735px) {
-	.section.section-casestudies .button.more {
-		float: none;
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
-
-.section.section-casestudies[data-anim-classname] .section-headline,
-.section.section-casestudies[data-anim-classname] .section-sub-heading,
-.section.section-casestudies[data-anim-classname] .button.more {
-	transform: translateY(50px);
-	transition: transform 1s, opacity 1s;
-	/* opacity: 0; */
-	opacity: 1;
-}
-
-.section.section-casestudies[data-anim-classname].reveal .section-headline,
-.section.section-casestudies[data-anim-classname].reveal .section-sub-heading,
-.section.section-casestudies[data-anim-classname].reveal .button.more {
-	transform: translateY(0);
-	opacity: 1;
-}
-
-
-
-
 </style>
 <?php } ?>
 <main id="main">
-<nav class="breadcrumbs">
+<nav class="breadcrumbs" aria-label="breadcrumb">
     <div class="section-content">
         <ul class="breadcrumbs-list">
             <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
@@ -301,7 +219,7 @@ ol.body-text li {
             </li>
             <?php endwhile; ?>
             <?php endif; ?>
-            <li class="breadcrumbs-item"><?php the_title(); ?></li>
+            <li class="breadcrumbs-item" aria-current="page"><?php the_title(); ?></li>
         </ul>
     </div>
 </nav>
@@ -315,10 +233,6 @@ ol.body-text li {
 	</div>
 </header>
 
-
-
-
-
 <section class="section section-case-study-content">
     <?php if ( have_rows( 'section' ) ) : ?>
     <?php while ( have_rows( 'section' ) ) : the_row(); ?>
@@ -329,7 +243,7 @@ ol.body-text li {
     <?php } ?>
     <div class="section-content">
         <div class="inner">
-            <h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>
+            <h2 class="section-headline"><?php the_sub_field( 'headline' ); ?></h2>
             <div class="body-text">
                 <?php the_sub_field( 'body_text' ); ?>
             </div>
@@ -338,7 +252,6 @@ ol.body-text li {
     <?php endwhile; ?>
     <?php endif; ?>
 </section>
-
 
 <?php if ( have_rows( 'case_study_section' ) ) : ?>
 <?php while ( have_rows( 'case_study_section' ) ) : the_row(); ?>

@@ -355,12 +355,12 @@ only screen and (min-resolution: 1.5dppx),
 	color: #fff;
 }
 </style>
-<nav class="breadcrumbs">
+<nav class="breadcrumbs" aria-label="breadcrumb">
     <div class="section-content">
         <ul class="breadcrumbs-list">
             <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
             <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/news-events/">News and Events</a></li>
-            <li class="breadcrumbs-item">News</li>
+            <li class="breadcrumbs-item" aria-current="page">News</li>
         </ul>
     </div>
 </nav>
@@ -373,7 +373,7 @@ only screen and (min-resolution: 1.5dppx),
         <span class="date">
             <!--?php the_field( 'date' ); ?--><?php the_date('d F Y'); ?>
         </span>
-        <!--p class="tags">
+        <p class="tags">
             <?php
                 $posttags = get_the_tags();
                 $count=0;
@@ -384,12 +384,12 @@ only screen and (min-resolution: 1.5dppx),
                 	  echo $tag->name;
                 	}
                 	else {
-                		echo ' | ' . $tag->name;
+                		echo ' | ' . $tag->name;
                 	}
                   }
                 }
                 ?>
-            </p-->
+            </p>
     </div>
     <div class="post-text-wrapper">
         <div class="news-text">
@@ -408,8 +408,6 @@ only screen and (min-resolution: 1.5dppx),
                 <button class="gallery-button prev" aria-label="Previous image" onclick="plusDivs(-1)"></button>
                 <button class="gallery-button next" aria-label=">Next image" onclick="plusDivs(1)"></button>
             </div>
-            <?php else : ?>
-            <?php // no rows found ?>
             <?php endif; ?>
             <?php the_field( 'news_text_copy' ); ?>
         </div>
@@ -420,18 +418,11 @@ only screen and (min-resolution: 1.5dppx),
         <?php
             //for use in the loop, list 3 post titles related to first tag on current post
             $tags = wp_get_post_tags($post->ID);
-            
-            
-            
-            
             if ($tags) {
             $tag_ids = array();
             foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
             $args=array(
             'tag__in' => $tag_ids,
-            
-            
-            
             'post__not_in' => array($post->ID),
             'posts_per_page'=>3,
             'orderby'=>'rand',

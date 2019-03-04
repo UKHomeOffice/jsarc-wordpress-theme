@@ -413,7 +413,7 @@ ol.body-text li {
     }
     .section.blocks .block-text-content {
         min-height: 300px;
-        padding: 50px;
+        padding: 50px 20px;
     }
 }
 
@@ -486,7 +486,9 @@ ol.body-text li {
 
 @media only screen and (max-width: 735px) {
     .section.projects .section-content-inner {
-        max-width: 90%;
+        max-width: 100%;
+        padding-right: 0;
+		padding-left: 0;
     }
 }
 
@@ -634,11 +636,11 @@ ol.body-text li {
 </style>
 <?php } ?>
 <main id="main">
-<nav class="breadcrumbs">
+<nav class="breadcrumbs" aria-label="breadcrumb">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
 			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-			<li class="breadcrumbs-item"><?php the_title(); ?></li>
+			<li class="breadcrumbs-item" aria-current="page"><?php the_title(); ?></li>
 		</ul>
 	</div>
 </nav>
@@ -651,9 +653,6 @@ ol.body-text li {
 		</div>
 	</div>
 </header>
-
-
-
 
 <?php if ( have_rows( 'header' ) ) : ?>
 <?php while ( have_rows( 'header' ) ) : the_row(); ?>
@@ -689,7 +688,6 @@ ol.body-text li {
 <?php endwhile; ?>
 <?php endif; ?>
 
-
 <!--
 <?php if ( have_rows( 'section_mission' ) ) : ?>
 <section class="section section-mission">
@@ -713,9 +711,6 @@ ol.body-text li {
 </section>
 <?php endif; ?>
 
-
-
-
 <?php if ( have_rows( 'section_engage' ) ) : ?>
 	<?php while ( have_rows( 'section_engage' ) ) : the_row(); ?>
 <section class="section section-engage">
@@ -733,7 +728,6 @@ ol.body-text li {
 </section>
 	<?php endwhile; ?>
 <?php endif; ?>
-
 -->
 
 <?php if ( have_rows( 'sections' ) ) : ?>
@@ -783,8 +777,8 @@ ol.body-text li {
 		<?php } ?>
 		
 		<div class="section-content">
-			<h3 class="section-headline"><?php the_sub_field( 'heading' ); ?></h3>
-			<h4 class="section-sub-heading"><?php the_sub_field( 'subheading' ); ?></h4>
+			<h2 class="section-headline"><?php the_sub_field( 'heading' ); ?></h2>
+			<h3 class="section-sub-heading"><?php the_sub_field( 'subheading' ); ?></h3>
 			<?php if ( have_rows( 'button' ) ) : ?>
 			<?php while ( have_rows( 'button' ) ) : the_row(); ?>
 				<a class="button more" href="<?php the_sub_field( 'button_url' ); ?>"><?php the_sub_field( 'button_text' ); ?> <?php if ( get_sub_field( 'button_hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'button_hidden_text'); ?></span><?php } ?></a>
@@ -794,12 +788,6 @@ ol.body-text li {
 </section>
 <?php endwhile; ?>
 <?php endif; ?>
-
-
-
-
-
-
 
 <?php if ( have_rows( 'projects_tiles' ) ) : ?>
 	<?php while ( have_rows( 'projects_tiles' ) ) : the_row(); ?>
@@ -860,12 +848,7 @@ ol.body-text li {
 	<?php endwhile; ?>
 <?php endif; ?>
 
-
-
-
-
 <?php get_template_part( 'template-parts/section', 'register'); ?>
-
 
 </main>
 <?php get_footer();

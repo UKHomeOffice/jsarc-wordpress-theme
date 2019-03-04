@@ -2,14 +2,11 @@ body {
     min-width: 320px;
 }
 
-
 .section-content {
     width: 980px;
     margin-right: auto;
     margin-left: auto;
 }
-
-
 
 @media only screen and (max-width: 1068px) {
     .section-content {
@@ -31,7 +28,6 @@ button,
     -ms-user-select: none;
     cursor: pointer;
 }
-
 
 button,
 button:focus,
@@ -68,7 +64,6 @@ button:active {
         line-height: 45px;
     }
 }
-
 
 .visuallyhidden {
     position: absolute;
@@ -128,8 +123,6 @@ button:active {
     -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
     clip-path: inset(0px 0px 99.9% 99.9%);
 }
-
-
 
 /* BREADCRUMBS
 ----------------------------------*/
@@ -222,10 +215,14 @@ button:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .highlight {
-    background-color: #FFEA3B;
-    box-shadow: 0 0 0 4px #FFEA3B;
-    -webkit-box-shadow: 0 0 0 4px #FFEA3B;
+    background-color: #FFBF47;
+    box-shadow: 0 0 0 4px #FFBF47;
+    -webkit-box-shadow: 0 0 0 4px #FFBF47;
 }
 .button.more.highlight {
-     background-color: rgba(0,0,0,0) !important;
+     background-color: #FFBF47 !important;
+     box-shadow: none;
+    -webkit-box-shadow: none;
+    color: #000 !important;
+    border: 2px solid #000 !important;
 }

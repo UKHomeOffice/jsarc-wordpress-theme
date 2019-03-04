@@ -88,7 +88,7 @@
 <?php } ?>
 <main id="main">
 
-<nav class="breadcrumbs">
+<nav class="breadcrumbs" aria-label="breadcrumb">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
 			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
@@ -96,11 +96,11 @@
 			if ( $post->post_parent ) { ?>
 			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="<?php echo get_permalink( $post->post_parent ); ?>" ><?php echo get_the_title( $post->post_parent ); ?></a></li>
 			<?php } ?>
-			<li class="breadcrumbs-item"><?php the_title(); ?></li>
+			<li class="breadcrumbs-item" aria-current="page"><?php the_title(); ?></li>
 		</ul>
 	</div>
 </nav>
-<article>
+
 <header class="section hero">
 	<figure class="hero-image"></figure>
 	<div class="section-content">
@@ -108,22 +108,19 @@
 	</div>
 </header>
 
-
 <?php if ( have_rows( 'article_text' ) ) : ?>
 <?php while ( have_rows( 'article_text' ) ) : the_row(); ?>
 <article class="section article">
 	<div class="article-details-bar"></div>
 	<div class="section-content">
-		<h3 class="article-headline"><?php the_sub_field( 'headline' ); ?></h3>
+		<h2 class="article-headline"><?php the_sub_field( 'headline' ); ?></h2>
 		<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
 	</div>
 </article>
 <?php endwhile; ?>
 <?php endif; ?>
 
-
-
 <?php get_template_part( 'template-parts/section', 'register'); ?>
-</article>
+
 </main>
 <?php get_footer();

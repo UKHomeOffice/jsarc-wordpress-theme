@@ -20,10 +20,11 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<a href="#main">skip to content"</a>
+	
 
 	<nav class="nav">
 		<div class="nav-content">
+			<a class="visuallyhidden" href="#main">skip to content"</a>
 			<ul class="nav-header">
 				<li class="logo-wrapper">
 					<a class="jsarc-logo" href="/">JSaRC</a>

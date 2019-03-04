@@ -13,21 +13,6 @@
 <?php get_header(); ?>
 
 <?php function add_to_head() { ?>
-<!--
-  // Location of our stylesheet
-	//   For me, this shared a plugin
-	//   with this code
-	$file_url = plugins_url(
-		'/src/lalala.css', // File name
-		__FILE__ // Magic PHP constant that means
-					// the "current file"
-	);
-	// Actually load up the stylesheet
-	wp_enqueue_style( 
-		'sp_sytlesheet', // A "name" for our file
-		$file_url // Location variable
-	);
-	-->
 <style>
 
 .section {
@@ -61,7 +46,7 @@
 
 
 .section.section-hero {
-	background-color: #000;
+    background-color: #000;
 }
 
 .section.section-hero .section-content {
@@ -70,10 +55,10 @@
 }
 
 @media only screen and (max-width: 735px) {
-	.section.section-hero .section-content {
-		padding-top: 90px;
-		padding-bottom: 90px;
-	}
+    .section.section-hero .section-content {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
 }
 
 .section.section-hero .intro-wrapper {
@@ -88,43 +73,27 @@
 }
 
 <?php
-
-
-
 if( have_rows('section_hero') ):
-
-    while( have_rows('section_hero') ) : the_row();
-    
-    if( have_rows('content') ):
-
-    while( have_rows('content') ) : the_row();
-        
-        $hero_image = get_sub_field('hero_image');
-        
-		$xlarge = '?fit=crop&w=2560&h=1325&';
-		$xlarge_2x = '?fit=crop&w=5120=2650';      
-        $large = '?fit=crop&w=1800&h=932';
-		$large_2x = '?fit=crop&w=3600&h=1864';
-		$medium = '?fit=crop&w=1068&h=1345';
-		$medium_2x = '?fit=crop&w=2136&h=2690';
-		$small = '?fit=crop&w=736&h=1345';
-		$small_2x = '?fit=crop&w=1472&h=2690';
-        
-
-    endwhile;
-
+while( have_rows('section_hero') ) : the_row();
+if( have_rows('content') ):
+while( have_rows('content') ) : the_row();      
+    $hero_image = get_sub_field('hero_image');       
+    $xlarge = '?fit=crop&w=2560&h=1325&';
+    $xlarge_2x = '?fit=crop&w=5120=2650';      
+    $large = '?fit=crop&w=1800&h=932';
+    $large_2x = '?fit=crop&w=3600&h=1864';
+    $medium = '?fit=crop&w=1068&h=1345';
+    $medium_2x = '?fit=crop&w=2136&h=2690';
+    $small = '?fit=crop&w=736&h=1345';
+    $small_2x = '?fit=crop&w=1472&h=2690';
+endwhile;
 endif;
- endwhile;
-
+endwhile;
 endif;
 ?> 
 
-
-
-
-
 .section-hero .hero-image {
-	position: absolute;
+    position: absolute;
     width: 1800px;
     height: 932px;
     background-size: 1800px 932px;
@@ -134,7 +103,6 @@ endif;
     margin-left: -900px;
     opacity: 0.5;
 }
-
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     .section-hero .hero-image {
@@ -207,8 +175,6 @@ endif;
     }
 }
 
-
-
 .section.section-hero .hero-headline {
     color: #fff;
     font-size: 64px;
@@ -217,9 +183,6 @@ endif;
     text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
     margin-bottom: 36px;
 }
-
-
-
 
 .section.section-hero .hero-intro {
     color: #fff;
@@ -245,9 +208,6 @@ endif;
 .section.section-hero .button.more  {
     background-color: #fff;
 }
-
-
-
 
 .section.section-hero .hero-headline {
     opacity: 0;
@@ -317,18 +277,18 @@ endif;
 }
 .section.section-innovation-call .body-text {
     color: #fff;
-	max-width: 654px;
-	color: #fff;
-	font-size: 19px;
-	line-height: 28px;
-	float: left;
-	margin-bottom: 40px;
+    max-width: 654px;
+    color: #fff;
+    font-size: 19px;
+    line-height: 28px;
+    float: left;
+    margin-bottom: 40px;
 
 }
 @media only screen and (max-width: 735px) {
-	.section.section-innovation-call .body-text {
-		float: none;
-	}
+    .section.section-innovation-call .body-text {
+        float: none;
+    }
 }
 
 .section.section-innovation-call .button.more {
@@ -349,20 +309,20 @@ endif;
 }
 
 .section.section-what-we-do .headline {
-	max-width: 655px;
-	color: #fff;
-	font-size: 36px;
-	font-weight: bold;
-	line-height: 42px;
-	margin-bottom: 40px;
+    max-width: 655px;
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 42px;
+    margin-bottom: 40px;
 }
 
 .section.section-what-we-do .body-text {
     max-width: 800px;
-	color: #fff;
-	font-size: 19px;
-	line-height: 28px;
-	margin-bottom: 30px;
+    color: #fff;
+    font-size: 19px;
+    line-height: 28px;
+    margin-bottom: 30px;
 }
 .section.section-what-we-do .body-text > * {
     margin-bottom: 30px;
@@ -412,15 +372,15 @@ endif;
 }
 
 @media only screen and (max-width: 1068px) {
-	.section.section-video .section-image {
-		background-image: url();
-	}
+    .section.section-video .section-image {
+        background-image: url();
+    }
 }
 
 @media only screen and (max-width: 735px) {
-	.section.section-video .section-image {
-		background-image: url();
-	}
+    .section.section-video .section-image {
+        background-image: url();
+    }
 }
 
 
@@ -456,8 +416,8 @@ endif;
 .section.section-video .headline {
     color: #fff;
     font-size: 36px;
-	line-height: 42px;
-	max-width: 500px;
+    line-height: 42px;
+    max-width: 500px;
 }
 .section.section-video .speaker {
     color: #fff;
@@ -484,9 +444,9 @@ endif;
 }
 .section.section-benefits .headline {
     font-size: 36px;
-	font-weight: bold;
-	line-height: 42px;
-	margin-bottom: 50px;
+    font-weight: bold;
+    line-height: 42px;
+    margin-bottom: 50px;
 }
 
 .section.section-benefits .section-content {
@@ -499,9 +459,9 @@ endif;
 
 .section.section-benefits .section-headline {
     font-size: 36px;
-	font-weight: bold;
-	line-height: 42px;
-	margin-bottom: 50px;
+    font-weight: bold;
+    line-height: 42px;
+    margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -540,15 +500,15 @@ endif;
     min-height: 418px;
 }
 @media only screen and (max-width: 1024px) {
-	.section.section-benefits .list-item .link {
-    	min-height: 460px;
-	}
+    .section.section-benefits .list-item .link {
+        min-height: 460px;
+    }
 }
 
 @media only screen and (max-width: 735px) {
-	.section.section-benefits .list-item .link {
-    	min-height: auto;
-	}
+    .section.section-benefits .list-item .link {
+        min-height: auto;
+    }
 }
 
 .section.section-benefits .list-item:first-child {
@@ -568,15 +528,15 @@ endif;
 
 
 .section.section-benefits .image-box {
-	position: relative;
-	padding-bottom: 63%;
-	overflow: hidden;
+    position: relative;
+    padding-bottom: 63%;
+    overflow: hidden;
 }
 
 .section.section-benefits .image {
-	position: absolute;
-	top: 0;
-	left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -595,34 +555,34 @@ endif;
 }
 .section.section-benefits .headline {
     color: #1e4289;
-	font-size: 20px;
-	font-weight: bold;
-	line-height: 24px;
-	margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-bottom: 20px;
 }
 
 .section.section-benefits .text {
     font-size: 18px;
-	line-height: 24px;
-	margin-bottom: 1em;
+    line-height: 24px;
+    margin-bottom: 1em;
 }
 
 .section.section-benefits .link-text {
-	color: #1155a4;
-	font-size: 19px;
-	line-height: 1;
+    color: #1155a4;
+    font-size: 19px;
+    line-height: 1;
 }
 
 .section.section-benefits .link-text:after {
-	content: '';
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: 5px;
-	width: 6px;
-	height: 6px;
-	transform: rotate(45deg);
-	border: 1px solid #1155a4;
-	border-width: 0.1em 0.1em 0 0;
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    width: 6px;
+    height: 6px;
+    transform: rotate(45deg);
+    border: 1px solid #1155a4;
+    border-width: 0.1em 0.1em 0 0;
 }
 
 .section.section-benefits .list-item .link:hover .link-text {
@@ -651,15 +611,15 @@ endif;
     position: absolute;
     top: 0;
     left: 0;
-	height: 100%;
-	width: 100%;
-	background: #000;
-	opacity: .5;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    opacity: .5;
 }
 
 .section.section-casestudy .section-content {
-    padding-top: 83px;
-    padding-bottom: 81px;
+    padding-top: 70px;
+    padding-bottom: 70px;
     position: relative;
     z-index: 1;
 }
@@ -680,11 +640,11 @@ endif;
 }
 .section.section-casestudy .body-text {
     color: #fff;
-	max-width: 654px;
-	color: #fff;
-	font-size: 19px;
-	line-height: 28px;
-	margin-bottom: 50px;
+    max-width: 654px;
+    color: #fff;
+    font-size: 19px;
+    line-height: 28px;
+    margin-bottom: 50px;
 
 }
 
@@ -701,22 +661,22 @@ endif;
 <?php if ( have_rows( 'content' ) ) : ?>
 <?php while ( have_rows( 'content' ) ) : the_row(); ?>
 <section class="section section-hero">
-	<?php if ( get_sub_field( 'hero_image' ) ) { ?>
-	<figure class="hero-image"></figure>
-	<?php } ?>
-	<div class="section-content">
-		<div class="intro-wrapper">
-			<div class="intro">
-				<h1 class="hero-headline"><?php the_sub_field( 'headline' ); ?></h1>
-				<p class="hero-intro"><?php the_sub_field( 'intro' ); ?></p>
-				<?php if ( have_rows( 'button' ) ) : ?>
-				<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-				<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
-				<?php endwhile; ?>
-				<?php endif; ?>
-			</div>
-		</div>
-	</div>
+    <?php if ( get_sub_field( 'hero_image' ) ) { ?>
+    <figure class="hero-image"></figure>
+    <?php } ?>
+    <div class="section-content">
+        <div class="intro-wrapper">
+            <div class="intro">
+                <h1 class="hero-headline"><?php the_sub_field( 'headline' ); ?></h1>
+                <p class="hero-intro"><?php the_sub_field( 'intro' ); ?></p>
+                <?php if ( have_rows( 'button' ) ) : ?>
+                <?php while ( have_rows( 'button' ) ) : the_row(); ?>
+                <a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+                <?php endwhile; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
 </section>
 <?php endwhile; ?>
 <?php endif; ?>
@@ -732,39 +692,39 @@ endif;
 <?php if ( have_rows( 'content' ) ) : ?>
 <?php while ( have_rows( 'content' ) ) : the_row(); ?>
 <section class="section section-innovation-call">
-	<div class="section-content">
-		<h2 class="eyebrow"><?php the_sub_field( 'eyebrow' ); ?></h2>
-		<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
-		<p class="body-text"><?php the_sub_field( 'body_text' ); ?></p>
-		<?php if ( have_rows( 'button' ) ) : ?>
-		<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-		<a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
-		<?php endwhile; ?>
-		<?php endif; ?>
-	</div>
+    <div class="section-content">
+        <h2 class="eyebrow"><?php the_sub_field( 'eyebrow' ); ?></h2>
+        <h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
+        <p class="body-text"><?php the_sub_field( 'body_text' ); ?></p>
+        <?php if ( have_rows( 'button' ) ) : ?>
+        <?php while ( have_rows( 'button' ) ) : the_row(); ?>
+        <a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+        <?php endwhile; ?>
+        <?php endif; ?>
+    </div>
 </section>
 <?php endwhile; ?>
 <?php endif; ?>
 <?php } ?>
 <?php endwhile; ?>
 <?php endif; ?>
-		
-		
+        
+        
 <?php if ( have_rows( 'section_what_we_do' ) ) : ?>
 <?php while ( have_rows( 'section_what_we_do' ) ) : the_row(); ?>
 <?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
 <?php if ( have_rows( 'content' ) ) : ?>
 <?php while ( have_rows( 'content' ) ) : the_row(); ?>
 <section class="section section-what-we-do">
-	<div class="section-content">
-		<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
-		<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
-		<?php if ( have_rows( 'button' ) ) : ?>
-		<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-		<a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
-		<?php endwhile; ?>
-		<?php endif; ?>
-	</div>
+    <div class="section-content">
+        <h2 class="headline"><?php the_sub_field( 'headline' ); ?></h2>
+        <div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+        <?php if ( have_rows( 'button' ) ) : ?>
+        <?php while ( have_rows( 'button' ) ) : the_row(); ?>
+        <a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+        <?php endwhile; ?>
+        <?php endif; ?>
+    </div>
 </section>
 <?php endwhile; ?>
 <?php endif; ?>
@@ -780,35 +740,35 @@ endif;
 <?php if ( have_rows( 'content' ) ) : ?>
 <?php while ( have_rows( 'content' ) ) : the_row(); ?>
 <section class="section section-benefits">
-	<div class="section-content">
-		<h3 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
-		<?php if ( have_rows( 'tile' ) ) : ?>
-		<ul class="tiles-list">
-			<?php while ( have_rows( 'tile' ) ) : the_row(); ?>
-			<li class="list-item">
-				<?php if ( get_sub_field( 'link_text' ) ) { ?>
-				<a class="link" href="<?php the_sub_field( 'url' ); ?>">
-					<?php } else { ?>
-					<div class="link">
-						<?php } ?>
-						<div class="image-box">
-							<figure class="image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=588&h=370)"></figure>
-						</div>
-						<div class="text-wrapper">
-							<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
-							<div class="text"><?php the_sub_field( 'body_text' ); ?></div>
-							<?php if ( get_sub_field( 'link_text' ) ) { ?><span class="link-text"><?php the_sub_field( 'link_text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></span><?php } ?>
-						</div>
-						<?php if ( get_sub_field( 'link_text' ) ) { ?>
-				</a>
-				<?php } else { ?>
-				</div>
-				<?php } ?>
-			</li>
-			<?php endwhile; ?>
-		</ul>
-		<?php endif; ?>
-	</div>
+    <div class="section-content">
+        <h2 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h2>
+        <?php if ( have_rows( 'tile' ) ) : ?>
+        <ul class="tiles-list">
+            <?php while ( have_rows( 'tile' ) ) : the_row(); ?>
+            <li class="list-item">
+                <?php if ( get_sub_field( 'link_text' ) ) { ?>
+                <a class="link" href="<?php the_sub_field( 'url' ); ?>">
+                    <?php } else { ?>
+                    <div class="link">
+                        <?php } ?>
+                        <div class="image-box">
+                            <figure class="image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=588&h=370)"></figure>
+                        </div>
+                        <div class="text-wrapper">
+                            <h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
+                            <div class="text"><?php the_sub_field( 'body_text' ); ?></div>
+                            <?php if ( get_sub_field( 'link_text' ) ) { ?><span class="link-text"><?php the_sub_field( 'link_text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></span><?php } ?>
+                        </div>
+                        <?php if ( get_sub_field( 'link_text' ) ) { ?>
+                </a>
+                <?php } else { ?>
+                </div>
+                <?php } ?>
+            </li>
+            <?php endwhile; ?>
+        </ul>
+        <?php endif; ?>
+    </div>
 </section>
 <?php endwhile; ?>
 <?php endif; ?>
@@ -824,19 +784,19 @@ endif;
 <?php if ( have_rows( 'content' ) ) : ?>
 <?php while ( have_rows( 'content' ) ) : the_row(); ?>
 <section class="section section-casestudy">
-	<?php if ( get_sub_field( 'image' ) ) { ?>
-	<figure class="section-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=2560&h=500&)"></figure>
-	<?php } ?>
-	<div class="section-content">
-		<h2 class="eyebrow"><?php the_sub_field( 'eyebrow' ); ?></h2>
-		<h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
-		<p class="body-text"><?php the_sub_field( 'body_text' ); ?></p>
-		<?php if ( have_rows( 'button' ) ) : ?>
-		<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-		<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
-		<?php endwhile; ?>
-		<?php endif; ?>
-	</div>
+    <?php if ( get_sub_field( 'image' ) ) { ?>
+    <figure class="section-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=2560&h=500&)"></figure>
+    <?php } ?>
+    <div class="section-content">
+        <h2 class="eyebrow"><?php the_sub_field( 'eyebrow' ); ?></h2>
+        <h3 class="headline"><?php the_sub_field( 'headline' ); ?></h3>
+        <p class="body-text"><?php the_sub_field( 'body_text' ); ?></p>
+        <?php if ( have_rows( 'button' ) ) : ?>
+        <?php while ( have_rows( 'button' ) ) : the_row(); ?>
+        <a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+        <?php endwhile; ?>
+        <?php endif; ?>
+    </div>
 </section>
 <?php endwhile; ?>
 <?php endif; ?>
@@ -850,6 +810,3 @@ endif;
 <?php get_template_part( 'template-parts/section', 'register'); ?>
 </main>
 <?php get_footer();
-
-
-
