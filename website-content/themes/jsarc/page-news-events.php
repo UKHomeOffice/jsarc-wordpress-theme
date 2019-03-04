@@ -359,7 +359,7 @@
 }
 </style>
 <?php } ?>
-<main id="main">
+
     <nav class="breadcrumbs" aria-label="breadcrumb">
         <div class="section-content">
             <ul class="breadcrumbs-list">
@@ -500,5 +500,5 @@
         </div>
     </section>
     <?php get_template_part( 'template-parts/section', 'register'); ?>
-</main>
+
 <?php get_footer();
