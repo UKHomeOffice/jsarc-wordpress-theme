@@ -290,142 +290,142 @@ only screen and (min-resolution: 1.5dppx),
         </ul>
     </div>
 </nav>
-<section>
-    <article>
-        <?php if ( have_rows( 'section_overview' ) ) : ?>
-        <?php while ( have_rows( 'section_overview' ) ) : the_row(); ?>
-        <div class="article-header">
-            <figure class="hero-image"></figure>
-            <div class="section-content">
-                <div class="headline-wrapper">
-                    <h1 class="hero-headline"><span><?php the_title(); ?></span></h1>
-                </div>
-            </div>
-        </div>
-        <div class="article-overview">
-        <div class="section-content">
-            <div class="row">
-                <?php if ( get_sub_field( 'form_toggle' ) == 1 ) { // echo 'true'; ?>
-                <div class="column large-7 small-12">
-                    <?php } else { ?>
-                    <div class="column large-12">
-                        <?php } ?>
-                        <?php if ( have_rows( 'location_and_date' ) ) : ?>
-                        <?php while ( have_rows( 'location_and_date' ) ) : the_row(); ?>
-                        <div class="location-date">
-                            <span class="location"><?php the_sub_field( 'location' ); ?></span>
-                            <span class="date"><?php the_sub_field( 'date' ); ?> <?php the_sub_field( 'time' ); ?></span>
-                            <?php endwhile; ?>
-                            <?php endif; ?>
-                            <?php if ( have_rows( 'overview' ) ) : ?>
-                            <?php while ( have_rows( 'overview' ) ) : the_row(); ?>
-                        </div>
-                        <h2 class="title"><?php the_sub_field( 'title' ); ?></h2>
-                        <div class="heading-text"><?php the_sub_field( 'text' ); ?></div>
-                        <?php endwhile; ?>
-                        <?php endif; ?>
-                        <?php if ( have_rows( 'directions' ) ) : ?>
-                        <?php while ( have_rows( 'directions' ) ) : the_row(); ?>
-                        <a class="directions-link" href="<?php the_sub_field( 'link_url' ); ?>"><?php the_sub_field( 'link_text' ); ?></a>
-                        <?php endwhile; ?>
-                        <?php endif; ?>
-                    </div>
-                    <?php if ( get_sub_field( 'form_toggle' ) == 1 ) { // echo 'true'; ?>
-                    <div class="column large-4 large-last small-12">
-                        <?php if ( have_rows( 'form' ) ) : ?>
-                        <?php while ( have_rows( 'form' ) ) : the_row(); ?>
-                        <h4 class="form-headline"><?php the_sub_field( 'form_headline' ); ?></h4>
-                        <p class="form-text"><?php the_sub_field( 'form_text' ); ?></p>
-                        <?php endwhile; ?>
-                        <?php endif; ?>
-                        <div class="register-form">
-                            <!--form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-                                <input type=hidden name="oid" value="00D1t000000G0d6" />
-                                <input type=hidden name="retURL" value="https://jsarc.demo.sixpointsix.net" />
-                                
-                                    <div class="text-field-wrapper">
-                                        <input id="first_name" class="text-field" name="first_name" type="text" />
-                                        <label class="text-field-label" label for="first_name">First Name</label> 
-                                    </div>
-                                    <div class="text-field-wrapper">
-                                        <input id="last_name" class="text-field" name="last_name" type="text" />
-                                        <label class="text-field-label" label for="last_name">Last Name</label> 
-                                    </div>
-                                    <div class="text-field-wrapper">
-                                        <input id="company" class="text-field" name="company" type="text" />
-                                        <label class="text-field-label" label for="company">Organisation</label> 
-                                    </div>
-                                    <div class="text-field-wrapper">
-                                        <input id="email" class="text-field" name="email" type="text" />
-                                        <label class="text-field-label" label for="email">Email</label> 
-                                    </div>
-                                    
-                                    <input class="button" type="submit" class="~load-spinner" name="submit" /> 
-                                </div>
-                                </form-->
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <p class="tags">
-            <?php
-                $posttags = get_the_tags();
-                $count=0;
-                if ($posttags) {
-                  foreach($posttags as $tag) {
-                    $count++;
-                    if (1 == $count) {
-                      echo $tag->name;
-                    }
-                    else {
-                        echo ' | ' . $tag->name;
-                    }
-                  }
-                }
-                ?>
-            </p>
-                </div>
-            </div>
-        </div>
-        <?php endwhile; ?>
-        <?php endif; ?>
-        <div class="article-details">
-            <div class="section-content">
-                <?php if ( have_rows( 'section_details' ) ) : ?>
-                <?php while ( have_rows( 'section_details' ) ) : the_row(); ?>
-                <div class="row">
-                    <div class="column large-7 small-12">
-                        <h2 class="title"><?php the_sub_field( 'title' ); ?></h2>
-                        <div class="details-text"><?php the_sub_field( 'text' ); ?></div>
-                    </div>
-                    <?php if ( have_rows( 'images' ) ) : ?>
-                    <div class="column large-4 large-last small-12">
-                        <ul class="event-images">
-                            <?php while ( have_rows( 'images' ) ) : the_row(); ?>
-                            <?php if ( get_sub_field( 'image' ) ) { ?>
-                            <li>
-                                <figure class="image" style="background-image:url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=586&h=392)"></figure>
-                            </li>
-                            <?php } ?>
-                            <?php endwhile; ?>
-                        </ul>
-                    </div>
-                    <?php endif; ?>
-                </div>
-                <?php endwhile; ?>
-                <?php endif; ?>
-            </div>
-        </div>
-        <div class="article-more">
-            <div class="section-content">
-                <?php if ( have_rows( 'see_all_button' ) ) : ?>
-                <?php while ( have_rows( 'see_all_button' ) ) : the_row(); ?>
-                <a class="button more" href="<?php the_sub_field( 'link_url' ); ?>"><?php the_sub_field( 'link_text' ); ?></a>
-                <?php endwhile; ?>
-                <?php endif; ?>
-            </div>
-        </div>
-    </article>
-</section>
+
+<article>
+	<?php if ( have_rows( 'section_overview' ) ) : ?>
+	<?php while ( have_rows( 'section_overview' ) ) : the_row(); ?>
+	<div class="article-header">
+		<figure class="hero-image"></figure>
+		<div class="section-content">
+			<div class="headline-wrapper">
+				<h1 class="hero-headline"><span><?php the_title(); ?></span></h1>
+			</div>
+		</div>
+	</div>
+	<div class="article-overview">
+	<div class="section-content">
+		<div class="row">
+			<?php if ( get_sub_field( 'form_toggle' ) == 1 ) { // echo 'true'; ?>
+			<div class="column large-7 small-12">
+				<?php } else { ?>
+				<div class="column large-12">
+					<?php } ?>
+					<?php if ( have_rows( 'location_and_date' ) ) : ?>
+					<?php while ( have_rows( 'location_and_date' ) ) : the_row(); ?>
+					<div class="location-date">
+						<span class="location"><?php the_sub_field( 'location' ); ?></span>
+						<span class="date"><?php the_sub_field( 'date' ); ?> <?php the_sub_field( 'time' ); ?></span>
+						<?php endwhile; ?>
+						<?php endif; ?>
+						<?php if ( have_rows( 'overview' ) ) : ?>
+						<?php while ( have_rows( 'overview' ) ) : the_row(); ?>
+					</div>
+					<h2 class="title"><?php the_sub_field( 'title' ); ?></h2>
+					<div class="heading-text"><?php the_sub_field( 'text' ); ?></div>
+					<?php endwhile; ?>
+					<?php endif; ?>
+					<?php if ( have_rows( 'directions' ) ) : ?>
+					<?php while ( have_rows( 'directions' ) ) : the_row(); ?>
+					<a class="directions-link" href="<?php the_sub_field( 'link_url' ); ?>"><?php the_sub_field( 'link_text' ); ?></a>
+					<?php endwhile; ?>
+					<?php endif; ?>
+				</div>
+				<?php if ( get_sub_field( 'form_toggle' ) == 1 ) { // echo 'true'; ?>
+				<div class="column large-4 large-last small-12">
+					<?php if ( have_rows( 'form' ) ) : ?>
+					<?php while ( have_rows( 'form' ) ) : the_row(); ?>
+					<h4 class="form-headline"><?php the_sub_field( 'form_headline' ); ?></h4>
+					<p class="form-text"><?php the_sub_field( 'form_text' ); ?></p>
+					<?php endwhile; ?>
+					<?php endif; ?>
+					<div class="register-form">
+						<!--form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+							<input type=hidden name="oid" value="00D1t000000G0d6" />
+							<input type=hidden name="retURL" value="https://jsarc.demo.sixpointsix.net" />
+							
+								<div class="text-field-wrapper">
+									<input id="first_name" class="text-field" name="first_name" type="text" />
+									<label class="text-field-label" label for="first_name">First Name</label> 
+								</div>
+								<div class="text-field-wrapper">
+									<input id="last_name" class="text-field" name="last_name" type="text" />
+									<label class="text-field-label" label for="last_name">Last Name</label> 
+								</div>
+								<div class="text-field-wrapper">
+									<input id="company" class="text-field" name="company" type="text" />
+									<label class="text-field-label" label for="company">Organisation</label> 
+								</div>
+								<div class="text-field-wrapper">
+									<input id="email" class="text-field" name="email" type="text" />
+									<label class="text-field-label" label for="email">Email</label> 
+								</div>
+								
+								<input class="button" type="submit" class="~load-spinner" name="submit" /> 
+							</div>
+							</form-->
+					</div>
+				</div>
+				<?php } ?>
+				<p class="tags">
+		<?php
+			$posttags = get_the_tags();
+			$count=0;
+			if ($posttags) {
+			  foreach($posttags as $tag) {
+				$count++;
+				if (1 == $count) {
+				  echo $tag->name;
+				}
+				else {
+					echo ' | ' . $tag->name;
+				}
+			  }
+			}
+			?>
+		</p>
+			</div>
+		</div>
+	</div>
+	<?php endwhile; ?>
+	<?php endif; ?>
+	<div class="article-details">
+		<div class="section-content">
+			<?php if ( have_rows( 'section_details' ) ) : ?>
+			<?php while ( have_rows( 'section_details' ) ) : the_row(); ?>
+			<div class="row">
+				<div class="column large-7 small-12">
+					<h2 class="title"><?php the_sub_field( 'title' ); ?></h2>
+					<div class="details-text"><?php the_sub_field( 'text' ); ?></div>
+				</div>
+				<?php if ( have_rows( 'images' ) ) : ?>
+				<div class="column large-4 large-last small-12">
+					<ul class="event-images">
+						<?php while ( have_rows( 'images' ) ) : the_row(); ?>
+						<?php if ( get_sub_field( 'image' ) ) { ?>
+						<li>
+							<figure class="image" style="background-image:url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=586&h=392)"></figure>
+						</li>
+						<?php } ?>
+						<?php endwhile; ?>
+					</ul>
+				</div>
+				<?php endif; ?>
+			</div>
+			<?php endwhile; ?>
+			<?php endif; ?>
+		</div>
+	</div>
+	<div class="article-more">
+		<div class="section-content">
+			<?php if ( have_rows( 'see_all_button' ) ) : ?>
+			<?php while ( have_rows( 'see_all_button' ) ) : the_row(); ?>
+			<a class="button more" href="<?php the_sub_field( 'link_url' ); ?>"><?php the_sub_field( 'link_text' ); ?></a>
+			<?php endwhile; ?>
+			<?php endif; ?>
+		</div>
+	</div>
+</article>
+
 
 <?php get_template_part( 'template-parts/content', 'section-register'); ?>
 

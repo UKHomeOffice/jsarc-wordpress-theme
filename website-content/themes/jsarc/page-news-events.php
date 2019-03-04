@@ -480,11 +480,7 @@
                         <div class="text-wrapper">
                             <h3 class="title">
                                 <span class="date">
-                                <?php if ( have_rows( 'location_and_date' ) ) : ?>
-                                    <?php while ( have_rows( 'location_and_date' ) ) : the_row(); ?>
-                                        <?php the_sub_field( 'date' ); ?> <?php the_sub_field( 'time' ); ?>
-                                    <?php endwhile; ?>
-                                <?php endif; ?>
+                                <?php while ( have_rows( 'section_overview' ) ) : the_row();  while ( have_rows( 'location_and_date' ) ) : the_row(); the_sub_field( 'date' ); ?> <?php the_sub_field( 'time' ); endwhile; endwhile; ?>
                                 </span>
                                 <?php the_title(); ?>
                             </h3>

@@ -2744,46 +2744,25 @@ html.noscroll body {
     background-image: url("/wp-content/themes/jsarc/img/v/homepage/b/icon-facebook.png");
 }
 
-h1:after,
-h2:after,
-h3:after,
-h4:after,
-h5:after,
-h6:after {
-    display: block;
-    position: absolute;
-    z-index: 1;
-    width: 30px;
-    height: 30px;
-    padding: 20px;
-    color: red; 
-    background: yellow;
-    font-size: 20px;
-    line-height: 30px;
+/*
+h1:after,h2:after,h3:after,h4:after,h5:after,h6:after {
+display: block;
+background: yellow;
+padding:20px;
+position: absolute;
+z-index: 1;
+width: 30px;
+height: 30px;
+line-height: 30px;
+font-size: 20px;
+color:red;
 }
-
-h1:after {
-    content: "h1";
-}
-
-h2:after {
-    content: "h2";
-}
-
-h3:after {
-    content: "h3";
-}
-
-h4:after {
-    content: "h4";
-}
-
-h5:after {
-    content: "h5";
-}
-
-h6:after {
-    content: "h6";
-}
+h1:after{content:'h1';}
+h2:after{content:'h2';}
+h3:after{content:'h3';}
+h4:after{content:'h4';}
+h5:after{content:'h5';}
+h6:after{content:'h6';}
+*/
 
 /*# sourceMappingURL=src/sourcemaps/style.css.map */
