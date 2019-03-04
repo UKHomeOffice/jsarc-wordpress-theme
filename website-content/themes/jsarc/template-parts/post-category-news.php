@@ -355,6 +355,7 @@ only screen and (min-resolution: 1.5dppx),
 	color: #fff;
 }
 </style>
+<main id="main">
 <nav class="breadcrumbs" aria-label="breadcrumb">
     <div class="section-content">
         <ul class="breadcrumbs-list">
@@ -521,4 +522,5 @@ only screen and (min-resolution: 1.5dppx),
     }
 </script>
 <?php } ?>
+</main>
 <?php get_footer(); ?>
