@@ -337,7 +337,7 @@ ol.body-text li {
         <div class="row">
             <div class="column large-3 small-12">
                 <?php if ( get_sub_field( 'image' ) ) { ?>
-                    <img class="image" src="<?php the_sub_field( 'image' ); ?>" alt="<?php the_sub_field( 'name' ); ?>" />
+                    <img class="image" src="<?php the_sub_field( 'image' ); ?>?fit=crop&w=320&h=320" alt="<?php the_sub_field( 'name' ); ?>" />
                 <?php } ?>
             </div>
             <div class=" column large-9 small-12">
