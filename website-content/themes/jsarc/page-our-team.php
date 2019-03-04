@@ -240,10 +240,49 @@ ol.body-text li {
 }
 
 
-
-
-
-
+.section.team {
+    
+}
+.section.team .section-content {
+    border-top: 1px solid #D8D8D8;
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+.section.team .section-headline {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 42px;
+}
+.section.team .row {
+    border-bottom: 1px solid #D8D8D8;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+.section.team .image {
+    display: block;
+    height: 160px;
+    width: 160px;
+}
+.section.team .name {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 28px;
+    color: #4A4A4A;
+}
+.section.team .decription {
+    font-size: 18px;
+    line-height: 28px;
+    color: #4A4A4A;
+}
+.section.team .decription > * {
+    margin-bottom: 1em;
+}
+.section.team .decription a {
+    color: #1155a4;
+}
+.section.team .decription a:hover {
+    text-decoration: underline;
+}
 
 
 </style>
@@ -283,57 +322,12 @@ ol.body-text li {
     </div>
 </section>
 <?php endif; ?>
-<style>
-.section.team {
-	
-}
-.section.team .section-content {
-	border-top: 1px solid #D8D8D8;
-	padding-top: 75px;
-	padding-bottom: 75px;
-}
-.section.team .section-headline {
-	font-size: 24px;
-	font-weight: bold;
-	line-height: 42px;
-}
-.section.team .row {
-	border-bottom: 1px solid #D8D8D8;
-	padding-top: 50px;
-	padding-bottom: 30px;
-}
-.section.team .image {
-	display: block;
-	height: 160px;
-	width: 160px;
-}
-.section.team .name {
-	font-size: 18px;
-	font-weight: bold;
-	line-height: 28px;
-	color: #4A4A4A;
-}
-.section.team .decription {
-	font-size: 18px;
-	line-height: 28px;
-	color: #4A4A4A;
-}
-.section.team .decription > * {
-	margin-bottom: 1em;
-}
-.section.team .decription a {
-	color: #1155a4;
-}
-.section.team .decription a:hover {
-	text-decoration: underline;
-}
-</style>
 
 <section class="section team">
     <div class="section-content">
-        <h2 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h2>
+        <h2 class="section-headline"><?php the_field( 'section_headline' ); ?></h2>
         <?php if ( have_rows( 'team' ) ) : ?>
-		<?php while ( have_rows( 'team' ) ) : the_row(); ?>
+        <?php while ( have_rows( 'team' ) ) : the_row(); ?>
         <div class="row">
             <div class="column large-3 small-12">
                 <?php if ( get_sub_field( 'image' ) ) { ?>
@@ -346,7 +340,7 @@ ol.body-text li {
             </div>
         </div>
         <?php endwhile; ?>
-		<?php endif; ?>
+        <?php endif; ?>
     </div>
 </section>
 
