@@ -253,7 +253,7 @@
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
             <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-            <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/events-events/" >Events and Events</a></li>
+            <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/news-events/" >News and Events</a></li>
             <li class="breadcrumbs-item">Events Archive</li>
 		</ul>
 	</div>
