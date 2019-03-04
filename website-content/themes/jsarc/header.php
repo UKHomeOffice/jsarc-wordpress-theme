@@ -72,7 +72,6 @@
 							<button class="nav-searchform-reset" type="reset" disabled aria-label="Clear Search"></button>
 						</div>
 					</form>
-					<button class="search-button"></button>
 					<button class="nav-search-close">
 						<span class="nav-search-close-wrapper" aria-hidden="true">
 							<span class="nav-search-close-left"></span>
