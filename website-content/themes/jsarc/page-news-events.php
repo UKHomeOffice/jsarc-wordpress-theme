@@ -429,7 +429,7 @@
                             <?php if ( get_field( 'featured_post' ) == 1 ) { ?>
                             <p class="snippet-text"><?php the_field( 'snippet_text' ); ?></p>
                             <?php } ?>
-                            <span class="bottom-line"><?php the_date('d F Y'); ?></span>
+                            <span class="bottom-line">Published on <?php the_date('d F Y'); ?></span>
                             <!--?php
                                 $posttags = get_the_tags();
                                 $count=0;
