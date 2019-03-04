@@ -151,11 +151,11 @@
 </style>
 <?php } ?>
 <main id="main">
-<nav class="breadcrumbs">
+<nav class="breadcrumbs" aria-label="breadcrumb">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
 			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-			<li class="breadcrumbs-item">Register</li>
+			<li class="breadcrumbs-item" aria-current="page">Register</li>
 		</ul>
 	</div>
 </nav>

@@ -205,7 +205,7 @@ SECTION PROGECTS
 	<?php while ( have_rows( 'section', 'option' ) ) : the_row(); ?>
 	<section class="section section-highlights">
 		<div class="section-content">
-		<h3 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h3>
+		<h2 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h2>
 		<?php if ( have_rows( 'tiles' ) ) : ?>
 			<?php while ( have_rows( 'tiles' ) ) : the_row(); ?>
 			<ul class="tiles-list">
