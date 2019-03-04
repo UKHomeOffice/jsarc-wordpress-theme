@@ -2,7 +2,6 @@
 /**
  * The template for displaying the footer
  *
- * Contains the closing of the #content div and all content after.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
@@ -10,7 +9,7 @@
  */
 
 ?>
-
+</main>
 <footer class="section footer" role="contentinfo">
     <div class="section-content">
         <div class="row">
@@ -85,11 +84,6 @@
         </div>
     </div>
 </footer>
-
-
-
-
-
 <?php wp_footer(); ?>
 <?php if (function_exists('add_to_footer')) { add_to_footer(); } ?>
 <script>
