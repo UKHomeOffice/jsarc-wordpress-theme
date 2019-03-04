@@ -21,10 +21,10 @@
 	padding-bottom: 75px;
 }
 .search-results .headline {
-font-size: 30px;
-line-height: 1.3;
-font-weight: bold;
-margin-bottom: 1em;
+	font-size: 30px;
+	line-height: 1.3;
+	font-weight: bold;
+	margin-bottom: 1em;
 }
 .search-results .reaults-list .reaults-list-item {
 	background: #fff;
