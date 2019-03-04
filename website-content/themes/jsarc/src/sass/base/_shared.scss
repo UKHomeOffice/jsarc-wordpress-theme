@@ -299,18 +299,17 @@
     font-size: 36px;
     font-weight: bold;
     line-height: 38px;
-    margin-bottom: 1em;
+    margin-bottom: 1.2em;
     text-align: center;
 }
-.section-register-alt .column.large-first {
-    text-align: right;
-}
+
 .section-register-alt .column.large-first .inner {
-    border-right: 2px solid rgba(255,255,255,.7);
     padding-right: 15%;
+    text-align: center;
 }
 .section-register-alt .column.large-last .inner {
     padding-left: 15%;
+    text-align: center;
 }
 
 .section-register-alt .block-headline {
@@ -318,7 +317,7 @@
     font-size: 19px;
     line-height: 30px;
     font-weight: normal;
-    margin-bottom: 1em;
+    margin-bottom: 1.3em;
 }
 .section-register-alt .button.more {
     color: #fff;
@@ -327,8 +326,7 @@
 
 .section.section-register-alt .social-list {
     display: inline-block;
-    vertical-align: middle;
-    margin-top: .45em;
+    margin-top: .5em;
 }
 
 .section.section-register-alt .social-list .social-item {
