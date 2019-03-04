@@ -490,7 +490,7 @@ html.noscroll body {
     display: block;
     width: 100%;
     height: 24px;
-    padding: 13px 0;
+    padding: 13px 0 13px 50px;
     border: 0 none;
     outline: 0 none;
     opacity: 0;
@@ -725,7 +725,7 @@ html.noscroll body {
         box-sizing: border-box;
         width: 100%;
         height: 40px;
-        padding: 6px 20px;
+        padding: 6px 20px 6px 40px;
         border-radius: 4px;
         opacity: 1;
         background-color: #eee;
@@ -825,4 +825,94 @@ html.noscroll body {
 .nav.search-small-is-open .search .nav-searchform .nav-searchform-wrapper .nav-searchform-input:focus {
     border-radius: 4px;
 }
+
+.nav .submit-nav-searchform-wrapper {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    max-width: 1px;
+    max-height: 1px;
+    transition: max-width 0 .3s, max-height 0 .3s;
+}
+.nav.search-is-open .submit-nav-searchform-wrapper,
+.nav.search-small-is-open .submit-nav-searchform-wrapper {
+    max-height: 40px;
+    max-width: 40px;
+
+}
+.nav.search-small-is-open .submit-nav-searchform-wrapper {
+    top: 0px;
+    left: 15px;
+}
+.nav .submit-nav-searchform-wrapper #submit-nav-searchform {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: yellow;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+
+
+.nav .submit-nav-searchform-wrapper:before {
+    content: "";
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: -5px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    margin: auto;
+    border: 2px solid #1d4189;
+    border-radius: 50%;
+    text-indent: -999px;
+    pointer-events: none;
+}
+
+.nav .submit-nav-searchform-wrapper:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 0;
+    bottom: 0;
+    left: 17px;
+    width: 9px;
+    height: 3px;
+    margin: auto;
+    background-color: #1d4189;
+    content: "";
+    transform: rotate(45deg);
+     pointer-events: none;
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 

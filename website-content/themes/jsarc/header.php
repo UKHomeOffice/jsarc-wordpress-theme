@@ -64,10 +64,20 @@
                 'walker' => new Walker_Quickstart_Menu()
                 )); ?>
                 <aside class="search" role="search">
-                    <form id="nav-searchform" class="nav-searchform" action="/search" method="get">
+                
+                
+                
+                
+       
+                  
+                    <form role="search" method="get" class="nav-searchform" action="<?php echo home_url( '/' ) ?>">
                         <div class="nav-searchform-wrapper">
-                            <input data-index="1" class="nav-searchform-input" type="text" aria-label="Search jsarc.org" placeholder="Search jsarc.org" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" />
-                            <button class="nav-searchform-submit" type="submit" disabled aria-label="Submit Search"></button>
+                        
+                            <input data-index="1" class="nav-searchform-input" type="text" aria-label="Search jsarc.org" placeholder="<?php echo esc_attr_x( 'Search jsarc.org', 'placeholder' ) ?>" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" value="<?php echo get_search_query() ?>" name="search" />
+                            <div class="submit-nav-searchform-wrapper">
+                            	<input id="submit-nav-searchform" type="submit" value="Search" aria-label="Submit Search" />
+                            </div>
+                           	<button class="nav-searchform-submit" disabled ></button>
                             <button class="nav-searchform-reset" type="reset" disabled aria-label="Clear Search"></button>
                         </div>
                     </form>
