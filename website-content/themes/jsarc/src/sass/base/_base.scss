@@ -227,3 +227,18 @@ button:active {
     color: #000 !important;
     border: 2px solid #000 !important;
 }
+
+.visuallyhidden.skip.highlight {
+    position: relative;
+    z-index: 1;
+    clip: auto;
+    -webkit-clip-path: none;
+    clip-path: none;
+    overflow: visible;
+    height: auto;
+    width: auto;
+    padding: 0;
+    border: 0;
+    color: #000 !important;
+    background-color: #FFBF47 !important;
+}

@@ -1423,6 +1423,22 @@ button:active {
     box-shadow: none;
 }
 
+.visuallyhidden.skip.highlight {
+    overflow: visible;
+    clip: auto;
+    position: relative;
+    z-index: 1;
+    width: auto;
+    height: auto;
+    padding: 0;
+    border: 0;
+    color: #000 !important;
+    background-color: #ffbf47 !important; 
+
+    -webkit-clip-path: none;
+    clip-path: none;
+}
+
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
