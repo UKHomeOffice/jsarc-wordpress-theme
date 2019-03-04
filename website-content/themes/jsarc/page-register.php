@@ -150,7 +150,7 @@
 }
 </style>
 <?php } ?>
-<main id="main">
+
 <nav class="breadcrumbs" aria-label="breadcrumb">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
@@ -224,7 +224,7 @@
 
 
 
-</main>
+
 
 
 <?php function add_to_footer() { ?>

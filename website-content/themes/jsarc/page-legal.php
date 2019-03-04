@@ -11,7 +11,7 @@
 ?>
 
 <?php get_header(); ?>
-<main id="main">
+
 <?php function add_to_head() { ?>
 <style>
 .hero .section-content {
@@ -102,8 +102,8 @@
         <?php endwhile; ?>
         <?php endif; ?>
     </div>
-</main>
+
 
 <?php get_template_part( 'template-parts/section', 'register'); ?>
-</main>
+
 <?php get_footer();

@@ -34,22 +34,24 @@
                 <a class="button more" href="">Register with JSaRC</a>
                 </div>
             </div>
-            <div class="column large-5 large-last small-12">
-                <h3 class="block-headline">Follow us on</h3>
-                <?php if ( have_rows( 'social', 'option' ) ) : ?>
-                <div class="social">
-                    <?php while ( have_rows( 'social', 'option' ) ) : the_row(); ?>
-                        <?php if ( have_rows( 'social_links' ) ) : ?>
-                        <ul class="social-list">
-                            <?php while ( have_rows( 'social_links' ) ) : the_row(); ?>
-                            <li class="social-item"><a class="social-link <?php the_sub_field( 'social_network' ); ?>" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'social_network' ); ?></a></li>
-                            <?php endwhile; ?>
-                        </ul>
-                        <?php endif; ?>
-                    <?php endwhile; ?>
-                </div>
-                <?php endif; ?>
-            </div>
-        </div>  
+            <div class="column large-6 large-last small-12">
+            	<div class="inner">
+					<h3 class="block-headline">Follow us on social media to keep up to date with JSaRC</h3>
+					<?php if ( have_rows( 'social', 'option' ) ) : ?>
+					<div class="social">
+						<?php while ( have_rows( 'social', 'option' ) ) : the_row(); ?>
+							<?php if ( have_rows( 'social_links' ) ) : ?>
+							<ul class="social-list">
+								<?php while ( have_rows( 'social_links' ) ) : the_row(); ?>
+								<li class="social-item"><a class="social-link <?php the_sub_field( 'social_network' ); ?>" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'social_network' ); ?></a></li>
+								<?php endwhile; ?>
+							</ul>
+							<?php endif; ?>
+						<?php endwhile; ?>
+					</div>
+					<?php endif; ?>
+            	</div>
+        </div>
+        	</div>
     </div>
 </section>

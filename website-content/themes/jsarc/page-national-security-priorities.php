@@ -337,7 +337,7 @@
 
 </style>
 <?php } ?>
-<main id="main">
+
 <nav class="breadcrumbs" aria-label="breadcrumb">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
@@ -438,7 +438,7 @@
 <?php get_template_part( 'template-parts/section', 'register'); ?>
 
 
-</main>
+
 
 <?php function add_to_footer() { ?>
 <script>
