@@ -742,6 +742,16 @@ html.noscroll body {
         transition: opacity 0.3s 0 cubic-bezier(0.645, 0.045, 0.355, 1);
         transform: none;
     }
+    .nav .search .search-button {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 40px;
+        height: 40px;
+        background: green;
+    }
 
     .nav .search .nav-search-close .nav-search-close-wrapper {
         display: none;
