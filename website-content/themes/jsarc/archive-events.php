@@ -1,8 +1,8 @@
 <?php
 	/*
-	 * Template Name: Archive
+	 * Template Name: Events Archive
 	 *
-	 * The template for displaying News and Events Archive Page
+	 * The template for displaying Events Archive Page
 	 *
 	 * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
 	 *
@@ -238,10 +238,10 @@
 	.section.results .post:hover .text-wrapper {
 		transform: translate(0, -20px);
 	}
-	.section.news .post .text-wrapper .title {
+	.section.events .post .text-wrapper .title {
 		padding-top: 20px;
 	}
-	.section.news .post .text-wrapper .bottom-line {
+	.section.events .post .text-wrapper .bottom-line {
 		left: 20px;
 	}
 }
@@ -253,14 +253,14 @@
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
             <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-            <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/news-events/" >News and Events</a></li>
-            <li class="breadcrumbs-item">News</li>
+            <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/events-events/" >Events and Events</a></li>
+            <li class="breadcrumbs-item">Events</li>
 		</ul>
 	</div>
 </nav>
 <header class="section hero">
 	<div class="section-content">
-		<h1 class="headline">News articles</h1>
+		<h1 class="headline">Events articles</h1>
 	</div>
 </header>
 
@@ -269,12 +269,12 @@
 		<?php
 		// variables
 		$url_full_path = $_SERVER["REQUEST_URI"];
-		$url_path_part = '/news/';
+		$url_path_part = '/events/';
 		// $url_year = explode('/', str_replace($url_path_part, '', $url_full_path))[0];
 		$url_year = get_valueFromStringUrl($url_path_part , 'year');
 		$url_tag = get_valueFromStringUrl($url_path_part , 'tag');
 
-		// echo '<div style="background:lightblue;padding:10px;margin:40px; font-size: 12px;">full path = ' . $url_full_path . '<br> news path = '. $url_path_part . '<br> year = ' . $url_year . '<br> url tag = ' .$url_tag . '</div>';
+		// echo '<div style="background:lightblue;padding:10px;margin:40px; font-size: 12px;">full path = ' . $url_full_path . '<br> events path = '. $url_path_part . '<br> year = ' . $url_year . '<br> url tag = ' .$url_tag . '</div>';
 
 		function get_valueFromStringUrl($url_path_part , $parameter_name) {
 			$parts = parse_url($_SERVER["REQUEST_URI"]);
@@ -293,7 +293,7 @@
 				<option value="<?php /* echo date('Y') */ ?>">All years</option>
 				<?php
 					$years = array(
-						'category_name' => 'news',
+						'category_name' => 'events',
 						'post_status' => 'publish',
 						'type' => 'yearly',
 						'format' => '_custom', /* specified in functions.php */
@@ -328,7 +328,7 @@
 			let resetSelects = document.getElementById('reset_selects');
 
 
-			let url = '/news/';
+			let url = '/events/';
 
 			// change
 			selectYear.onchange = function() {
@@ -374,7 +374,7 @@
 	<div class="section-content">
 		<?php
 		$posts_show_query = new WP_Query(array(
-			'category_name' => 'news',
+			'category_name' => 'events',
 			'post_status' => 'publish',
 			'format' => 'html',
 			'year' => $url_year,
