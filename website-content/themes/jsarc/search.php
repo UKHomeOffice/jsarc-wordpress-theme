@@ -1,55 +1,81 @@
 <?php
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package JSaRC
- */
+    /**
+     * Template Name: search
+     * The template for displaying search results pages
+     *
+     * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
+     *
+     * @package JSaRC
+     */
+    
+    get_header();
+    ?>
+<?php function add_to_head() { ?>
+<style>
+#main { min-height: calc(100vh - 431px); width: 100%; display: table; }
+#main > .page-wrapper { display: table-cell; width: 100%; height: 100%; background-color: #E3E3E3; }
 
-get_header();
-?>
 
-	<section>
-		<main>
+.search-results .section-content {
+	padding-top: 75px;
+	padding-bottom: 75px;
+}
+.search-results .headline {
+font-size: 30px;
+line-height: 1.3;
+font-weight: bold;
+margin-bottom: 1em;
+}
+.search-results .reaults-list .reaults-list-item {
+	background: #fff;
+	padding: 20px;
+	margin-bottom: 30px;
+}
+.search-results .reaults-list .item-headline {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 28px;
+	color: #1E4289;
+	margin-bottom: 1em;
+}
+.search-results .reaults-list .description {
+	font-size: 18px;
+	line-height: 28px;
+	margin-bottom: 1em;
+}
+.search-results .reaults-list .date {
+	font-size: 14px;
+	line-height: 20px;
+}
+</style>
+<?php } ?>
 
-		<?php if ( have_posts() ) : ?>
 
-			<header>
-				<h1>
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'jsarc' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
-
+<div class="page-wrapper">
+	<div class="search-results">
+		<div class="section-content">
+			<h1 class="headline"><?php echo 'Search result: ' . '<span>' . get_search_query() . '</span>'; ?></h1>
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			if (have_posts()) :?>
+			<ul class="reaults-list">
+				<?php while (have_posts()) : the_post(); ?>
+				<li class="reaults-list-item">
+					<a href="<?php the_permalink() ?>">
+						<h2 class="item-headline"><?php the_title() ?></h2>
+						<p class="description"><?php the_excerpt() ?></p>
+						<p class="date">Published on <?php the_date() ?></p>
+					</a>
+				</li>
+				<?php endwhile; ?>
+			</ul>
+			<?php else : echo "Nothing found"; endif; ?>
+		</div>
+	</div>
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
 
-			endwhile;
 
-			the_posts_navigation();
+<?php get_template_part( 'template-parts/section', 'register'); ?>
+</div>
 
-		else :
 
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
-
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer();

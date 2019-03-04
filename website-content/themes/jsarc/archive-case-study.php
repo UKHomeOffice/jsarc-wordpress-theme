@@ -1,8 +1,8 @@
 <?php
 	/*
-	 * Template Name: News Archive
+	 * Template Name: Case Study Archive
 	 *
-	 * The template for displaying News Archive Page
+	 * The template for displaying Case Study Archive Page
 	 *
 	 * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
 	 *
@@ -260,7 +260,7 @@
 </nav>
 <header class="section hero">
 	<div class="section-content">
-		<h1 class="headline">News Archive</h1>
+		<h1 class="headline">News articles</h1>
 	</div>
 </header>
 
