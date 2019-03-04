@@ -688,48 +688,6 @@ ol.body-text li {
 <?php endwhile; ?>
 <?php endif; ?>
 
-<!--
-<?php if ( have_rows( 'section_mission' ) ) : ?>
-<section class="section section-mission">
-	<?php while ( have_rows( 'section_mission' ) ) : the_row(); ?>
-		<?php if ( get_sub_field( 'image' ) ) { ?>
-			<figure class="section-image" style="background-image: url(<figure class="section-image"></figure>
-		<?php } ?>
-		<div class="section-content">
-			<div class="row">
-				<div class="column large-6 large-push-6 small-12 small-push-0">
-					<h2 class="section-headline"><?php the_sub_field( 'headline' ); ?></h2>
-			<?php if ( have_rows( 'button' ) ) : ?>
-				<?php while ( have_rows( 'button' ) ) : the_row(); ?>
-					<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?> <?php if ( get_sub_field( 'hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'hidden_text'); ?></span><?php } ?></a>
-				<?php endwhile; ?>
-			<?php endif; ?>
-				</div>
-			</div> 
-		</div>
-	<?php endwhile; ?>
-</section>
-<?php endif; ?>
-
-<?php if ( have_rows( 'section_engage' ) ) : ?>
-	<?php while ( have_rows( 'section_engage' ) ) : the_row(); ?>
-<section class="section section-engage">
-	<div class="section-content">
-		<h2 class="section-headline"><?php the_sub_field( 'section_heading_text' ); ?></h2>
-		<?php if ( have_rows( 'paragraph_' ) ) : ?>
-			<?php while ( have_rows( 'paragraph_' ) ) : the_row(); ?>
-				<?php if (get_sub_field('heading')) { ?>
-				<h3 class="subheading"><?php the_sub_field( 'heading' ); ?></h3>
-				<?php } ?>	
-				<div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
-			<?php endwhile; ?>
-		<?php endif; ?>
-	</div>
-</section>
-	<?php endwhile; ?>
-<?php endif; ?>
--->
-
 <?php if ( have_rows( 'sections' ) ) : ?>
 <?php while ( have_rows( 'sections' ) ) : the_row(); ?>
 <div class="sections-wrapper">
