@@ -688,45 +688,6 @@ ol.body-text li {
 <?php endwhile; ?>
 <?php endif; ?>
 
-<!--?php if ( have_rows( 'sections' ) ) : ?>
-<?php while ( have_rows( 'sections' ) ) : the_row(); ?>
-<div class="sections-wrapper">
-	<div class="section-content">
-		<h2 class="section-headline"><?php the_sub_field( 'section_heading_text' ); ?></h2>
-	</div>
-	<?php if ( have_rows( 'section' ) ) : ?>
-	<?php while ( have_rows( 'section' ) ) : the_row(); ?>
-	<section class="section blocks image-<?php the_sub_field( 'image_alignment' ); ?>">
-		<div class="section-content">
-			<h2 class="section-headline"><?php the_sub_field( 'section_heading_text' ); ?></h2>
-			<div class="block row">
-				<div class="column large-5 large-last small-12">
-				<?php if ( get_sub_field( 'section_image' ) ) { ?>
-					<figure class="section-image" style="background-image: url(<?php the_sub_field( 'section_image' ); ?>?fit=crop&w=1280&h=&h=1200)"></figure>
-				<?php } ?>
-				</div>
-				<div class="column large-7 large-first small-12">
-					<div class="block-text-content">
-						<div class="block-text-inner">
-							<h3 class="block-headline"><?php the_sub_field( 'headline' ); ?></h3>
-							<div class="block-text"><?php the_sub_field( 'body_text' ); ?></div>
-							<?php if ( have_rows( 'links' ) ) : ?>
-							<?php while ( have_rows( 'links' ) ) : the_row(); ?>
-							<div><a class="block-link" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?> <?php if ( get_sub_field( 'hidden_text') ) { ?><span class="visuallyhidden"><?php the_sub_field( 'hidden_text'); ?></span><?php } ?></a></div>
-							<?php endwhile; ?>
-							<?php endif; ?>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<?php endwhile; ?>
-	<?php endif; ?>
-</div>
-<?php endwhile; ?>
-<?php endif; ?-->
-
 <?php get_template_part( 'template-parts/section', 'register'); ?>
 
 
