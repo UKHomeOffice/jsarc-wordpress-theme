@@ -2659,7 +2659,7 @@ html.noscroll body {
 }
 
 .section-register-alt .section-headline {
-    margin-bottom: 1em;
+    margin-bottom: 1.2em;
     color: #fff;
     font-size: 36px;
     font-weight: bold;
@@ -2667,21 +2667,18 @@ html.noscroll body {
     text-align: center;
 }
 
-.section-register-alt .column.large-first {
-    text-align: right;
-}
-
 .section-register-alt .column.large-first .inner {
-    padding-right: 15%; 
-    border-right: 2px solid rgba(255, 255, 255, 0.7);
+    padding-right: 15%;
+    text-align: center;
 }
 
 .section-register-alt .column.large-last .inner {
     padding-left: 15%;
+    text-align: center;
 }
 
 .section-register-alt .block-headline {
-    margin-bottom: 1em; 
+    margin-bottom: 1.3em; 
     color: #fff;
     font-size: 19px;
     font-weight: normal;
@@ -2695,8 +2692,7 @@ html.noscroll body {
 
 .section.section-register-alt .social-list {
     display: inline-block;
-    margin-top: 0.45em; 
-    vertical-align: middle;
+    margin-top: 0.5em;
 }
 
 .section.section-register-alt .social-list .social-item {
