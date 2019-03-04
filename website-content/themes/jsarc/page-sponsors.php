@@ -91,12 +91,13 @@
 	
 }
 .section.sponsors .column.first .column-inner {
-    border: 2px solid #d8d8d8;
-    border-width: 0 2px 0 0;
+    
 	position: relative;
 }
 .section.sponsors .column.last .column-inner {
     padding: 0 25px;
+    border: 2px solid #d8d8d8;
+    border-width: 0 0 0 2px;
 }
 
 .section.sponsors .sponsors-list .list-item  {
@@ -140,7 +141,7 @@
     font-size: 18px;
     line-height: 28px;
 }
-.section.sponsors .description .text * {
+.section.sponsors .description .text p {
     margin-bottom: 1em;
 }
 .section.sponsors .description a {
@@ -173,8 +174,8 @@
     .section.sponsors .sponsors-list .list-item  a {
         margin-right: 0;
     }
-    .section.sponsors .column.first .column-inner {
-        border-width: 0 0 2px 0;
+    .section.sponsors .column.last .column-inner {
+        border-width: 2px 0 0 0;
         padding: 20px 0;
     }
     .section.sponsors .column.last .column-inner {
