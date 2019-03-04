@@ -4,8 +4,7 @@
 	<?php while ( have_rows( 'sposors', 'option' ) ) : the_row(); ?>
 <section class="section sponsors">
 	<div class="section-content">
-		<h3 class="section-headline"><?php the_sub_field( 'headline' ); ?></h3>
-		
+		<h2 class="section-headline"><?php the_sub_field( 'headline' ); ?></h2>
 		
 		<ul class="logos">
 			

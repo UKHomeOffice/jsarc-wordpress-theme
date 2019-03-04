@@ -193,7 +193,7 @@
 		height: 400px;
 	}
 	.section.priority .block-text-content {
-		padding: 50px;
+		padding: 50px 20px;
 		min-height: 300px;
 	}
 }
@@ -338,11 +338,11 @@
 </style>
 <?php } ?>
 <main id="main">
-<nav class="breadcrumbs">
+<nav class="breadcrumbs" aria-label="breadcrumb">
 	<div class="section-content">
 		<ul class="breadcrumbs-list">
 			<li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-			<li class="breadcrumbs-item"><?php the_title(); ?></li>
+			<li class="breadcrumbs-item" aria-current="page"><?php the_title(); ?></li>
 		</ul>
 	</div>
 </nav>
@@ -358,7 +358,7 @@
 
 <section class="section heading">
 	<div class="section-content">
-		<h3 class="hero-heading-text"><?php the_field( 'hero_heading_text' ); ?></h3>
+		<h2 class="hero-heading-text"><?php the_field( 'hero_heading_text' ); ?></h2>
 		<div class="hero-body-text"><?php the_field( 'hero_body_text' ); ?></div>
 	</div>
 </section>
@@ -378,13 +378,13 @@
 			<div class="column large-7 large-first small-12">
 				<div class="block-text-content">
 					<div class="block-text-inner">
-						<h3 class="block-headline">
+						<h2 class="block-headline">
 							<?php if ( have_rows( 'section' ) ) : ?>
 							<?php while ( have_rows( 'section' ) ) : the_row(); ?>
 							<?php the_sub_field( 'section_headline' ); ?>
 							<?php endwhile; ?>
 							<?php endif; ?>
-						</h3>
+						</h2>
 						<div class="block-text">
 							<?php the_sub_field( 'section_body_text' ); ?>
 						</div>
@@ -414,7 +414,7 @@
 	<div class="row">
 		<div class="column large-6 small-12 blue">
 			<div class="column-content">
-				<h3 class="section-headline"><?php the_sub_field( 'section_headline_' ); ?></h3>
+				<h2 class="section-headline"><?php the_sub_field( 'section_headline_' ); ?></h2>
 				<div class="section-body-text"><?php the_sub_field( 'section_body_text' ); ?></div>
 				<?php if ( have_rows( 'section_button' ) ) : ?>
 				<?php while ( have_rows( 'section_button' ) ) : the_row(); ?>
@@ -434,11 +434,6 @@
 </section>
 <?php endwhile; ?>
 <?php endif; ?>
-		
-		
-		
-			
-	
 
 <?php get_template_part( 'template-parts/section', 'register'); ?>
 

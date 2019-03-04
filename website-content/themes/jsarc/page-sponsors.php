@@ -185,11 +185,11 @@
 </style>
 <?php } ?>
 <main id="main">
-<nav class="breadcrumbs">
+<nav class="breadcrumbs" aria-label="breadcrumb">
     <div class="section-content">
         <ul class="breadcrumbs-list">
             <li class="breadcrumbs-item"><a class="breadcrumbs-link" href="/">Home</a></li>
-            <li class="breadcrumbs-item"><?php the_title(); ?></li>
+            <li class="breadcrumbs-item" aria-current="page"><?php the_title(); ?></li>
         </ul>
     </div>
 </nav>
