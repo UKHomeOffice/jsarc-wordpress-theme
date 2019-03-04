@@ -654,7 +654,7 @@ endif;
 }
 </style>
 <?php } ?>
-<main id="main">
+
 <?php if ( have_rows( 'section_hero' ) ) : ?>
 <?php while ( have_rows( 'section_hero' ) ) : the_row(); ?>
 <?php if ( get_sub_field( 'section_show' ) == 1 ) { ?>
@@ -808,5 +808,5 @@ endif;
 <?php get_template_part( 'template-parts/section', 'highlights'); ?>
 
 <?php get_template_part( 'template-parts/section', 'register'); ?>
-</main>
+
 <?php get_footer();

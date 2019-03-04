@@ -1236,8 +1236,9 @@ button:active {
 
 @media only screen and (max-width: 1068px) {
     .button.more {
+        height: 42px; 
         font-size: 17px;
-        line-height: 45px;
+        line-height: 42px;
     }
 }
 
@@ -2552,12 +2553,12 @@ html.noscroll body {
         background-size: cover;
     }
     /*
-	.section.section-casestudies .button.more {
-		float: none;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	*/
+    .section.section-casestudies .button.more {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    */
 }
 
 .section.section-casestudies[data-anim-classname] .section-headline,
@@ -2651,7 +2652,8 @@ html.noscroll body {
 }
 
 .section-register-alt .section-content {
-    max-width: 900px; 
+    width: auto;
+    max-width: 780px; 
     padding-top: 75px;
     padding-bottom: 75px;
 }
@@ -2669,9 +2671,13 @@ html.noscroll body {
     text-align: right;
 }
 
-.section-register-alt .column .inner {
-    padding-right: 18%; 
+.section-register-alt .column.large-first .inner {
+    padding-right: 15%; 
     border-right: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.section-register-alt .column.large-last .inner {
+    padding-left: 15%;
 }
 
 .section-register-alt .block-headline {
@@ -2714,7 +2720,32 @@ html.noscroll body {
     text-indent: -999px;
 }
 
+@media only screen and (max-width: 1068px) {
+    .section-register-alt .section-content {
+        max-width: 700px;
+    }
+    .section-register-alt .column.large-first .inner {
+        padding-right: 10%;
+    }
+    .section-register-alt .column.large-last .inner {
+        padding-left: 10%;
+    }
+    .section.section-register-alt .social-list {
+        margin-top: 0.3em;
+    }
+}
+
 @media only screen and (max-width: 735px) {
+    .section-register-alt .section-content {
+        max-width: 90%;
+    }
+    .section-register-alt .column.large-first .inner {
+        padding-right: 0;
+        border-right: none;
+    }
+    .section-register-alt .column.large-last .inner {
+        padding-left: 0;
+    }
     .section-register-alt .column,
     .section-register-alt .column.large-first {
         text-align: center;

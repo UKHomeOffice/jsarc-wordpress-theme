@@ -207,7 +207,7 @@ ol.body-text li {
 
 </style>
 <?php } ?>
-<main id="main">
+
 <nav class="breadcrumbs" aria-label="breadcrumb">
     <div class="section-content">
         <ul class="breadcrumbs-list">
@@ -279,7 +279,7 @@ ol.body-text li {
 
 
 
-</main>
+
 
 <?php function add_to_footer() { ?>
 <!--script>

@@ -89,7 +89,7 @@
 
 </style>
 <?php } ?>
-<main id="main">
+
 <header class="section hero">
 	<figure class="hero-image"></figure>
 	<div class="section-content">
@@ -135,7 +135,7 @@
 
 <?php get_template_part( 'template-parts/section', 'register'); ?>
 
-</main>
+
 <?php get_footer();
 
 
