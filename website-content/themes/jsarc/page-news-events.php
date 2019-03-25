@@ -371,32 +371,39 @@
     <header class="section hero">
         <div class="section-content">
             <div class="row">
+                <?php if ( get_field( 'show_next_event' ) == 1 ) { ?>
                 <div class="first column large-8 small-12">
+                <?php } else {  ?>
+                <div class="first column large-12 small-12">
+                <?php } ?>
+                
                     <h1><?php the_field('header_headline'); ?></h1>
                     <?php the_field('header'); ?>
                 </div>
-                <?php if ( have_rows( 'next_event' ) ) : ?>
-                <div class="column large-4 large-last small-12">
-                    <aside class="aside">
-                        <div class="aside content">
-                            <?php while ( have_rows( 'next_event' ) ) : the_row(); ?>
-                            <a class="box-link" href="<?php the_sub_field( 'link_url' ); ?>">
-                                <h2 class="box-link-headline"><?php the_sub_field( 'headline' ); ?></h2>
-                                <h3 class="box-link-subheading"><?php the_sub_field( 'subheading' ); ?></h3>
-                                <div class="box-link-content"><?php the_sub_field( 'body_text' ); ?></div>
-                                <span class="arrow"></span>
-                            </a>
-                            <?php endwhile; ?>
-                        </div>
-                    </aside>
-                </div>
-                <?php endif; ?>
+                <?php if ( get_field( 'show_next_event' ) == 1 ) { ?>
+                    <?php if ( have_rows( 'next_event' ) ) : ?>
+                    <div class="column large-4 large-last small-12">
+                        <aside class="aside">
+                            <div class="aside content">
+                                <?php while ( have_rows( 'next_event' ) ) : the_row(); ?>
+                                <a class="box-link" href="<?php the_sub_field( 'link_url' ); ?>">
+                                    <h2 class="box-link-headline"><?php the_sub_field( 'headline' ); ?></h2>
+                                    <h3 class="box-link-subheading"><?php the_sub_field( 'subheading' ); ?></h3>
+                                    <div class="box-link-content"><?php the_sub_field( 'body_text' ); ?></div>
+                                    <span class="arrow"></span>
+                                </a>
+                                <?php endwhile; ?>
+                            </div>
+                        </aside>
+                    </div>
+                    <?php endif; ?>
+                <? } ?>
             </div>
         </div>
     </header>
     <section class="section news">
         <div class="section-content">
-            <h2 class="headline">Latest news articles</h2>
+            
             <?php 
                 // query
                 $the_query = new WP_Query(array(
@@ -409,6 +416,7 @@
                 ));
              ?>
             <?php if( $the_query->have_posts() ): ?>
+            <h2 class="headline">Latest news articles</h2>
             <ul>
                 <?php while( $the_query->have_posts() ) : $the_query->the_post(); 
                     $class = get_field('featured_post') ? ' featured' : '';
@@ -450,28 +458,30 @@
                 </li>
                 <?php endwhile; ?>
             </ul>
+            <a class="button more" href="/news/">See all JSaRC news articles</a>
             <?php endif; ?>
             <?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
-            <a class="button more" href="/news/">See all JSaRC news articles</a>
+            
         </div>
     </section>
     
     <section class="section news events">
         <div class="section-content">
+            <?php
+                $args = array(
+                'post_type' => 'post',
+                'post_status' => 'publish',
+                'category_name' => 'events',
+                'posts_per_page' => 5
+                );
+                $arr_posts = new WP_Query($args); ?>
+                
+                <?php if ($arr_posts->have_posts()): ?>
             <h2 class="headline">Upcoming events</h2>
             <ul>
-                <?php
-                    $args = array(
-                    'post_type' => 'post',
-                    'post_status' => 'publish',
-                    'category_name' => 'events',
-                    'posts_per_page' => 5
-                    );
-                    $arr_posts = new WP_Query($args);
-                    if ($arr_posts->have_posts()):
-                        while ($arr_posts->have_posts()):
-                            $arr_posts->the_post();
-                ?>
+			<?php while ($arr_posts->have_posts()):
+				$arr_posts->the_post(); ?>
+                
                 <li class="list-item">
                     <a class="post" href="<?php the_permalink(); ?>">
                         <div class="image-wrapper">
@@ -492,11 +502,10 @@
                         </div>
                     </a>
                 </li>
-                <?php
-                    endwhile;
-                    endif;
-                    ?>
-            </ul>
+                <?php endwhile; ?>
+                </ul>
+                 <?php endif; ?>
+            
         </div>
     </section>
     <?php get_template_part( 'template-parts/section', 'register'); ?>
