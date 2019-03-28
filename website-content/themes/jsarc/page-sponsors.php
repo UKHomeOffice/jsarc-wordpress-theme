@@ -226,7 +226,7 @@
                     <?php while ( have_rows( 'sponsors' ) ) : the_row(); ?>
                     <div class="description" id="<?php echo str_replace(' ', '-', strtolower(get_sub_field( 'name' ))); ?>">
                         <img class="image" src="<?php if ( get_sub_field( 'image' ) ) { the_sub_field( 'image' ); } ?>?fit=crop&w=154" alt="" />
-                        <h4 class="name"><?php the_sub_field( 'name' ); ?></h4>
+                        <!-- <h4 class="name"><?php the_sub_field( 'name' ); ?></h4> -->
                         <div class="text"><?php the_sub_field( 'text' ); ?></div>
                     </div>
                     <?php endwhile; ?>
