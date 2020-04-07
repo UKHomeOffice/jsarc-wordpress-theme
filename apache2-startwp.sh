@@ -4,12 +4,18 @@ function wp_plugin_install() {
 /bin/sh -c "wp plugin install $1 --activate"
 }
 
+function setValue() {
+    text="if(!defined('$1')) {
+      define('$1', '$2');
+    }"
+    echo "$text" >> /var/www/html/wp-includes/default-constants.php
+    echo "$text" >> /var/www/html/wp-config.php
+}
+
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 
-echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
-echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
-echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-config.php
-echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-config.php
+setValue 'WP_HOME' "$SITE_URL"
+setValue 'WP_SITEURL' "$SITE_URL"
 
 if [ -d "/var/www/jsarc" ] ; then
 rm -rf /var/www/html/wp-content/themes/jsarc
@@ -32,6 +38,7 @@ wp_plugin_install wp-export-menus
 wp_plugin_install wp-mail-smtp
 wp_plugin_install disable-xml-rpc
 wp_plugin_install ga-google-analytics
+wp_plugin_install wp-optimize
 
 wp theme activate jsarc
 

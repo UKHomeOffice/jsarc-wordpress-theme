@@ -9,7 +9,7 @@ services:
       WORDPRESS_DB_PASSWORD: jsarc #for demo purposes only otherwise this is called from an environment file
       WORDPRESS_DB_USER: jsarc
       WORDPRESS_DB_NAME: jsarc
-      WORDPRESS_DEBUG: "yes"
+#      WORDPRESS_DEBUG: "yes"
       SITE_URL: 'http://localhost:8081'
       SITE_TITLE: JSaRC
       ADMIN_USER: test
