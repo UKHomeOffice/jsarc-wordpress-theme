@@ -32,7 +32,7 @@ wp_plugin_install wp-export-menus
 wp_plugin_install wp-mail-smtp
 wp_plugin_install disable-xml-rpc
 wp_plugin_install ga-google-analytics
-wp_plugin_install wp-optimise
+wp_plugin_install wp-optimize
 
 wp theme activate jsarc
 
