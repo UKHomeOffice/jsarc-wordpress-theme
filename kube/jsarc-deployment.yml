@@ -61,17 +61,17 @@ spec:
                 secretKeyRef:
                   name: {{ .RDS_SECRET_NAME }}
                   key: endpoint
-            - name: ILAB_AWS_S3_ACCESS_KEY
+            - name: MCLOUD_STORAGE_S3_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
                   name: {{ .S3_SECRET_NAME }}
                   key: access_key_id
-            - name: ILAB_AWS_S3_ACCESS_SECRET
+            - name: MCLOUD_STORAGE_S3_SECRET
               valueFrom:
                 secretKeyRef:
                   name: {{ .S3_SECRET_NAME }}
                   key: secret_access_key
-            - name: ILAB_AWS_S3_BUCKET
+            - name: MCLOUD_STORAGE_S3_BUCKET
               valueFrom:
                 secretKeyRef:
                   name: {{ .S3_SECRET_NAME }}
