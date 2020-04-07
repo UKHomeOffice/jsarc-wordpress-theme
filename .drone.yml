@@ -25,7 +25,7 @@ pipeline:
       event: push
 
   deploy_to_kube:
-    image: quay.io/ukhomeofficedigital/kd:v1.10.6
+    image: quay.io/ukhomeofficedigital/kd:v1.16.0
     secrets:
       - kube_token_acp_notprod
     environment:
@@ -41,7 +41,7 @@ pipeline:
       event: push
 
   deploy_to_prod:
-    image: quay.io/ukhomeofficedigital/kd:v1.10.6
+    image: quay.io/ukhomeofficedigital/kd:v1.16.0
     secrets:
       - kube_token_acp_prod
     environment:
