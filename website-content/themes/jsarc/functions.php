@@ -91,8 +91,7 @@ add_action('after_setup_theme', 'jsarc_setup');
  *
  * @global int $content_width
  */
-function jsarc_content_width()
-{
+function jsarc_content_width() {
     // This variable is intended to be overruled from themes.
     // Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
     // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
@@ -106,8 +105,7 @@ add_action('after_setup_theme', 'jsarc_content_width', 0);
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function jsarc_widgets_init()
-{
+function jsarc_widgets_init() {
     register_sidebar(array(
         'name' => esc_html__('Sidebar', 'jsarc'),
         'id' => 'sidebar-1',
@@ -124,8 +122,7 @@ add_action('widgets_init', 'jsarc_widgets_init');
 /**
  * Enqueue scripts and styles.
  */
-function jsarc_scripts()
-{
+function jsarc_scripts() {
     wp_enqueue_style('jsarc-style', get_stylesheet_uri());
 
     wp_enqueue_script('jsarc-scripts', get_template_directory_uri() . '/js/app.bundle.js', array(), '20180924', true);
@@ -225,8 +222,7 @@ remove_filter('the_content', 'wpautop');
 remove_filter('the_excerpt', 'wpautop');
 
 
-function wpse200296_before_admin_bar_render()
-{
+function wpse200296_before_admin_bar_render() {
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('customize');
 }
@@ -236,8 +232,7 @@ function wpse200296_before_admin_bar_render()
  *  Remove page editor from wordpress dashboard
  */
 // add_filter( 'user_can_richedit' , '__return_false', 50 );
-function reset_editor()
-{
+function reset_editor() {
     global $_wp_post_type_features;
     $post_type = "page";
     $feature = "editor";
@@ -251,8 +246,7 @@ add_action("init", "reset_editor");
 /**
  *  Remove news/posts editor from wordpress dashboard
  */
-function reset_post_editor()
-{
+function reset_post_editor() {
     global $_wp_post_type_features;
     $post_type = "post";
     $feature = "editor";
@@ -267,8 +261,7 @@ add_action("init", "reset_post_editor");
 /**
  * Register JSaRC Primary Nav
  */
-function register_jsarc_primary_nav()
-{
+function register_jsarc_primary_nav() {
     register_nav_menu('jsarc-primary-nav', __('JSaRC Primary Nav'));
 }
 
@@ -288,10 +281,10 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu
         $class_names = $value = '';
         $classes = empty($item->classes) ? array() : (array)$item->classes;
 
-        if ($args['walker']->has_children && $depth === 0) {
+
+        if ($args->walker->has_children && $depth === 0) {
             $classes[] = 'dropdown';
         }
-
 
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item));
 
@@ -307,17 +300,18 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu
         $prepend = '<span class="link-text">';
         $append = '</span>';
 
-        $item_output = $args['before'];
+
+        $item_output = $args->before;
         if ($depth != 0) {
             $item_output .= '<a class="sub-menu-link"' . $attributes . '>';
-        } else if ($args['walker']->has_children && $depth === 0) {
+        } else if ($args->walker->has_children && $depth === 0) {
             $item_output .= '<a class="menu-link" aria-haspopup="true" aria-expanded="false"' . $attributes . '>';
         } else {
             $item_output .= '<a class="menu-link"' . $attributes . '>';
         }
-        $item_output .= $args['link_before'] . $prepend . apply_filters('the_title', $item->title, $item->ID) . $append;
+        $item_output .= $args->link_before . $prepend . apply_filters('the_title', $item->title, $item->ID) . $append;
         $item_output .= '</a>';
-        $item_output .= $args['after'];
+        $item_output .= $args->after;
 
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
 
@@ -325,11 +319,9 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu
 }
 
 // Remove all classes and ID from Nav Menu
-function remove_css_id_filter($var)
-{
+function remove_css_id_filter($var) {
     return is_array($var) ? array_intersect($var, array('current-menu-item', 'dropdown')) : '';
 }
-
 add_filter('page_css_class', 'remove_css_id_filter', 100, 1);
 add_filter('nav_menu_item_id', 'remove_css_id_filter', 100, 1);
 add_filter('nav_menu_css_class', 'remove_css_id_filter', 100, 1);
@@ -338,8 +330,7 @@ add_filter('nav_menu_css_class', 'remove_css_id_filter', 100, 1);
 /**
  *  Customize the WYSIWYG toolbars
  */
-function my_toolbars($toolbars)
-{
+function my_toolbars($toolbars) {
     $toolbars['Full'] = array();
     $toolbars['Full'][1] = array('pastetext', 'bold', 'italic', 'underline', 'bullist', 'numlist', 'link', 'unlink', 'spellchecker', 'removeformat', 'undo', 'redo');
     $toolbars['Full'][2] = array();
@@ -350,7 +341,6 @@ function my_toolbars($toolbars)
     // return $toolbars - IMPORTANT!
     return $toolbars;
 }
-
 add_filter('acf/fields/wysiwyg/toolbars', 'my_toolbars');
 
 /**
@@ -359,8 +349,7 @@ add_filter('acf/fields/wysiwyg/toolbars', 'my_toolbars');
 // Customise ACF path
 add_filter('acf/settings/path', 'my_acf_settings_path');
 
-function my_acf_settings_path($path)
-{
+function my_acf_settings_path($path) {
 
     // update path
     $path = get_stylesheet_directory() . '/acf/';
@@ -373,8 +362,7 @@ function my_acf_settings_path($path)
 // Customise ACF dir
 add_filter('acf/settings/dir', 'my_acf_settings_dir');
 
-function my_acf_settings_dir($dir)
-{
+function my_acf_settings_dir($dir) {
 
     // update path
     $dir = get_stylesheet_directory_uri() . '/acf/';
@@ -395,8 +383,7 @@ include_once(get_stylesheet_directory() . '/acf/acf.php');
 
 // ACF JSON save
 add_filter('acf/settings/save_json', 'my_acf_json_save_point');
-function my_acf_json_save_point($path)
-{
+function my_acf_json_save_point($path) {
     // update path
     $path = get_stylesheet_directory() . 'acf-json';
     // return
@@ -405,8 +392,7 @@ function my_acf_json_save_point($path)
 
 // ACF JSON load
 add_filter('acf/settings/load_json', 'my_acf_json_load_point');
-function my_acf_json_load_point($paths)
-{
+function my_acf_json_load_point($paths) {
     // remove original path (optional)
     unset($paths[0]);
     // append path
@@ -461,38 +447,38 @@ if (function_exists('acf_add_options_page')) {
  * Dynamically change servers for images
  *
  */
-function acf_image_path($url, $post_id)
-{
-    $my_server = $_SERVER['SERVER_NAME'];
-    $loc = [
+function acf_image_path($url, $post_id) {
+	$my_server = $_SERVER['SERVER_NAME'];
+	$loc = [
         'localhost'
-    ];
-    $dev = [
-        'web.notprod.jsarc.homeoffice.gov.uk',
+ 	];
+	$dev = [
+		'web.notprod.jsarc.homeoffice.gov.uk',
         'admin.notprod.jsarc.homeoffice.gov.uk',
         'web.jsarc-notprod.homeoffice.gov.uk',
         'admin.jsarc-notprod.homeoffice.gov.uk'
     ];
-    $prod = [
+	$prod = [
         'web.jsarc.homeoffice.gov.uk',
-        'admin.jsarc.homeoffice.gov.uk',
+		'admin.jsarc.homeoffice.gov.uk',
         'jsarc.org',
-        'www.jsarc.org',
+		'www.jsarc.org',
         'admin.jsarc.org'
     ];
     if (in_array($my_server, $loc)) {
-        $s3_server = 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content/uploads/';
-        $imgix_server = 'https://jsarc.imgix.net/';
-    } else if (in_array($my_server, $dev)) {
-        $s3_server = 'https://jsarc-dev-s3.s3.eu-west-2.amazonaws.com/';
-        $imgix_server = 'https://jsarc.imgix.net/';
-    } else if (in_array($my_server, $prod)) {
-        $s3_server = 'https://jsarc-prod-s3.s3.eu-west-2.amazonaws.com/';
-        $imgix_server = 'https://jsarc-prod.imgix.net/';
-    }
-    return str_replace($s3_server, $imgix_server, $url);
+	    $s3_server = 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content/uploads/';
+    	$imgix_server = 'https://jsarc.imgix.net/';
+	}
+    else if (in_array($my_server, $dev)) {
+	    $s3_server = 'https://jsarc-dev-s3.s3.eu-west-2.amazonaws.com/';
+		$imgix_server = 'https://jsarc.imgix.net/';
+	}
+	else if (in_array($my_server, $prod)) {
+		$s3_server = 'https://jsarc-prod-s3.s3.eu-west-2.amazonaws.com/';
+		$imgix_server = 'https://jsarc-prod.imgix.net/';
+	}
+	return str_replace($s3_server, $imgix_server, $url);
 }
-
 add_filter('wp_get_attachment_url', 'acf_image_path', 9999, 2);
 
 
