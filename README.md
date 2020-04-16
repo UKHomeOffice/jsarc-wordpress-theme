@@ -61,4 +61,10 @@ $ npm run hint yourURL
 ``` 
 Where *'yourURL'* is a url to a page you want to test. For example, 'npm run hint localhost:3000/homepage-test'.
 
+## Releasing 
 
+To push a new build to production use: 
+
+```shell script
+drone --server https://drone.acp.homeoffice.gov.uk/ --token <token> deploy UKHomeOffice/jsarc-wordpress-theme <build number> prod
+```
