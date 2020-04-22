@@ -5,6 +5,9 @@ metadata:
   name: {{ .JSARC_NAME }}
 spec:
   replicas: {{ .REPLICA_COUNT }}
+  selector:
+    matchLabels:
+      name: {{ .JSARC_NAME }}
   template:
     metadata:
       labels:
