@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1alpha3
+kind: Certificate
+metadata:
+  name: jsarc-admin
+  labels:
+    # @Note: specify label cert-manager.io/solver to specify that the route53 dns01 solver should be used
+    cert-manager.io/solver: route53
+spec:
+  secretName: jsarcadmin-cmio
+  issuerRef:
+    # use letsencrypt-staging while developing and testing your certificates
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+    group: cert-manager.io
+  dnsNames:
+    - {{ .ADMIN_SITE_URL }}
