@@ -3,6 +3,8 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: jsarc
+  labels:
+    stable.k8s.psg.io/kcm.class: default
   annotations:
     ingress.kubernetes.io/force-ssl-redirect: "false"
     ingress.kubernetes.io/ssl-redirect: "false"
@@ -12,7 +14,7 @@ spec:
   tls:
     - hosts:
         - {{ .SITE_URL }}
-      secretName: jsarcweb-cmio
+      secretName: jsarcweb
   rules:
     - host: {{ .SITE_URL }}
       http:
