@@ -4,7 +4,7 @@ metadata:
   name: jsarc-admin
   labels:
     # @Note: specify label cert-manager.io/solver to specify that the route53 dns01 solver should be used
-    cert-manager.io/solver: route53
+    cert-manager.io/solver: http01
 spec:
   secretName: jsarcadmin-cmio
   issuerRef:
