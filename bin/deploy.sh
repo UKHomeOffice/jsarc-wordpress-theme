@@ -47,6 +47,7 @@ case ${DRONE_DEPLOY_TO_ACP} in
     export REPLICA_COUNT=2
     export JSARC_NAME="jsarc"
     export INGRESS_NAME="jsarc-ingress.yml"
+    export CERTIFICATE_NAME="jsarc-certificate.yml"
     ;;
   'acp-prod')
     export KUBE_SERVER="https://kube-api-prod.prod.acp.homeoffice.gov.uk"
@@ -59,6 +60,7 @@ case ${DRONE_DEPLOY_TO_ACP} in
     export REPLICA_COUNT=3
     export JSARC_NAME="jsarc"
     export INGRESS_NAME="jsarc-ingress-prod.yml"
+    export CERTIFICATE_NAME="jsarc-certificate-prod.yml"
     ;;
 esac
 
@@ -73,6 +75,7 @@ if ! kd --timeout=5m \
   -f kube/jsarc-deployment.yml \
   -f kube/jsarc-service.yml \
   -f kube/${INGRESS_NAME} \
+  -f kube/${CERTIFICATE_NAME} \
   -f kube/jsarc-networkpolicy.yml; then
   echo "[error] failed to deploy jsarc"
   exit 1
@@ -94,6 +97,7 @@ if ! kd --timeout=5m \
   -f kube/jsarc-deployment.yml \
   -f kube/jsarc-service.yml \
   -f kube/jsarc-networkpolicy.yml \
+  -f kube/jsarc-certificate-admin.yml \
   -f kube/jsarc-ingress-admin.yml; then
   echo "[error] failed to deploy jsarc"
   exit 1
