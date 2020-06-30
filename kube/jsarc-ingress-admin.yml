@@ -3,8 +3,6 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: jsarc-admin
-  labels:
-    stable.k8s.psg.io/kcm.class: default
   annotations:
     stable.k8s.psg.io/kcm.provider: "http"
     ingress.kubernetes.io/force-ssl-redirect: "true"
@@ -24,7 +22,7 @@ spec:
   tls:
     - hosts:
         - {{ .ADMIN_SITE_URL }}
-      secretName: jsarcadmin
+      secretName: jsarcadmin-cmio
   rules:
     - host: {{ .ADMIN_SITE_URL }}
       http:
