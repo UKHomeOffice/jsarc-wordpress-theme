@@ -9,6 +9,7 @@ docker-compose up
 ````
 Wordpress should be available on port 80 and phpmyadmin on port 8080.
 
+
 # Front end development setup
 Front end source files are stored inside the `/website-content/themes/jsarc/src` folder.
 
