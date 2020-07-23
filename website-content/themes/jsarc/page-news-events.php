@@ -412,7 +412,8 @@
                 'category_name' => 'news',
                 'posts_per_page' => 5,
                 'meta_key' => 'featured_post',
-                'orderby' => 'meta_value'
+                'orderby' => 'date',
+                'order' => 'DESC'
                 ));
              ?>
             <?php if( $the_query->have_posts() ): ?>
@@ -458,7 +459,7 @@
                 </li>
                 <?php endwhile; ?>
             </ul>
-            <a class="button more" href="/news/">See all JSaRC news articles</a>
+            <a class="button more" href="/news/">See a changed thing all JSaRC news articles</a>
             <?php endif; ?>
             <?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
             
