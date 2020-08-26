@@ -24,9 +24,9 @@ spec:
             httpGet:
               path: /robots.txt
               port: 8081
-            initialDelaySeconds: 300
-            periodSeconds: 200
-            timeoutSeconds: 100
+            initialDelaySeconds: 30
+            periodSeconds: 20
+            timeoutSeconds: 10
             failureThreshold: 4
             successThreshold: 1
           readinessProbe:
