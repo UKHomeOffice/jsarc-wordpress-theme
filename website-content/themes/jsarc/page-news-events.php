@@ -459,7 +459,7 @@
                 </li>
                 <?php endwhile; ?>
             </ul>
-            <a class="button more" href="/news/jsarc-updates-archive/">See JSaRC Updates Archive</a>
+            <a class="button more" href="/news/">See a changed thing all JSaRC news articles</a>
             <?php endif; ?>
             <?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
             
