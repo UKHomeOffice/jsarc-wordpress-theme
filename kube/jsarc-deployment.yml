@@ -20,24 +20,6 @@ spec:
         - name: jsarc-wordpress
           image: {{ .IMAGE_URL }}
           imagePullPolicy: IfNotPresent
-          livenessProbe:
-            httpGet:
-              path: /robots.txt
-              port: 8081
-            initialDelaySeconds: 30
-            periodSeconds: 20
-            timeoutSeconds: 10
-            failureThreshold: 4
-            successThreshold: 1
-          readinessProbe:
-            httpGet:
-              path: /robots.txt
-              port: 8081
-            initialDelaySeconds: 30
-            periodSeconds: 30
-            timeoutSeconds: 10
-            failureThreshold: 4
-            successThreshold: 1
           ports:
             - containerPort: 8081
           envFrom:
