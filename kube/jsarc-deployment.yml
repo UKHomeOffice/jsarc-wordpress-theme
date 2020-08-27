@@ -22,7 +22,7 @@ spec:
           imagePullPolicy: IfNotPresent
           livenessProbe:
             httpGet:
-              path: /robots.txt
+              path: /
               port: 8081
             initialDelaySeconds: 90
             periodSeconds: 20
@@ -31,7 +31,7 @@ spec:
             successThreshold: 1
           readinessProbe:
             httpGet:
-              path: /robots.txt
+              path: /
               port: 8081
             initialDelaySeconds: 90
             periodSeconds: 30
