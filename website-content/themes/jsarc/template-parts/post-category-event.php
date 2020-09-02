@@ -17,7 +17,7 @@
     height: 300px;
     background-size: cover;
     background-position: 80% 50%;
-    background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>?fit=crop&w=2560&h=300");
+    background-image: url("<?php if ( have_rows( 'section_overview' ) ) : while ( have_rows( 'section_overview' ) ) : the_row(); the_sub_field( 'hero_image' ); endwhile; endif; ?>?fit=crop&w=2560&h=300");
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
