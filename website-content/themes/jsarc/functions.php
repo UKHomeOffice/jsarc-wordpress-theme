@@ -80,6 +80,25 @@ if (!function_exists('jsarc_setup')) :
             'flex-width' => true,
             'flex-height' => true,
         ));
+
+        // Enable the block editor for all posts/pages:  
+        //add_filter('use_block_editor_for_post', '__return_true');
+
+        // Enable the block editor for some pages:
+        function prefix_enable_block_editor_for_post( $use_block_editor, $post ) {
+            // Enable Block Editor for post with ID 123.
+            // if ( 123 === $post->ID ) {
+                // return true;
+            // }
+            // Enable the Page builder template:
+            $template_file = get_post_meta( $post->ID, '_wp_page_template', TRUE );
+            if ( $template_file == 'page-visual-builder.php' ) {
+                    return true;
+            }
+
+            return $use_block_editor;
+        }
+        add_filter( 'use_block_editor_for_post', 'prefix_enable_block_editor_for_post', 10, 2 );
     }
 endif;
 add_action('after_setup_theme', 'jsarc_setup');
@@ -493,3 +512,51 @@ add_filter('get_archives_link',
         }
         return $link_html;
     }, 10, 6);
+
+// Optionaly add Google analytic gtag to every page
+
+add_action('wp_head', 'hook_ga');
+function hook_ga() {
+    $ga_settings = get_option( 'google_analytics_settings' );
+    $enabled = $ga_settings['enabled'];
+    $measurementId = esc_attr($ga_settings['measurement_id']);
+    $consentCookieName = esc_attr($ga_settings['consent_cookie']);
+
+    if ($enabled && $measurementId != '' && $consentCookieName != '') {
+            $str = <<<EOD
+                <script>
+                    function getCookie(name) {
+                        const value = '; ' + document.cookie;
+                        const parts = value.split('; ' + name + '=');
+                        if (parts.length === 2) return parts.pop().split(';').shift();
+                    }
+                    function user_consented() {
+                        var cookieNotice = getCookie("$consentCookieName");
+                        return ("true" == cookieNotice);
+                    }
+                    function disable_ga(measurement_id) {
+                        window['ga-disable-' + measurement_id] = true;
+                    }
+                    if (!user_consented()) disable_ga('$measurementId');
+                </script>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=$measurementId"></script>
+
+                <script>
+                function add_ga(measurement_id) {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', measurement_id);
+                }
+                </script>
+                <script>if (user_consented()) add_ga('$measurementId');</script>
+
+                EOD;
+            echo $str;
+        }
+}
+
+if( is_admin() ) {
+	require 'google_analytics_settings_page.php';
+	new google_analytics_settings_page();
+}

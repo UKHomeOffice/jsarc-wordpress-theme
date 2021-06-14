@@ -6,10 +6,18 @@ function wp_plugin_install() {
 
 cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
 
-echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
-echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
-echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-config.php
-echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-config.php
+
+if grep -Fxq "define('WP_HOME', '$SITE_URL');" /var/www/html/wp-includes/default-constants.php
+then
+    # code if found
+    echo "Defaults already set"
+else
+
+    echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
+    echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
+    #echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-config.php
+    #echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-config.php
+fi
 
 if [ -d "/var/www/jsarc" ] ; then
 rm -rf /var/www/html/wp-content/themes/jsarc
@@ -30,9 +38,10 @@ wp_plugin_install /var/www/html/wp-content/themes/jsarc/plugins/acf-theme-code-p
 wp_plugin_install ilab-media-tools
 wp_plugin_install wp-export-menus
 wp_plugin_install disable-xml-rpc
-wp_plugin_install ga-google-analytics
+# wp_plugin_install ga-google-analytics
 wp_plugin_install wp-optimize
 wp_plugin_install updraftplus
+wp_plugin_install cookie-notice
 
 wp theme activate jsarc
 
