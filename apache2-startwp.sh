@@ -50,4 +50,14 @@ echo "Redirect 301 /wp-login.php $ADMIN_SITE_URL/wp-login.php" >> /var/www/html/
 echo "Redirect 301 /wp-admin/ $ADMIN_SITE_URL/wp-admin" >> /var/www/html/.htaccess
 fi
 
+# Disable XML-RPC
+read -r -d '' NO_XML_RPC << EOM
+# Block WordPress xmlrpc.php requests
+ <Files xmlrpc.php>
+ order deny,allow
+ deny from all
+ </Files>
+EOM
+echo "$NO_XML_RPC" >> /var/www/html/.htaccess
+
 $@
