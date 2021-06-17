@@ -37,7 +37,7 @@ wp_plugin_install wordpress-importer
 wp_plugin_install /var/www/html/wp-content/themes/jsarc/plugins/acf-theme-code-pro.zip
 wp_plugin_install ilab-media-tools
 wp_plugin_install wp-export-menus
-wp_plugin_install disable-xml-rpc
+# wp_plugin_install disable-xml-rpc
 # wp_plugin_install ga-google-analytics
 wp_plugin_install wp-optimize
 wp_plugin_install updraftplus
