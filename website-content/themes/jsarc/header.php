@@ -108,7 +108,7 @@
             searchSmallPlaceholder = document.querySelector('.search-small-placeholder'),
             munuLinks = nav.querySelectorAll('.menu-link'),
             desktop = window.matchMedia('(min-width: 1025px)');
-    
+            searchWindowWidth = window.outerWidth;
     
     
         searchSmallPlaceholder.addEventListener('click', function( event ) {
@@ -269,8 +269,13 @@
                 
             
                 window.addEventListener('resize', function( event ) {
-                    dropdownCloseFun();
-                    searchCloseFun();
+                    <?php // close the search funciton if width has changed as resizing width can cause issues with search display.
+                          // but not height only resizes which could be due to mobile keyboard popup on mobiles ?>
+                    if ( window.outerWidth != searchWindowWidth ) {
+                        dropdownCloseFun();
+                        searchCloseFun();
+                    searchWindowWidth = window.outerWidth;
+                    }
                 }, true);
             
             });
