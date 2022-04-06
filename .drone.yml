@@ -70,7 +70,7 @@ steps:
     - bin/deploy.sh
   environment:
     IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default/osct-jsarc:${DRONE_COMMIT_SHA}
-    DRONE_DEPLOY_TO: acp-notprod
+    DRONE_DEPLOY_TO_ACP: acp-notprod
     KUBE_TOKEN_ACP_NOTPROD:
       from_secret: kube_token_acp_notprod
   when:
@@ -88,6 +88,7 @@ steps:
     - bin/deploy.sh
   environment:
     IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default/osct-jsarc:${DRONE_COMMIT_SHA}
+    DRONE_DEPLOY_TO_ACP: acp-prod
     KUBE_NAMESPACE: jsarc
     KUBE_TOKEN_ACP_PROD:
       from_secret: KUBE_TOKEN_ACP_PROD
