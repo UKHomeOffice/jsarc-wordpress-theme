@@ -37,7 +37,7 @@ steps:
     dockerfile: ./Dockerfile
     tags:
       - latest
-      - osct-jsarc:${DRONE_COMMIT_SHA}
+      - ${DRONE_COMMIT_SHA}
   when:
     branch:
       - master
@@ -69,7 +69,7 @@ steps:
     - apk add curl
     - bin/deploy.sh
   environment:
-    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default/osct-jsarc:${DRONE_COMMIT_SHA}
+    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default:${DRONE_COMMIT_SHA}
     DRONE_DEPLOY_TO_ACP: acp-notprod
     KUBE_TOKEN_ACP_NOTPROD:
       from_secret: kube_token_acp_notprod
@@ -87,7 +87,7 @@ steps:
     - apk add curl
     - bin/deploy.sh
   environment:
-    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default/osct-jsarc:${DRONE_COMMIT_SHA}
+    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default:${DRONE_COMMIT_SHA}
     DRONE_DEPLOY_TO_ACP: acp-prod
     KUBE_NAMESPACE: jsarc
     KUBE_TOKEN_ACP_PROD:
