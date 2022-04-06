@@ -75,7 +75,7 @@ steps:
       from_secret: kube_token_acp_notprod
   when:
     branch:
-      - main
+      - master
     event:
       - push
 
@@ -87,8 +87,7 @@ steps:
     - apk add curl
     - bin/deploy.sh
   environment:
-    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/sas/iipcv-website:${DRONE_COMMIT_SHA}
-    MAINTENANCE_IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/sas/iipcv-maintenance:${DRONE_COMMIT_SHA}
+    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default/osct-jsarc:${DRONE_COMMIT_SHA}
     KUBE_NAMESPACE: jsarc
     KUBE_TOKEN_ACP_PROD:
       from_secret: KUBE_TOKEN_ACP_PROD
