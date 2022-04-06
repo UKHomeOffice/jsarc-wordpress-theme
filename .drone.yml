@@ -1,76 +1,125 @@
 ---
 kind: pipeline
 name: default
+type: kubernetes
 
 platform:
   os: linux
   arch: amd64
 
 steps:
-- name: build-image
+- name: build-wordpress-image
   pull: if-not-exists
-  image: docker:18.03
+  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
   commands:
-  - docker build -t jsarc-wordpress .
+    # wait for docker service to come up
+    - n=0; while [ "$n" -lt 60 ] && [ ! -e /var/run/docker.sock ]; do n=$(( n + 1 )); sleep 1; done
+    - docker build -t docker.digital.homeoffice.gov.uk/osct-jsarc:$${DRONE_BUILD_NUMBER} .
+  volumes:
+    - name: dockersock
+      path: /var/run
+  when:
+    event:
+      - pull_request
+
+- name: build_wordpress_ecr
+  pull: if-not-exists
+  image: plugins/ecr
   environment:
-    DOCKER_HOST: tcp://172.17.0.1:2375
+    AWS_REGION: eu-west-2
+  settings:
+    access_key:
+      from_secret: AWS_ACCESS_KEY_ID
+    secret_key:
+      from_secret: AWS_SECRET_ACCESS_KEY
+    repo: jsarc/default
+    registry: 340268328991.dkr.ecr.eu-west-2.amazonaws.com
+    dockerfile: ./Dockerfile
+    tags:
+      - latest
+      - ${DRONE_COMMIT_SHA}
   when:
     branch:
-    - master
+      - master
     event:
-    - push
+      - push
 
-- name: push_to_quay
-  pull: if-not-exists
-  image: docker:18.03
-  commands:
-  - docker login -u="ukhomeofficedigital+jsarc" -p=$${DOCKER_PASSWORD} quay.io
-  - docker tag jsarc-wordpress quay.io/ukhomeofficedigital/osct-jsarc:$${DRONE_COMMIT_SHA}
-  - docker push quay.io/ukhomeofficedigital/osct-jsarc:$${DRONE_COMMIT_SHA}
-  environment:
-    DOCKER_HOST: tcp://172.17.0.1:2375
-    DOCKER_PASSWORD:
-      from_secret: docker_password
-  when:
-    branch:
-    - master
-    event:
-    - push
+#- name: push_to_quay
+#  pull: if-not-exists
+#  image: docker:18.03
+#  commands:
+#  - docker login -u="ukhomeofficedigital+jsarc" -p=$${DOCKER_PASSWORD} quay.io
+#  - docker tag jsarc-wordpress quay.io/ukhomeofficedigital/osct-jsarc:$${DRONE_COMMIT_SHA}
+#  - docker push quay.io/ukhomeofficedigital/osct-jsarc:$${DRONE_COMMIT_SHA}
+#  environment:
+#    DOCKER_HOST: tcp://172.17.0.1:2375
+#    DOCKER_PASSWORD:
+#      from_secret: docker_password
+#  when:
+#    branch:
+#    - master
+#    event:
+#    - push
 
-- name: deploy_to_kube
+- name: deploy_wordpress_to_dev
   pull: if-not-exists
-  image: quay.io/ukhomeofficedigital/kd:v1.16.0
+  image: quay.io/ukhomeofficedigital/kd:v1.14.0
   commands:
-  - apk update
-  - apk add curl
-  - chmod +x bin/deploy.sh
-  - bin/deploy.sh
+    - apk update
+    - apk add curl
+    - bin/deploy.sh
   environment:
-    DRONE_DEPLOY_TO_ACP: acp-notprod
-    IMAGE_URL: quay.io/ukhomeofficedigital/osct-jsarc:${DRONE_COMMIT_SHA}
+    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default/osct-jsarc:${DRONE_COMMIT_SHA}
+    DRONE_DEPLOY_TO: acp-notprod
     KUBE_TOKEN_ACP_NOTPROD:
       from_secret: kube_token_acp_notprod
   when:
     branch:
-    - master
+      - main
     event:
-    - push
+      - push
 
-- name: deploy_to_prod
+- name: manual_deploy_wordpress_to_prod
   pull: if-not-exists
-  image: quay.io/ukhomeofficedigital/kd:v1.16.0
+  image: quay.io/ukhomeofficedigital/kd:v1.14.0
   commands:
-  - apk update
-  - apk add curl
-  - chmod +x bin/deploy.sh
-  - bin/deploy.sh
+    - apk update
+    - apk add curl
+    - bin/deploy.sh
   environment:
-    DRONE_DEPLOY_TO_ACP: acp-prod
-    IMAGE_URL: quay.io/ukhomeofficedigital/osct-jsarc:${DRONE_COMMIT_SHA}
+    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/sas/iipcv-website:${DRONE_COMMIT_SHA}
+    MAINTENANCE_IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/sas/iipcv-maintenance:${DRONE_COMMIT_SHA}
+    KUBE_NAMESPACE: jsarc
     KUBE_TOKEN_ACP_PROD:
-      from_secret: kube_token_acp_prod
+      from_secret: KUBE_TOKEN_ACP_PROD
   when:
     event:
-    - deployment
+      - promote
 
+services:
+  - name: docker
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
+
+volumes:
+  - name: dockersock
+    temp: {}
+  - name: dockerclientconfig
+    temp: {}
 ...
+
+#- name: deploy_to_prod
+#  pull: if-not-exists
+#  image: quay.io/ukhomeofficedigital/kd:v1.16.0
+#  commands:
+#  - apk update
+#  - apk add curl
+#  - chmod +x bin/deploy.sh
+#  - bin/deploy.sh
+#  environment:
+#    DRONE_DEPLOY_TO_ACP: acp-prod
+#    IMAGE_URL: quay.io/ukhomeofficedigital/osct-jsarc:${DRONE_COMMIT_SHA}
+#    KUBE_TOKEN_ACP_PROD:
+#      from_secret: kube_token_acp_prod
+#  when:
+#    event:
+#    - promote
