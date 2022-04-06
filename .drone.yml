@@ -37,7 +37,7 @@ steps:
     dockerfile: ./Dockerfile
     tags:
       - latest
-      - ${DRONE_COMMIT_SHA}
+      - osct-jsarc:${DRONE_COMMIT_SHA}
   when:
     branch:
       - master
