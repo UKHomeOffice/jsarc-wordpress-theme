@@ -671,7 +671,14 @@ endif;
                 <p class="hero-intro"><?php the_sub_field( 'intro' ); ?></p>
                 <?php if ( have_rows( 'button' ) ) : ?>
                 <?php while ( have_rows( 'button' ) ) : the_row(); ?>
-                <a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+                    <?php if ( get_sub_field( 'hidden_text' ) &&
+                     get_sub_field( 'text' ) &&
+                      get_sub_field( 'url' ) ) { ?>
+                        <a class="button more" href="<?php the_sub_field( 'url' ); ?>">
+                            <?php the_sub_field( 'text' ); ?>
+                            <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?>
+                        </a>
+                    <?php } ?>
                 <?php endwhile; ?>
                 <?php endif; ?>
             </div>
