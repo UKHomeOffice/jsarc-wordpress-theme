@@ -22,6 +22,33 @@ steps:
     event:
       - pull_request
 
+- name: Scan-Wordpress-Image
+  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+  pull: always
+  failure: ignore
+  environment:
+    IMAGE_NAME: docker.digital.homeoffice.gov.uk/iipcv-wordpress:${DRONE_BUILD_NUMBER}
+    TOLERATE: high
+  when:
+    event:
+    - pull_request
+    - push
+  depends_on:
+  - build-wordpress-image
+
+- name: scan_maintenance_image
+  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+  pull: always
+  failure: ignore
+  environment:
+    IMAGE_NAME: docker.digital.homeoffice.gov.uk/ipco-maintenance:${DRONE_BUILD_NUMBER}
+    TOLERATE: high
+  when:
+    event:
+    - pull_request
+  depends_on:
+  - build-maintenance-image 
+
 - name: build_wordpress_ecr
   pull: if-not-exists
   image: plugins/ecr
@@ -99,13 +126,37 @@ steps:
 services:
   - name: docker
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-
+  - name: anchore-submission-server
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+    pull: always
+    commands:
+      - /run.sh server   
 volumes:
-  - name: dockersock
-    temp: {}
-  - name: dockerclientconfig
-    temp: {}
-...
+- name: dockersock
+  temp: {}
+- name: dockerclientconfig
+  temp: {}
+
+---
+kind: pipeline
+type: kubernetes
+name: SonarQube Scan
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: sonarqube_core_scan
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/sonar-scanner-node:latest
+
+trigger:
+  event:
+    - push
+    - pull_request
+    - promote
+
 
 #- name: deploy_to_prod
 #  pull: if-not-exists
