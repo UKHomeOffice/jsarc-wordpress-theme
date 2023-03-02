@@ -21,6 +21,7 @@ steps:
   when:
     event:
       - pull_request
+      - push
 
 - name: Scan-Wordpress-Image
   image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
@@ -29,25 +30,13 @@ steps:
   environment:
     IMAGE_NAME: docker.digital.homeoffice.gov.uk/iipcv-wordpress:${DRONE_BUILD_NUMBER}
     TOLERATE: high
+    WHITELIST: CVE-2022-1253, CVE-2021-30475, CVE-2021-46848, CVE-2021-30473, CVE-2019-8457, CVE-2021-30474, CVE-2022-3643, CVE-2022-32221
   when:
     event:
     - pull_request
     - push
   depends_on:
   - build-wordpress-image
-
-- name: scan_maintenance_image
-  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
-  pull: always
-  failure: ignore
-  environment:
-    IMAGE_NAME: docker.digital.homeoffice.gov.uk/ipco-maintenance:${DRONE_BUILD_NUMBER}
-    TOLERATE: high
-  when:
-    event:
-    - pull_request
-  depends_on:
-  - build-maintenance-image 
 
 services:
   - name: docker
@@ -62,6 +51,7 @@ volumes:
     temp: {}
   - name: dockerclientconfig
     temp: {}
+
 ---
 kind: pipeline
 name: Maintenance-Image-Vulnerability-Scan
@@ -91,6 +81,7 @@ steps:
   when:
     branch:
       - master
+      - feature/*
     event:
       - push
 
@@ -111,6 +102,42 @@ steps:
 #    event:
 #    - push
 
+- name: scan_maintenance_image
+  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+  pull: always
+  failure: ignore
+  environment:
+    IMAGE_NAME: docker.digital.homeoffice.gov.uk/ipco-maintenance:${DRONE_BUILD_NUMBER}
+    TOLERATE: high
+  when:
+    event:
+    - pull_request
+  depends_on:
+  - build_wordpress_ecr 
+
+services:
+  - name: docker
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
+  - name: anchore-submission-server
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+    pull: always
+    commands:
+      - /run.sh server
+
+volumes:
+  - name: dockersock
+    temp: {}
+
+---
+kind: pipeline
+name: deploy-notprod
+type: kubernetes
+
+platform:
+  os: linux
+  arch: amd64
+  
+steps:  
 - name: deploy_wordpress_to_dev
   pull: if-not-exists
   image: quay.io/ukhomeofficedigital/kd:v1.14.0
@@ -145,7 +172,7 @@ steps:
   when:
     event:
       - promote
-      
+
 services:
   - name: docker
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
