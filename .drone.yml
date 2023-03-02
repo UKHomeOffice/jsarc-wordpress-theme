@@ -28,7 +28,7 @@ steps:
   pull: always
   failure: ignore
   environment:
-    IMAGE_NAME: docker.digital.homeoffice.gov.uk/iipcv-wordpress:${DRONE_BUILD_NUMBER}
+    IMAGE_NAME: docker.digital.homeoffice.gov.uk/osct-jsarc:${DRONE_BUILD_NUMBER}
     TOLERATE: high
     WHITELIST: CVE-2022-1253, CVE-2021-30475, CVE-2021-46848, CVE-2021-30473, CVE-2019-8457, CVE-2021-30474, CVE-2022-3643, CVE-2022-32221
   when:
@@ -107,11 +107,12 @@ steps:
   pull: always
   failure: ignore
   environment:
-    IMAGE_NAME: docker.digital.homeoffice.gov.uk/ipco-maintenance:${DRONE_BUILD_NUMBER}
+    IMAGE_NAME: docker.digital.homeoffice.gov.uk/osct-jsarc:${DRONE_BUILD_NUMBER}
     TOLERATE: high
   when:
     event:
     - pull_request
+    - push
   depends_on:
   - build_wordpress_ecr 
 
@@ -136,7 +137,7 @@ type: kubernetes
 platform:
   os: linux
   arch: amd64
-  
+
 steps:  
 - name: deploy_wordpress_to_dev
   pull: if-not-exists
