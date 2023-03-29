@@ -1,6 +1,6 @@
 FROM wordpress:php7.4-apache
 
-RUN apt-get update && apt-get install -y gnupg2
+RUN apt-get update && apt-get install -y gnupg2 mariadb-client
 
 RUN echo "Listen 8081" > /etc/apache2/ports.conf && \
     sed -i /VirtualHost/s/80/8081/ /etc/apache2/sites-available/000-default.conf
