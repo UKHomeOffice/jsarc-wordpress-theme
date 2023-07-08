@@ -49,7 +49,7 @@
 		"onchange": "^4.1.0",
 		"postcss-cli": "^4.1.0",
 		"postcss-sorting": "^4.0.0",
-		"stylelint": "^9.5.0",
+		"stylelint": "^15.10.1",
 		"stylelint-config-standard": "^18.2.0",
 		"stylelint-config-wordpress": "^13.1.0",
 		"stylelint-no-unsupported-browser-features": "^3.0.1",
