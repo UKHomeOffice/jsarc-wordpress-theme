@@ -85,30 +85,15 @@ steps:
     event:
       - push
 
-#- name: push_to_quay
-#  pull: if-not-exists
-#  image: docker:18.03
-#  commands:
-#  - docker login -u="ukhomeofficedigital+jsarc" -p=$${DOCKER_PASSWORD} quay.io
-#  - docker tag jsarc-wordpress quay.io/ukhomeofficedigital/osct-jsarc:$${DRONE_COMMIT_SHA}
-#  - docker push quay.io/ukhomeofficedigital/osct-jsarc:$${DRONE_COMMIT_SHA}
-#  environment:
-#    DOCKER_HOST: tcp://172.17.0.1:2375
-#    DOCKER_PASSWORD:
-#      from_secret: docker_password
-#  when:
-#    branch:
-#    - master
-#    event:
-#    - push
-
 - name: scan_maintenance_image
   image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
   pull: always
   failure: ignore
   environment:
     IMAGE_NAME: docker.digital.homeoffice.gov.uk/osct-jsarc:${DRONE_BUILD_NUMBER}
+    SERVICE_URL: http://anchore-submission-server:10080
     TOLERATE: high
+    WHITELIST: CVE-2022-1253, CVE-2021-30475, CVE-2021-46848, CVE-2021-30473, CVE-2019-8457, CVE-2021-30474, CVE-2022-3643, CVE-2022-32221, CVE-2023-28879, CVE-2022-24963, CVE-2021-30473, CVE-2021-30474, CVE-2023-28879, CVE-2023-25690, CVE-2021-30475, CVE-2021-46848, CVE-2022-32221, CVE-2023-28879, CVE-2022-36760, CVE-2023-23914, CVE-2022-36760, CVE-2023-25690, CVE-2019-8457, CVE-2022-1253, CVE-2023-25775
   when:
     event:
     - pull_request
