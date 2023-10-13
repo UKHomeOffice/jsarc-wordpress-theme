@@ -3,7 +3,9 @@ services:
   wordpress:
     depends_on:
     - database
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       WORDPRESS_DB_HOST: database:3306
       WORDPRESS_DB_PASSWORD: jsarc #for demo purposes only otherwise this is called from an environment file
@@ -18,13 +20,10 @@ services:
       DEV_DEPLOYMENT: 'yes'
     ports:
     - 8081:8081
-    - 80:80
     volumes:
     - ./website-content/themes/jsarc:/var/www/jsarc
-
-
   database:
-    image: mysql:5.7
+    image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: demopassword #for demo purposes only otherwise this is called from an environment file
       MYSQL_DATABASE: jsarc
