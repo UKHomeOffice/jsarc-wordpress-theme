@@ -5,7 +5,7 @@ RUN apk update && apk add --no-cache \
     wget \
     unzip
 
-RUN for plugin in cookie-notice ilab-media-tools tablepress timeline-express wordpress-importer wp-export-menus wp-optimize; do \
+RUN for plugin in cookie-notice ilab-media-tools wordpress-importer wp-export-menus wp-optimize; do \
         wget -O /tmp/${plugin}.zip https://downloads.wordpress.org/plugin/${plugin}.zip; \
     done && \
     unzip -d /tmp/plugins '/tmp/*.zip' && \
@@ -29,8 +29,8 @@ RUN apt-get update && \
     chmod +x /usr/local/bin/wp && \
     wp --allow-root --version && \
     mkdir /var/log/mod_evasive && \
-    chown www-data:www-data -R /var/www /var/log/apache2 /var/log/mod_evasive && \
-    rm -rf /var/www/html/wp-content/themes/twentytwentyone /var/www/html/wp-content/themes/twentytwentythree /var/www/html/wp-content/themes/twentytwentytwo
+    chown www-data:www-data -R /var/www /var/log/apache2 /var/log/mod_evasive
+
 
 RUN apt-get update && \
     apt-get install -y wget build-essential libjpeg-dev libtiff5-dev libpng-dev zlib1g-dev && \
