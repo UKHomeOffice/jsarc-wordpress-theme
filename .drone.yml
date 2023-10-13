@@ -199,7 +199,7 @@ platform:
 steps:
 - name: sonarqube_core_scan
   pull: if-not-exists
-  image: quay.io/ukhomeofficedigital/sonar-scanner-node:latest
+  image: quay.io/ukhomeofficedigital/sonar-scanner:latest
 
 trigger:
   event:
