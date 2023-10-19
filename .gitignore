@@ -22,3 +22,4 @@ kube/jsarc-theme-ingress.yaml
 
 rds_parameters.json
 ecs_parameters.json
+.idea

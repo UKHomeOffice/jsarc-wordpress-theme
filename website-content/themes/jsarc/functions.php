@@ -584,99 +584,99 @@ if( is_admin() ) {
  * credits to Vincent Zurczak for the base query structure/spliting tags section and Sjouw for comment cleanup
 */
 
-function advanced_custom_search( $search, $wp_query ) {
+function advanced_custom_search($search, $wp_query)
+{
     global $wpdb;
+
     if (empty($search)) {
         return $search;
     }
-    // AND (((wp_posts.post_title LIKE '%venenatis%') OR (wp_posts.post_excerpt LIKE '%venenatis%') OR (wp_posts.post_content LIKE '%venenatis%')))  AND (wp_posts.post_password = '')
-    // 1- get search expression
-    $terms = $wp_query->query_vars['s'];
 
-    // 2- explode search expression to get search terms
-    $exploded = preg_split('|\s+|', $terms);
-    if ($exploded === FALSE || count($exploded) == 0) {
-        $exploded = array(0 => $terms);
-    }
-    // 3- setup search variable as a string
+    $terms = $wp_query->query_vars['s'];
+    $exploded = get_search_terms($terms);
+
     $search = '';
     $params = array();
 
-    // 4- a list of advanced custom fields you want to search content in
-    $list_searcheable_acf = array(
-        "news_text",
-        "news_text_copy",
-        "snippet_text",
-        "name",
-        // "repeater" => array( 
-        //     "repeater-sub-field1",
-        //     "repeater-sub-field2" 
-        // )
-    );
-    // 5- search through tags, inject each into SQL query
+    $list_searcheable_acf = get_searchable_acf();
+
     foreach ($exploded as $tag) {
         $s = '%' . $wpdb->esc_like($tag) . '%';
-        $search .= "
-              AND (
-                ({$wpdb->posts}.post_title LIKE '%s')
-                OR ({$wpdb->posts}.post_excerpt LIKE '%s')
-                OR ({$wpdb->posts}.post_content LIKE '%s')
-                " .
-            // 8- Adds to $search DB data from custom post types
-            "OR EXISTS (
-                  SELECT * FROM {$wpdb->postmeta}
-                  WHERE post_id = {$wpdb->posts}.ID
-                  AND (";
-        $params []= $s;
-        $params []= $s;
-        $params []= $s;
-
-        // 5b - reads through $list_searcheable_acf array to see which custom post types you want to include in the search string
-        $metaStatements = array();
-        foreach ($list_searcheable_acf as $key => $searcheable_acf) {
-            if (is_array($searcheable_acf)) {
-                foreach ($searcheable_acf as $repeater_acf) {
-                    array_push($metaStatements, "(meta_key LIKE '" . $key . "_%%_" . $repeater_acf . "' AND meta_value LIKE '%s')");
-                    $params []= $s;
-                }
-            } else {
-                array_push($metaStatements, "(meta_key = '" . $searcheable_acf . "' AND meta_value LIKE '%s')");
-                $params []= $s;
-            }
-        }
-        $search .= join($metaStatements, "\n          OR ");
-        $search .= ")
-                ) " .
-            // 6- Adds to $search DB data from comments
-            "OR EXISTS (
-                  SELECT * FROM {$wpdb->comments}
-                  WHERE comment_post_ID = {$wpdb->posts}.ID
-                  AND comment_content LIKE '%s'
-                ) " .
-            // 7 - Adds to $search DB data from taxonomies
-            "OR EXISTS (
-                  SELECT * FROM {$wpdb->terms}
-                  INNER JOIN {$wpdb->term_taxonomy}
-                  ON {$wpdb->term_taxonomy}.term_id = {$wpdb->terms}.term_id
-                  INNER JOIN {$wpdb->term_relationships}
-                  ON {$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->term_taxonomy}.term_taxonomy_id " .
-                  // 7b- Add custom taxonomies here
-                  "WHERE (
-                          taxonomy = 'your'
-                          OR taxonomy = 'custom'
-                          OR taxonomy = 'taxonomies'
-                          OR taxonomy = 'here'
-                        )
-                        AND object_id = {$wpdb->posts}.ID
-                        AND {$wpdb->terms}.name LIKE '%s'
-              )" .
-         ")";
-        $params []= $s;
-        $params []= $s;
+        $search .= get_search_sql($wpdb, $s, $list_searcheable_acf, $params);
     }
 
     return $wpdb->prepare($search, $params);
-} // closes function advanced_custom_search
+}
+function get_search_terms($terms)
+{
+    $exploded = preg_split('|\s+|', $terms);
+    return ($exploded === FALSE || count($exploded) == 0) ? array($terms) : $exploded;
+}
+function get_searchable_acf()
+{
+    return array(
+        'news_text',
+        'news_text_copy',
+        'snippet_text',
+        'name'
+    );
+}
+function get_search_sql($wpdb, $s, $list_searcheable_acf, &$params)
+{
+    $metaStatements = get_meta_statements($list_searcheable_acf, $s, $params);
+
+    $searchSQL = <<<SQL
+        AND (
+            ({$wpdb->posts}.post_title LIKE '%s')
+            OR ({$wpdb->posts}.post_excerpt LIKE '%s')
+            OR ({$wpdb->posts}.post_content LIKE '%s')
+            OR EXISTS (
+                SELECT * FROM {$wpdb->postmeta}
+                WHERE post_id = {$wpdb->posts}.ID
+                AND (
+                    {$metaStatements}
+                )
+            )
+            OR EXISTS (
+                SELECT * FROM {$wpdb->comments}
+                WHERE comment_post_ID = {$wpdb->posts}.ID
+                AND comment_content LIKE '%s'
+            )
+            OR EXISTS (
+                SELECT * FROM {$wpdb->terms}
+                INNER JOIN {$wpdb->term_taxonomy} ON {$wpdb->term_taxonomy}.term_id = {$wpdb->terms}.term_id
+                INNER JOIN {$wpdb->term_relationships} ON {$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->term_taxonomy}.term_taxonomy_id
+                WHERE (
+                    taxonomy = 'your'
+                    OR taxonomy = 'custom'
+                    OR taxonomy = 'taxonomies'
+                    OR taxonomy = 'here'
+                )
+                AND object_id = {$wpdb->posts}.ID
+                AND {$wpdb->terms}.name LIKE '%s'
+            )
+        )
+SQL;
+
+    array_push($params, $s, $s, $s, $s, $s);
+    return $searchSQL;
+}
+function get_meta_statements($list_searcheable_acf, $s, &$params)
+{
+    $metaStatements = array();
+    foreach ($list_searcheable_acf as $key => $searcheable_acf) {
+        if (is_array($searcheable_acf)) {
+            foreach ($searcheable_acf as $repeater_acf) {
+                $metaStatements[] = "(meta_key LIKE '{$key}_%_{$repeater_acf}' AND meta_value LIKE '%s')";
+                $params[] = $s;
+            }
+        } else {
+            $metaStatements[] = "(meta_key = '{$searcheable_acf}' AND meta_value LIKE '%s')";
+            $params[] = $s;
+        }
+    }
+    return join("\n OR ", $metaStatements);
+}
 
 // 8- use add_filter to put advanced_custom_search into the posts_search results
 add_filter( 'posts_search', 'advanced_custom_search', 500, 2 );
