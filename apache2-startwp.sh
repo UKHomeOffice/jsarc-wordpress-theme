@@ -1,25 +1,23 @@
 #!/usr/bin/env bash
 
-function wp_plugin_install() {
-/bin/sh -c "wp plugin install $1 --activate"
-}
-
-cp -r /var/www/themes/jsarc /var/www/html/wp-content/themes/
-
+sleep 5s # wait for mysql db to be up
 
 if grep -Fxq "define('WP_HOME', '$SITE_URL');" /var/www/html/wp-includes/default-constants.php
 then
-    # code if found
     echo "Defaults already set"
 else
-
     echo "define('WP_HOME', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
     echo "define('WP_SITEURL', '$SITE_URL');" >> /var/www/html/wp-includes/default-constants.php
 fi
 
-if [ -d "/var/www/jsarc" ] ; then
-rm -rf /var/www/html/wp-content/themes/jsarc
-ln -s /var/www/jsarc /var/www/html/wp-content/themes/jsarc
+if grep -Fxq "define( 'WP_DEBUG', true);" /var/www/html/wp-config.php
+then
+    sed -i.bak "/define( 'WP_DEBUG'/s/true/false/" /var/www/html/wp-config.php
+fi
+
+if [ -d "/var/www/themes/jsarc" ] ; then
+    rm -rf /var/www/html/wp-content/themes/jsarc
+    ln -s /var/www/themes/jsarc /var/www/html/wp-content/themes/jsarc
 fi
 
 if [ "$DEV_DEPLOYMENT" = "yes" ]; then
@@ -31,16 +29,13 @@ if [ "$DEV_DEPLOYMENT" = "yes" ]; then
     --admin_password="$ADMIN_PASSWORD"
 fi
 
-wp_plugin_install wordpress-importer
-wp_plugin_install ilab-media-tools
-wp_plugin_install wp-export-menus
-wp_plugin_install wp-optimize
-# wp_plugin_install updraftplus // this plugin has an old version of phpseclib that trigger a critical vulnerability during the scan
-wp_plugin_install cookie-notice
-
-wp theme activate jsarc
-wp language core install en_GB
-wp site switch-language en_GB
+if [ "$DEV_DEPLOYMENT" = "yes" ]; then
+  # updraftplus has a vulnaribility on phpseclib
+  wp plugin activate wordpress-importer acf-theme-code-pro wp-export-menus wp-optimize timeline-express tablepress cookie-notice ilab-media-tools
+  wp language core install en_GB
+  wp site switch-language en_GB
+  wp theme activate jsarc
+fi
 
 if [[ "$ADMIN_DEPLOYMENT" == "no" ]]; then
 echo "Redirect 301 /wp-login.php $ADMIN_SITE_URL/wp-login.php" >> /var/www/html/.htaccess

@@ -16,7 +16,7 @@ WORKDIR /tmp/plugins/
 RUN tar -xf acf-theme-code-pro.tar && rm acf-theme-code-pro.tar
 
 # Set up the base WordPress environment
-FROM wordpress:6.3.1-php8.2-apache as base
+FROM wordpress:6.3.2-php8.2-apache as base
 ENV WORDPRESS_CLI_VERSION 2.8.1
 
 RUN apt-get update && \
