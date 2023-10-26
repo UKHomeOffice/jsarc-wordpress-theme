@@ -31,7 +31,7 @@ fi
 
 if [ "$DEV_DEPLOYMENT" = "yes" ]; then
   # updraftplus has a vulnaribility on phpseclib
-  wp plugin activate wordpress-importer acf-theme-code-pro wp-export-menus wp-optimize timeline-express tablepress cookie-notice ilab-media-tools
+  wp plugin activate wordpress-importer acf-theme-code-pro wp-export-menus wp-optimize timeline-express tablepress cookie-notice ilab-media-tools duplicate-page
   wp language core install en_GB
   wp site switch-language en_GB
   wp theme activate jsarc
