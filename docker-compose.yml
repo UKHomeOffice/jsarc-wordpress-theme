@@ -1,8 +1,9 @@
 version: '3'
 services:
   wordpress:
+    container_name: JSARC
     depends_on:
-    - database
+      - database
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,7 +12,7 @@ services:
       WORDPRESS_DB_PASSWORD: jsarc #for demo purposes only otherwise this is called from an environment file
       WORDPRESS_DB_USER: jsarc
       WORDPRESS_DB_NAME: jsarc
-      WORDPRESS_DEBUG: "yes"
+      WORDPRESS_DEBUG: 0
       SITE_URL: 'http://localhost:8081'
       SITE_TITLE: JSaRC
       ADMIN_USER: test
@@ -19,16 +20,28 @@ services:
       ADMIN_PASSWORD: test1234
       DEV_DEPLOYMENT: 'yes'
     ports:
-    - 8081:8081
+      - 8081:8081
     volumes:
-    - ./website-content/themes/jsarc:/var/www/jsarc
+      - ./website-content/themes/jsarc:/var/www/jsarc
+    networks:
+      - app-network
   database:
-    image: mysql:8.0
+    image: mariadb:10.6
+    container_name: JSARC-DB
     environment:
       MYSQL_ROOT_PASSWORD: demopassword #for demo purposes only otherwise this is called from an environment file
       MYSQL_DATABASE: jsarc
       MYSQL_USER: jsarc
       MYSQL_PASSWORD: jsarc
     ports:
-    - 3306:3306
-
+      - "3406:3306"
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./tmp:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
+volumes:
+  mysql:
+networks:
+  app-network:
+    driver: bridge
