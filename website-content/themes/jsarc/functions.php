@@ -680,3 +680,8 @@ function get_meta_statements($list_searcheable_acf, $s, &$params)
 
 // 8- use add_filter to put advanced_custom_search into the posts_search results
 add_filter( 'posts_search', 'advanced_custom_search', 500, 2 );
+
+// use add_filter to increase the default limit of postmeta_form_limit from 30 to 50
+add_filter( 'postmeta_form_limit', function( $limit ) {
+    return 50;
+} );
