@@ -197,71 +197,31 @@ SECTION PROGECTS
 
 </style>
 
-
-
-
-
 <?php if ( have_rows( 'section', 'option' ) ) : ?>
 	<?php while ( have_rows( 'section', 'option' ) ) : the_row(); ?>
 	<section class="section section-highlights">
 		<div class="section-content">
 		<h2 class="section-headline"><?php the_sub_field( 'section_headline' ); ?></h2>
-		<?php if ( have_rows( 'tiles' ) ) : ?>
-			<?php while ( have_rows( 'tiles' ) ) : the_row(); ?>
 			<ul class="tiles-list">
-				
-				<?php if ( have_rows( 'tile_two' ) ) : ?>
-					<?php while ( have_rows( 'tile_two' ) ) : the_row(); ?>
-					<li class="tile-item">
-						<a class="tile-link" href="<?php the_sub_field( 'url' ); ?>">
-							<div class="tile-image-box">
-								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=588&h=370)"></figure>
-							</div>
-							<div class="caption-wrapper">
-								<h3 class="tile-headline"><?php the_sub_field( 'title' ); ?></h3>
-								<div class="tile-caption"><?php the_sub_field( 'body_text' ); ?></div>
-							</div>
-						</a>
-					</li>
-					<?php endwhile; ?>
-				<?php endif; ?>
-				
-				<?php if ( have_rows( 'tile' ) ) : ?>
-					<?php while ( have_rows( 'tile' ) ) : the_row(); ?>
-					<li class="tile-item">
-						<a class="tile-link" href="<?php the_sub_field( 'url' ); ?>">
-							<div class="tile-image-box">
-								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=588&h=370)"></figure>
-							</div>
-							<div class="caption-wrapper">
-								<h3 class="tile-headline"><?php the_sub_field( 'title' ); ?></h3>
-								<div class="tile-caption"><?php the_sub_field( 'body_text' ); ?></div>
-							</div>
-						</a>
-					</li>
-					<?php endwhile; ?>
-				<?php endif; ?>
-				
-				
-				<?php if ( have_rows( 'tile_three' ) ) : ?>
-					<?php while ( have_rows( 'tile_three' ) ) : the_row(); ?>
-					<li class="tile-item">
-						<a class="tile-link" href="<?php the_sub_field( 'url' ); ?>">
-							<div class="tile-image-box">
-								<figure class="tile-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=588&h=375)"></figure>
-							</div>
-							<div class="caption-wrapper">
-								<h3 class="tile-headline"><?php the_sub_field( 'title' ); ?></h3>
-								<div class="tile-caption"><?php the_sub_field( 'body_text' ); ?></div>
-							</div>
-						</a>
-					</li>
-					<?php endwhile; ?>
-				<?php endif; ?>
+                <?php if ( have_rows( 'tiles' ) ) : ?>
+                    <?php while ( have_rows( 'tiles' ) ) : the_row(); ?>
+                        <li class='tile-item'>
+                            <a class='tile-link' href="<?php the_sub_field('url'); ?>">
+                                <div class='tile-image-box'>
+                                    <figure class='tile-image'
+                                            style="background-image: url(<?php the_sub_field('image'); ?>?fit=crop&w=588&h=370)"></figure>
+                                </div>
+                                <div class='caption-wrapper'>
+                                    <h3 class='tile-headline'><?php the_sub_field('title'); ?></h3>
+                                    <div class="tile-caption"><?php the_sub_field('body_text'); ?></div>
+                                </div>
+                            </a>
+                        </li>
+                    <?php endwhile; ?>
+                <?php else : ?>
+                    <?php // no rows found ?>
+                <?php endif; ?>
 			</ul>
-			<?php endwhile; ?>
-		<?php endif; ?>
-		
 		<?php if ( have_rows( 'button' ) ) : ?>
 			<?php while ( have_rows( 'button' ) ) : the_row(); ?>
 				<a class="button more" href="<?php the_sub_field( 'url' ); ?>"><?php the_sub_field( 'text' ); ?></a>
