@@ -1,4 +1,3 @@
-version: '3'
 services:
   wordpress:
     container_name: JSARC
@@ -22,7 +21,7 @@ services:
     ports:
       - 8081:8081
     volumes:
-      - ./website-content/themes/jsarc:/var/www/jsarc
+      - ./website-content/themes/jsarc:/var/www/html/wp-content/themes/jsarc
     networks:
       - app-network
   database:
