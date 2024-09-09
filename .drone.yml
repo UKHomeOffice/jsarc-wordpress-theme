@@ -44,64 +44,13 @@ steps:
 services:
   - name: docker
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
+    resources:
+      limits:
+        cpu: 1000
+        memory: 1024Mi
 volumes:
   - name: dockersock
     temp: {}
-
----
-kind: pipeline
-name: Maintenance-Image-Vulnerability-Scan
-type: kubernetes
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: build_wordpress_ecr
-  pull: if-not-exists
-  image: plugins/ecr
-  environment:
-    AWS_REGION: eu-west-2
-  settings:
-    access_key:
-      from_secret: AWS_ACCESS_KEY_ID
-    secret_key:
-      from_secret: AWS_SECRET_ACCESS_KEY
-    repo: jsarc/default
-    registry: 340268328991.dkr.ecr.eu-west-2.amazonaws.com
-    dockerfile: ./Dockerfile
-    tags:
-      - latest
-      - ${DRONE_COMMIT_SHA}
-  when:
-    branch:
-      - master
-      - feature/*
-    event:
-      - push
-
-- name: scan_maintenance_image
-  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
-  pull: always
-  failure: ignore
-  environment:
-    IMAGE_NAME: docker.digital.homeoffice.gov.uk/osct-jsarc:${DRONE_BUILD_NUMBER}
-    SEVERITY: HIGH,CRITICAL
-  when:
-    event:
-    - pull_request
-    - push
-  depends_on:
-  - build_wordpress_ecr
-
-services:
-  - name: docker
-    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-volumes:
-  - name: dockersock
-    temp: {}
-
 ---
 kind: pipeline
 name: deploy-notprod
