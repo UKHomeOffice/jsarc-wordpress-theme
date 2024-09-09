@@ -24,13 +24,16 @@ steps:
       - push
 
 - name: Scan-Wordpress-Image
-  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
+  resources:
+    limits:
+      cpu: 1000
+      memory: 1024Mi
   pull: always
   failure: ignore
   environment:
     IMAGE_NAME: docker.digital.homeoffice.gov.uk/osct-jsarc:${DRONE_BUILD_NUMBER}
-    TOLERATE: high
-    WHITELIST: CVE-2022-1253, CVE-2021-30475, CVE-2021-46848, CVE-2021-30473, CVE-2019-8457, CVE-2021-30474, CVE-2022-3643, CVE-2022-32221
+    SEVERITY: HIGH,CRITICAL
   when:
     event:
     - pull_request
@@ -41,15 +44,8 @@ steps:
 services:
   - name: docker
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-  - name: anchore-submission-server
-    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
-    pull: always
-    commands:
-      - /run.sh server
 volumes:
   - name: dockersock
-    temp: {}
-  - name: dockerclientconfig
     temp: {}
 
 ---
@@ -86,14 +82,12 @@ steps:
       - push
 
 - name: scan_maintenance_image
-  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
   pull: always
   failure: ignore
   environment:
     IMAGE_NAME: docker.digital.homeoffice.gov.uk/osct-jsarc:${DRONE_BUILD_NUMBER}
-    SERVICE_URL: http://anchore-submission-server:10080
-    TOLERATE: high
-    WHITELIST: CVE-2022-1253, CVE-2021-30475, CVE-2021-46848, CVE-2021-30473, CVE-2019-8457, CVE-2021-30474, CVE-2022-3643, CVE-2022-32221, CVE-2023-28879, CVE-2022-24963, CVE-2021-30473, CVE-2021-30474, CVE-2023-28879, CVE-2023-25690, CVE-2021-30475, CVE-2021-46848, CVE-2022-32221, CVE-2023-28879, CVE-2022-36760, CVE-2023-23914, CVE-2022-36760, CVE-2023-25690, CVE-2019-8457, CVE-2022-1253, CVE-2023-25775
+    SEVERITY: HIGH,CRITICAL
   when:
     event:
     - pull_request
@@ -104,12 +98,6 @@ steps:
 services:
   - name: docker
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-  - name: anchore-submission-server
-    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
-    pull: always
-    commands:
-      - /run.sh server
-
 volumes:
   - name: dockersock
     temp: {}
@@ -162,11 +150,6 @@ steps:
 services:
   - name: docker
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-  - name: anchore-submission-server
-    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
-    pull: always
-    commands:
-      - /run.sh server
 
 volumes:
   - name: dockersock
@@ -191,21 +174,3 @@ trigger:
     - push
     - pull_request
     - promote
-
-
-#- name: deploy_to_prod
-#  pull: if-not-exists
-#  image: quay.io/ukhomeofficedigital/kd:v1.16.0
-#  commands:
-#  - apk update
-#  - apk add curl
-#  - chmod +x bin/deploy.sh
-#  - bin/deploy.sh
-#  environment:
-#    DRONE_DEPLOY_TO_ACP: acp-prod
-#    IMAGE_URL: quay.io/ukhomeofficedigital/osct-jsarc:${DRONE_COMMIT_SHA}
-#    KUBE_TOKEN_ACP_PROD:
-#      from_secret: kube_token_acp_prod
-#  when:
-#    event:
-#    - promote
