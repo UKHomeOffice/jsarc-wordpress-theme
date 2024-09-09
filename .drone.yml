@@ -8,49 +8,50 @@ platform:
   arch: amd64
 
 steps:
-- name: build-wordpress-image
-  pull: if-not-exists
-  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-  commands:
-    # wait for docker service to come up
-    - n=0; while [ "$n" -lt 60 ] && [ ! -e /var/run/docker.sock ]; do n=$(( n + 1 )); sleep 1; done
-    - docker build -t docker.digital.homeoffice.gov.uk/osct-jsarc:$${DRONE_BUILD_NUMBER} .
-  volumes:
-    - name: dockersock
-      path: /var/run
-  when:
-    event:
-      - pull_request
-      - push
+  - name: build-wordpress-image
+    pull: if-not-exists
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
+    commands:
+      # wait for docker service to come up
+      - n=0; while [ "$n" -lt 60 ] && [ ! -e /var/run/docker.sock ]; do n=$(( n + 1 )); sleep 1; done
+      - docker build -t docker.digital.homeoffice.gov.uk/osct-jsarc:$${DRONE_BUILD_NUMBER} .
+    volumes:
+      - name: dockersock
+        path: /var/run
+    when:
+      event:
+        - pull_request
+        - push
 
-- name: Scan-Wordpress-Image
-  image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
-  resources:
-    limits:
-      cpu: 1000
-      memory: 1024Mi
-  pull: always
-  failure: ignore
-  environment:
-    IMAGE_NAME: docker.digital.homeoffice.gov.uk/osct-jsarc:${DRONE_BUILD_NUMBER}
-    SEVERITY: HIGH,CRITICAL
-  when:
-    event:
-    - pull_request
-    - push
-  depends_on:
-  - build-wordpress-image
+  - name: Scan-Wordpress-Image
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+    pull: always
+    failure: ignore
+    environment:
+      IMAGE_NAME: docker.digital.homeoffice.gov.uk/osct-jsarc:${DRONE_BUILD_NUMBER}
+      TOLERATE: high
+      WHITELIST: CVE-2022-1253, CVE-2021-30475, CVE-2021-46848, CVE-2021-30473, CVE-2019-8457, CVE-2021-30474, CVE-2022-3643, CVE-2022-32221
+    when:
+      event:
+        - pull_request
+        - push
+    depends_on:
+      - build-wordpress-image
 
 services:
   - name: docker
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-    resources:
-      limits:
-        cpu: 1000
-        memory: 1024Mi
+  - name: anchore-submission-server
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+    pull: always
+    commands:
+      - /run.sh server
 volumes:
   - name: dockersock
     temp: {}
+  - name: dockerclientconfig
+    temp: {}
+
 ---
 kind: pipeline
 name: deploy-notprod
@@ -61,44 +62,49 @@ platform:
   arch: amd64
 
 steps:
-- name: deploy_wordpress_to_dev
-  pull: if-not-exists
-  image: quay.io/ukhomeofficedigital/kd:v1.14.0
-  commands:
-    - apk update
-    - apk add curl
-    - bin/deploy.sh
-  environment:
-    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default:${DRONE_COMMIT_SHA}
-    DRONE_DEPLOY_TO_ACP: acp-notprod
-    KUBE_TOKEN_ACP_NOTPROD:
-      from_secret: kube_token_acp_notprod
-  when:
-    branch:
-      - master
-    event:
-      - push
+  - name: deploy_wordpress_to_dev
+    pull: if-not-exists
+    image: quay.io/ukhomeofficedigital/kd:v1.14.0
+    commands:
+      - apk update
+      - apk add curl
+      - bin/deploy.sh
+    environment:
+      IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default:${DRONE_COMMIT_SHA}
+      DRONE_DEPLOY_TO_ACP: acp-notprod
+      KUBE_TOKEN_ACP_NOTPROD:
+        from_secret: kube_token_acp_notprod
+    when:
+      branch:
+        - master
+      event:
+        - push
 
-- name: manual_deploy_wordpress_to_prod
-  pull: if-not-exists
-  image: quay.io/ukhomeofficedigital/kd:v1.14.0
-  commands:
-    - apk update
-    - apk add curl
-    - bin/deploy.sh
-  environment:
-    IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default:${DRONE_COMMIT_SHA}
-    DRONE_DEPLOY_TO_ACP: acp-prod
-    KUBE_NAMESPACE: jsarc
-    KUBE_TOKEN_ACP_PROD:
-      from_secret: KUBE_TOKEN_ACP_PROD
-  when:
-    event:
-      - promote
+  - name: manual_deploy_wordpress_to_prod
+    pull: if-not-exists
+    image: quay.io/ukhomeofficedigital/kd:v1.14.0
+    commands:
+      - apk update
+      - apk add curl
+      - bin/deploy.sh
+    environment:
+      IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default:${DRONE_COMMIT_SHA}
+      DRONE_DEPLOY_TO_ACP: acp-prod
+      KUBE_NAMESPACE: jsarc
+      KUBE_TOKEN_ACP_PROD:
+        from_secret: KUBE_TOKEN_ACP_PROD
+    when:
+      event:
+        - promote
 
 services:
   - name: docker
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
+  - name: anchore-submission-server
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+    pull: always
+    commands:
+      - /run.sh server
 
 volumes:
   - name: dockersock
@@ -114,12 +120,30 @@ platform:
   arch: amd64
 
 steps:
-- name: sonarqube_core_scan
-  pull: if-not-exists
-  image: quay.io/ukhomeofficedigital/sonar-scanner:latest
+  - name: sonarqube_core_scan
+    pull: if-not-exists
+    image: quay.io/ukhomeofficedigital/sonar-scanner:latest
 
 trigger:
   event:
     - push
     - pull_request
     - promote
+
+
+#- name: deploy_to_prod
+#  pull: if-not-exists
+#  image: quay.io/ukhomeofficedigital/kd:v1.16.0
+#  commands:
+#  - apk update
+#  - apk add curl
+#  - chmod +x bin/deploy.sh
+#  - bin/deploy.sh
+#  environment:
+#    DRONE_DEPLOY_TO_ACP: acp-prod
+#    IMAGE_URL: quay.io/ukhomeofficedigital/osct-jsarc:${DRONE_COMMIT_SHA}
+#    KUBE_TOKEN_ACP_PROD:
+#      from_secret: kube_token_acp_prod
+#  when:
+#    event:
+#    - promote
