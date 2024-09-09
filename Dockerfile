@@ -15,7 +15,7 @@ COPY ./wp-plugins/acf-theme-code-pro.tar /tmp/plugins/
 WORKDIR /tmp/plugins/
 RUN tar -xf acf-theme-code-pro.tar && rm acf-theme-code-pro.tar
 
-FROM quay.io/ukhomeofficedigital/wp-base:v6.5.5
+FROM quay.io/ukhomeofficedigital/wp-base:v6.6.1-apache-2.4.62
 COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 COPY apache2-startwp.sh /usr/local/bin
 COPY website-content/themes/jsarc/ /var/www/html/wp-content/themes/jsarc
