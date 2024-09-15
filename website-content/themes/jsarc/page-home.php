@@ -339,6 +339,11 @@ endif;
 	background-position: 50% 50%;
 }
 
+.section.section.section-what-we-do .section-image iframe {
+	height: 100%;
+	width: 100%;
+}
+
 @media only screen and (max-width: 1068px) {
     .section.section-what-we-do .body-text {
         max-width: 800px;
@@ -746,7 +751,7 @@ endif;
 <section class="section section-what-we-do">
     <div class="section-content">
         <div class="block row">
-            <div class="column large-7 large-first small-12">
+            <div class="column large-5 large-first small-12">
                 <div class="block-text-content">
                     <h2 class="headline"><?php the_sub_field( 'headline' ); ?></h2>
                     <div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
@@ -757,10 +762,11 @@ endif;
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="column large-5 large-last small-12">
-                <?php if ( get_sub_field( 'image' ) ) { ?>
-                <figure class="section-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=1280&h=&h=1200)">
-                </figure>
+            <div class="column large-7 large-last small-12">
+                <?php if ( get_sub_field( 'video' ) ) { ?>
+                <div class="section-image">
+                    <?php the_sub_field( 'video' ); ?>
+                </div>
 				<?php } ?>
             </div>
         </div>
