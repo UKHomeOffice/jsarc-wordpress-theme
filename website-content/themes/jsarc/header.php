@@ -27,8 +27,12 @@
             <a class="visuallyhidden skip" href="#main">Skip to content</a>
             <ul class="nav-header">
                 <li class="logo-wrapper">
+                    <a class="homeoffice-logo" href="/">Home Office</a>
+                </li>
+                <li class="logo-wrapper">
                     <a class="jsarc-logo" href="/">JSaRC</a>
                 </li>
+               
                 <li class="nav-menu-anchor">
                 
                 <span class="nav-menu-icon" aria-hidden="true">
