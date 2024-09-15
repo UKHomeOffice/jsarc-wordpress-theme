@@ -328,9 +328,30 @@ endif;
     margin-bottom: 30px;
 }
 
+.section.section-what-we-do .block-text-content {
+    padding-right: 50px;
+}
+
+.section.section.section-what-we-do .section-image {
+	height: 500px;
+	width: 100%;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
 @media only screen and (max-width: 1068px) {
     .section.section-what-we-do .body-text {
         max-width: 800px;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .section.section-what-we-do .block-text-content {
+        padding-right: unset;
+    }
+    .section.section.section-what-we-do .section-image {
+        height: 300px !important;
+        margin-top: 20px;
     }
 }
 
@@ -724,13 +745,25 @@ endif;
 <?php while ( have_rows( 'content' ) ) : the_row(); ?>
 <section class="section section-what-we-do">
     <div class="section-content">
-        <h2 class="headline"><?php the_sub_field( 'headline' ); ?></h2>
-        <div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
-        <?php if ( have_rows( 'button' ) ) : ?>
-        <?php while ( have_rows( 'button' ) ) : the_row(); ?>
-        <a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
-        <?php endwhile; ?>
-        <?php endif; ?>
+        <div class="block row">
+            <div class="column large-7 large-first small-12">
+                <div class="block-text-content">
+                    <h2 class="headline"><?php the_sub_field( 'headline' ); ?></h2>
+                    <div class="body-text"><?php the_sub_field( 'body_text' ); ?></div>
+                    <?php if ( have_rows( 'button' ) ) : ?>
+                    <?php while ( have_rows( 'button' ) ) : the_row(); ?>
+                    <a class="button more" href="<?php the_sub_field( 'url' ); ?>" <?php if ( get_sub_field( 'open_in_new_tab' ) == 1 ) { ?>target="_blank"<?php } ?>><?php the_sub_field( 'text' ); ?><?php if ( get_sub_field( 'hidden_text' ) ) { ?> <span class="visuallyhidden"><?php the_sub_field( 'hidden_text' ); ?><?php } ?></a>
+                    <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+            <div class="column large-5 large-last small-12">
+                <?php if ( get_sub_field( 'image' ) ) { ?>
+                <figure class="section-image" style="background-image: url(<?php the_sub_field( 'image' ); ?>?fit=crop&w=1280&h=&h=1200)">
+                </figure>
+				<?php } ?>
+            </div>
+        </div>
     </div>
 </section>
 <?php endwhile; ?>
