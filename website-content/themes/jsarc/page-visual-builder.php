@@ -72,7 +72,7 @@
 }
 	
 .section.visualbuilder {
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 .section.visualbuilder .section-content {
