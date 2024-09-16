@@ -678,6 +678,91 @@ endif;
     background-color: #fff;
     color: #000;
 }
+
+/* Logo Marquee Image Slider */
+
+:root {
+    --space: 1rem;
+}
+
+.section.section-supporters .section-headline {
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 42px;
+	color: #000;
+	margin-bottom: 70px;
+}
+
+
+section.section-supporters {
+    width: 100%;
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
+
+section.section-supporters .marquee {
+    --duration: <?php echo (get_field( 'section_supporters' )) ? get_field( 'section_supporters' )['slider_speed']."s": "20s" ?>;
+    --gap: var(--space);
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+}
+
+section.section-supporters .marquee__group {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: var(--gap);
+    min-width: 100%;
+    animation: scroll var(--duration) linear infinite;
+}
+
+/* 
+    In any marquee slider, all elements within are required to be of same width , so overlap works
+*/
+section.section-supporters .marquee__group img {
+    --image-count: <?php echo (get_field( 'section_supporters' )) ? count(get_field( 'section_supporters' )['images']): "5" ?>;
+    /* --image-count: 5; */
+    width: calc(100vw / var(--image-count));
+    min-width: 120px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    section.section-supporters .marquee__group {
+        animation-play-state: paused;
+    }
+}
+
+section.section-supporters .marquee:hover .marquee__group {
+    animation-play-state: paused;
+}
+
+/* Reverse direction */
+.marquee--reverse .marquee__group {
+    animation-direction: reverse;
+    animation-delay: calc(var(--duration) / -2);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+}
+
+@media screen and (width >= 768px) {
+    section.section-supporters .marquee__group img {
+        /* width: calc(100vw / (var(--image-count) * 2 - 2)); */
+        min-width: 160px;
+        max-width: 200px;
+    }
+}
+
 </style>
 <?php } ?>
 
@@ -822,7 +907,56 @@ endif;
 <?php endwhile; ?>
 <?php endif; ?>
 
-<?php get_template_part( 'template-parts/section', 'sponsors'); ?>
+<?php //get_template_part( 'template-parts/section', 'sponsors'); ?>
+
+<?php 
+/* 
+    Optional todo: 
+    Recommended for marquee is: 4-5 images, 
+    if we wanna display less than that, we need to duplicate via php serverside or 
+    js client side at least one of the images to make 4-5 images, or we can keep less images but have larger gaps.
+    Eitherway a image gallery always has more than 5 images so we don't need this optional feature.
+
+    $images_image['sizes']['medium']; // determines size of images from: thumbnail, medium, large etc.
+
+    When adding ACF input field choose Gallery as Field type.
+    Also add Range field type for slider_speed with min value 0
+*/
+?>
+<?php if ( have_rows( 'section_supporters' ) ) : ?>
+	<?php while ( have_rows( 'section_supporters' ) ) : the_row(); ?>
+    <section class="section section-supporters">
+        <div class="section-content">
+            <h2 class="section-headline"><?php the_sub_field( 'heading' ); ?></h2>
+        </div>
+        <div class="marquee">
+            <?php $images_images = get_sub_field( 'images' ); ?>
+            
+            <?php if ( $images_images ) :  ?>
+                
+                <div class="marquee__group">
+                    <?php foreach ( $images_images as $images_image ): ?>
+                        <a href="<?php echo $images_image['url']; ?>">
+                            <img src="<?php echo $images_image['sizes']['medium']; ?>" alt="<?php echo $images_image['alt']; ?>" />
+                        </a>
+                    <p><?php echo $images_image['caption']; ?></p>
+                    <?php endforeach; ?>
+                </div>
+                
+                <div aria-hidden="true" class="marquee__group">
+                    <?php foreach ( $images_images as $images_image ): ?>
+                        <a href="<?php echo $images_image['url']; ?>">
+                            <img src="<?php echo $images_image['sizes']['medium']; ?>" alt="<?php echo $images_image['alt']; ?>" />
+                        </a>
+                    <p><?php echo $images_image['caption']; ?></p>
+                    <?php endforeach; ?>
+                </div>
+                
+            <?php endif; ?>
+        </div>
+    </section>
+	<?php endwhile; ?>
+<?php endif; ?>
 
 <?php if ( have_rows( 'section_case_study' ) ) : ?>
 <?php while ( have_rows( 'section_case_study' ) ) : the_row(); ?>
