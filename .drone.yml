@@ -1,20 +1,17 @@
 ---
 kind: pipeline
-name: default
+name: Vulnerability-Scan
 type: kubernetes
-
 platform:
   os: linux
   arch: amd64
-
 steps:
-  - name: build-wordpress-image
+  - name: website-image
     pull: if-not-exists
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
     commands:
-      # wait for docker service to come up
-      - n=0; while [ "$n" -lt 60 ] && [ ! -e /var/run/docker.sock ]; do n=$(( n + 1 )); sleep 1; done
-      - docker build -t docker.digital.homeoffice.gov.uk/osct-jsarc:$${DRONE_BUILD_NUMBER} .
+      - /usr/local/bin/wait
+      - docker build -t docker.digital.homeoffice.gov.uk/jsarc:$${DRONE_BUILD_NUMBER} .
     volumes:
       - name: dockersock
         path: /var/run
@@ -22,47 +19,80 @@ steps:
       event:
         - pull_request
         - push
-
-  - name: Scan-Wordpress-Image
-    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
+  - name: scan-website-image
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/trivy/client:latest
+    resources:
+      limits:
+        cpu: 1000
+        memory: 1024Mi
     pull: always
     failure: ignore
     environment:
-      IMAGE_NAME: docker.digital.homeoffice.gov.uk/osct-jsarc:${DRONE_BUILD_NUMBER}
-      TOLERATE: high
-      WHITELIST: CVE-2022-1253, CVE-2021-30475, CVE-2021-46848, CVE-2021-30473, CVE-2019-8457, CVE-2021-30474, CVE-2022-3643, CVE-2022-32221
+      IMAGE_NAME: docker.digital.homeoffice.gov.uk/jsarc:${DRONE_BUILD_NUMBER}
+      SEVERITY: HIGH,CRITICAL
     when:
       event:
         - pull_request
         - push
     depends_on:
-      - build-wordpress-image
-
+      - website-image
 services:
   - name: docker
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-  - name: anchore-submission-server
-    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
-    pull: always
-    commands:
-      - /run.sh server
+    resources:
+      limits:
+        cpu: 1000
+        memory: 1024Mi
 volumes:
   - name: dockersock
     temp: {}
-  - name: dockerclientconfig
-    temp: {}
-
 ---
 kind: pipeline
-name: deploy-notprod
+name: Build-Images-Push-to-ECR
 type: kubernetes
-
 platform:
   os: linux
   arch: amd64
-
 steps:
-  - name: deploy_wordpress_to_dev
+  - name: Build-Wordpress-ECR
+    pull: if-not-exists
+    image: plugins/ecr
+    environment:
+      AWS_REGION: eu-west-2
+    settings:
+      access_key:
+        from_secret: AWS_ACCESS_KEY_ID
+      secret_key:
+        from_secret: AWS_SECRET_ACCESS_KEY
+      repo: jsarc/default
+      registry: 340268328991.dkr.ecr.eu-west-2.amazonaws.com
+      dockerfile: ./Dockerfile
+      tags:
+        - latest
+        - ${DRONE_COMMIT_SHA}
+    when:
+      branch:
+        - master
+        - feature/*
+      event:
+        - push
+trigger:
+  branch:
+    - master
+    - feature/*
+  event:
+    - push
+depends_on:
+  - Vulnerability-Scan
+---
+kind: pipeline
+name: Deploy-to-NotProd
+type: kubernetes
+platform:
+  os: linux
+  arch: amd64
+steps:
+  - name: Deploy-to-NotProd
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
     commands:
@@ -79,7 +109,22 @@ steps:
         - master
       event:
         - push
-
+trigger:
+  branch:
+    - master
+    - feature/*
+  event:
+    - push
+depends_on:
+  - Build-Images-Push-to-ECR
+---
+kind: pipeline
+name: Deploy-to-Prod
+type: kubernetes
+platform:
+  os: linux
+  arch: amd64
+steps:
   - name: manual_deploy_wordpress_to_prod
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
@@ -96,54 +141,22 @@ steps:
     when:
       event:
         - promote
-
-services:
-  - name: docker
-    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-  - name: anchore-submission-server
-    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
-    pull: always
-    commands:
-      - /run.sh server
-
-volumes:
-  - name: dockersock
-    temp: {}
-
+trigger:
+  event:
+    - promote
 ---
 kind: pipeline
 type: kubernetes
 name: SonarQube Scan
-
 platform:
   os: linux
   arch: amd64
-
 steps:
   - name: sonarqube_core_scan
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/sonar-scanner:latest
-
 trigger:
   event:
     - push
     - pull_request
     - promote
-
-
-#- name: deploy_to_prod
-#  pull: if-not-exists
-#  image: quay.io/ukhomeofficedigital/kd:v1.16.0
-#  commands:
-#  - apk update
-#  - apk add curl
-#  - chmod +x bin/deploy.sh
-#  - bin/deploy.sh
-#  environment:
-#    DRONE_DEPLOY_TO_ACP: acp-prod
-#    IMAGE_URL: quay.io/ukhomeofficedigital/osct-jsarc:${DRONE_COMMIT_SHA}
-#    KUBE_TOKEN_ACP_PROD:
-#      from_secret: kube_token_acp_prod
-#  when:
-#    event:
-#    - promote

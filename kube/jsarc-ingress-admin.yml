@@ -6,8 +6,8 @@ metadata:
   annotations:
     ingress.kubernetes.io/force-ssl-redirect: "true"
     ingress.kubernetes.io/backend-protocol: "HTTP"
+    ingress.kubernetes.io/proxy-body-size: "8m"
     kubernetes.io/ingress.class: "nginx-external"
-    nginx.org/client-max-body-size: "8m"
     ingress.kubernetes.io/whitelist-source-range: |
       62.25.109.196/32,
       52.48.127.144/28,
