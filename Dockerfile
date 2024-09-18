@@ -1,5 +1,5 @@
 # Download plugins
-FROM alpine:latest as pluginsdownload
+FROM alpine:3.20.3 as pluginsdownload
 # updraftplus has a vulnaribility on phpseclib
 RUN apk update && apk add --no-cache \
     wget \
