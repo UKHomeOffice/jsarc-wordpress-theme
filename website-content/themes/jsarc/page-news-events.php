@@ -12,6 +12,31 @@
 <?php get_header(); ?>
 <?php function add_to_head() { ?>
 <style>
+
+.hero .hero-image {
+    position: absolute;
+    z-index: -1;
+    max-width: 2560px;
+    width: 100%;
+    height: 450px;
+    background-size: cover;
+    background-position: 80% 50%;    
+    filter: brightness(  <?php echo (get_field( 'hero_image_darkener' )) ? the_field( 'hero_image_darkener' ): "0.5" ?>);
+    background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>?fit=crop&w=2560&h=450");
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .hero .hero-image {
+        background-image: url("<?php if ( get_field( 'hero_image' ) ) { the_field( 'hero_image' ); } ?>?fit=crop&w=5120&h=900");    
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .hero .hero-image {
+        height:100%;
+    }
+}
+
 .section.hero .section-content {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -21,8 +46,8 @@
     font-size: 48px;
     font-weight: bold;
     line-height: 75px;
-    color: #444;
     margin-bottom: .5em;
+    <?php echo (get_field( 'hero_image' ))? "color: white;": "color: #444;" ?>
 }
 
 @media only screen and (max-width: 735px) {
@@ -36,8 +61,8 @@
     font-size: 18px;
     font-weight: bold;
     line-height: 28px;
-    color: #444;
     margin-bottom: 1em;
+    <?php echo (get_field( 'hero_image' ))? "color: white;": "color: #444;" ?>
 }
 
 .section.hero .body-text {
@@ -369,6 +394,9 @@
         </div>
     </nav>
     <header class="section hero">
+        <?php if ( get_field( 'hero_image' ) ) { ?>
+        <figure class="hero-image"></figure>
+        <?php } ?>
         <div class="section-content">
             <div class="row">
                 <?php if ( get_field( 'show_next_event' ) == 1 ) { ?>
