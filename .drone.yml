@@ -93,22 +93,24 @@ platform:
   arch: amd64
 steps:
   - name: Deploy-to-NotProd
-    pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/kd:v1.14.0
-    commands:
-      - apk update
-      - apk add curl
-      - bin/deploy.sh
-    environment:
-      IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default:${DRONE_COMMIT_SHA}
-      DRONE_DEPLOY_TO_ACP: acp-notprod
-      KUBE_TOKEN_ACP_NOTPROD:
+    image: pelotech/drone-helm3
+    settings:
+      mode: upgrade
+      namespace: jsarc
+      add_repos: "UKHomeOffice=https://github.com/UKHomeOffice/inquiry-charts/releases/download/1.0.2/"
+      chart: UKHomeOffice/inquiry_chart
+      release: jsarc
+      values_files: environments/values-notprod.yaml
+      kube_certificate:
+        from_secret: kube_cert_acp_notprod
+      kube_api_server: https://kube-api-notprod.notprod.acp.homeoffice.gov.uk
+      kube_token:
         from_secret: kube_token_acp_notprod
-    when:
-      branch:
-        - master
-      event:
-        - push
+      wait_for_upgrade: true
+      timeout: 10m
+      debug: true
+      values:
+        - image.tag=$${DRONE_COMMIT_SHA}
 trigger:
   branch:
     - master
@@ -125,22 +127,25 @@ platform:
   os: linux
   arch: amd64
 steps:
-  - name: manual_deploy_wordpress_to_prod
-    pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/kd:v1.14.0
-    commands:
-      - apk update
-      - apk add curl
-      - bin/deploy.sh
-    environment:
-      IMAGE_URL: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default:${DRONE_COMMIT_SHA}
-      DRONE_DEPLOY_TO_ACP: acp-prod
-      KUBE_NAMESPACE: jsarc
-      KUBE_TOKEN_ACP_PROD:
+  - name: Deploy-to-Prod-Helm
+    image: pelotech/drone-helm3
+    settings:
+      mode: upgrade
+      namespace: jsarc
+      add_repos: "UKHomeOffice=https://github.com/UKHomeOffice/inquiry-charts/releases/download/1.0.2/"
+      chart: UKHomeOffice/inquiry_chart
+      release: jsarc
+      kube_certificate:
+        from_secret: kube_cert_acp_prod
+      kube_api_server: https://kube-api-prod.prod.acp.homeoffice.gov.uk
+      kube_token:
         from_secret: KUBE_TOKEN_ACP_PROD
-    when:
-      event:
-        - promote
+      values_files: environments/values-prod.yaml
+      wait_for_upgrade: true
+      timeout: 10m
+      debug: true
+      values:
+        - image.tag=$${DRONE_COMMIT_SHA}
 trigger:
   event:
     - promote

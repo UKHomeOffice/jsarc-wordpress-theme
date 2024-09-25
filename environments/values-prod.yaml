@@ -1,0 +1,85 @@
+name: juiweb
+shortName: juiweb
+prod: true
+siteUrl: www.jsarc.org
+adminSiteUrl: admin.jsarc.org
+rdsSecretName: jsarc-prod-rds
+s3SecretName: jsarc-prod-s3
+s3BucketName: jsarc-prod-s3
+
+
+wordpress:
+  replicaCount: 3
+  uptime: Mon-Sun 00:00-24:00 Europe/London
+  secretName: jsarcprod-cmio
+  image:
+    repository: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default
+  ingress:
+    sslCipher: ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256
+  certificate:
+    dnsNames:
+    - www.jsarc.org
+
+admin:
+  secretName: jsarcadmin-cmio
+  image:
+    repository: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/jsarc/default
+  ingress:
+    sslCipher: ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-CHACHA20-POLY1305:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256
+    whitelistSourceRange: |-
+      62.25.109.196/32,
+      52.48.127.144/28,
+      52.209.62.128/25,
+      52.56.62.128/25
+  certificate:
+    dnsNames:
+      -  admin.jsarc.org
+  uptime: 'Mon-Sun 00:00-24:00 Europe/London'
+
+env:
+  - name: WORDPRESS_DB_USER
+    valueFrom:
+      secretKeyRef:
+        name: jsarc-prod-rds
+        key: username
+  - name: WORDPRESS_DB_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: jsarc-prod-rds
+        key: password
+  - name: WORDPRESS_DB_NAME
+    valueFrom:
+      secretKeyRef:
+        name: jsarc-prod-rds
+        key: db_name
+  - name: WORDPRESS_DB_HOST
+    valueFrom:
+      secretKeyRef:
+        name: jsarc-prod-rds
+        key: endpoint
+  - name: WORDPRESS_DB_PORT
+    valueFrom:
+      secretKeyRef:
+        name: jsarc-prod-rds
+        key: port
+  - name: ILAB_AWS_S3_ACCESS_KEY
+    valueFrom:
+      secretKeyRef:
+        name: jsarc-prod-s3
+        key: access_key_id
+  - name: ILAB_AWS_S3_ACCESS_SECRET
+    valueFrom:
+      secretKeyRef:
+        name: jsarc-prod-s3
+        key: secret_access_key
+  - name: ILAB_AWS_S3_ACCESS_SECRET
+    valueFrom:
+      secretKeyRef:
+        name: jsarc-prod-s3
+        key: name
+
+hpa:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
