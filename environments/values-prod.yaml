@@ -51,7 +51,7 @@ env:
     valueFrom:
       secretKeyRef:
         name: jsarc-prod-rds
-        key: db_name
+        key: default_db
   - name: WORDPRESS_DB_HOST
     valueFrom:
       secretKeyRef:
