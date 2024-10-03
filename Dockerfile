@@ -22,6 +22,13 @@ COPY website-content/themes/jsarc/ /var/www/html/wp-content/themes/jsarc
 COPY --from=pluginsdownload /tmp/plugins/ /var/www/html/wp-content/plugins
 COPY evasive.conf /etc/apache2/mods-enabled/evasive.conf
 
+RUN apt update && apt install -y curl unzip groff
+
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+	./aws/install
+
+
 EXPOSE 8081
 USER www-data
 WORKDIR /var/www/html
