@@ -936,18 +936,18 @@ section.section-supporters .marquee:hover .marquee__group {
                 
                 <div class="marquee__group">
                     <?php foreach ( $images_images as $images_image ): ?>
-                        <a href="<?php echo $images_image['url']; ?>">
+                        <!-- <a href="<?php echo $images_image['url']; ?>"> -->
                             <img src="<?php echo $images_image['sizes']['medium']; ?>" alt="<?php echo $images_image['alt']; ?>" />
-                        </a>
+                        <!-- </a> -->
                     <p><?php echo $images_image['caption']; ?></p>
                     <?php endforeach; ?>
                 </div>
                 
                 <div aria-hidden="true" class="marquee__group">
                     <?php foreach ( $images_images as $images_image ): ?>
-                        <a href="<?php echo $images_image['url']; ?>">
+                        <!-- <a href="<?php echo $images_image['url']; ?>"> -->
                             <img src="<?php echo $images_image['sizes']['medium']; ?>" alt="<?php echo $images_image['alt']; ?>" />
-                        </a>
+                        <!-- </a> -->
                     <p><?php echo $images_image['caption']; ?></p>
                     <?php endforeach; ?>
                 </div>
