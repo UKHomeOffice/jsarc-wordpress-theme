@@ -5,7 +5,7 @@ RUN apk update && apk add --no-cache \
     wget \
     unzip
 
-RUN for plugin in cookie-notice ilab-media-tools.4.6.0 tablepress timeline-express wordpress-importer wp-export-menus wp-optimize duplicate-page  wordpress-seo; do \
+RUN for plugin in cookie-notice ilab-media-tools.4.5.10 tablepress timeline-express wordpress-importer wp-export-menus wp-optimize duplicate-page  wordpress-seo; do \
         wget -O /tmp/${plugin}.zip https://downloads.wordpress.org/plugin/${plugin}.zip; \
     done && \
     unzip -d /tmp/plugins '/tmp/*.zip' && \
