@@ -1,5 +1,5 @@
-name: juiweb
-shortName: juiweb
+name: jsarc
+shortName: jsarc
 prod: true
 siteUrl: www.jsarc.org
 adminSiteUrl: admin.jsarc.org
@@ -80,6 +80,3 @@ env:
 
 hpa:
   enabled: false
-  minReplicas: 1
-  maxReplicas: 5
-  targetCPUUtilizationPercentage: 80
