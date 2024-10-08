@@ -97,7 +97,7 @@ steps:
     settings:
       mode: upgrade
       namespace: jsarc
-      add_repos: "UKHomeOffice=https://github.com/UKHomeOffice/inquiry-charts/releases/download/1.0.2/"
+      add_repos: "UKHomeOffice=https://github.com/UKHomeOffice/inquiry-charts/releases/download/1.0.3/"
       chart: UKHomeOffice/inquiry_chart
       release: jsarc
       values_files: environments/values-notprod.yaml
@@ -132,7 +132,7 @@ steps:
     settings:
       mode: upgrade
       namespace: jsarc
-      add_repos: "UKHomeOffice=https://github.com/UKHomeOffice/inquiry-charts/releases/download/1.0.2/"
+      add_repos: "UKHomeOffice=https://github.com/UKHomeOffice/inquiry-charts/releases/download/1.0.3/"
       chart: UKHomeOffice/inquiry_chart
       release: jsarc
       kube_certificate:
