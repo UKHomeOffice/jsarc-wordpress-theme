@@ -25,11 +25,9 @@ COPY apache2-startwp.sh /usr/local/bin
 COPY website-content/themes/jsarc/ /var/www/html/wp-content/themes/jsarc
 COPY --from=pluginsdownload /tmp/plugins/ /var/www/html/wp-content/plugins
 COPY evasive.conf /etc/apache2/mods-enabled/evasive.conf
-RUN apt-get update && apt-get install nano
 
-# Install ntpdate for time synchronization
 RUN apt-get update && \
-    apt-get install -y ntpdate && \
+    apt-get install nano && \
     apt-get clean
 
 EXPOSE 8081

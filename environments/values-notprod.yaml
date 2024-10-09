@@ -75,7 +75,7 @@ env:
       secretKeyRef:
         name: jsarc-s3
         key: secret_access_key
-  - name: ILAB_AWS_S3_ACCESS_SECRET
+  - name: ILAB_AWS_S3_BUCKET
     valueFrom:
       secretKeyRef:
         name: jsarc-s3
