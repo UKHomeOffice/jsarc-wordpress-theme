@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Sync time with NTP server
-ntpdate ntp.ubuntu.com
-
 sleep 5s # wait for mysql db to be up
 
 if grep -Fxq "define('WP_HOME', '$SITE_URL');" /var/www/html/wp-includes/default-constants.php
