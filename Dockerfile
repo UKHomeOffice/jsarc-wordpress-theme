@@ -19,7 +19,7 @@ RUN tar -xf acf-theme-code-pro.tar && rm acf-theme-code-pro.tar
 RUN unzip ./ilab-media-tools.zip && rm ilab-media-tools.zip
 
 
-FROM quay.io/ukhomeofficedigital/wp-base:v6.6.2
+FROM quay.io/ukhomeofficedigital/wp-base:v6.7.1
 COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
 COPY apache2-startwp.sh /usr/local/bin
 COPY website-content/themes/jsarc/ /var/www/html/wp-content/themes/jsarc
